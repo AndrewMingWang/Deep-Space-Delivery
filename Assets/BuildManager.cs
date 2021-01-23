@@ -10,6 +10,9 @@ public class BuildManager : MonoBehaviour
 
     public Transform currBuilding;
 
+    public GameObject Wall;
+    public GameObject Arrow;
+
     private void Awake()
     {
         if (instance != null)
@@ -25,6 +28,19 @@ public class BuildManager : MonoBehaviour
 
     }
 
+    public void BuildWall()
+    {
+        GameObject newBuilding = Instantiate(Wall, transform.position, Quaternion.identity) as GameObject;
+        currBuilding = newBuilding.transform;
+    }
+
+    public void BuildArrow()
+    {
+        GameObject newBuilding = Instantiate(Arrow, transform.position, Quaternion.identity) as GameObject;
+        currBuilding = newBuilding.transform;
+    }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -36,7 +52,7 @@ public class BuildManager : MonoBehaviour
             {
                 if (hit.transform.CompareTag("Foundation") && currBuilding != null)
                 {
-                    currBuilding.transform.position = hit.point;
+                    currBuilding.transform.position = hit.point + hit.transform.up * 0.1f;
                 }
 
                 if (Input.GetMouseButtonDown(0))
@@ -56,6 +72,20 @@ public class BuildManager : MonoBehaviour
                         }
                     }
                 }
+            }
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            if (currBuilding != null)
+            {
+                currBuilding.RotateAround(transform.position, transform.up, Time.deltaTime * 90f);
+            }
+        } else if (Input.GetKey(KeyCode.Q))
+        {
+            if (currBuilding != null)
+            {
+                currBuilding.RotateAround(transform.position, transform.up, -Time.deltaTime * 90f);
             }
         }
     }
