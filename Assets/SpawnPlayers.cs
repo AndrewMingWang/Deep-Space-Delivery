@@ -22,10 +22,10 @@ public class SpawnPlayers : MonoBehaviour
 
     public IEnumerator AddPlayers()
     {
-        for (int i = 0; i < 10; i += 1)
+        for (int i = 0; i < 20; i += 1)
         {
             Instantiate(playerPrefab, transform.position, Quaternion.identity, hitchhikerManager.transform);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
