@@ -78,6 +78,7 @@ public class GameStateManager : MonoBehaviour
             }
             break;
         default:
+            Time.timeScale = 1.0f;
             _currState = State.Plan;
             int i = 0;
             foreach (Transform child in UserBuildings.transform){
@@ -87,6 +88,7 @@ public class GameStateManager : MonoBehaviour
             foreach (Transform child in HitchhikerManager.transform){
                 Destroy(child.gameObject);
             }
+            StopAllCoroutines();
             PlayButtonObj.GetComponentInChildren<Text>().text = "Play";
             break;
         }
