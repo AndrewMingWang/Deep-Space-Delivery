@@ -31,12 +31,14 @@ public class BuildManager : MonoBehaviour
     public void BuildWall()
     {
         GameObject newBuilding = Instantiate(Wall, transform.position, Quaternion.identity) as GameObject;
+        newBuilding.transform.parent = transform;
         currBuilding = newBuilding.transform;
     }
 
     public void BuildArrow()
     {
         GameObject newBuilding = Instantiate(Arrow, transform.position, Quaternion.identity) as GameObject;
+        newBuilding.transform.parent = transform;
         currBuilding = newBuilding.transform;
     }
 
