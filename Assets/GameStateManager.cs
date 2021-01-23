@@ -7,6 +7,7 @@ public class GameStateManager : MonoBehaviour
 {
 
     public GameObject UserBuildings;
+    public GameObject HitchhikerManager;
     private List<Vector3> _allChildrenTransformsPositions;
 
     public GameObject PlayButtonObj;
@@ -14,7 +15,8 @@ public class GameStateManager : MonoBehaviour
     private Button _playButton;
     private Button _resetButton;
 
-   
+    public GameObject Spawn;
+    private SpawnPlayers _spawnscript;
 
     public enum State{Plan,Play,Paused}
     private State _currState;
@@ -28,6 +30,7 @@ public class GameStateManager : MonoBehaviour
         _playButton.onClick.AddListener(PlayButtonPressed);
         _resetButton.onClick.AddListener(ResetButtonPressed);
         _allChildrenTransformsPositions = new List<Vector3>();
+        _spawnscript = Spawn.GetComponent<SpawnPlayers>();
         // _resetButton.interactable = false;
     }
 
@@ -50,14 +53,19 @@ public class GameStateManager : MonoBehaviour
             }
              
             PlayButtonObj.GetComponentInChildren<Text>().text = "Pause";
+            
+            StartCoroutine(_spawnscript.AddPlayers());
+
             break;
         case State.Play:
             _currState = State.Paused;
             PlayButtonObj.GetComponentInChildren<Text>().text = "Play";
+            Time.timeScale = 0f;
             break;
         case State.Paused:
             _currState = State.Play;
             PlayButtonObj.GetComponentInChildren<Text>().text = "Pause";
+            Time.timeScale = 1.0f;
             break;
         }
     }
@@ -75,6 +83,9 @@ public class GameStateManager : MonoBehaviour
             foreach (Transform child in UserBuildings.transform){
                 child.position = _allChildrenTransformsPositions[i];
                 i++;
+            }
+            foreach (Transform child in HitchhikerManager.transform){
+                Destroy(child.gameObject);
             }
             PlayButtonObj.GetComponentInChildren<Text>().text = "Play";
             break;
