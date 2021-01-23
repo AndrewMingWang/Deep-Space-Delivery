@@ -53,6 +53,7 @@ public class GameStateManager : MonoBehaviour
             }
              
             PlayButtonObj.GetComponentInChildren<Text>().text = "Pause";
+            ResetButtonObj.GetComponentInChildren<Text>().text = "Restart";
             
             StartCoroutine(_spawnscript.AddPlayers());
 
@@ -90,6 +91,7 @@ public class GameStateManager : MonoBehaviour
             }
             StopAllCoroutines();
             PlayButtonObj.GetComponentInChildren<Text>().text = "Play";
+            ResetButtonObj.GetComponentInChildren<Text>().text = "Reset";
             break;
         }
     }
