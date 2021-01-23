@@ -30,14 +30,17 @@ public class CameraMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
         {
             Camera.main.orthographicSize = 3;
+            sensitivity = 0.02f;
         }
         else if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2))
         {
             Camera.main.orthographicSize = 5;
+            sensitivity = 0.05f;
         }
         else if (Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3))
         {
-            Camera.main.orthographicSize = 7;
+            Camera.main.orthographicSize = 8;
+            sensitivity = 0.05f;
         }
     }
 }
