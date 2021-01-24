@@ -55,6 +55,7 @@ public class BuildManager : MonoBehaviour
                 if (hit.transform.CompareTag("Foundation") && currBuilding != null)
                 {
                     currBuilding.transform.position = hit.point + hit.transform.up * 0.1f;
+                    break;
                 }
 
                 if (Input.GetMouseButtonDown(0))
