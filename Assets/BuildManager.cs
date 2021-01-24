@@ -46,36 +46,28 @@ public class BuildManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit[] hits = MouseRaycast();
-
-        if (hits.Length > 0)
+        RaycastHit hit;
+        if (MouseRaycast("Foundation", out hit))
         {
-            foreach (RaycastHit hit in hits)
+            if (currBuilding != null)
             {
-                if (hit.transform.CompareTag("Foundation") && currBuilding != null)
-                {
-                    currBuilding.transform.position = hit.point + hit.transform.up * 0.1f;
-                }
+                currBuilding.position = hit.point;
+            }
+        }
 
-                if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (MouseRaycast("Building", out hit)) {
+                if (hit.transform == currBuilding)
                 {
-                    if (hit.transform.CompareTag("Building"))
-                    {
-                        if (currBuilding != null)
-                        {
-                            currBuilding.GetComponent<MeshRenderer>().material.SetColor("_Color", new Color(0.78f, 0.0f, 0.0f, 1.0f));
-                            currBuilding = null;
-                        }
-                        else
-                        {
-                            currBuilding = hit.transform;
-                            currBuilding.GetComponent<MeshRenderer>().material.SetColor("_Color", new Color(0.78f, 0.0f, 0.0f, 0.5f));
-                            
-                        }
-                    }
+                    currBuilding = null;
+                } else
+                {
+                    currBuilding = hit.transform;
                 }
             }
         }
+
 
         if (Input.GetKey(KeyCode.E))
         {
@@ -92,9 +84,11 @@ public class BuildManager : MonoBehaviour
         }
     }
 
-    private RaycastHit[] MouseRaycast()
+    private bool MouseRaycast(string targetLayerName, out RaycastHit hit)
     {
+        int layerMask = 1 << LayerMask.NameToLayer(targetLayerName);
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        return Physics.RaycastAll(ray);
+        return Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask);
     }
 }
