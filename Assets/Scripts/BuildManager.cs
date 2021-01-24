@@ -31,14 +31,20 @@ public class BuildManager : MonoBehaviour
     public void BuildWall()
     {
         GameObject newBuilding = Instantiate(Wall, transform.position, Quaternion.identity) as GameObject;
+
         newBuilding.transform.parent = transform;
+        newBuilding.transform.position = transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
+
         currBuilding = newBuilding.transform;
     }
 
     public void BuildArrow()
     {
         GameObject newBuilding = Instantiate(Arrow, transform.position, Quaternion.identity) as GameObject;
+
         newBuilding.transform.parent = transform;
+        newBuilding.transform.position = transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
+
         currBuilding = newBuilding.transform;
     }
 
@@ -51,7 +57,7 @@ public class BuildManager : MonoBehaviour
         {
             if (currBuilding != null)
             {
-                currBuilding.position = hit.point;
+                currBuilding.position = hit.point + currBuilding.localScale.y / 2 * currBuilding.up;
             }
         }
 
@@ -60,10 +66,12 @@ public class BuildManager : MonoBehaviour
             if (MouseRaycast("Building", out hit)) {
                 if (hit.transform == currBuilding)
                 {
+                    currBuilding.GetComponent<Building>().setColorPlaced();
                     currBuilding = null;
                 } else
                 {
                     currBuilding = hit.transform;
+                    currBuilding.GetComponent<Building>().setColorSelected();
                 }
             }
         }
