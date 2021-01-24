@@ -1,9 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
+
+        private int CompareRaycastHit(RaycastHit a, RaycastHit b) 
+        { 
+            if (a.point.y > b.point.y)
+            {
+                return -1;
+            } else if (a.point.y < b.point.y)
+            {
+                return 1;
+            } else 
+            {
+                return 0;
+            } 
+        }
+
+
     public static BuildManager instance;
 
     public static bool isBuilding = false;
@@ -47,6 +64,8 @@ public class BuildManager : MonoBehaviour
     void Update()
     {
         RaycastHit[] hits = MouseRaycast();
+
+        Array.Sort(hits, CompareRaycastHit);
 
         if (hits.Length > 0)
         {
@@ -98,4 +117,7 @@ public class BuildManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         return Physics.RaycastAll(ray);
     }
+
+    
+
 }
