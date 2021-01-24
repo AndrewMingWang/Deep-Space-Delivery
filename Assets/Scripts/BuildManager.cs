@@ -10,8 +10,9 @@ public class BuildManager : MonoBehaviour
 
     public Transform currBuilding;
 
-    public GameObject Wall;
-    public GameObject Arrow;
+    // 0 - Wall
+    // 1 - Arrow
+    public GameObject[] BuildingPrefabs;
 
     private void Awake()
     {
@@ -22,32 +23,22 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void BuildBuilding(int buildingType)
     {
+        // If current building selected place it before creating new building
+        if (currBuilding != null)
+        {
+            currBuilding.GetComponent<Building>().setColorPlaced();
+            currBuilding = null;
+        }
 
-    }
-
-    public void BuildWall()
-    {
-        GameObject newBuilding = Instantiate(Wall, transform.position, Quaternion.identity) as GameObject;
+        GameObject newBuilding = Instantiate(BuildingPrefabs[(int) buildingType], transform.position, Quaternion.identity) as GameObject;
 
         newBuilding.transform.parent = transform;
         newBuilding.transform.position = transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
 
         currBuilding = newBuilding.transform;
     }
-
-    public void BuildArrow()
-    {
-        GameObject newBuilding = Instantiate(Arrow, transform.position, Quaternion.identity) as GameObject;
-
-        newBuilding.transform.parent = transform;
-        newBuilding.transform.position = transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
-
-        currBuilding = newBuilding.transform;
-    }
-
 
     // Update is called once per frame
     void Update()
@@ -64,11 +55,20 @@ public class BuildManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             if (MouseRaycast("Building", out hit)) {
-                if (hit.transform == currBuilding)
+                if (currBuilding != null)
                 {
-                    currBuilding.GetComponent<Building>().setColorPlaced();
-                    currBuilding = null;
-                } else
+                    if (hit.transform == currBuilding)
+                    {
+                        currBuilding.GetComponent<Building>().setColorPlaced();
+                        currBuilding = null;
+                    }
+                    else
+                    {
+                        currBuilding.GetComponent<Building>().setColorPlaced();
+                        currBuilding = hit.transform;
+                        currBuilding.GetComponent<Building>().setColorSelected();
+                    }
+                }  else
                 {
                     currBuilding = hit.transform;
                     currBuilding.GetComponent<Building>().setColorSelected();

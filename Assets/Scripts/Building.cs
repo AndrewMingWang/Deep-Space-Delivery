@@ -7,6 +7,8 @@ public class Building : MonoBehaviour
     public Color SelectedColor;
     public Color PlacedColor;
 
+    
+
     private MeshRenderer meshRenderer;
 
     private void Awake()
