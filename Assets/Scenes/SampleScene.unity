@@ -5574,7 +5574,7 @@ PrefabInstance:
     - target: {fileID: 1380421868154042682, guid: 35f576506c217c94eacf269f10d02b04,
         type: 3}
       propertyPath: m_Name
-      value: Panel (1)
+      value: Button Panel
       objectReference: {fileID: 0}
     - target: {fileID: 1380421868154042683, guid: 35f576506c217c94eacf269f10d02b04,
         type: 3}
@@ -9202,6 +9202,7 @@ MonoBehaviour:
   PlayButtonObj: {fileID: 1548760388}
   ResetButtonObj: {fileID: 1532623352}
   Spawn: {fileID: 1092006415}
+  BuildingPanel: {fileID: 2008348802}
 --- !u!4 &1868067232
 Transform:
   m_ObjectHideFlags: 0
@@ -10175,7 +10176,7 @@ GameObject:
   - component: {fileID: 2008348805}
   - component: {fileID: 2008348804}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Building Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
