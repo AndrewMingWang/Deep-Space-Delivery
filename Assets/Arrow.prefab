@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1182754478879176492}
   - component: {fileID: 579988624}
   - component: {fileID: 5096485984721084729}
-  - component: {fileID: -4338334838781552822}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Building
@@ -122,16 +121,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: 1
---- !u!114 &-4338334838781552822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182754478879176481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 508d696f9f434504890abacf02663414, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currState: 0
