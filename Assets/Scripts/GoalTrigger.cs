@@ -21,9 +21,10 @@ public class GoalTrigger : MonoBehaviour
     {
         if (playersReached + playersFailed == NUM_PLAYERS)
         {
-            Debug.Log("RESULTS: " + (playersReached * 100.0f / NUM_PLAYERS) + "%");
+            Debug.Log("HITCHHIKERS REACHED GOAL: " + (playersReached * 100.0f / NUM_PLAYERS) + "%");
             playersReached = 0;
             playersFailed = 0;
+            Debug.Log("MONEY LEFT: $" + GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>().GetRemainingMoney());
         }
     }
 

@@ -13,6 +13,8 @@ public class BuildManager : MonoBehaviour
     public GameObject Wall;
     public GameObject Arrow;
 
+    private MoneyManager moneyManager;
+
     private void Awake()
     {
         if (instance != null)
@@ -25,7 +27,7 @@ public class BuildManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        moneyManager = GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>();
     }
 
     public void BuildWall()
@@ -36,6 +38,7 @@ public class BuildManager : MonoBehaviour
         newBuilding.transform.position = transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
 
         currBuilding = newBuilding.transform;
+        moneyManager.PurchaseItem(MoneyManager.ITEM_WALL);
     }
 
     public void BuildArrow()
@@ -46,6 +49,7 @@ public class BuildManager : MonoBehaviour
         newBuilding.transform.position = transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
 
         currBuilding = newBuilding.transform;
+        moneyManager.PurchaseItem(MoneyManager.ITEM_ARROW);
     }
 
 

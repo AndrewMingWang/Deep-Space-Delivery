@@ -8,6 +8,7 @@ TagManager:
   - goal
   - Foundation
   - Building
+  - moneyManager
   layers:
   - Default
   - TransparentFX
