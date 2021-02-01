@@ -2,29 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrowTrigger : MonoBehaviour
+public class WaterTrigger : MonoBehaviour
 {
-
-    public Vector3 direction;
 
     // Start is called before the first frame update
     void Start()
     {
-        //
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        direction = transform.forward;
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("player"))
         {
-            other.gameObject.GetComponent<PlayerMovement>().direction = direction;
-        
+            other.gameObject.GetComponent<PlayerMovement>().LosePlayer();
+
         }
     }
 
