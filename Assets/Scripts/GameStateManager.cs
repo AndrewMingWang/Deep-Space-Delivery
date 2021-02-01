@@ -72,8 +72,9 @@ public class GameStateManager : MonoBehaviour
     }
 
     void ResetButtonPressed(){
-        switch(_currState){
+        switch (_currState){
         case State.Plan:
+            GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>().ResetMoney();
             foreach (Transform child in UserBuildings.transform){
                 Destroy(child.gameObject);
             }
