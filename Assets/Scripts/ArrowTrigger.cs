@@ -16,7 +16,7 @@ public class ArrowTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction = transform.forward;
+        direction = transform.parent.transform.forward;
     }
 
     private void OnTriggerEnter(Collider other)
