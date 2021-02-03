@@ -14,6 +14,8 @@ public class BuildManager : MonoBehaviour
     // 1 - Arrow
     public GameObject[] BuildingPrefabs;
 
+    private GameObject Wall;
+    private GameObject Arrow;
     private MoneyManager moneyManager;
 
     private void Awake()
@@ -23,11 +25,15 @@ public class BuildManager : MonoBehaviour
             Destroy(instance);
         }
         instance = this;
+
+        Wall = BuildingPrefabs[0];
+        Arrow = BuildingPrefabs[1];
+        moneyManager = GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>();
     }
 
     public void BuildBuilding(int buildingType)
     {
-        moneyManager = GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>();
+        
     }
 
     public void BuildWall()

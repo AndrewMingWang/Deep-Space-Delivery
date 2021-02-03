@@ -1974,8 +1974,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currBuilding: {fileID: 0}
-  Wall: {fileID: 4258903639103028778, guid: b89d25e920380294aa480e4ffc014468, type: 3}
-  Arrow: {fileID: 1182754478879176481, guid: ec455ff973f238e4094f4661e78b0bf4, type: 3}
+  BuildingPrefabs:
+  - {fileID: 4258903639103028778, guid: b89d25e920380294aa480e4ffc014468, type: 3}
+  - {fileID: 1182754478879176481, guid: ec455ff973f238e4094f4661e78b0bf4, type: 3}
 --- !u!4 &2120010076
 Transform:
   m_ObjectHideFlags: 0
