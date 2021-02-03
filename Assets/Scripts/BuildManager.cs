@@ -43,6 +43,12 @@ public class BuildManager : MonoBehaviour
 
     public void BuildBuilding(string buildingString)
     {
+        if (currBuilding != null)
+        {
+            currBuilding.GetComponent<Building>().setColorPlaced();
+            currBuilding = null;
+        }
+
         GameObject newBuilding = Instantiate(BuildingPrefabs[buildingString], transform.position, Quaternion.identity) as GameObject;
 
         newBuilding.transform.parent = transform;
