@@ -10,13 +10,22 @@ public class BuildManager : MonoBehaviour
 
     public Transform currBuilding;
 
-    // 0 - Wall
-    // 1 - Arrow
-    public GameObject[] BuildingPrefabs;
+    // "wall" - Wall prefab
+    // "arrow" - Arrow prefab
+    [HideInInspector]
+    public static string WALL = "wall";
+    [HideInInspector]
+    public static string ARROW = "arrow";
 
-    private GameObject Wall;
-    private GameObject Arrow;
-    private MoneyManager moneyManager;
+    // THIS IS A HACK TO SETUP THE BuildingPrefabs DICTIONARY
+    [System.Serializable]
+    public struct BuildPrefab
+    {
+        public string name;
+        public GameObject prefab;
+    }
+    public BuildPrefab[] BuildPrefabsList;
+    public Dictionary<string, GameObject> BuildingPrefabs = new Dictionary<string, GameObject>();
 
     private void Awake()
     {
@@ -26,31 +35,21 @@ public class BuildManager : MonoBehaviour
         }
         instance = this;
 
-        Wall = BuildingPrefabs[0];
-        Arrow = BuildingPrefabs[1];
-        moneyManager = GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>();
+        foreach (BuildPrefab bp in BuildPrefabsList)
+        {
+            BuildingPrefabs.Add(bp.name, bp.prefab);
+        }
     }
 
-    public void BuildWall()
+    public void BuildBuilding(string buildingString)
     {
-        GameObject newBuilding = Instantiate(Wall, transform.position, Quaternion.identity) as GameObject;
+        GameObject newBuilding = Instantiate(BuildingPrefabs[buildingString], transform.position, Quaternion.identity) as GameObject;
 
         newBuilding.transform.parent = transform;
         newBuilding.transform.position = transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
 
         currBuilding = newBuilding.transform;
-        moneyManager.PurchaseItem(MoneyManager.ITEM_WALL);
-    }
-
-    public void BuildArrow()
-    {
-        GameObject newBuilding = Instantiate(Arrow, transform.position, Quaternion.identity) as GameObject;
-
-        newBuilding.transform.parent = transform;
-        newBuilding.transform.position = transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
-
-        currBuilding = newBuilding.transform;
-        moneyManager.PurchaseItem(MoneyManager.ITEM_ARROW);
+        MoneyManager.instance.PurchaseItem(buildingString);
     }
 
     // Update is called once per frame
@@ -61,7 +60,6 @@ public class BuildManager : MonoBehaviour
         {
             if (currBuilding != null)
             {
-                Debug.Log(hit.point + currBuilding.localScale.y / 2 * currBuilding.up);
                 currBuilding.position = hit.point + currBuilding.localScale.y / 2 * currBuilding.up;
             }
         }

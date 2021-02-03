@@ -7353,14 +7353,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2120010075}
-        m_MethodName: BuildWall
-        m_Mode: 1
+        m_MethodName: BuildBuilding
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: wall
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1494937075
@@ -10231,14 +10231,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2120010075}
-        m_MethodName: BuildArrow
-        m_Mode: 1
+        m_MethodName: BuildBuilding
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: arrow
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1900752788
@@ -11578,9 +11578,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currBuilding: {fileID: 0}
-  BuildingPrefabs:
-  - {fileID: 4258903639103028778, guid: b89d25e920380294aa480e4ffc014468, type: 3}
-  - {fileID: 1182754478879176481, guid: ec455ff973f238e4094f4661e78b0bf4, type: 3}
+  BuildPrefabsList:
+  - name: arrow
+    prefab: {fileID: 1182754478879176481, guid: ec455ff973f238e4094f4661e78b0bf4,
+      type: 3}
+  - name: wall
+    prefab: {fileID: 4258903639103028778, guid: b89d25e920380294aa480e4ffc014468,
+      type: 3}
 --- !u!4 &2120010076
 Transform:
   m_ObjectHideFlags: 0

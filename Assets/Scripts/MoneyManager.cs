@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
 {
-
-    public static string ITEM_WALL = "wall";
-    public static string ITEM_ARROW = "arrow";
+    public static MoneyManager instance;
 
     public int startingMoney = 100;
     public Item[] items;
@@ -18,17 +16,26 @@ public class MoneyManager : MonoBehaviour
 
     private int moneySpent = 0;
 
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(instance);
+        }
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         DisplayRemainingMoney();
         foreach (Item item in items)
         {
-            if (item.name.Equals(ITEM_WALL))
+            if (item.name.Equals(BuildManager.WALL))
             {
                 wallText.text = "Wall: $" + item.price;
             }
-            else if (item.name.Equals(ITEM_ARROW))
+            else if (item.name.Equals(BuildManager.ARROW))
             {
                 arrowText.text = "Arrow: $" + item.price;
             }
