@@ -1,22 +1,34 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
+
+        private int CompareRaycastHit(RaycastHit a, RaycastHit b) 
+        { 
+            if (a.point.y > b.point.y)
+            {
+                return -1;
+            } else if (a.point.y < b.point.y)
+            {
+                return 1;
+            } else 
+            {
+                return 0;
+            } 
+        }
+
+
     public static BuildManager instance;
 
     public static bool isBuilding = false;
 
     public Transform currBuilding;
 
-    // 0 - Wall
-    // 1 - Arrow
-    public GameObject[] BuildingPrefabs;
-
-    private GameObject Wall;
-    private GameObject Arrow;
-    private MoneyManager moneyManager;
+    public GameObject Wall;
+    public GameObject Arrow;
 
     private void Awake()
     {
@@ -25,75 +37,65 @@ public class BuildManager : MonoBehaviour
             Destroy(instance);
         }
         instance = this;
-
-        Wall = BuildingPrefabs[0];
-        Arrow = BuildingPrefabs[1];
-        moneyManager = GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>();
     }
 
-    public void BuildBuilding(int buildingType)
+    // Start is called before the first frame update
+    void Start()
     {
-        
+
     }
 
     public void BuildWall()
     {
         GameObject newBuilding = Instantiate(Wall, transform.position, Quaternion.identity) as GameObject;
-
         newBuilding.transform.parent = transform;
-        newBuilding.transform.position = transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
-
         currBuilding = newBuilding.transform;
-        moneyManager.PurchaseItem(MoneyManager.ITEM_WALL);
     }
 
     public void BuildArrow()
     {
         GameObject newBuilding = Instantiate(Arrow, transform.position, Quaternion.identity) as GameObject;
-
         newBuilding.transform.parent = transform;
-        newBuilding.transform.position = transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
-
         currBuilding = newBuilding.transform;
-        moneyManager.PurchaseItem(MoneyManager.ITEM_ARROW);
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        if (MouseRaycast("Foundation", out hit))
-        {
-            if (currBuilding != null)
-            {
-                currBuilding.position = hit.point + currBuilding.localScale.y / 2 * currBuilding.up;
-            }
-        }
+        RaycastHit[] hits = MouseRaycast();
 
-        if (Input.GetMouseButtonDown(0))
+        Array.Sort(hits, CompareRaycastHit);
+
+        if (hits.Length > 0)
         {
-            if (MouseRaycast("Building", out hit)) {
-                if (currBuilding != null)
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.transform.CompareTag("Foundation") && currBuilding != null)
                 {
-                    if (hit.transform == currBuilding)
-                    {
-                        currBuilding.GetComponent<Building>().setColorPlaced();
-                        currBuilding = null;
-                    }
-                    else
-                    {
-                        currBuilding.GetComponent<Building>().setColorPlaced();
-                        currBuilding = hit.transform;
-                        currBuilding.GetComponent<Building>().setColorSelected();
-                    }
-                }  else
+                    currBuilding.transform.position = hit.point + hit.transform.up * 0.1f;
+                    break;
+                }
+
+                if (Input.GetMouseButtonDown(0))
                 {
-                    currBuilding = hit.transform;
-                    currBuilding.GetComponent<Building>().setColorSelected();
+                    if (hit.transform.CompareTag("Building"))
+                    {
+                        if (currBuilding != null)
+                        {
+                            currBuilding.GetComponent<MeshRenderer>().material.SetColor("_Color", new Color(0.78f, 0.0f, 0.0f, 1.0f));
+                            currBuilding = null;
+                        }
+                        else
+                        {
+                            currBuilding = hit.transform;
+                            currBuilding.GetComponent<MeshRenderer>().material.SetColor("_Color", new Color(0.78f, 0.0f, 0.0f, 0.5f));
+                            
+                        }
+                    }
                 }
             }
         }
-
 
         if (Input.GetKey(KeyCode.E))
         {
@@ -110,11 +112,12 @@ public class BuildManager : MonoBehaviour
         }
     }
 
-    private bool MouseRaycast(string targetLayerName, out RaycastHit hit)
+    private RaycastHit[] MouseRaycast()
     {
-        int layerMask = 1 << LayerMask.NameToLayer(targetLayerName);
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        return Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask);
+        return Physics.RaycastAll(ray);
     }
+
+    
+
 }
