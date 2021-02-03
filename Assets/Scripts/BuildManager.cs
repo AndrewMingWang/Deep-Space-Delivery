@@ -14,6 +14,8 @@ public class BuildManager : MonoBehaviour
     // 1 - Arrow
     public GameObject[] BuildingPrefabs;
 
+    private MoneyManager moneyManager;
+
     private void Awake()
     {
         if (instance != null)
@@ -25,19 +27,29 @@ public class BuildManager : MonoBehaviour
 
     public void BuildBuilding(int buildingType)
     {
-        // If current building selected place it before creating new building
-        if (currBuilding != null)
-        {
-            currBuilding.GetComponent<Building>().setColorPlaced();
-            currBuilding = null;
-        }
+        moneyManager = GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>();
+    }
 
-        GameObject newBuilding = Instantiate(BuildingPrefabs[(int) buildingType], transform.position, Quaternion.identity) as GameObject;
+    public void BuildWall()
+    {
+        GameObject newBuilding = Instantiate(Wall, transform.position, Quaternion.identity) as GameObject;
 
         newBuilding.transform.parent = transform;
         newBuilding.transform.position = transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
 
         currBuilding = newBuilding.transform;
+        moneyManager.PurchaseItem(MoneyManager.ITEM_WALL);
+    }
+
+    public void BuildArrow()
+    {
+        GameObject newBuilding = Instantiate(Arrow, transform.position, Quaternion.identity) as GameObject;
+
+        newBuilding.transform.parent = transform;
+        newBuilding.transform.position = transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
+
+        currBuilding = newBuilding.transform;
+        moneyManager.PurchaseItem(MoneyManager.ITEM_ARROW);
     }
 
     // Update is called once per frame

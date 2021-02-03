@@ -10,7 +10,7 @@ public class ArrowTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class ArrowTrigger : MonoBehaviour
     {
         if (other.CompareTag("player"))
         {
-            other.gameObject.GetComponent<PlayerMovement>().direction = transform.forward;
+            other.gameObject.GetComponent<PlayerMovement>().direction = direction;
         
         }
     }

@@ -5,10 +5,10 @@ using UnityEngine;
 public class GoalTrigger : MonoBehaviour
 {
 
+    public static int NUM_PLAYERS = 20;
+
     public int playersReached = 0;
     public int playersFailed = 0;
-
-    private bool levelOver = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +19,12 @@ public class GoalTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!levelOver && playersReached + playersFailed == 10)
+        if (playersReached + playersFailed == NUM_PLAYERS)
         {
-            Debug.Log("RESULTS: " + playersReached + "/10");
-            levelOver = true;
+            Debug.Log("HITCHHIKERS REACHED GOAL: " + (playersReached * 100.0f / NUM_PLAYERS) + "%");
+            playersReached = 0;
+            playersFailed = 0;
+            Debug.Log("MONEY LEFT: $" + GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>().GetRemainingMoney());
         }
     }
 

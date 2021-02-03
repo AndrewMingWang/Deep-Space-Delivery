@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void LosePlayer()
+    public void LosePlayer()
     {
         GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().playersFailed += 1;
         gameObject.SetActive(false);
