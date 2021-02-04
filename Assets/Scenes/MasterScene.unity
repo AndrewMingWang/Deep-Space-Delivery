@@ -4829,6 +4829,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1874787700}
     m_Modifications:
+    - target: {fileID: 6476583559165036459, guid: 6a62c720fb2b75b45a0cea6f4106bf75,
+        type: 3}
+      propertyPath: OccupyingBuilding
+      value: 
+      objectReference: {fileID: 1092006415}
     - target: {fileID: 8864139252044828007, guid: 6a62c720fb2b75b45a0cea6f4106bf75,
         type: 3}
       propertyPath: m_RootOrder
@@ -7491,6 +7496,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1874787700}
     m_Modifications:
+    - target: {fileID: 6476583559165036459, guid: 6a62c720fb2b75b45a0cea6f4106bf75,
+        type: 3}
+      propertyPath: OccupyingBuilding
+      value: 
+      objectReference: {fileID: 1629669893}
     - target: {fileID: 8864139252044828007, guid: 6a62c720fb2b75b45a0cea6f4106bf75,
         type: 3}
       propertyPath: m_RootOrder
@@ -9729,6 +9739,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a62c720fb2b75b45a0cea6f4106bf75, type: 3}
+--- !u!1 &1629669893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7159854052944463036, guid: 891fbea317db49b46bdf17b7382c5510,
+    type: 3}
+  m_PrefabInstance: {fileID: 7159854053871087331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1629736158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11375,6 +11391,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllTiles: []
+  UnoccupiedTiles: []
+  OccupiedTiles: []
 --- !u!1001 &1896526470
 PrefabInstance:
   m_ObjectHideFlags: 0

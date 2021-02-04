@@ -15,7 +15,14 @@ public class TileManager : MonoBehaviour
         AllTiles = transform.GetComponentsInChildren<Tile>();
         foreach (Tile tile in AllTiles)
         {
-            UnoccupiedTiles.Add(tile);
+            if (tile.OccupyingBuilding == null)
+            {
+                UnoccupiedTiles.Add(tile);
+            }
+            if (tile.OccupyingBuilding != null)
+            {
+                OccupiedTiles.Add(tile);
+            }
         }
     }
 
