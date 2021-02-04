@@ -1,14 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GoalTrigger : MonoBehaviour
 {
 
-    public static int NUM_PLAYERS = 20;
+    public static readonly int NUM_PLAYERS = 20;
 
-    public int playersReached = 0;
-    public int playersFailed = 0;
+    public GameObject ResultsPanel;
+    public TMP_Text SuccessRate;
+    public TMP_Text MoneyLeft;
+    public TMP_Text Verdict;
+
+    public int PlayersReached = 0;
+    public int PlayersFailed = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +25,41 @@ public class GoalTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playersReached + playersFailed == NUM_PLAYERS)
+        if (PlayersReached + PlayersFailed == NUM_PLAYERS)
         {
-            Debug.Log("HITCHHIKERS REACHED GOAL: " + (playersReached * 100.0f / NUM_PLAYERS) + "%");
-            playersReached = 0;
-            playersFailed = 0;
-            Debug.Log("MONEY LEFT: $" + GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>().GetRemainingMoney());
+            MoneyManager moneyManager = GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>();
+            moneyManager.moneyText.text = "";
+            int moneyLeft = moneyManager.GetRemainingMoney();
+            float successRate = (PlayersReached * 100.0f / NUM_PLAYERS);
+            ResultsPanel.GetComponent<Animator>().SetTrigger("open");
+            SuccessRate.text = successRate + "%";
+            MoneyLeft.text = "$" + moneyLeft;
+            if (moneyLeft < 0)
+            {
+                Verdict.text = "F";
+            }
+            else if (moneyLeft > 0 && successRate == 100.0f)
+            {
+                Verdict.text = "A+";
+            }
+            else if (successRate == 100.0f)
+            {
+                Verdict.text = "A";
+            }
+            else if (successRate >= 80.0f)
+            {
+                Verdict.text = "B";
+            }
+            else if (successRate >= 65.0f)
+            {
+                Verdict.text = "C";
+            }
+            else if (successRate >= 50.0f)
+            {
+                Verdict.text = "D";
+            }
+            PlayersReached = 0;
+            PlayersFailed = 0;
         }
     }
 
@@ -33,7 +68,7 @@ public class GoalTrigger : MonoBehaviour
         if (other.CompareTag("player"))
         {
             other.gameObject.SetActive(false);
-            playersReached += 1;
+            PlayersReached += 1;
         }
     }
 
