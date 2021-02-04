@@ -12112,6 +12112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currBuilding: {fileID: 0}
+  spawnTile: {fileID: 0}
   BuildPrefabsList:
   - name: arrow
     prefab: {fileID: 1182754478879176481, guid: ec455ff973f238e4094f4661e78b0bf4,

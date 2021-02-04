@@ -7,10 +7,16 @@ public class TileManager : MonoBehaviour
     public static TileManager Instance;
 
     public Tile[] AllTiles;
+    public List<Tile> UnoccupiedTiles;
+    public List<Tile> OccupiedTiles;
 
     private void Awake()
     {
         AllTiles = transform.GetComponentsInChildren<Tile>();
+        foreach (Tile tile in AllTiles)
+        {
+            UnoccupiedTiles.Add(tile);
+        }
     }
 
     // Start is called before the first frame update
@@ -30,5 +36,12 @@ public class TileManager : MonoBehaviour
             tile.SetBaseColor();
             tile.Hovered = false;
         }
+    }
+
+    public Tile RandomUnoccupiedTile()
+    {
+        int n = UnoccupiedTiles.Count;
+        int i = Random.Range(0, n);
+        return UnoccupiedTiles[i];
     }
 }
