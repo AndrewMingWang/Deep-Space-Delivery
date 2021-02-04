@@ -888,7 +888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9ec86e2e7eb634b93caa6d438c88df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn: {fileID: 4503092064688613918, guid: 0eb7f46524d25734fbe1d387a7014f0e, type: 3}
   speed: 2
   direction: {x: 0, y: 0, z: 1}
 --- !u!54 &4844705732185160384
@@ -905,7 +904,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &8642671539731191201
 GameObject:
