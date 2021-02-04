@@ -7,6 +7,7 @@ public class Tile : MonoBehaviour
     public Color BaseColor;
     public Color HoverColor;
     public bool Hovered = false;
+    public GameObject OccupyingBuilding = null;
     private Material _tileMaterial;
 
     private void Awake()

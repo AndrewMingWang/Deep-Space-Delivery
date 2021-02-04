@@ -7,6 +7,7 @@ public class Building : MonoBehaviour
     public Color SelectedColor;
     public Color PlacedColor;
     public string BuildingName;
+    public Tile HoveringTile;
     
     private MeshRenderer meshRenderer;
 
