@@ -14,10 +14,13 @@ public class PlayerMovement : MonoBehaviour
         direction = transform.forward;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    void EarlyUpdate(){
         direction = transform.forward;
+    }
+
+    // Update is called once per frame
+    void LateUpdate()
+    {
         transform.position += speed * Time.deltaTime * direction;
         if (transform.position.y < -10.0f)
         {
