@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectedColor: {r: 1, g: 0, b: 0, a: 0.2901961}
   PlacedColor: {r: 1, g: 0, b: 0, a: 1}
+  BuildingName: arrow
 --- !u!1 &7627097294182573501
 GameObject:
   m_ObjectHideFlags: 0

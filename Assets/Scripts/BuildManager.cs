@@ -13,11 +13,11 @@ public class BuildManager : MonoBehaviour
     // "wall" - Wall prefab
     // "arrow" - Arrow prefab
     [HideInInspector]
-    public static string WALL = "wall";
+    public const string WALL = "wall";
     [HideInInspector]
-    public static string ARROW = "arrow";
+    public const string ARROW = "arrow";
 
-    // THIS IS A HACK TO SETUP THE BuildingPrefabs DICTIONARY
+    // THIS IS A HACK TO SETUP THE BUILDINGPREFABS DICTIONARY
     [System.Serializable]
     public struct BuildPrefab
     {
@@ -45,6 +45,7 @@ public class BuildManager : MonoBehaviour
     {
         if (currBuilding != null)
         {
+            TileManager.Instance.UnhoverAllTiles();
             currBuilding.GetComponent<Building>().setColorPlaced();
             currBuilding = null;
         }
@@ -104,20 +105,38 @@ public class BuildManager : MonoBehaviour
             }
         }
 
+        // Handle additional options for specifc buildings bound to the q and e keys
+        if (currBuilding != null)
+        {
+            switch (currBuilding.GetComponent<Building>().BuildingName)
+            {
+                case WALL:
+                    if (Input.GetKey(KeyCode.E))
+                    {
+                        Vector3 currScale = currBuilding.transform.localScale;
+                        Vector3 currScaleMax = new Vector3(currScale.x, 5f, currScale.z);
+                        currBuilding.transform.localScale = Vector3.Min(currScale + new Vector3(0, 0.8f * Time.deltaTime, 0), currScaleMax);
+                        
+                    }
+                    else if (Input.GetKey(KeyCode.Q))
+                    {
+                        Vector3 currScale = currBuilding.transform.localScale;
+                        Vector3 currScaleMin = new Vector3(currScale.x, 0.1f, currScale.z);
+                        currBuilding.transform.localScale = Vector3.Max(currScale - new Vector3(0, 0.8f * Time.deltaTime, 0), currScaleMin);
+                    }
+                    break;
+                case ARROW:
+                    if (Input.GetKey(KeyCode.E))
+                    {
+                        currBuilding.RotateAround(transform.position, transform.up, Time.deltaTime * 90f);
+                    }
+                    else if (Input.GetKey(KeyCode.Q))
+                    {
+                        currBuilding.RotateAround(transform.position, transform.up, -Time.deltaTime * 90f);
+                    }
+                    break;
+            }
 
-        if (Input.GetKey(KeyCode.E))
-        {
-            if (currBuilding != null)
-            {
-                currBuilding.RotateAround(transform.position, transform.up, Time.deltaTime * 90f);
-            }
-        }
-        else if (Input.GetKey(KeyCode.Q))
-        {
-            if (currBuilding != null)
-            {
-                currBuilding.RotateAround(transform.position, transform.up, -Time.deltaTime * 90f);
-            }
         }
 
         if (currBuilding != null){
