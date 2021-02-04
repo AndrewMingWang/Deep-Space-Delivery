@@ -6,17 +6,18 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float speed = 2.0f;
-    public Vector3 direction = Vector3.forward;
+    public Vector3 direction;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        direction = transform.forward;
     }
 
     // Update is called once per frame
     void Update()
     {
+        direction = transform.forward;
         transform.position += speed * Time.deltaTime * direction;
         if (transform.position.y < -10.0f)
         {

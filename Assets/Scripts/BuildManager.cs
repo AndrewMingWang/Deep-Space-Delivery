@@ -111,6 +111,12 @@ public class BuildManager : MonoBehaviour
                 currBuilding.RotateAround(transform.position, transform.up, -Time.deltaTime * 90f);
             }
         }
+
+        if (currBuilding != null){
+            isBuilding = true;
+        } else {
+            isBuilding = false;
+        }
     }
 
     private bool MouseRaycast(string targetLayerName, out RaycastHit hit)
