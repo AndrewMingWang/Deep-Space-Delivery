@@ -45,7 +45,19 @@ public class TileManager : MonoBehaviour
         }
     }
 
-    public Tile RandomUnoccupiedTile()
+    public void SetTileOccupied(Tile tile)
+    {
+        OccupiedTiles.Add(tile);
+        UnoccupiedTiles.Remove(tile);
+    }
+
+    public void SetTileUnoccupied(Tile tile)
+    {
+        OccupiedTiles.Remove(tile);
+        UnoccupiedTiles.Add(tile);
+    }
+
+    public Tile GetRandomUnoccupiedTile()
     {
         int n = UnoccupiedTiles.Count;
         int i = Random.Range(0, n);
