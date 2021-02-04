@@ -55,7 +55,7 @@ public class BuildManager : MonoBehaviour
         newBuilding.transform.position = transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
 
         currBuilding = newBuilding.transform;
-        MoneyManager.instance.PurchaseItem(buildingString);
+        MoneyManager.Instance.PurchaseItem(buildingString);
     }
 
     // Update is called once per frame
@@ -66,6 +66,13 @@ public class BuildManager : MonoBehaviour
         {
             if (currBuilding != null)
             {
+                Tile hitTile = hit.transform.GetComponent<Tile>();
+                if (hitTile.Hovered == false)
+                {
+                    TileManager.Instance.UnhoverAllTiles();
+                    hitTile.SetHoverColor();
+                    hitTile.Hovered = true;
+                }
                 currBuilding.position = hit.point + currBuilding.localScale.y / 2 * currBuilding.up;
             }
         }
@@ -78,6 +85,7 @@ public class BuildManager : MonoBehaviour
                 {
                     if (hit.transform == currBuilding)
                     {
+                        TileManager.Instance.UnhoverAllTiles();
                         currBuilding.GetComponent<Building>().setColorPlaced();
                         currBuilding = null;
                     }

@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Color BaseColor;
+    public Color HoverColor;
+    public bool Hovered = false;
+    private Material _tileMaterial;
+
+    private void Awake()
     {
-        
+        _tileMaterial = GetComponent<Renderer>().material;
+        _tileMaterial.SetColor("_Color", BaseColor);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetHoverColor()
     {
-        
+        _tileMaterial.SetColor("_Color", HoverColor);
+    }
+
+    public void SetBaseColor()
+    {
+        _tileMaterial.SetColor("_Color", BaseColor);
     }
 }

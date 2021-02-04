@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
 {
-    public static MoneyManager instance;
+    public static MoneyManager Instance;
 
     public int startingMoney = 100;
     public Item[] items;
@@ -18,11 +18,11 @@ public class MoneyManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null)
+        if (Instance != null)
         {
-            Destroy(instance);
+            Destroy(Instance);
         }
-        instance = this;
+        Instance = this;
     }
 
     // Start is called before the first frame update
