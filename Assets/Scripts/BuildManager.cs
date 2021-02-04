@@ -109,6 +109,7 @@ public class BuildManager : MonoBehaviour
                         currBuilding.GetComponent<Building>().setColorPlaced();
                         currBuilding.GetComponent<Building>().HoveringTile.OccupyingBuilding = currBuilding.gameObject;
                         TileManager.Instance.OccupiedTiles.Add(currBuilding.GetComponent<Building>().HoveringTile);
+                        TileManager.Instance.UnoccupiedTiles.Remove(currBuilding.GetComponent<Building>().HoveringTile);
 
                         currBuilding = null;
                     }
