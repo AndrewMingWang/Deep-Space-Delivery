@@ -106,5 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99342cd574cc6047b07ced3be20d254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersReached: 0
-  playersFailed: 0
+  ResultsPanel: {fileID: 0}
+  SuccessRate: {fileID: 0}
+  MoneyLeft: {fileID: 0}
+  Verdict: {fileID: 0}
+  PlayersReached: 0
+  PlayersFailed: 0

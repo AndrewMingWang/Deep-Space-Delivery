@@ -67,9 +67,27 @@ public class GoalTrigger : MonoBehaviour
     {
         if (other.CompareTag("player"))
         {
-            other.gameObject.SetActive(false);
+            StartCoroutine(ManageAudioSource(other.GetComponent<AudioSource>(), this.gameObject));
             PlayersReached += 1;
+            other.gameObject.SetActive(false);
         }
+    }
+
+    public IEnumerator ManageAudioSource(AudioSource info, GameObject goal)
+    {   
+        GameObject GoalAudioSource = new GameObject();
+        GoalAudioSource.transform.parent = goal.transform;
+        GoalAudioSource.name = "NewGoalAudioSource";
+        GoalAudioSource.AddComponent<AudioSource>();
+        AudioSource newAudio = GoalAudioSource.GetComponent<AudioSource>();
+        newAudio.clip = info.clip;
+        newAudio.pitch = (Random.Range(0.8f, 1.2f));
+        newAudio.Play();
+        while(newAudio.isPlaying){
+            yield return null;
+        }
+        Destroy(GoalAudioSource);
+
     }
 
 }
