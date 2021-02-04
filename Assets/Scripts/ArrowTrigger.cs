@@ -24,6 +24,7 @@ public class ArrowTrigger : MonoBehaviour
         if (other.CompareTag("player"))
         {
             other.gameObject.GetComponent<PlayerMovement>().direction = direction;
+            other.gameObject.transform.rotation = Quaternion.LookRotation(direction);
         
         }
     }

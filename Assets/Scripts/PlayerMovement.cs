@@ -14,18 +14,19 @@ public class PlayerMovement : MonoBehaviour
         direction = transform.forward;
     }
 
-    void EarlyUpdate(){
-        direction = transform.forward;
-    }
-
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
         transform.position += speed * Time.deltaTime * direction;
         if (transform.position.y < -10.0f)
         {
             LosePlayer();
         }
+    }
+
+    // this will determine the next iterations direction, done in this way to allow fixedupdate to change direction field
+    void LateUpdate(){
+        direction = transform.forward;
     }
 
     public void LosePlayer()
