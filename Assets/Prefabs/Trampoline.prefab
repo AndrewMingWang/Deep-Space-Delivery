@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c79ba41fb3670174b865b21c26d6d21e, type: 2}
+  - {fileID: 2100000, guid: 942a2c342f8297e46b088dbaab572b19, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576692d7c86e2dc4f943179f255557a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0, g: 0, b: 0, a: 0}
-  PlacedColor: {r: 0, g: 0, b: 0, a: 0}
-  BuildingName: 
+  SelectedColor: {r: 0, g: 1, b: 0.0009315014, a: 0.5254902}
+  PlacedColor: {r: 0, g: 1, b: 0.033422947, a: 1}
+  BuildingName: trampoline
   TileUnder: {fileID: 0}
