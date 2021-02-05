@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1182754478879176482}
   - component: {fileID: 1182754478879176483}
   - component: {fileID: 579988624}
-  - component: {fileID: 5451924263031911972}
+  - component: {fileID: 5741375721209946771}
   m_Layer: 9
   m_Name: Arrow
   m_TagString: Building
@@ -95,7 +95,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 50, y: 1, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5451924263031911972
+--- !u!114 &5741375721209946771
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,13 +104,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1182754478879176481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d15ae5a9a404e0148b0be7972021e7b7, type: 3}
+  m_Script: {fileID: 11500000, guid: cca8bfdf5e3f0d14ebd0260e39f19176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 1, g: 0, b: 0, a: 0.50980395}
-  PlacedColor: {r: 1, g: 0, b: 0, a: 0}
+  SelectedColor: {r: 0, g: 0.69457674, b: 1, a: 0.46666667}
+  PlacedColor: {r: 0, g: 0.7750714, b: 1, a: 1}
   BuildingName: arrow
-  hoveredTile: {fileID: 0}
+  TileUnder: {fileID: 0}
 --- !u!1 &7627097294182573501
 GameObject:
   m_ObjectHideFlags: 0
