@@ -28,7 +28,7 @@ public class GoalTrigger : MonoBehaviour
         if (PlayersReached + PlayersFailed == NUM_PLAYERS)
         {
             MoneyManager moneyManager = GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>();
-            moneyManager.moneyText.text = "";
+            moneyManager.MoneyText.text = "";
             int moneyLeft = moneyManager.GetRemainingMoney();
             float successRate = (PlayersReached * 100.0f / NUM_PLAYERS);
             ResultsPanel.GetComponent<Animator>().SetTrigger("open");

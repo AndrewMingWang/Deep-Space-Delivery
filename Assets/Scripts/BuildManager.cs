@@ -16,6 +16,8 @@ public class BuildManager : MonoBehaviour
     public const string WALL = "wall";
     [HideInInspector]
     public const string ARROW = "arrow";
+    [HideInInspector]
+    public const string HOLDING = "holding";
 
     // THIS IS A HACK TO SETUP THE BUILDINGPREFABS DICTIONARY
     [System.Serializable]

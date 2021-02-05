@@ -7,12 +7,13 @@ public class MoneyManager : MonoBehaviour
 {
     public static MoneyManager Instance;
 
-    public int startingMoney = 100;
-    public Item[] items;
+    public int StartingMoney = 100;
+    public Item[] Items;
 
-    public TMP_Text moneyText;
-    public TMP_Text wallText;
-    public TMP_Text arrowText;
+    public TMP_Text MoneyText;
+    public TMP_Text WallText;
+    public TMP_Text ArrowText;
+    public TMP_Text HoldingText;
 
     private int moneySpent = 0;
 
@@ -29,15 +30,19 @@ public class MoneyManager : MonoBehaviour
     void Start()
     {
         DisplayRemainingMoney();
-        foreach (Item item in items)
+        foreach (Item item in Items)
         {
             if (item.name.Equals(BuildManager.WALL))
             {
-                wallText.text = "Wall: $" + item.price;
+                WallText.text = "Wall: $" + item.price;
             }
             else if (item.name.Equals(BuildManager.ARROW))
             {
-                arrowText.text = "Arrow: $" + item.price;
+                ArrowText.text = "Arrow: $" + item.price;
+            }
+            else if (item.name.Equals(BuildManager.HOLDING))
+            {
+                HoldingText.text = "Holding: $" + item.price;
             }
         }
     }
@@ -50,22 +55,22 @@ public class MoneyManager : MonoBehaviour
 
     private void DisplayRemainingMoney()
     {
-        moneyText.text = "$" + (startingMoney - moneySpent);
-        if (startingMoney > moneySpent)
+        MoneyText.text = "$" + (StartingMoney - moneySpent);
+        if (StartingMoney > moneySpent)
         {
-            moneyText.color = Color.green;
-        } else if (startingMoney < moneySpent)
+            MoneyText.color = Color.green;
+        } else if (StartingMoney < moneySpent)
         {
-            moneyText.color = Color.red;
+            MoneyText.color = Color.red;
         } else
         {
-            moneyText.color = Color.black;
+            MoneyText.color = Color.black;
         }
     }
 
     public void PurchaseItem(string itemName)
     {
-        foreach (Item item in items)
+        foreach (Item item in Items)
         {
             if (itemName.Equals(item.name))
             {
@@ -77,7 +82,7 @@ public class MoneyManager : MonoBehaviour
 
     public void RefundItem(string itemName)
     {
-        foreach (Item item in items)
+        foreach (Item item in Items)
         {
             if (itemName.Equals(item.name))
             {
@@ -89,7 +94,7 @@ public class MoneyManager : MonoBehaviour
 
     public int GetRemainingMoney()
     {
-        return startingMoney - moneySpent;
+        return StartingMoney - moneySpent;
     }
 
     public void ResetMoney()
