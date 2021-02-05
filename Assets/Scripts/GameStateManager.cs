@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameStateManager : MonoBehaviour
 {
+    public static GameStateManager Instance;
 
     public GameObject UserBuildings;
     public GameObject HitchhikerManager;
@@ -19,15 +20,23 @@ public class GameStateManager : MonoBehaviour
     private SpawnPlayers _spawnscript;
 
     public enum State{Plan,Play,Paused}
-    private State _currState;
+    public State CurrState;
 
     public GameObject BuildingPanel;
 
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(Instance);
+        }
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        _currState = State.Plan;
+        CurrState = State.Plan;
         _playButton = PlayButtonObj.GetComponent<Button>();
         _resetButton = ResetButtonObj.GetComponent<Button>();
         _playButton.onClick.AddListener(PlayButtonPressed);
@@ -44,9 +53,9 @@ public class GameStateManager : MonoBehaviour
     }
 
     void PlayButtonPressed(){
-        switch(_currState){
+        switch(CurrState){
         case State.Plan:
-            _currState = State.Play;
+            CurrState = State.Play;
             // _resetButton.interactable = true;
 
             // SAVING USERBUILDING TRANSFORMS
@@ -63,12 +72,12 @@ public class GameStateManager : MonoBehaviour
 
             break;
         case State.Play:
-            _currState = State.Paused;
+            CurrState = State.Paused;
             PlayButtonObj.GetComponentInChildren<Text>().text = "Play";
             Time.timeScale = 0f;
             break;
         case State.Paused:
-            _currState = State.Play;
+            CurrState = State.Play;
             PlayButtonObj.GetComponentInChildren<Text>().text = "Pause";
             Time.timeScale = 1.0f;
             break;
@@ -76,7 +85,7 @@ public class GameStateManager : MonoBehaviour
     }
 
     void ResetButtonPressed(){
-        switch (_currState){
+        switch (CurrState){
         case State.Plan:
             GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>().ResetMoney();
             foreach (Transform child in UserBuildings.transform){
@@ -85,7 +94,7 @@ public class GameStateManager : MonoBehaviour
             break;
         default:
             Time.timeScale = 1.0f;
-            _currState = State.Plan;
+            CurrState = State.Plan;
             int i = 0;
             foreach (Transform child in UserBuildings.transform){
                 child.position = _allChildrenTransformsPositions[i];

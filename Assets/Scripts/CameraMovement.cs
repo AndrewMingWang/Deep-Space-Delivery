@@ -63,7 +63,7 @@ public class CameraMovement : MonoBehaviour
     {
         if (_inRotation == false)
         {
-            if (( Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E)) && (BuildManager.isBuilding == false)) {
+            if (( Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E)) && (BuildManager.BuildingSelected == false)) {
                 _rotateFrom = SceneObjects.transform.rotation;
                 _rotateToObj = new GameObject();
                 _rotateToObj.transform.position = new Vector3(SceneObjects.transform.position.x, SceneObjects.transform.position.y, SceneObjects.transform.position.z);

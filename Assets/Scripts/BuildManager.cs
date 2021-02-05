@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
-    public static BuildManager instance;
+    public static BuildManager Instance;
 
-    public static bool isBuilding = false;
+    public static bool BuildingSelected = false;
 
-    public Building currBuilding;
+    public Building CurrBuilding;
 
     // "wall" - Wall prefab
     // "arrow" - Arrow prefab
@@ -29,11 +29,11 @@ public class BuildManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null)
+        if (Instance != null)
         {
-            Destroy(instance);
+            Destroy(Instance);
         }
-        instance = this;
+        Instance = this;
 
         foreach (BuildPrefab bp in BuildPrefabsList)
         {
@@ -45,13 +45,13 @@ public class BuildManager : MonoBehaviour
     {
         TileManager.Instance.UnhoverAllTiles();
         // If there is a current building, place it and unhover any tile it is highlighting
-        if (currBuilding != null)
+        if (CurrBuilding != null)
         {
             // Place current building and set Tile its hovering over as occupied
-            currBuilding.setColorPlaced();
-            currBuilding.HoveringTile.OccupyingBuilding = currBuilding.gameObject;
-            TileManager.Instance.SetTileOccupied(currBuilding.HoveringTile);
-            currBuilding = null;
+            CurrBuilding.setColorPlaced();
+            CurrBuilding.HoveringTile.OccupyingBuilding = CurrBuilding.gameObject;
+            TileManager.Instance.SetTileOccupied(CurrBuilding.HoveringTile);
+            CurrBuilding = null;
         }
 
         // Instantiate the new building
@@ -70,7 +70,7 @@ public class BuildManager : MonoBehaviour
         randomTile.SetHoverColor();
 
         // Set current building
-        currBuilding = newBuilding;
+        CurrBuilding = newBuilding;
 
         // Update money for the tile
         MoneyManager.Instance.PurchaseItem(buildingString);
@@ -79,110 +79,117 @@ public class BuildManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        if (MouseRaycast("Foundation", out hit))
+        if (GameStateManager.Instance.CurrState == GameStateManager.State.Plan)
         {
-            if (currBuilding != null)
+            RaycastHit hit;
+            if (MouseRaycast("Foundation", out hit))
             {
-                Tile hitTile = hit.transform.GetComponent<Tile>();
-                if (hitTile.OccupyingBuilding == null)
+                if (CurrBuilding != null)
                 {
-                    if (hitTile.Hovered == false)
+                    Tile hitTile = hit.transform.GetComponent<Tile>();
+                    if (hitTile.OccupyingBuilding == null)
                     {
-                        TileManager.Instance.UnhoverAllTiles();
-                        hitTile.SetHoverColor();
-                        hitTile.Hovered = true;
+                        if (hitTile.Hovered == false)
+                        {
+                            TileManager.Instance.UnhoverAllTiles();
+                            hitTile.SetHoverColor();
+                            hitTile.Hovered = true;
+                        }
+
+                        CurrBuilding.HoveringTile = hitTile;
+                        CurrBuilding.transform.position = hit.transform.position + CurrBuilding.transform.localScale.y / 2 * CurrBuilding.transform.up;
                     }
-
-                    currBuilding.HoveringTile = hitTile;
-                    currBuilding.transform.position = hit.transform.position + currBuilding.transform.localScale.y / 2 * currBuilding.transform.up;
-                }  
+                }
             }
-        }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (MouseRaycast("Building", out hit))
+            if (Input.GetMouseButtonDown(0))
             {
-                if (currBuilding != null)
+                if (MouseRaycast("Building", out hit))
                 {
-                    if (hit.transform.GetComponent<Building>() == currBuilding)
+                    if (CurrBuilding != null)
                     {
-                        TileManager.Instance.UnhoverAllTiles();
+                        if (hit.transform.GetComponent<Building>() == CurrBuilding)
+                        {
+                            TileManager.Instance.UnhoverAllTiles();
 
-                        // Place current building and set Tile its hovering over as occupied
-                        currBuilding.setColorPlaced();
-                        currBuilding.HoveringTile.OccupyingBuilding = currBuilding.gameObject;
-                        TileManager.Instance.SetTileOccupied(currBuilding.HoveringTile);
+                            // Place current building and set Tile its hovering over as occupied
+                            CurrBuilding.setColorPlaced();
+                            CurrBuilding.HoveringTile.OccupyingBuilding = CurrBuilding.gameObject;
+                            TileManager.Instance.SetTileOccupied(CurrBuilding.HoveringTile);
 
-                        currBuilding = null;
+                            CurrBuilding = null;
+                        }
+                        else
+                        {
+                            TileManager.Instance.UnhoverAllTiles();
+
+                            // Place current building and set Tile its hovering over as occupied
+                            CurrBuilding.setColorPlaced();
+                            CurrBuilding.HoveringTile.OccupyingBuilding = CurrBuilding.gameObject;
+                            TileManager.Instance.SetTileOccupied(CurrBuilding.HoveringTile);
+
+
+                            // Pickup other building we've selected
+                            CurrBuilding = hit.transform.GetComponent<Building>();
+                            CurrBuilding.HoveringTile.OccupyingBuilding = null;
+                            CurrBuilding.HoveringTile.SetHoverColor();
+                            CurrBuilding.setColorSelected();
+                            TileManager.Instance.SetTileUnoccupied(CurrBuilding.HoveringTile);
+                        }
                     }
                     else
                     {
-                        TileManager.Instance.UnhoverAllTiles();
-
-                        // Place current building and set Tile its hovering over as occupied
-                        currBuilding.setColorPlaced();
-                        currBuilding.HoveringTile.OccupyingBuilding = currBuilding.gameObject;
-                        TileManager.Instance.SetTileOccupied(currBuilding.HoveringTile);
-
-                        // Pickup other building we've selected
-                        currBuilding = hit.transform.GetComponent<Building>();
-                        currBuilding.HoveringTile.OccupyingBuilding = null;
-                        currBuilding.HoveringTile.SetHoverColor();
-                        currBuilding.setColorSelected();
-                        TileManager.Instance.SetTileUnoccupied(currBuilding.HoveringTile);
+                        // Pickup building
+                        CurrBuilding = hit.transform.GetComponent<Building>();
+                        CurrBuilding.GetComponent<Building>().HoveringTile.OccupyingBuilding = null;
+                        CurrBuilding.GetComponent<Building>().setColorSelected();
+                        TileManager.Instance.SetTileUnoccupied(CurrBuilding.HoveringTile);
                     }
                 }
-                else
-                {
-                    // Pickup building
-                    currBuilding = hit.transform.GetComponent<Building>();
-                    currBuilding.GetComponent<Building>().HoveringTile.OccupyingBuilding = null;
-                    currBuilding.GetComponent<Building>().setColorSelected();
-                    TileManager.Instance.SetTileUnoccupied(currBuilding.HoveringTile);
-                }
             }
-        }
 
-        // Handle additional options for specifc buildings bound to the q and e keys
-        if (currBuilding != null)
-        {
-            switch (currBuilding.GetComponent<Building>().BuildingName)
+            // Handle additional options for specifc buildings bound to the q and e keys
+            if (CurrBuilding != null)
             {
-                case WALL:
-                    if (Input.GetKey(KeyCode.E))
-                    {
-                        Vector3 currScale = currBuilding.transform.localScale;
-                        Vector3 currScaleMax = new Vector3(currScale.x, 5f, currScale.z);
-                        currBuilding.transform.localScale = Vector3.Min(currScale + new Vector3(0, 0.8f * Time.deltaTime, 0), currScaleMax);
-                        
-                    }
-                    else if (Input.GetKey(KeyCode.Q))
-                    {
-                        Vector3 currScale = currBuilding.transform.localScale;
-                        Vector3 currScaleMin = new Vector3(currScale.x, 0.1f, currScale.z);
-                        currBuilding.transform.localScale = Vector3.Max(currScale - new Vector3(0, 0.8f * Time.deltaTime, 0), currScaleMin);
-                    }
-                    break;
-                case ARROW:
-                    if (Input.GetKey(KeyCode.E))
-                    {
-                        currBuilding.transform.RotateAround(transform.position, transform.up, Time.deltaTime * 90f);
-                    }
-                    else if (Input.GetKey(KeyCode.Q))
-                    {
-                        currBuilding.transform.RotateAround(transform.position, transform.up, -Time.deltaTime * 90f);
-                    }
-                    break;
+                switch (CurrBuilding.GetComponent<Building>().BuildingName)
+                {
+                    case WALL:
+                        if (Input.GetKey(KeyCode.E))
+                        {
+                            Vector3 currScale = CurrBuilding.transform.localScale;
+                            Vector3 currScaleMax = new Vector3(currScale.x, 5f, currScale.z);
+                            CurrBuilding.transform.localScale = Vector3.Min(currScale + new Vector3(0, 0.8f * Time.deltaTime, 0), currScaleMax);
+
+                        }
+                        else if (Input.GetKey(KeyCode.Q))
+                        {
+                            Vector3 currScale = CurrBuilding.transform.localScale;
+                            Vector3 currScaleMin = new Vector3(currScale.x, 0.1f, currScale.z);
+                            CurrBuilding.transform.localScale = Vector3.Max(currScale - new Vector3(0, 0.8f * Time.deltaTime, 0), currScaleMin);
+                        }
+                        break;
+                    case ARROW:
+                        if (Input.GetKey(KeyCode.E))
+                        {
+                            CurrBuilding.transform.RotateAround(transform.position, transform.up, Time.deltaTime * 90f);
+                        }
+                        else if (Input.GetKey(KeyCode.Q))
+                        {
+                            CurrBuilding.transform.RotateAround(transform.position, transform.up, -Time.deltaTime * 90f);
+                        }
+                        break;
+                }
+
             }
 
-        }
-
-        if (currBuilding != null){
-            isBuilding = true;
-        } else {
-            isBuilding = false;
+            if (CurrBuilding != null)
+            {
+                BuildingSelected = true;
+            }
+            else
+            {
+                BuildingSelected = false;
+            }
         }
     }
 
