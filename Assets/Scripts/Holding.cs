@@ -57,6 +57,7 @@ public class Holding : Building
 
         if (HeldPlayers.Count > ThresholdNumHeldPlayers)
         {
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
             foreach (GameObject player in HeldPlayers)
             {
                 player.GetComponent<PlayerMovement>().speed = 2f;
