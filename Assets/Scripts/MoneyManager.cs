@@ -14,7 +14,7 @@ public class MoneyManager : MonoBehaviour
     public TMP_Text WallText;
     public TMP_Text ArrowText;
     public TMP_Text HoldingText;
-
+    public TMP_Text TrampolineText;
     private int moneySpent = 0;
 
     private void Awake()
@@ -43,6 +43,10 @@ public class MoneyManager : MonoBehaviour
             else if (item.name.Equals(BuildManager.HOLDING))
             {
                 HoldingText.text = "Holding: $" + item.price;
+            }
+            else if (item.name.Equals(BuildManager.TRAMPOLINE))
+            {
+                TrampolineText.text = "Trampoline: $" + item.price;
             }
         }
     }

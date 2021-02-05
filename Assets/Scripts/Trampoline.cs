@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trampoline : MonoBehaviour
+public class Trampoline : Building
 {
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,6 @@ public class Trampoline : MonoBehaviour
         if (other.CompareTag("player"))
         {
             Vector3 jumpDirection = (260*Vector3.up);
-            Debug.Log(jumpDirection);
             other.gameObject.GetComponent<Rigidbody>().AddRelativeForce(jumpDirection);
         }
     }
