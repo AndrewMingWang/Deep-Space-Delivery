@@ -6038,11 +6038,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e15010a032f77a843bf6094714f11a44, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -8723,6 +8723,7 @@ MonoBehaviour:
   PlayButtonObj: {fileID: 1548760388}
   ResetButtonObj: {fileID: 1532623352}
   Spawn: {fileID: 1092006415}
+  CurrState: 0
   BuildingPanel: {fileID: 2008348802}
 --- !u!4 &1500547367 stripped
 Transform:
@@ -13041,7 +13042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f95a04f03f98f8458c9304099d1fddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currBuilding: {fileID: 0}
+  CurrBuilding: {fileID: 0}
   BuildPrefabsList:
   - name: arrow
     prefab: {fileID: 1182754478879176481, guid: ec455ff973f238e4094f4661e78b0bf4,
