@@ -48,9 +48,9 @@ public class BuildManager : MonoBehaviour
         if (CurrBuilding != null)
         {
             // Place current building and set Tile its hovering over as occupied
-            CurrBuilding.setColorPlaced();
-            CurrBuilding.HoveringTile.OccupyingBuilding = CurrBuilding.gameObject;
-            TileManager.Instance.SetTileOccupied(CurrBuilding.HoveringTile);
+            CurrBuilding.PlaceBuilding();
+            CurrBuilding.TileUnder.OccupyingBuilding = CurrBuilding.gameObject;
+            TileManager.Instance.SetTileOccupied(CurrBuilding.TileUnder);
             CurrBuilding = null;
         }
 
@@ -66,7 +66,7 @@ public class BuildManager : MonoBehaviour
         newBuilding.transform.position = randomTile.transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
 
         // Set building to be hovering over the tile
-        newBuilding.HoveringTile = randomTile;
+        newBuilding.TileUnder = randomTile;
         randomTile.SetHoverColor();
 
         // Set current building
@@ -96,7 +96,7 @@ public class BuildManager : MonoBehaviour
                             hitTile.Hovered = true;
                         }
 
-                        CurrBuilding.HoveringTile = hitTile;
+                        CurrBuilding.TileUnder = hitTile;
                         CurrBuilding.transform.position = hit.transform.position + CurrBuilding.transform.localScale.y / 2 * CurrBuilding.transform.up;
                     }
                 }
@@ -113,9 +113,9 @@ public class BuildManager : MonoBehaviour
                             TileManager.Instance.UnhoverAllTiles();
 
                             // Place current building and set Tile its hovering over as occupied
-                            CurrBuilding.setColorPlaced();
-                            CurrBuilding.HoveringTile.OccupyingBuilding = CurrBuilding.gameObject;
-                            TileManager.Instance.SetTileOccupied(CurrBuilding.HoveringTile);
+                            CurrBuilding.TileUnder.OccupyingBuilding = CurrBuilding.gameObject;
+                            TileManager.Instance.SetTileOccupied(CurrBuilding.TileUnder);
+                            CurrBuilding.PlaceBuilding();
 
                             CurrBuilding = null;
                         }
@@ -124,26 +124,26 @@ public class BuildManager : MonoBehaviour
                             TileManager.Instance.UnhoverAllTiles();
 
                             // Place current building and set Tile its hovering over as occupied
-                            CurrBuilding.setColorPlaced();
-                            CurrBuilding.HoveringTile.OccupyingBuilding = CurrBuilding.gameObject;
-                            TileManager.Instance.SetTileOccupied(CurrBuilding.HoveringTile);
+                            CurrBuilding.TileUnder.OccupyingBuilding = CurrBuilding.gameObject;
+                            TileManager.Instance.SetTileOccupied(CurrBuilding.TileUnder);
+                            CurrBuilding.PlaceBuilding();
 
 
                             // Pickup other building we've selected
                             CurrBuilding = hit.transform.GetComponent<Building>();
-                            CurrBuilding.HoveringTile.OccupyingBuilding = null;
-                            CurrBuilding.HoveringTile.SetHoverColor();
-                            CurrBuilding.setColorSelected();
-                            TileManager.Instance.SetTileUnoccupied(CurrBuilding.HoveringTile);
+                            CurrBuilding.TileUnder.OccupyingBuilding = null;
+                            CurrBuilding.TileUnder.SetHoverColor();
+                            TileManager.Instance.SetTileUnoccupied(CurrBuilding.TileUnder);
+                            CurrBuilding.PickUpBuilding();
                         }
                     }
                     else
                     {
                         // Pickup building
                         CurrBuilding = hit.transform.GetComponent<Building>();
-                        CurrBuilding.GetComponent<Building>().HoveringTile.OccupyingBuilding = null;
-                        CurrBuilding.GetComponent<Building>().setColorSelected();
-                        TileManager.Instance.SetTileUnoccupied(CurrBuilding.HoveringTile);
+                        CurrBuilding.GetComponent<Building>().TileUnder.OccupyingBuilding = null;
+                        TileManager.Instance.SetTileUnoccupied(CurrBuilding.TileUnder);
+                        CurrBuilding.GetComponent<Building>().PickUpBuilding();
                     }
                 }
             }
@@ -157,14 +157,14 @@ public class BuildManager : MonoBehaviour
                         if (Input.GetKey(KeyCode.E))
                         {
                             Vector3 currScale = CurrBuilding.transform.localScale;
-                            Vector3 currScaleMax = new Vector3(currScale.x, 5f, currScale.z);
+                            Vector3 currScaleMax = new Vector3(currScale.x, 3f, currScale.z);
                             CurrBuilding.transform.localScale = Vector3.Min(currScale + new Vector3(0, 0.8f * Time.deltaTime, 0), currScaleMax);
 
                         }
                         else if (Input.GetKey(KeyCode.Q))
                         {
                             Vector3 currScale = CurrBuilding.transform.localScale;
-                            Vector3 currScaleMin = new Vector3(currScale.x, 0.1f, currScale.z);
+                            Vector3 currScaleMin = new Vector3(currScale.x, 0.4f, currScale.z);
                             CurrBuilding.transform.localScale = Vector3.Max(currScale - new Vector3(0, 0.8f * Time.deltaTime, 0), currScaleMin);
                         }
                         break;

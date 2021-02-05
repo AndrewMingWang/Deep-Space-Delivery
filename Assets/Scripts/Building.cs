@@ -7,7 +7,7 @@ public class Building : MonoBehaviour
     public Color SelectedColor;
     public Color PlacedColor;
     public string BuildingName;
-    public Tile HoveringTile;
+    public Tile TileUnder;
     
     private MeshRenderer meshRenderer;
 
@@ -17,7 +17,7 @@ public class Building : MonoBehaviour
         meshRenderer.material.SetColor("_Color", SelectedColor);
     }
 
-    public void setColorSelected()
+    public void setColorPickedUp()
     {
         meshRenderer.material.SetColor("_Color", SelectedColor);
     }
@@ -25,5 +25,15 @@ public class Building : MonoBehaviour
     public void setColorPlaced()
     {
         meshRenderer.material.SetColor("_Color", PlacedColor);
+    }
+
+    public virtual void PlaceBuilding()
+    {
+        setColorPlaced();
+    }
+
+    public virtual void PickUpBuilding()
+    {
+        setColorPickedUp();
     }
 }

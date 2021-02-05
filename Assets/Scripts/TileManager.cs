@@ -6,14 +6,15 @@ public class TileManager : MonoBehaviour
 {
     public static TileManager Instance;
 
-    public Tile[] AllTiles;
+    public Tile[] EnvironmentTiles;
+    public List<Tile> AllTiles;
     public List<Tile> UnoccupiedTiles;
     public List<Tile> OccupiedTiles;
 
     private void Awake()
     {
-        AllTiles = transform.GetComponentsInChildren<Tile>();
-        foreach (Tile tile in AllTiles)
+        EnvironmentTiles = transform.GetComponentsInChildren<Tile>();
+        foreach (Tile tile in EnvironmentTiles)
         {
             if (tile.OccupyingBuilding == null)
             {
@@ -23,6 +24,7 @@ public class TileManager : MonoBehaviour
             {
                 OccupiedTiles.Add(tile);
             }
+            AllTiles.Add(tile);
         }
     }
 
