@@ -106,8 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827c9663a5cecae4385092bb654ffd6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 1, g: 0.7709804, b: 0.23113209, a: 0.08627451}
-  PlacedColor: {r: 1, g: 0.7709804, b: 0.23113209, a: 0.25490198}
+  SelectedColor: {r: 1, g: 0.7709804, b: 0.23113209, a: 0.25490198}
+  PlacedColor: {r: 1, g: 0.7709804, b: 0.23113209, a: 0.49803922}
   BuildingName: holding
   TileUnder: {fileID: 0}
   NumHeldThreshhold: 10
