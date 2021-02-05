@@ -162,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 3808054548679558630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.644, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.25, z: 0.9}
+  m_LocalScale: {x: 0.9, y: 0.3, z: 0.9}
   m_Children:
   - {fileID: 931356417321581909}
   m_Father: {fileID: 0}
@@ -247,6 +247,7 @@ MonoBehaviour:
   ThresholdNumHeldPlayers: 4
   HeldPlayers: []
   ThresholdText: {fileID: 8179380224965530975}
+  stopped: 0
 --- !u!1 &8065795798811509041
 GameObject:
   m_ObjectHideFlags: 0
