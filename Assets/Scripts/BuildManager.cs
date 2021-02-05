@@ -180,6 +180,20 @@ public class BuildManager : MonoBehaviour
                             CurrBuilding.transform.RotateAround(transform.position, transform.up, -Time.deltaTime * 90f);
                         }
                         break;
+                    case HOLDING:
+                        if (Input.GetKey(KeyCode.E))
+                        {
+                            Vector3 currScale = CurrBuilding.transform.localScale;
+                            Vector3 currScaleMax = new Vector3(currScale.x, 3f, currScale.z);
+                            CurrBuilding.transform.localScale = Vector3.Min(currScale + new Vector3(0, 0.8f * Time.deltaTime, 0), currScaleMax);
+                        }
+                        else if (Input.GetKey(KeyCode.Q))
+                        {
+                            Vector3 currScale = CurrBuilding.transform.localScale;
+                            Vector3 currScaleMin = new Vector3(currScale.x, 0.4f, currScale.z);
+                            CurrBuilding.transform.localScale = Vector3.Max(currScale - new Vector3(0, 0.8f * Time.deltaTime, 0), currScaleMin);
+                        }
+                        break;
                 }
 
             }

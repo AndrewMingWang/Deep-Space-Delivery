@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Holding : Building
 {
-    public int NumHeldThreshhold = 10;
+    public float scaleThreshold = 0.11f;
     public List<GameObject> HeldPlayers = new List<GameObject>();
 
     private void OnTriggerEnter(Collider other)
@@ -13,9 +13,14 @@ public class Holding : Building
         {
             other.gameObject.GetComponent<PlayerMovement>().speed = 0.2f;
             HeldPlayers.Add(other.gameObject);
+
+            Vector3 currScale = transform.localScale;
+            transform.localScale = Vector3.Max(currScale - new Vector3(0, 0.05f, 0), Vector3.zero);
+            Vector3 currPosition = transform.localPosition;
+            transform.localPosition = new Vector3(currPosition.x, currPosition.y - currScale.y / 2 + transform.localScale.y / 2, currPosition.z);
         }
 
-        if (HeldPlayers.Count > NumHeldThreshhold)
+        if (transform.localScale.y < scaleThreshold)
         {
             foreach (GameObject player in HeldPlayers)
             {
@@ -32,6 +37,11 @@ public class Holding : Building
         {
             other.gameObject.GetComponent<PlayerMovement>().speed = 2f;
             HeldPlayers.Remove(other.gameObject);
+
+            Vector3 currScale = transform.localScale;
+            transform.localScale = currScale + new Vector3(0, 0.05f, 0);
+            Vector3 currPosition = transform.localPosition;
+            transform.localPosition = new Vector3(currPosition.x, currPosition.y - currScale.y / 2 + transform.localScale.y / 2, currPosition.z);
         }
     }
 }
