@@ -215,4 +215,16 @@ public class BuildManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         return Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask);
     }
+
+    public void CancelBuilding()
+    {
+        if (CurrBuilding != null)
+        {
+            TileManager.Instance.UnhoverAllTiles();
+
+            Destroy(CurrBuilding.gameObject);
+
+            CurrBuilding = null;
+        }
+    }
 }

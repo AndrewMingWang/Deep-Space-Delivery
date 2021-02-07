@@ -69,9 +69,9 @@ public class CameraMovement : MonoBehaviour
                 _rotateToObj.transform.position = new Vector3(SceneObjects.transform.position.x, SceneObjects.transform.position.y, SceneObjects.transform.position.z);
                 _rotateToObj.transform.rotation = new Quaternion(_rotateFrom.x, _rotateFrom.y, _rotateFrom.z, _rotateFrom.w);
                 if (Input.GetKeyDown(KeyCode.Q)){
-                    _rotateToObj.transform.Rotate(0,-90, 0);
+                    _rotateToObj.transform.Rotate(0,-45, 0);
                 } else {
-                    _rotateToObj.transform.Rotate(0,90, 0);
+                    _rotateToObj.transform.Rotate(0,45, 0);
                 }
                 _rotateTo = _rotateToObj.transform.rotation;
 
