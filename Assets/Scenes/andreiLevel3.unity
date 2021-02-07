@@ -1647,7 +1647,7 @@ MonoBehaviour:
   - name: trampoline
     price: 3
   MoneyText: {fileID: 1950693487}
-  WallText: {fileID: 0}
+  WallText: {fileID: 661996491}
   ArrowText: {fileID: 2069477373}
   HoldingText: {fileID: 1296649346}
   TrampolineText: {fileID: 790303058}
