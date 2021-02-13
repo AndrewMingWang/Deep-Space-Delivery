@@ -62,7 +62,7 @@ public class GameStateManager : MonoBehaviour
             // SAVING USERBUILDING TRANSFORMS
             _allChildrenTransformsPositions.Clear();
             foreach (Transform child in UserBuildings.transform){
-                _allChildrenTransformsPositions.Add(child.position);
+                _allChildrenTransformsPositions.Add(child.localPosition);
             }
              
             PlayButtonObj.GetComponentInChildren<Text>().text = "Pause";
@@ -102,7 +102,7 @@ public class GameStateManager : MonoBehaviour
             CurrState = State.Plan;
             int i = 0;
             foreach (Transform child in UserBuildings.transform){
-                child.position = _allChildrenTransformsPositions[i];
+                child.localPosition = _allChildrenTransformsPositions[i];
                 i++;
             }
             foreach (Transform child in HitchhikerManager.transform){
