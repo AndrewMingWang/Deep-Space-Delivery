@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameStateManager : MonoBehaviour
@@ -85,6 +86,10 @@ public class GameStateManager : MonoBehaviour
     }
 
     void ResetButtonPressed(){
+        if(GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().IsLevelDone())
+        {
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        }
         switch (CurrState){
         case State.Plan:
             GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>().ResetMoney();

@@ -25,7 +25,7 @@ public class GoalTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayersReached + PlayersFailed == NUM_PLAYERS)
+        if (IsLevelDone())
         {
             MoneyManager moneyManager = GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>();
             moneyManager.MoneyText.text = "";
@@ -58,8 +58,6 @@ public class GoalTrigger : MonoBehaviour
             {
                 Verdict.text = "D";
             }
-            PlayersReached = 0;
-            PlayersFailed = 0;
         }
     }
 
@@ -71,6 +69,11 @@ public class GoalTrigger : MonoBehaviour
             PlayersReached += 1;
             other.gameObject.SetActive(false);
         }
+    }
+
+    public bool IsLevelDone()
+    {
+        return PlayersReached + PlayersFailed == NUM_PLAYERS;
     }
 
     public IEnumerator ManageAudioSource(AudioSource info, GameObject goal)
