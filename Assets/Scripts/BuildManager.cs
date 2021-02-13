@@ -59,7 +59,7 @@ public class BuildManager : MonoBehaviour
         }
 
         // Instantiate the new building
-        GameObject newBuildingGO = Instantiate(BuildingPrefabs[buildingString], transform.position, Quaternion.identity) as GameObject;
+        GameObject newBuildingGO = Instantiate(BuildingPrefabs[buildingString], transform.position, this.transform.rotation) as GameObject;
         newBuildingGO.transform.parent = transform;
         Building newBuilding = newBuildingGO.GetComponent<Building>();
 
