@@ -84,4 +84,10 @@ public class LevelSelectUI : BaseUI
         LoadLevel(levelOrderNumber);
     }
 
+    public void QuitGame()
+    {
+        Debug.Log("QUIT GAME");
+        Application.Quit();
+    }
+
 }

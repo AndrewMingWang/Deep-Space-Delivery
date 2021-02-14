@@ -25,6 +25,7 @@ public class BaseUI : MonoBehaviour
 
     protected void LoadLevel(int levelNumber)
     {
+        AudioManager.Play(AudioManager.MUSIC_WORLD1);
         GoToScene("Level" + levelNumber);
     }
 
