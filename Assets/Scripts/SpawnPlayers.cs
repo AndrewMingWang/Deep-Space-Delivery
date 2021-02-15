@@ -25,7 +25,7 @@ public class SpawnPlayers : MonoBehaviour
         for (int i = 0; i < GoalTrigger.NUM_PLAYERS; i += 1)
         {
             Instantiate(playerPrefab, transform.position, transform.rotation, hitchhikerManager.transform);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
