@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 2.0f;
     public Vector3 direction;
     public Animator Animator;
+    public bool WasGroundedLastFrame = false;
+    public bool IsGroundedThisFrame = true;
 
     private float _distToGround;
 
@@ -21,8 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsGrounded()
     {
-        Debug.DrawLine(transform.position, transform.position - Vector3.up * (_distToGround + 0.01f), Color.red, 1.0f);
-        return Physics.Raycast(transform.position, -Vector3.up, _distToGround + 0.01f);
+        Debug.DrawLine(GetComponent<Collider>().bounds.center, GetComponent<Collider>().bounds.center - Vector3.up * (_distToGround + 0.05f), Color.red, 1.0f);
+        return Physics.Raycast(GetComponent<Collider>().bounds.center, -Vector3.up, _distToGround + 0.05f);
     }
 
     // Update is called once per frame
@@ -34,13 +36,21 @@ public class PlayerMovement : MonoBehaviour
             LosePlayer();
         }
 
-        if (Animator.GetBool("isAirborne") && GetComponent<Rigidbody>().velocity.y < 0)
+        Debug.Log(IsGrounded());
+        IsGroundedThisFrame = IsGrounded();
+        
+        if (WasGroundedLastFrame && !IsGroundedThisFrame)
         {
-            if (IsGrounded())
-            {
-                Animator.SetBool("isAirborne", false);
-            }
+            Debug.Log("airborne");
+            Animator.SetBool("isAirborne", true);
+            Animator.ResetTrigger("jump");
+        } else if (!WasGroundedLastFrame && IsGroundedThisFrame && GetComponent<Rigidbody>().velocity.y < 0)
+        {
+            Debug.Log("landed");
+            Animator.SetBool("isAirborne", false);
         }
+
+        WasGroundedLastFrame = IsGroundedThisFrame;
     }
 
     // this will determine the next iterations direction, done in this way to allow fixedupdate to change direction field

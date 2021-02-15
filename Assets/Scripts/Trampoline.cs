@@ -11,7 +11,8 @@ public class Trampoline : Building
             other.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(currVelocity.x, 0, currVelocity.z);
             Vector3 jumpDirection = (260*Vector3.up);
             other.gameObject.GetComponent<Rigidbody>().AddRelativeForce(jumpDirection);
-            other.GetComponent<PlayerMovement>().Animator.SetBool("isAirborne", true);
+            other.GetComponent<PlayerMovement>().Animator.SetTrigger("jump");
+
         }
     }
 }
