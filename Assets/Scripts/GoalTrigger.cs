@@ -6,7 +6,7 @@ using UnityEngine;
 public class GoalTrigger : MonoBehaviour
 {
 
-    public static readonly int NUM_PLAYERS = 20;
+    public static readonly int NUM_PLAYERS = 1;
 
     public GameObject ResultsPanel;
     public TMP_Text SuccessRate;

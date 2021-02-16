@@ -93,7 +93,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.05, y: 1, z: 1.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5524353268607556741
 MonoBehaviour:
@@ -121,3 +121,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.18039216, g: 0.18039216, b: 0.18039216, a: 0}
   HoverColor: {r: 1, g: 0.93258524, b: 0.0047169924, a: 0}
+  Hovered: 0
+  OccupyingBuilding: {fileID: 0}

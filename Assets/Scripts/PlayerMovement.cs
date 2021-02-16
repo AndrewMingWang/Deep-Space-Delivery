@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public bool IsStopped = false;
 
     private float _distToGround;
+    private float _radius;
 
     // Start is called before the first frame update
     void Start()
@@ -21,16 +22,18 @@ public class PlayerMovement : MonoBehaviour
         direction = transform.forward;
         Animator = GetComponent<Animator>();
         _distToGround = GetComponent<Collider>().bounds.extents.y;
+        _radius = GetComponent<CapsuleCollider>().radius;
+        
     }
 
     public bool IsGrounded()
     {
-        // Debug.DrawLine(GetComponent<Collider>().bounds.center, GetComponent<Collider>().bounds.center - Vector3.up * (_distToGround + 0.05f), Color.red, 1.0f);
-        return Physics.Raycast(GetComponent<Collider>().bounds.center, -Vector3.up, _distToGround + 0.05f);
+        Debug.DrawLine(GetComponent<Collider>().bounds.center, GetComponent<Collider>().bounds.center - Vector3.up * (_distToGround + 0.2f), Color.red, 300f);
+        return Physics.Raycast(GetComponent<Collider>().bounds.center, -Vector3.up, _distToGround + 0.2f);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!IsStopped)
         {
@@ -46,10 +49,11 @@ public class PlayerMovement : MonoBehaviour
         
         if (WasGroundedLastFrame && !IsGroundedThisFrame)
         {
+            //Debug.Log("Airborne");
             Animator.SetBool("isAirborne", true);
-            Animator.ResetTrigger("jump");
-        } else if (!WasGroundedLastFrame && IsGroundedThisFrame && GetComponent<Rigidbody>().velocity.y < 0)
+        } else if (!WasGroundedLastFrame && IsGroundedThisFrame)
         {
+            //Debug.Log("Landed");
             Animator.SetBool("isAirborne", false);
         }
 
