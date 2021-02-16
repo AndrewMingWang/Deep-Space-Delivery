@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ArrowTrigger : MonoBehaviour
 {
+    public List<int> seen = new List<int>();
 
     public Vector3 direction;
 
@@ -23,10 +24,23 @@ public class ArrowTrigger : MonoBehaviour
     {
         if (other.CompareTag("player"))
         {
-            other.gameObject.GetComponent<PlayerMovement>().direction = direction;
-            other.gameObject.transform.rotation = Quaternion.LookRotation(direction);
-        
+            if (!seen.Contains(other.gameObject.GetInstanceID()))
+            {
+                seen.Add(other.gameObject.GetInstanceID());
+                Debug.Log(direction);
+                other.gameObject.GetComponent<PlayerMovement>().direction = direction;
+                other.gameObject.GetComponent<PlayerMovement>().StopPlayer();
+                other.gameObject.GetComponent<PlayerMovement>().Animator.SetTrigger("stop");
+
+            }
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("player"))
+        {
+            seen.Remove(other.gameObject.GetInstanceID());
+        }
+    }
 }
