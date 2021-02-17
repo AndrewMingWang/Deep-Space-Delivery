@@ -4,43 +4,33 @@ using UnityEngine;
 
 public class ArrowTrigger : MonoBehaviour
 {
-    public List<int> seen = new List<int>();
-
-    public Vector3 direction;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        direction = transform.parent.transform.forward;
-    }
+    [Header("Info")]
+    public List<int> Seen = new List<int>();
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("player"))
         {
-            if (!seen.Contains(other.gameObject.GetInstanceID()))
+            if (!Seen.Contains(other.gameObject.GetInstanceID()))
             {
-                seen.Add(other.gameObject.GetInstanceID());
-                Debug.Log(direction);
-                other.gameObject.GetComponent<PlayerMovement>().direction = direction;
-                other.gameObject.GetComponent<PlayerMovement>().StopPlayer();
-                other.gameObject.GetComponent<PlayerMovement>().Animator.SetTrigger("stop");
+                Seen.Add(other.gameObject.GetInstanceID());
+
+                // Set unit movement direction
+                other.gameObject.GetComponent<UnitMovement>().TargetDirection = transform.parent.forward;
+
+                // Stop and Animate unit
+                other.gameObject.GetComponent<UnitMovement>().StopPlayer();
+                other.gameObject.GetComponent<UnitMovement>().Animator.SetTrigger("stop");
 
             }
         }
     }
-
+     
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("player"))
         {
-            seen.Remove(other.gameObject.GetInstanceID());
+            Seen.Remove(other.gameObject.GetInstanceID());
         }
     }
 }

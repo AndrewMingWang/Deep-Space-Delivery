@@ -21,7 +21,7 @@ public class WaterTrigger : MonoBehaviour
     {
         if (other.CompareTag("player"))
         {
-            other.gameObject.GetComponent<PlayerMovement>().LosePlayer();
+            other.gameObject.GetComponent<UnitMovement>().LosePlayer();
 
         }
     }

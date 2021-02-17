@@ -111,9 +111,11 @@ MonoBehaviour:
   PlacedColor: {r: 1, g: 0, b: 0, a: 1}
   BuildingName: wall
   TileUnder: {fileID: 0}
-  occupied: 0
+  BumpBackForce: 4
+  BumpUpForce: 1
+  Occupied: 0
   TileAbove: {fileID: 6620954112735616395}
-  seen: 
+  Seen: 
 --- !u!1001 &145004424177015328
 PrefabInstance:
   m_ObjectHideFlags: 0

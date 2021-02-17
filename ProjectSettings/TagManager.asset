@@ -9,6 +9,8 @@ TagManager:
   - Foundation
   - Building
   - moneyManager
+  - Wind
+  - SceneParent
   layers:
   - Default
   - TransparentFX

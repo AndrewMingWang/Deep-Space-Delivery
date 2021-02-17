@@ -249,14 +249,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9ec86e2e7eb634b93caa6d438c88df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  direction: {x: 0, y: 0, z: 1}
-  rotation: {x: 0, y: 0, z: 0}
-  Animator: {fileID: 0}
-  WasGroundedLastFrame: 0
-  IsGroundedThisFrame: 1
-  IsStopped: 0
+  UnitSpeed: 2
   WindSpeed: 1.5
+  SceneTransform: {fileID: 0}
+  TargetDirection: {x: 0, y: 0, z: 0}
+  TargetRotation: {x: 0, y: 0, z: 0}
+  IsStopped: 0
+  GroundingEpsilon: 0.2
+  Collider: {fileID: 0}
+  Animator: {fileID: 0}
 --- !u!1 &4132604990437301900
 GameObject:
   m_ObjectHideFlags: 0

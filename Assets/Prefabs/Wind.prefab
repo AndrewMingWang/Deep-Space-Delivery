@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5312767194799537073}
   m_Layer: 11
   m_Name: Wind
-  m_TagString: Untagged
+  m_TagString: Wind
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4738,7 +4738,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 712218ec39e59354196ef5f42580f6eb, type: 2}
-  - {fileID: 2100000, guid: bf7ae5a0a9c5e4e47b86cec6d7d25d3d, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

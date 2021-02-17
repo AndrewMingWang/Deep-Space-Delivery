@@ -4,19 +4,29 @@ using UnityEngine;
 
 public class Trampoline : Building
 {
-    public List<int> seen = new List<int>();
+    [Header("Mechanics")]
+    public float JumpForce;
+
+    [Header("Info")]
+    public List<int> Seen = new List<int>();
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("player"))
         {
-            if (!seen.Contains(other.gameObject.GetInstanceID()))
+            if (!Seen.Contains(other.gameObject.GetInstanceID()))
             {
-                seen.Add(other.gameObject.GetInstanceID());
+                Seen.Add(other.gameObject.GetInstanceID());
+
+                // Reset vertical velocity to zero
                 Vector3 currVelocity = other.gameObject.GetComponent<Rigidbody>().velocity;
                 other.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(currVelocity.x, 0, currVelocity.z);
-                Vector3 jumpDirection = (260 * Vector3.up);
+
+                // Apply jump vertical force
+                Vector3 jumpDirection = (JumpForce * Vector3.up);
                 other.gameObject.GetComponent<Rigidbody>().AddRelativeForce(jumpDirection);
-                other.GetComponent<PlayerMovement>().Animator.SetTrigger("jump");
+
+                // Animate
+                other.GetComponent<UnitMovement>().Animator.SetTrigger("jump");
             }
         }
     }
@@ -25,7 +35,7 @@ public class Trampoline : Building
     {
         if (other.CompareTag("player"))
         {
-            seen.Remove(other.gameObject.GetInstanceID());
+            Seen.Remove(other.gameObject.GetInstanceID());
         }
     }
 }

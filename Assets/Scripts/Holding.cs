@@ -52,7 +52,7 @@ public class Holding : Building
             // Debug.Log("enter");
             if (other.CompareTag("player"))
             {
-                other.gameObject.GetComponent<PlayerMovement>().speed = 0.2f;
+                other.gameObject.GetComponent<UnitMovement>().UnitSpeed = 0.2f;
                 HeldPlayers.Add(other.gameObject);
 
                 Vector3 currScale = transform.localScale;
@@ -68,7 +68,7 @@ public class Holding : Building
                 // Debug.Log("stopped");
                 foreach (GameObject player in HeldPlayers)
                 {
-                    player.GetComponent<PlayerMovement>().speed = 2f;
+                    player.GetComponent<UnitMovement>().UnitSpeed = 2f;
                 }
                 HeldPlayers.Clear();
                 gameObject.SetActive(false);
@@ -83,7 +83,7 @@ public class Holding : Building
             // Debug.Log("exit");
             if (other.CompareTag("player"))
             {
-                other.gameObject.GetComponent<PlayerMovement>().speed = 2f;
+                other.gameObject.GetComponent<UnitMovement>().UnitSpeed = 2f;
                 HeldPlayers.Remove(other.gameObject);
 
                 Vector3 currScale = transform.localScale;

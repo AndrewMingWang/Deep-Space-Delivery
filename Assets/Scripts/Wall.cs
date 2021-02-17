@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class Wall : Building
 {
-    public bool occupied = false;
+    [Header("Mechanics")]
+    public float BumpBackForce;
+    public float BumpUpForce;
+
+    [Header("Info")]
+    public bool Occupied = false;
     public Tile TileAbove;
-
-    public List<int> seen = new List<int>();
-
-    
+    public List<int> Seen = new List<int>();
 
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("player"))
         {
-            if (!seen.Contains(other.gameObject.GetInstanceID()))
+            if (!Seen.Contains(other.gameObject.GetInstanceID()))
             {
-                seen.Add(other.gameObject.GetInstanceID());
-                Vector3 dir = other.gameObject.GetComponent<PlayerMovement>().direction;
+                Seen.Add(other.gameObject.GetInstanceID());
 
-                other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                other.gameObject.GetComponent<Rigidbody>().AddForce(-4f*dir + other.transform.up, ForceMode.VelocityChange);
-                other.gameObject.GetComponent<PlayerMovement>().Animator.SetTrigger("bump");
+                // Bump unit backwards and up
+                Vector3 dir = other.gameObject.GetComponent<UnitMovement>().TargetDirection;
+                other.gameObject.GetComponent<Rigidbody>().AddForce(-BumpBackForce * dir + BumpUpForce * other.transform.up, ForceMode.VelocityChange);
+
+                // Animate
+                other.gameObject.GetComponent<UnitMovement>().Animator.SetTrigger("bump");
             }
         }
     }
@@ -31,7 +35,7 @@ public class Wall : Building
     {
         if (other.gameObject.CompareTag("player"))
         {
-            seen.Remove(other.gameObject.GetInstanceID());
+            Seen.Remove(other.gameObject.GetInstanceID());
         }
     }
 
