@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public bool WasGroundedLastFrame = false;
     public bool IsGroundedThisFrame = true;
     public bool IsStopped = false;
+    public float WindSpeed = 100f;
 
     private float _distToGround;
     private float _radius;
@@ -26,6 +27,38 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    public Vector3 GetWind()
+    {
+        int windLayerMask = 1 << 11;
+        int buildingLayerMask = 1 << 9;
+        int layerMask = windLayerMask | buildingLayerMask;
+        RaycastHit hit;
+
+        Vector3 res = Vector3.zero;
+
+        if (Physics.Raycast(GetComponent<Collider>().bounds.center, transform.forward, out hit, Mathf.Infinity, layerMask)) {
+            Debug.Log("wind forward");
+            res += -transform.forward;
+        }
+        if (Physics.Raycast(GetComponent<Collider>().bounds.center, transform.right, out hit, Mathf.Infinity, layerMask))
+        {
+            Debug.Log("wind right");
+            res += -transform.right;
+        }
+        if (Physics.Raycast(GetComponent<Collider>().bounds.center, -transform.right, out hit, Mathf.Infinity, layerMask))
+        {
+            Debug.Log("wind left");
+            res += transform.right;
+        }
+        if (Physics.Raycast(GetComponent<Collider>().bounds.center, -transform.forward, out hit, Mathf.Infinity, layerMask))
+        {
+            Debug.Log("wind back");
+            res += transform.forward;
+        }
+
+        return res * Time.deltaTime * WindSpeed;
+    }
+
     public bool IsGrounded()
     {
         Debug.DrawLine(GetComponent<Collider>().bounds.center, GetComponent<Collider>().bounds.center - Vector3.up * (_distToGround + 0.2f), Color.red, 300f);
@@ -37,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!IsStopped)
         {
-            transform.position += speed * Time.deltaTime * direction;
+            transform.position += speed * Time.deltaTime * direction + GetWind();
         }
 
         if (transform.position.y < -10.0f)

@@ -251,6 +251,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   direction: {x: 0, y: 0, z: 1}
+  rotation: {x: 0, y: 0, z: 0}
+  Animator: {fileID: 0}
+  WasGroundedLastFrame: 0
+  IsGroundedThisFrame: 1
+  IsStopped: 0
+  WindSpeed: 1.5
 --- !u!1 &4132604990437301900
 GameObject:
   m_ObjectHideFlags: 0
