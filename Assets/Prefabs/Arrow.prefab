@@ -248,5 +248,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bdccf9b9585b524b8b7e9d64529d8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seen: 
-  direction: {x: -1, y: 0, z: 0}
+  Seen: 

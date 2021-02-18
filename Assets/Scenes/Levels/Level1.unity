@@ -14560,6 +14560,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4503092064688613889, guid: 0eb7f46524d25734fbe1d387a7014f0e,
         type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 4132604990437301898, guid: 94b4e0f893f33d8419c66f52edda10d5,
+        type: 3}
+    - target: {fileID: 4503092064688613889, guid: 0eb7f46524d25734fbe1d387a7014f0e,
+        type: 3}
       propertyPath: hitchhikerManager
       value: 
       objectReference: {fileID: 54223803}
