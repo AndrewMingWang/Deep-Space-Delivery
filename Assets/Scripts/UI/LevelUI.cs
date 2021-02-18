@@ -62,4 +62,17 @@ public class LevelUI : BaseUI
         GoToScene("LevelSelect");
     }
 
+    public void NextLevel()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        int currentLevel = 0;
+        if (int.TryParse(currentSceneName.Substring(5), out currentLevel))
+        {
+            GoToScene("Level" + (currentLevel + 1));
+        } else
+        {
+            GoToScene("Level1");
+        }
+    }
+
 }
