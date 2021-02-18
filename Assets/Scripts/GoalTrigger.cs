@@ -6,12 +6,17 @@ using UnityEngine;
 public class GoalTrigger : MonoBehaviour
 {
 
-    public static readonly int NUM_PLAYERS = 1;
+    public static readonly int NUM_PLAYERS = 3;
 
     public GameObject ResultsPanel;
     public TMP_Text SuccessRate;
     public TMP_Text MoneyLeft;
-    public TMP_Text Verdict;
+    public GameObject Star1;
+    public GameObject Star2;
+    public GameObject Star3;
+    public GameObject Fail;
+    public GameObject MenuButtons;
+    public GameObject ActionButtons;
 
     public int PlayersReached = 0;
     public int PlayersFailed = 0;
@@ -27,6 +32,8 @@ public class GoalTrigger : MonoBehaviour
     {
         if (IsLevelDone())
         {
+            MenuButtons.SetActive(false);
+            ActionButtons.SetActive(false);
             MoneyManager moneyManager = GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>();
             moneyManager.MoneyText.text = "";
             int moneyLeft = moneyManager.GetRemainingMoney();
@@ -34,29 +41,33 @@ public class GoalTrigger : MonoBehaviour
             ResultsPanel.GetComponent<Animator>().SetTrigger("open");
             SuccessRate.text = successRate + "%";
             MoneyLeft.text = "$" + moneyLeft;
-            if (moneyLeft < 0)
+            if (successRate < 50.0f || moneyLeft < 0)
             {
-                Verdict.text = "F";
+                Fail.SetActive(true);
             }
-            else if (moneyLeft > 0 && successRate == 100.0f)
+            else if (successRate >= 50.0f && successRate < 100.0f && moneyLeft == 0)
             {
-                Verdict.text = "A+";
+                Star1.SetActive(true);
             }
-            else if (successRate == 100.0f)
+            else if (successRate >= 50.0f && successRate < 100.0f && moneyLeft > 0)
             {
-                Verdict.text = "A";
+                Star1.SetActive(true);
+                Star2.SetActive(true);
             }
-            else if (successRate >= 80.0f)
+            else if (successRate == 100.0f && moneyLeft == 0)
             {
-                Verdict.text = "B";
+                Star1.SetActive(true);
+                Star2.SetActive(true);
             }
-            else if (successRate >= 65.0f)
+            else if (successRate == 100.0f && moneyLeft > 0)
             {
-                Verdict.text = "C";
+                Star1.SetActive(true);
+                Star2.SetActive(true);
+                Star3.SetActive(true);
             }
-            else if (successRate >= 50.0f)
+            else
             {
-                Verdict.text = "D";
+                Debug.LogError("Unknown score");
             }
         }
     }
