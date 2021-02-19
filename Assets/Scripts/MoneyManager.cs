@@ -5,16 +5,27 @@ using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
 {
+
     public static MoneyManager Instance;
+
+    private const int NUMBER_ITEMS = 5;
 
     public int StartingMoney = 100;
     public Item[] Items;
 
+    public GameObject ItemButton1;
+    public GameObject ItemButton2;
+    public GameObject ItemButton3;
+    public GameObject ItemButton4;
+    public GameObject ItemButton5;
+    private GameObject[] ItemButtons = new GameObject[10];
+    // delete
     public TMP_Text MoneyText;
     public TMP_Text WallText;
     public TMP_Text ArrowText;
     public TMP_Text HoldingText;
     public TMP_Text TrampolineText;
+
     private int moneySpent = 0;
 
     private void Awake()
@@ -30,24 +41,23 @@ public class MoneyManager : MonoBehaviour
     void Start()
     {
         DisplayRemainingMoney();
-        foreach (Item item in Items)
+        ItemButtons[0] = ItemButton1;
+        ItemButtons[1] = ItemButton2;
+        ItemButtons[2] = ItemButton3;
+        ItemButtons[3] = ItemButton4;
+        ItemButtons[4] = ItemButton5;
+        int itemCount = Items.Length;
+        for (int i = 0; i < itemCount; i += 1)
         {
-            if (item.name.Equals(BuildManager.WALL))
-            {
-                WallText.text = "Wall: $" + item.price;
-            }
-            else if (item.name.Equals(BuildManager.ARROW))
-            {
-                ArrowText.text = "Arrow: $" + item.price;
-            }
-            else if (item.name.Equals(BuildManager.HOLDING))
-            {
-                HoldingText.text = "Holding: $" + item.price;
-            }
-            else if (item.name.Equals(BuildManager.TRAMPOLINE))
-            {
-                TrampolineText.text = "Trampoline: $" + item.price;
-            }
+            GameObject itemButton = ItemButtons[i];
+            Item item = Items[i];
+            itemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + item.quantity.ToString();
+            itemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "$" + item.price.ToString();
+            itemButton.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = item.name;
+        }
+        for (int i = itemCount; i < NUMBER_ITEMS; i += 1)
+        {
+            ItemButtons[i].SetActive(false);
         }
     }
 
@@ -57,9 +67,26 @@ public class MoneyManager : MonoBehaviour
         
     }
 
+    public void ChooseItem(int itemId)
+    {
+        string itemName = ItemButtons[itemId].transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text;
+        int itemQuantity = int.Parse(ItemButtons[itemId].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text.Substring(1));
+        int itemPrice = int.Parse(ItemButtons[itemId].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text.Substring(1));
+        if (itemPrice > GetRemainingMoney() || itemQuantity < 1)
+        {
+            return;
+        } else
+        {
+            moneySpent += itemPrice;
+            ItemButtons[itemId].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + (itemQuantity - 1);
+        }
+        DisplayRemainingMoney();
+        BuildManager.Instance.BuildBuilding(itemName);
+    }
+
     private void DisplayRemainingMoney()
     {
-        MoneyText.text = "$" + (StartingMoney - moneySpent);
+        MoneyText.text = "$" + GetRemainingMoney();
         if (StartingMoney > moneySpent)
         {
             MoneyText.color = Color.green;
@@ -68,29 +95,21 @@ public class MoneyManager : MonoBehaviour
             MoneyText.color = Color.red;
         } else
         {
-            MoneyText.color = Color.black;
+            MoneyText.color = Color.yellow;
         }
-    }
-
-    public void PurchaseItem(string itemName)
-    {
-        foreach (Item item in Items)
-        {
-            if (itemName.Equals(item.name))
-            {
-                moneySpent += item.price;
-            }
-        }
-        DisplayRemainingMoney();
     }
 
     public void RefundItem(string itemName)
     {
-        foreach (Item item in Items)
+        for (int i = 0; i < ItemButtons.Length; i += 1)
         {
-            if (itemName.Equals(item.name))
+            GameObject ItemButton = ItemButtons[i];
+            if (ItemButton != null && ItemButton.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text.Equals(itemName))
             {
-                moneySpent -= item.price;
+                int itemQuantity = int.Parse(ItemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text.Substring(1));
+                ItemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + (itemQuantity + 1);
+                int itemPrice = int.Parse(ItemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text.Substring(1));
+                moneySpent -= itemPrice;
             }
         }
         DisplayRemainingMoney();

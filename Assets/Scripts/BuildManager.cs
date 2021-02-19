@@ -75,9 +75,6 @@ public class BuildManager : MonoBehaviour
 
         // Set current building
         CurrBuilding = newBuilding;
-
-        // Update money for the tile
-        MoneyManager.Instance.PurchaseItem(buildingString);
     }
 
     // Update is called once per frame
@@ -150,6 +147,9 @@ public class BuildManager : MonoBehaviour
                         CurrBuilding.GetComponent<Building>().PickUpBuilding();
                     }
                 }
+            } else if (Input.GetMouseButtonDown(1))
+            {
+                CancelBuilding();
             }
 
             // Handle additional options for specifc buildings bound to the q and e keys
@@ -220,11 +220,11 @@ public class BuildManager : MonoBehaviour
     {
         if (CurrBuilding != null)
         {
+            MoneyManager.Instance.RefundItem(CurrBuilding.BuildingName);
             TileManager.Instance.UnhoverAllTiles();
-
             Destroy(CurrBuilding.gameObject);
-
             CurrBuilding = null;
         }
     }
+
 }
