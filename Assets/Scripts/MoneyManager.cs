@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoneyManager : MonoBehaviour
 {
@@ -19,12 +20,8 @@ public class MoneyManager : MonoBehaviour
     public GameObject ItemButton4;
     public GameObject ItemButton5;
     private GameObject[] ItemButtons = new GameObject[10];
-    // delete
     public TMP_Text MoneyText;
-    public TMP_Text WallText;
-    public TMP_Text ArrowText;
-    public TMP_Text HoldingText;
-    public TMP_Text TrampolineText;
+    public Slider energyBar;
 
     private int moneySpent = 0;
 
@@ -52,7 +49,7 @@ public class MoneyManager : MonoBehaviour
             GameObject itemButton = ItemButtons[i];
             Item item = Items[i];
             itemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + item.quantity.ToString();
-            itemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "$" + item.price.ToString();
+            itemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = item.price.ToString();
             itemButton.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = item.name;
         }
         for (int i = itemCount; i < NUMBER_ITEMS; i += 1)
@@ -71,7 +68,7 @@ public class MoneyManager : MonoBehaviour
     {
         string itemName = ItemButtons[itemId].transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text;
         int itemQuantity = int.Parse(ItemButtons[itemId].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text.Substring(1));
-        int itemPrice = int.Parse(ItemButtons[itemId].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text.Substring(1));
+        int itemPrice = int.Parse(ItemButtons[itemId].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text);
         if (itemPrice > GetRemainingMoney() || itemQuantity < 1)
         {
             return;
@@ -86,17 +83,8 @@ public class MoneyManager : MonoBehaviour
 
     private void DisplayRemainingMoney()
     {
-        MoneyText.text = "$" + GetRemainingMoney();
-        if (StartingMoney > moneySpent)
-        {
-            MoneyText.color = Color.green;
-        } else if (StartingMoney < moneySpent)
-        {
-            MoneyText.color = Color.red;
-        } else
-        {
-            MoneyText.color = Color.yellow;
-        }
+        MoneyText.text = GetRemainingMoney().ToString();
+        energyBar.value = (float) GetRemainingMoney() / StartingMoney;
     }
 
     public void RefundItem(string itemName)
@@ -108,7 +96,7 @@ public class MoneyManager : MonoBehaviour
             {
                 int itemQuantity = int.Parse(ItemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text.Substring(1));
                 ItemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + (itemQuantity + 1);
-                int itemPrice = int.Parse(ItemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text.Substring(1));
+                int itemPrice = int.Parse(ItemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text);
                 moneySpent -= itemPrice;
             }
         }
