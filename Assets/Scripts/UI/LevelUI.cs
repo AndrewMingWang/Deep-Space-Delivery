@@ -52,9 +52,9 @@ public class LevelUI : BaseUI
         }
     }
 
-    public void ResetLevel()
+    public void ViewControls()
     {
-        GoToScene(SceneManager.GetActiveScene().name);
+        Debug.Log("VIEW CONTROLS");
     }
 
     public void QuitPlay()
