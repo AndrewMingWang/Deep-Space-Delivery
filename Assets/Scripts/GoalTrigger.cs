@@ -84,6 +84,12 @@ public class GoalTrigger : MonoBehaviour
         }
     }
 
+    public void ResetPlayerResults()
+    {
+        PlayersReached = 0;
+        PlayersFailed = 0;
+    }
+
     public bool IsLevelDone()
     {
         return PlayersReached + PlayersFailed == NUM_PLAYERS;
