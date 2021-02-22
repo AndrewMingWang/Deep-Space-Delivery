@@ -1,11 +1,8 @@
 fileFormatVersion: 2
-guid: 532a31f80b737f94185b2ed9253db257
+guid: b71609306b2f6a445b5209cd998bc561
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable:
-  - first:
-      74: 8440248360967096626
-    second: Camera|CameraAction
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 1
