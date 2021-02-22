@@ -13,6 +13,7 @@ public class LevelUI : BaseUI
     public GameObject soundButton;
     public Sprite soundSpriteOn;
     public Sprite soundSpriteOff;
+    public GameObject controlDisplay;
 
     // Start is called before the first frame update
     void Start()
@@ -52,9 +53,20 @@ public class LevelUI : BaseUI
         }
     }
 
+    public void ViewControls()
+    {
+        if (!controlDisplay.activeSelf)
+        {
+            controlDisplay.SetActive(true);
+        } else
+        {
+            controlDisplay.SetActive(false);
+        }
+    }
+
     public void ResetLevel()
     {
-        GoToScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
     }
 
     public void QuitPlay()

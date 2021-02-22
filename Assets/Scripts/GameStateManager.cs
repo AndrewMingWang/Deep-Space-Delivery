@@ -12,10 +12,12 @@ public class GameStateManager : MonoBehaviour
     public GameObject HitchhikerManager;
     private List<Vector3> _allChildrenTransformsPositions;
 
-    public GameObject PlayButtonObj;
-    public GameObject ResetButtonObj;
-    private Button _playButton;
-    private Button _resetButton;
+    public Button PlayButton;
+    public Button ResetButton;
+    public Sprite playButtonPlay;
+    public Sprite playButtonPause;
+    public Sprite resetButtonReset;
+    public Sprite resetButtonRewind;
 
     public GameObject Spawn;
     private SpawnPlayers _spawnscript;
@@ -38,10 +40,6 @@ public class GameStateManager : MonoBehaviour
     void Start()
     {
         CurrState = State.Plan;
-        _playButton = PlayButtonObj.GetComponent<Button>();
-        _resetButton = ResetButtonObj.GetComponent<Button>();
-        _playButton.onClick.AddListener(PlayButtonPressed);
-        _resetButton.onClick.AddListener(ResetButtonPressed);
         _allChildrenTransformsPositions = new List<Vector3>();
         _spawnscript = Spawn.GetComponent<SpawnPlayers>();
         // _resetButton.interactable = false;
@@ -53,7 +51,7 @@ public class GameStateManager : MonoBehaviour
 
     }
 
-    void PlayButtonPressed(){
+    public void PlayButtonPressed() {
         switch(CurrState){
         case State.Plan:
             CurrState = State.Play;
@@ -65,8 +63,8 @@ public class GameStateManager : MonoBehaviour
                 _allChildrenTransformsPositions.Add(child.localPosition);
             }
              
-            PlayButtonObj.GetComponentInChildren<Text>().text = "Pause";
-            ResetButtonObj.GetComponentInChildren<Text>().text = "Restart";
+            PlayButton.GetComponent<Image>().sprite = playButtonPause;
+            ResetButton.GetComponent<Image>().sprite = resetButtonRewind;
             BuildingPanel.SetActive(false);
             
             StartCoroutine(_spawnscript.AddPlayers());
@@ -74,31 +72,24 @@ public class GameStateManager : MonoBehaviour
             break;
         case State.Play:
             CurrState = State.Paused;
-            PlayButtonObj.GetComponentInChildren<Text>().text = "Play";
-            Time.timeScale = 0f;
+                PlayButton.GetComponent<Image>().sprite = playButtonPlay;
+                Time.timeScale = 0f;
             break;
         case State.Paused:
             CurrState = State.Play;
-            PlayButtonObj.GetComponentInChildren<Text>().text = "Pause";
-            Time.timeScale = 1.0f;
+                PlayButton.GetComponent<Image>().sprite = playButtonPause;
+                Time.timeScale = 1.0f;
             break;
         }
     }
 
-    void ResetButtonPressed(){
-        if(GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().IsLevelDone())
-        {
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-        }
+    public void ResetButtonPressed(){
+        Time.timeScale = 1.0f;
         switch (CurrState){
         case State.Plan:
-            GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>().ResetMoney();
-            foreach (Transform child in UserBuildings.transform){
-                Destroy(child.gameObject);
-            }
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
             break;
         default:
-            Time.timeScale = 1.0f;
             CurrState = State.Plan;
             int i = 0;
             foreach (Transform child in UserBuildings.transform){
@@ -109,10 +100,10 @@ public class GameStateManager : MonoBehaviour
                 Destroy(child.gameObject);
             }
             StopAllCoroutines();
-            PlayButtonObj.GetComponentInChildren<Text>().text = "Play";
-            ResetButtonObj.GetComponentInChildren<Text>().text = "Reset";
+            PlayButton.GetComponent<Image>().sprite = playButtonPlay;
+            ResetButton.GetComponent<Image>().sprite = resetButtonReset;
             BuildingPanel.SetActive(true);
-
+            GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().ResetPlayerResults();
             break;
         }
     }

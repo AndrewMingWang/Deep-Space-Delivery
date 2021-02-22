@@ -17,6 +17,7 @@ public class GoalTrigger : MonoBehaviour
     public GameObject Fail;
     public GameObject MenuButtons;
     public GameObject ActionButtons;
+    public GameObject EnergyBar;
 
     public int PlayersReached = 0;
     public int PlayersFailed = 0;
@@ -34,13 +35,14 @@ public class GoalTrigger : MonoBehaviour
         {
             MenuButtons.SetActive(false);
             ActionButtons.SetActive(false);
+            EnergyBar.SetActive(false);
             MoneyManager moneyManager = GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>();
             moneyManager.MoneyText.text = "";
             int moneyLeft = moneyManager.GetRemainingMoney();
             float successRate = (PlayersReached * 100.0f / NUM_PLAYERS);
             ResultsPanel.GetComponent<Animator>().SetTrigger("open");
             SuccessRate.text = successRate + "%";
-            MoneyLeft.text = "$" + moneyLeft;
+            MoneyLeft.text = moneyLeft.ToString();
             if (successRate < 50.0f || moneyLeft < 0)
             {
                 Fail.SetActive(true);
@@ -80,6 +82,12 @@ public class GoalTrigger : MonoBehaviour
             PlayersReached += 1;
             other.gameObject.SetActive(false);
         }
+    }
+
+    public void ResetPlayerResults()
+    {
+        PlayersReached = 0;
+        PlayersFailed = 0;
     }
 
     public bool IsLevelDone()
