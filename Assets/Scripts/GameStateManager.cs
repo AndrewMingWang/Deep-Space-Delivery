@@ -103,7 +103,7 @@ public class GameStateManager : MonoBehaviour
             PlayButton.GetComponent<Image>().sprite = playButtonPlay;
             ResetButton.GetComponent<Image>().sprite = resetButtonReset;
             BuildingPanel.SetActive(true);
-
+            GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().ResetPlayerResults();
             break;
         }
     }
