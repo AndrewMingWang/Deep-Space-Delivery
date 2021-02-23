@@ -11,6 +11,7 @@ TagManager:
   - moneyManager
   - Wind
   - SceneParent
+  - tooltip
   layers:
   - Default
   - TransparentFX
