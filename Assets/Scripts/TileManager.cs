@@ -13,6 +13,16 @@ public class TileManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(Instance);
+        }
+        Instance = this;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
         EnvironmentTiles = transform.GetComponentsInChildren<Tile>();
         foreach (Tile tile in EnvironmentTiles)
         {
@@ -26,16 +36,6 @@ public class TileManager : MonoBehaviour
             }
             AllTiles.Add(tile);
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (Instance != null)
-        {
-            Destroy(Instance);
-        }
-        Instance = this;
     }
 
     public void UnhoverAllTiles()
