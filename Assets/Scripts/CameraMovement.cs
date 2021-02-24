@@ -108,13 +108,7 @@ public class CameraMovement : MonoBehaviour
         curDir.y = 9.15f;
         transform.localPosition = curDir;
 
-        transform.LookAt(transform.parent.position);
-
-        float y = transform.localRotation.eulerAngles.y;
-        float z = transform.localRotation.eulerAngles.z;
-        Quaternion curRot = Quaternion.Euler(45, y, z);
-
-        transform.localRotation = curRot;
+       
 
         if (( Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E)) && (BuildManager.BuildingSelected == false)) {
                 
@@ -124,12 +118,21 @@ public class CameraMovement : MonoBehaviour
                 _rotateDirection = -1f;
             }
 
-            cameraPos -= transform.right * _rotateDirection * RotateSensitivity;
+            cameraPos -= transform.right * _rotateDirection * RotateSensitivity * Time.deltaTime;
+            RotateSensitivity *= 1.008f;
 
         }
 
-        Debug.DrawLine(transform.position, transform.position + 10 * transform.right, Color.red, 10);
-        Debug.DrawLine(transform.parent.position, transform.position, Color.blue, 10); 
+        transform.LookAt(transform.parent.position);
+
+        float y = transform.localRotation.eulerAngles.y;
+        float z = transform.localRotation.eulerAngles.z;
+        Quaternion curRot = Quaternion.Euler(45, y, z);
+
+        transform.localRotation = curRot;
+
+        //Debug.DrawLine(transform.position, transform.position + 10 * transform.right, Color.red, 10);
+        //Debug.DrawLine(transform.parent.position, transform.position, Color.blue, 10); 
     }
 
 }
