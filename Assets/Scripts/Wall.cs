@@ -27,6 +27,9 @@ public class Wall : Building
 
                 // Animate
                 other.gameObject.GetComponent<UnitMovement>().Animator.SetTrigger("bump");
+
+                // Sound Effect
+                GetComponent<AudioSource>().Play();
             }
         }
     }
