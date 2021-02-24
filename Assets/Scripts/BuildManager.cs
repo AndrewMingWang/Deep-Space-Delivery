@@ -158,29 +158,26 @@ public class BuildManager : MonoBehaviour
                 switch (CurrBuilding.GetComponent<Building>().BuildingName)
                 {
                     case WALL:
-                        if (Input.GetKey(KeyCode.E))
-                        {
-                            Vector3 currScale = CurrBuilding.transform.localScale;
-                            Vector3 currScaleMax = new Vector3(currScale.x, 3f, currScale.z);
-                            CurrBuilding.transform.localScale = Vector3.Min(currScale + new Vector3(0, 0.8f * Time.deltaTime, 0), currScaleMax);
-
-                        }
-                        else if (Input.GetKey(KeyCode.Q))
-                        {
-                            Vector3 currScale = CurrBuilding.transform.localScale;
-                            Vector3 currScaleMin = new Vector3(currScale.x, 0.4f, currScale.z);
-                            CurrBuilding.transform.localScale = Vector3.Max(currScale - new Vector3(0, 0.8f * Time.deltaTime, 0), currScaleMin);
-                        }
+                        // Don't toggle wall height anymore
                         break;
                     case ARROW:
-                        if (Input.GetKey(KeyCode.E))
+                        if (Input.GetKeyDown(KeyCode.E))
                         {
-                            CurrBuilding.transform.RotateAround(transform.position, transform.up, Time.deltaTime * 90f);
+                            CurrBuilding.transform.RotateAround(
+                                CurrBuilding.transform.position,
+                                CurrBuilding.transform.up, 
+                                45f);
                         }
-                        else if (Input.GetKey(KeyCode.Q))
+                        else if (Input.GetKeyDown(KeyCode.Q))
                         {
-                            CurrBuilding.transform.RotateAround(transform.position, transform.up, -Time.deltaTime * 90f);
+                            CurrBuilding.transform.RotateAround(
+                                CurrBuilding.transform.position,
+                                CurrBuilding.transform.up,
+                                -45f);
                         }
+                        break;
+                    case TRAMPOLINE:
+                        // Do nothing
                         break;
                     case HOLDING:
                         Holding currHolding = (Holding)CurrBuilding;
