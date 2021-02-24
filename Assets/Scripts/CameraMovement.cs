@@ -114,7 +114,6 @@ public class CameraMovement : MonoBehaviour
 
         }
 
-
         transform.LookAt(transform.parent.position);
     }
 
