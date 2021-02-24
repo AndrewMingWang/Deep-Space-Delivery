@@ -10,11 +10,13 @@ public class CameraMovement : MonoBehaviour
     Vector3 cameraPos;
     Vector3 parentPos;
 
- 
+    float dist;
+
     private float _rotateDirection;
 
     void Start()
     {
+        dist = transform.localPosition.magnitude;
         cameraPos = transform.position;
         parentPos = transform.parent.position;
         _rotateDirection = 1f;
@@ -101,7 +103,19 @@ public class CameraMovement : MonoBehaviour
     // }
 
     public void Rotation(){
-        
+
+        Vector3 curDir = transform.localPosition.normalized * dist;
+        curDir.y = 9.15f;
+        transform.localPosition = curDir;
+
+        transform.LookAt(transform.parent.position);
+
+        float y = transform.localRotation.eulerAngles.y;
+        float z = transform.localRotation.eulerAngles.z;
+        Quaternion curRot = Quaternion.Euler(45, y, z);
+
+        transform.localRotation = curRot;
+
         if (( Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E)) && (BuildManager.BuildingSelected == false)) {
                 
             if (Input.GetKey(KeyCode.Q)){
@@ -114,7 +128,8 @@ public class CameraMovement : MonoBehaviour
 
         }
 
-        transform.LookAt(transform.parent.position);
+        Debug.DrawLine(transform.position, transform.position + 10 * transform.right, Color.red, 10);
+        Debug.DrawLine(transform.parent.position, transform.position, Color.blue, 10); 
     }
 
 }
