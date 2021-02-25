@@ -107,4 +107,26 @@ public class GameStateManager : MonoBehaviour
             break;
         }
     }
+
+
+    public void ResetButtonPressedTUTORIAL(){
+        Time.timeScale = 1.0f;
+        switch (CurrState){
+        case State.Plan:
+            break;
+        default:
+            CurrState = State.Plan;
+            int i = 0;
+            foreach (Transform child in UserBuildings.transform){
+                child.localPosition = _allChildrenTransformsPositions[i];
+                i++;
+            }
+            foreach (Transform child in HitchhikerManager.transform){
+                Destroy(child.gameObject);
+            }
+            StopAllCoroutines();
+            PlayButton.GetComponent<Image>().sprite = playButtonPlay;
+            break;
+        }
+    }
 }
