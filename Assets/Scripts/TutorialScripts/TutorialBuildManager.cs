@@ -81,7 +81,7 @@ public class TutorialBuildManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameStateManager.Instance.CurrState == GameStateManager.State.Plan)
+        if (TutorialGameStateManager.Instance.CurrState == TutorialGameStateManager.State.Plan)
         {
             RaycastHit hit;
             if (MouseRaycast("Foundation", out hit))
