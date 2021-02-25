@@ -8,6 +8,8 @@ public class SpawnPlayers : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject hitchhikerManager;
 
+    public float UpwardOffset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,8 @@ public class SpawnPlayers : MonoBehaviour
     {
         for (int i = 0; i < GoalTrigger.NUM_PLAYERS; i += 1)
         {
-            Instantiate(playerPrefab, transform.position, transform.localRotation, hitchhikerManager.transform);
+            Instantiate(playerPrefab, transform.position + UpwardOffset * transform.up, transform.localRotation, hitchhikerManager.transform);
+
             yield return new WaitForSeconds(1f);
         }
     }
