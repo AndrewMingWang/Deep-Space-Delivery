@@ -7,20 +7,32 @@ public class AudioFile
 {
 
     public string name;
-    public AudioClip audioClip;
+    public AudioClip clip;
+    public bool isLoop = false;
     public bool isMusic = false;
     [Range(0.0f, 1.0f)]
     public float volume = 0.5f;
-    private AudioSource audioSource;
+
+    private AudioSource source;
 
     public AudioSource GetAudioSource()
     {
-        return audioSource;
+        return source;
     }
 
     public void SetAudioSource(AudioSource audioSource)
     {
-        this.audioSource = audioSource;
+        this.source = audioSource;
+    }
+
+    public void Mute()
+    {
+        this.source.volume = 0;
+    }
+
+    public void Unmute()
+    {
+        this.source.volume = volume;
     }
 
 }

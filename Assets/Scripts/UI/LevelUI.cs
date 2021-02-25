@@ -15,36 +15,44 @@ public class LevelUI : BaseUI
     public Sprite soundSpriteOff;
     public GameObject controlDisplay;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (AudioManager.SFXOn)
+        {
+            soundButton.GetComponent<Image>().sprite = soundSpriteOn;
+        }
+        else
+        {
+            soundButton.GetComponent<Image>().sprite = soundSpriteOff;
+        }
+        if (AudioManager.MusicOn)
+        {
+            musicButton.GetComponent<Image>().sprite = musicSpriteOn;
+        }
+        else
+        {
+            musicButton.GetComponent<Image>().sprite = musicSpriteOff;
+        }
     }
 
     public void ToggleMusic()
     {
-        AudioManager.musicOn = !AudioManager.musicOn;
-        if (AudioManager.musicOn)
+        AudioManager.ToggleMusic();
+
+        if (AudioManager.MusicOn)
         {
-            AudioManager.Play(AudioManager.MUSIC_WORLD1);
             musicButton.GetComponent<Image>().sprite = musicSpriteOn;
         } else
         {
-            AudioManager.StopAudio();
             musicButton.GetComponent<Image>().sprite = musicSpriteOff;
         }
     }
 
     public void ToggleSound()
     {
-        AudioManager.soundOn = !AudioManager.soundOn;
-        if (AudioManager.soundOn)
+        AudioManager.ToggleSFX();
+
+        if (AudioManager.SFXOn)
         {
             soundButton.GetComponent<Image>().sprite = soundSpriteOn;
         } else

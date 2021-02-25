@@ -198,15 +198,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09902a348d88c6d4f9983fddbf0ee82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioFiles:
-  - name: reachGoal
-    audioClip: {fileID: 8300000, guid: 3ab7fc89e8b8d6f40b64188701668d4a, type: 3}
+  CurrentMusic:
+    name: 
+    clip: {fileID: 0}
+    source: {fileID: 0}
+    isLoop: 0
     isMusic: 0
-    volume: 0.8
-  - name: world1
-    audioClip: {fileID: 8300000, guid: e15010a032f77a843bf6094714f11a44, type: 3}
+    volume: 0.5
+  AudioFiles:
+  - name: musicWorld1
+    clip: {fileID: 8300000, guid: e15010a032f77a843bf6094714f11a44, type: 3}
+    source: {fileID: 0}
+    isLoop: 0
     isMusic: 1
-    volume: 0.2
+    volume: 0.5
+  - name: reachGoal
+    clip: {fileID: 8300000, guid: 3ab7fc89e8b8d6f40b64188701668d4a, type: 3}
+    source: {fileID: 0}
+    isLoop: 0
+    isMusic: 0
+    volume: 0.5
 --- !u!4 &176790747
 Transform:
   m_ObjectHideFlags: 0
