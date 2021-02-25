@@ -5,15 +5,46 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static readonly string SFX_REACH_GOAL = "reachGoal";
+    // Music names
+    public static readonly string MUSIC_MENU = "musicMenu";
     public static readonly string MUSIC_WORLD1 = "musicWorld1";
+    public static readonly string MUSIC_WORLD2 = "musicWorld2";
+
+    // SFX names
+    public static readonly string SFX_REACH_GOAL = "reachGoal";
 
     public static AudioManager Instance;
     public static bool SFXOn = true;
     public static bool MusicOn = true;
 
+    [HideInInspector]
     public AudioFile CurrentMusic = null;
+    public string StartingSong;
+
+    [Header("All Audio")]
     public AudioFile[] AudioFiles;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            foreach (AudioFile audioFile in AudioFiles)
+            {
+                audioFile.SetAudioSource(gameObject.AddComponent<AudioSource>());
+                audioFile.GetAudioSource().clip = audioFile.clip;
+                audioFile.GetAudioSource().loop = audioFile.isLoop;
+                audioFile.GetAudioSource().volume = audioFile.volume;
+            }
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        AudioManager.Play(StartingSong);
+    }
 
     public static void ToggleMusic()
     {
@@ -65,26 +96,6 @@ public class AudioManager : MonoBehaviour
                     af.Mute();
                 }
             }
-        }
-    }
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            foreach (AudioFile audioFile in AudioFiles)
-            {
-                audioFile.SetAudioSource(gameObject.AddComponent<AudioSource>());
-                audioFile.GetAudioSource().clip = audioFile.clip;
-                audioFile.GetAudioSource().loop = audioFile.isLoop;
-                audioFile.GetAudioSource().volume = audioFile.volume;
-            }
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
 
