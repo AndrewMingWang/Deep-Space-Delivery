@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5524353268607556741}
   - component: {fileID: 6476583559165036459}
   m_Layer: 8
-  m_Name: FloorTile
+  m_Name: FTile_Grass1
   m_TagString: Foundation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
