@@ -211,7 +211,7 @@ MonoBehaviour:
     isMusic: 1
     volume: 0.2
   - name: reachGoal
-    clip: {fileID: 8300000, guid: 3ab7fc89e8b8d6f40b64188701668d4a, type: 3}
+    clip: {fileID: 8300000, guid: 59b69452e97678849870d9015ccb2a6e, type: 3}
     isLoop: 0
     isMusic: 0
     volume: 1

@@ -27,7 +27,7 @@ public class TutorialGoalTrigger : MonoBehaviour
     {
         if (other.CompareTag("player"))
         {
-            AudioManager.Play(AudioManager.SOUND_REACH_GOAL);
+            AudioManager.Play(AudioManager.SFX_REACH_GOAL);
             PlayersReached += 1;
             other.gameObject.SetActive(false);
         }
