@@ -21,16 +21,31 @@ public class AudioManager : MonoBehaviour
     public AudioFile CurrentMusic = null;
     public string StartingSong;
 
-    [Header("All Audio")]
-    public AudioFile[] AudioFiles;
+    [Header("Music")]
+    public List<AudioFile> MusicFiles = new List<AudioFile>();
+
+    [Header("SFX")]
+    public List<AudioFile> SFXFiles = new List<AudioFile>();
+
+    [HideInInspector]
+    public List<AudioFile> AllFiles = new List<AudioFile>();
 
     private void Awake()
     {
+        foreach (AudioFile af in MusicFiles)
+        {
+            AllFiles.Add(af);
+        }
+        foreach (AudioFile af in SFXFiles)
+        {
+            AllFiles.Add(af);
+        }
+
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            foreach (AudioFile audioFile in AudioFiles)
+            foreach (AudioFile audioFile in AllFiles)
             {
                 audioFile.SetAudioSource(gameObject.AddComponent<AudioSource>());
                 audioFile.GetAudioSource().clip = audioFile.clip;
@@ -43,6 +58,7 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // First song to be played
         AudioManager.Play(StartingSong);
     }
 
@@ -57,18 +73,15 @@ public class AudioManager : MonoBehaviour
     private void ToggleAllMusic()
     {
         MusicOn = !MusicOn;
-        foreach (AudioFile af in AudioFiles)
+        foreach (AudioFile audioFile in MusicFiles)
         {
-            if (af.isMusic)
+            if (MusicOn)
             {
-                if (MusicOn)
-                {
-                    af.Unmute();
-                } else
-                {
-                    af.Mute();
-                }                
-            }
+                audioFile.Unmute();
+            } else
+            {
+                audioFile.Mute();
+            }                
         }
     }
 
@@ -83,18 +96,15 @@ public class AudioManager : MonoBehaviour
     private void ToggleAllSFX()
     {
         SFXOn = !SFXOn;
-        foreach (AudioFile af in AudioFiles)
+        foreach (AudioFile audioFile in SFXFiles)
         {
-            if (!af.isMusic)
+            if (SFXOn)
             {
-                if (SFXOn)
-                {
-                    af.Unmute();
-                }
-                else
-                {
-                    af.Mute();
-                }
+                audioFile.Unmute();
+            }
+            else
+            {
+                audioFile.Mute();
             }
         }
     }
@@ -109,7 +119,7 @@ public class AudioManager : MonoBehaviour
 
     private void PlayIfExists(string audioName)
     {
-        AudioFile audioFile = Array.Find(AudioFiles, audio => audio.name.Equals(audioName));
+        AudioFile audioFile = AllFiles.Find(audio => audio.name.Equals(audioName));
         if (audioFile == null)
         {
             return;
@@ -142,7 +152,7 @@ public class AudioManager : MonoBehaviour
 
     private void StopIfExists(string audioName)
     {
-        AudioFile audioFile = Array.Find(AudioFiles, audio => audio.name.Equals(audioName));
+        AudioFile audioFile = AllFiles.Find(audio => audio.name.Equals(audioName));
         if (audioFile == null)
         {
             return;
@@ -161,7 +171,7 @@ public class AudioManager : MonoBehaviour
 
     private void StopPlayingAllAudio()
     {
-        foreach (AudioFile audio in AudioFiles)
+        foreach (AudioFile audio in AllFiles)
         {
             audio.GetAudioSource().Stop();
         }
