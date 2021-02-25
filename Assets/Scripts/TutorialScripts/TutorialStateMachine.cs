@@ -6,7 +6,7 @@ using UnityEngine;
 public class TutorialStateMachine : MonoBehaviour
 {
 
-    public enum State{zeroStart ,zeroS, oneS, oneU, twoS, twoU, threeS, threeU, fourS, fourU, fourUB, fiveS, fiveU, sixS, sixU, sixB, sevenS, sevenSB, sevenU, eightS}
+    public enum State{zeroStart, zeroA, zeroB, zeroS, zeroSB, oneS, oneU, twoS, twoU, threeS, threeU, fourS, fourU, fourUB, fiveS, fiveU, sixS, sixU, sixB, sevenS, sevenSB, sevenU, eightS}
     public State currState;
 
     public GameObject BuildingPanel;
@@ -17,9 +17,13 @@ public class TutorialStateMachine : MonoBehaviour
     public GameObject EnergyText;
     public GameObject EnergyBar;
     public GameObject TutorialNarration;
+    public GameObject MainCamera;
+    private Animator _cameraAnim;
+  
 
     public GameObject GameManager;
     public GameObject BuildManager;
+    public GameObject HitchikerManager;
     public GameObject Goal;
     public GameObject TheTile;
 
@@ -27,6 +31,7 @@ public class TutorialStateMachine : MonoBehaviour
     void Start()
     {
         currState = State.zeroStart;
+        _cameraAnim = MainCamera.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,12 +45,29 @@ public class TutorialStateMachine : MonoBehaviour
             EnergyBar.SetActive(false);
             EnergyText.SetActive(false);
             TutorialNarration.SetActive(false);
+            _cameraAnim.Play("CameraZoomIn");
             Menu.SetActive(false);
-            GameManager.GetComponent<GameStateManager>().PlayButtonPressed();
+            currState = State.zeroA;
+            break;
+        case State.zeroA:
+            if (_cameraAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
+                currState = State.zeroB;
+            }
+            break;
+        case State.zeroB:
+            GameManager.GetComponent<TutorialGameStateManager>().PlayButtonPressed();
             currState = State.zeroS;
             break;
         case State.zeroS:
-            if(Goal.GetComponent<TutorialGoalTrigger>().IsLevelFailed()){
+            foreach (Transform child in HitchikerManager.transform){
+                if(child.transform.position.y < -20){
+                    _cameraAnim.Play("CameraZoomOut");
+                    currState = State.zeroSB;
+                }
+            }
+            break;
+        case State.zeroSB:
+            if (_cameraAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
                 currState = State.oneS;
             }
             break;
@@ -57,7 +79,7 @@ public class TutorialStateMachine : MonoBehaviour
             currState = State.oneU;
             break;
         case State.oneU:
-            if (GameManager.GetComponent<GameStateManager>().CurrState == GameStateManager.State.Plan){
+            if (GameManager.GetComponent<TutorialGameStateManager>().CurrState == TutorialGameStateManager.State.Plan){
                 currState = State.twoS;
             }
             break;
@@ -65,7 +87,7 @@ public class TutorialStateMachine : MonoBehaviour
             TutorialNarration.GetComponent<TextMeshProUGUI>().text = "Let's try that again...";
             PlayButton.SetActive(true);
             ResetButton.SetActive(false);
-            if (GameManager.GetComponent<GameStateManager>().CurrState == GameStateManager.State.Play){
+            if (GameManager.GetComponent<TutorialGameStateManager>().CurrState == TutorialGameStateManager.State.Play){
                 currState = State.twoU;
             }
             break;
@@ -79,7 +101,7 @@ public class TutorialStateMachine : MonoBehaviour
             Goal.GetComponent<TutorialGoalTrigger>().ResetPlayerResults();
             TutorialNarration.GetComponent<TextMeshProUGUI>().text = "Hmm... I have an idea. Let's rewind again.";
             ResetButton.SetActive(true);
-            if (GameManager.GetComponent<GameStateManager>().CurrState == GameStateManager.State.Plan){
+            if (GameManager.GetComponent<TutorialGameStateManager>().CurrState == TutorialGameStateManager.State.Plan){
                 currState = State.fourS;
             }
             break;
@@ -105,7 +127,7 @@ public class TutorialStateMachine : MonoBehaviour
             EnergyBar.SetActive(false);
             EnergyText.SetActive(false);
             TutorialNarration.GetComponent<TextMeshProUGUI>().text = "Maybe this will work?";
-            if (GameManager.GetComponent<GameStateManager>().CurrState == GameStateManager.State.Play){
+            if (GameManager.GetComponent<TutorialGameStateManager>().CurrState == TutorialGameStateManager.State.Play){
                 currState = State.fiveS;
             }
             break;
@@ -118,7 +140,7 @@ public class TutorialStateMachine : MonoBehaviour
         case State.fiveU:
             TutorialNarration.GetComponent<TextMeshProUGUI>().text = "Wait, I forgot to point the sign in the right direction!";
             ResetButton.SetActive(true);
-            if (GameManager.GetComponent<GameStateManager>().CurrState == GameStateManager.State.Plan){
+            if (GameManager.GetComponent<TutorialGameStateManager>().CurrState == TutorialGameStateManager.State.Plan){
                 currState = State.sixS;
             }
             break;
@@ -151,7 +173,7 @@ public class TutorialStateMachine : MonoBehaviour
         case State.sevenS:
             TutorialNarration.GetComponent<TextMeshProUGUI>().text = "This should be it!";
             PlayButton.SetActive(true);
-            if (GameManager.GetComponent<GameStateManager>().CurrState == GameStateManager.State.Play){
+            if (GameManager.GetComponent<TutorialGameStateManager>().CurrState == TutorialGameStateManager.State.Play){
                 currState = State.sevenSB;
             }
             break;

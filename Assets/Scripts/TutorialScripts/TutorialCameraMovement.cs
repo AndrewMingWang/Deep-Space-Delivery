@@ -6,27 +6,37 @@ public class TutorialCameraMovement : MonoBehaviour
     public float VerticalPanSensitivity = 0.08f;
     public float HorizontalPanSensitivity = 0.05f;
     public float RotateSensitivity = 0.05f;
+    public GameObject SpecialStateManager;
+    public GameObject CameraParent;
+    public GameObject Spawn;
+    public GameObject HitchikerManager;
 
     Vector3 cameraPos;
     Vector3 parentPos;
 
+    Vector3 startingPos;
+    Vector3 startingRot;
+
     float dist;
 
-    private float _rotateDirection;
+    // private float _rotateDirection;
 
     void Start()
     {
+        CameraParent = transform.parent.gameObject;
         dist = transform.localPosition.magnitude;
         cameraPos = transform.position;
         parentPos = transform.parent.position;
-        _rotateDirection = 1f;
+
+        startingPos = transform.position;
+        // _rotateDirection = 1f;
     }
 
 
     void Update() {
         // Panning();
         // Zoom();
-        // Rotation();
+        Rotation();
     }
 
 
@@ -104,26 +114,43 @@ public class TutorialCameraMovement : MonoBehaviour
 
     public void Rotation(){
 
-        Vector3 curDir = transform.localPosition.normalized * dist;
-        curDir.y = 9.15f;
-        transform.localPosition = curDir;
+        // Vector3 curDir = transform.localPosition.normalized * dist;
+        // curDir.y = 9.15f;
+        // transform.localPosition = curDir;
 
        
 
-        if (( Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E)) && (TutorialBuildManager.BuildingSelected == false)) {
+        // if (( Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E)) && (TutorialBuildManager.BuildingSelected == false)) {
                 
-            if (Input.GetKey(KeyCode.Q)){
-                _rotateDirection = 1f;
-            } else {
-                _rotateDirection = -1f;
+        //     if (Input.GetKey(KeyCode.Q)){
+        //         _rotateDirection = 1f;
+        //     } else {
+        //         _rotateDirection = -1f;
+        //     }
+
+        //     cameraPos -= transform.right * _rotateDirection * RotateSensitivity * Time.deltaTime;
+        //     RotateSensitivity *= 1.008f;
+
+        // }
+
+        if (SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.zeroStart ||
+            SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.zeroA ||
+            SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.zeroB ||
+            SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.zeroSB ||
+            SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.oneS ||
+            SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.oneU)
+        {
+            transform.parent = Spawn.transform;
+        } else if (SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.zeroS)
+        {
+            foreach(Transform child in HitchikerManager.transform){
+                transform.parent = child.transform;
             }
-
-            cameraPos -= transform.right * _rotateDirection * RotateSensitivity * Time.deltaTime;
-            RotateSensitivity *= 1.008f;
-
+        } else {
+            transform.position = startingPos;
+            transform.parent = CameraParent.transform;  
         }
-
-        transform.LookAt(transform.parent.position);
+         
 
         float y = transform.localRotation.eulerAngles.y;
         float z = transform.localRotation.eulerAngles.z;

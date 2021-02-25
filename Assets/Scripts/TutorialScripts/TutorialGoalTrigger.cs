@@ -6,7 +6,7 @@ using UnityEngine;
 public class TutorialGoalTrigger : MonoBehaviour
 {
 
-    public static readonly int NUM_PLAYERS = 1;
+    public static int NUM_PLAYERS = 1;
 
     public int PlayersReached = 0;
     public int PlayersFailed = 0;
@@ -14,13 +14,16 @@ public class TutorialGoalTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        NUM_PLAYERS = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+    public void updateGoalQuota(int val){
+        NUM_PLAYERS = val;
     }
 
     private void OnTriggerEnter(Collider other)
