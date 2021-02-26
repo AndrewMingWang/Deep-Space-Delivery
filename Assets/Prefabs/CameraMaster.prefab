@@ -286,8 +286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a388e5f858c3d084fb76a1df737101ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VerticalPanSensitivity: 0.4
-  HorizontalPanSensitivity: 0.2
+  VerticalPanSensitivity: 0.8
+  HorizontalPanSensitivity: 0.4
   RotateSensitivity: 15
 --- !u!114 &7375395166951208481
 MonoBehaviour:

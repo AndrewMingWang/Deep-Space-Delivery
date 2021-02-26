@@ -46,21 +46,21 @@ public class CameraMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
         {
             Camera.main.orthographicSize = 3;
-            HorizontalPanSensitivity = 0.03f;
-            VerticalPanSensitivity = 0.045f;
+            HorizontalPanSensitivity = 0.13f;
+            VerticalPanSensitivity = 0.26f;
         }
         else if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2))
         {
             Camera.main.orthographicSize = 5;
-            HorizontalPanSensitivity = 0.05f;
-            VerticalPanSensitivity = 0.08f;
+            HorizontalPanSensitivity = 0.2f;
+            VerticalPanSensitivity = 0.4f;
 
         }
         else if (Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3))
         {
             Camera.main.orthographicSize = 8;
-            HorizontalPanSensitivity = 0.05f;
-            VerticalPanSensitivity = 0.08f;
+            HorizontalPanSensitivity = 0.4f;
+            VerticalPanSensitivity = 0.8f;
         }
     }
 
