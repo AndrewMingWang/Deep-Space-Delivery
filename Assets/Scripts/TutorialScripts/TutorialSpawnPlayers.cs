@@ -25,6 +25,7 @@ public class TutorialSpawnPlayers : MonoBehaviour
         for (int i = 0; i < TutorialGoalTrigger.NUM_PLAYERS; i += 1)
         {
             Instantiate(playerPrefab, transform.position, transform.localRotation, hitchhikerManager.transform);
+            GetComponent<AudioSource>().Play();
             yield return new WaitForSeconds(1f);
         }
     }

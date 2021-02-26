@@ -94,9 +94,11 @@ public class TutorialUnitMovement : MonoBehaviour
         if (_groundedLastFrame && !_groundedThisFrame)
         {
             Animator.SetBool("isAirborne", true);
+            GetComponent<AudioSource>().Pause();
         } else if (!_groundedLastFrame && _groundedThisFrame)
         {
             Animator.SetBool("isAirborne", false);
+            GetComponent<AudioSource>().Play();
         }
         _groundedLastFrame = _groundedThisFrame;
 

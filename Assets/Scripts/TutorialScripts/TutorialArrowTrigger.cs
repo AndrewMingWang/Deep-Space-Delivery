@@ -21,6 +21,7 @@ public class TutorialArrowTrigger : MonoBehaviour
                 // Stop and Animate unit
                 other.gameObject.GetComponent<TutorialUnitMovement>().StopPlayer();
                 other.gameObject.GetComponent<TutorialUnitMovement>().Animator.SetTrigger("stop");
+                GetComponent<AudioSource>().Play();
 
             }
         }

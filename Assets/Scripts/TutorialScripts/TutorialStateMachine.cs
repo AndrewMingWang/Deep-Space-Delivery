@@ -99,7 +99,7 @@ public class TutorialStateMachine : MonoBehaviour
             break;
         case State.threeS:
             Goal.GetComponent<TutorialGoalTrigger>().ResetPlayerResults();
-            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "Hmm... I have an idea. Let's rewind again.";
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "I don't know why I thought that would work... Hmm, I have an idea!";
             ResetButton.SetActive(true);
             if (GameManager.GetComponent<TutorialGameStateManager>().CurrState == TutorialGameStateManager.State.Plan){
                 currState = State.fourS;
@@ -116,7 +116,7 @@ public class TutorialStateMachine : MonoBehaviour
             }
             break;    
         case State.fourU:
-            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "That took some energy... Hmm, I have to click to place it down.";
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "That took some energy... Hmm, I just need to click it to place it down.";
             if (TheTile.GetComponent<Tile>().OccupyingBuilding != null){
                 currState = State.fourUB;
             }
@@ -145,7 +145,7 @@ public class TutorialStateMachine : MonoBehaviour
             }
             break;
         case State.sixS:
-            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "I can pick-up the sign and rotate it...";
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "I can pick up the sign and rotate it.";
             ResetButton.SetActive(false);
             if (BuildManager.GetComponent<TutorialBuildManager>().CurrBuilding != null){
                 currState = State.sixU;
@@ -184,7 +184,7 @@ public class TutorialStateMachine : MonoBehaviour
             }
             break;
         case State.sevenU:
-            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "Nice! My powers are coming back to me... I haven't used these in a long time.";
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "Nice! My powers are coming back to me.";
             Menu.SetActive(true);
             if (Controls.activeInHierarchy){
                 currState = State.eightS;
