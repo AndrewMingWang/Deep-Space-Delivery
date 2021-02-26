@@ -49,25 +49,25 @@ MonoBehaviour:
     isLoop: 0
     isMusic: 1
     volume: 0.2
-  StartingSong: musicMenu
+  StartingSong: menu
   MusicFiles:
-  - name: musicMenu
+  - name: menu
     clip: {fileID: 8300000, guid: e15010a032f77a843bf6094714f11a44, type: 3}
     isLoop: 0
     isMusic: 1
     volume: 0.2
-  - name: musicWorld1
+  - name: world1
     clip: {fileID: 8300000, guid: a445762999bd5c14e8087098c317c2c2, type: 3}
     isLoop: 0
     isMusic: 1
     volume: 0.2
-  - name: musicWorld2
+  - name: world2
     clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
     isLoop: 0
     isMusic: 1
     volume: 0.2
   SFXFiles:
-  - name: reachGoal
+  - name: exit
     clip: {fileID: 8300000, guid: a59963e9014add047a1a88100ad3d143, type: 3}
     isLoop: 0
     isMusic: 0

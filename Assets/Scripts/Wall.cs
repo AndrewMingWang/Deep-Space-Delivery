@@ -13,6 +13,11 @@ public class Wall : Building
     public Tile TileAbove;
     public List<int> Seen = new List<int>();
 
+    private void Start()
+    {
+        AudioManager.EnrollSFXSource(GetComponent<AudioSource>());
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("player"))

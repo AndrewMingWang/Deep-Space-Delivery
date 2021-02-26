@@ -7,6 +7,11 @@ public class ArrowTrigger : MonoBehaviour
     [Header("Info")]
     public List<int> Seen = new List<int>();
 
+    private void Start()
+    {
+        AudioManager.EnrollSFXSource(GetComponent<AudioSource>());
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("player"))
@@ -22,6 +27,8 @@ public class ArrowTrigger : MonoBehaviour
                 other.gameObject.GetComponent<UnitMovement>().StopPlayer();
                 other.gameObject.GetComponent<UnitMovement>().Animator.SetTrigger("stop");
 
+                // SFX
+                GetComponent<AudioSource>().Play();
             }
         }
     }

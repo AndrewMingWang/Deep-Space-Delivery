@@ -6,7 +6,7 @@ using UnityEngine;
 public class GoalTrigger : MonoBehaviour
 {
 
-    public static readonly int NUM_PLAYERS = 1;
+    public static readonly int NUM_PLAYERS = 4;
 
     public GameObject ResultsPanel;
     public TMP_Text SuccessRate;
@@ -25,7 +25,7 @@ public class GoalTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        AudioManager.EnrollSFXSource(GetComponent<AudioSource>());
     }
 
     // Update is called once per frame
@@ -78,7 +78,7 @@ public class GoalTrigger : MonoBehaviour
     {
         if (other.CompareTag("player"))
         {
-            AudioManager.Play(AudioManager.SFX_REACH_GOAL);
+            GetComponent<AudioSource>().Play();
             PlayersReached += 1;
             other.gameObject.SetActive(false);
         }

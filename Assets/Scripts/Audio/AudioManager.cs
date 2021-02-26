@@ -6,12 +6,9 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     // Music names
-    public static readonly string MUSIC_MENU = "musicMenu";
-    public static readonly string MUSIC_WORLD1 = "musicWorld1";
-    public static readonly string MUSIC_WORLD2 = "musicWorld2";
-
-    // SFX names
-    public static readonly string SFX_REACH_GOAL = "reachGoal";
+    public static readonly string MUSIC_MENU = "menu";
+    public static readonly string MUSIC_WORLD1 = "world1";
+    public static readonly string MUSIC_WORLD2 = "world2";
 
     public static AudioManager Instance;
     public static bool SFXOn = true;
@@ -21,35 +18,21 @@ public class AudioManager : MonoBehaviour
     public AudioFile CurrentMusic = null;
     public string StartingSong;
 
-    [Header("Music")]
     public List<AudioFile> MusicFiles = new List<AudioFile>();
 
-    [Header("SFX")]
     public List<AudioFile> SFXFiles = new List<AudioFile>();
 
-    [HideInInspector]
-    public List<AudioFile> AllFiles = new List<AudioFile>();
-
-    private void Awake()
+    private void Awake()    
     {
-        foreach (AudioFile af in MusicFiles)
-        {
-            AllFiles.Add(af);
-        }
-        foreach (AudioFile af in SFXFiles)
-        {
-            AllFiles.Add(af);
-        }
-
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            foreach (AudioFile audioFile in AllFiles)
+            // MusicFiles instantiated here, SFX per prefab
+            foreach (AudioFile audioFile in MusicFiles)
             {
                 audioFile.SetAudioSource(gameObject.AddComponent<AudioSource>());
                 audioFile.GetAudioSource().clip = audioFile.clip;
-                audioFile.GetAudioSource().loop = audioFile.isLoop;
                 audioFile.GetAudioSource().volume = audioFile.volume;
             }
         }
@@ -59,7 +42,19 @@ public class AudioManager : MonoBehaviour
         }
 
         // First song to be played
-        AudioManager.Play(StartingSong);
+        AudioManager.PlayMusic(StartingSong);
+    }
+
+    public static void EnrollSFXSource(AudioSource source)
+    {
+        AudioFile audioFile = new AudioFile();
+        audioFile.volume = source.volume;
+        audioFile.SetAudioSource(source);
+
+        if (Instance != null)
+        {
+            Instance.SFXFiles.Add(audioFile);
+        }
     }
 
     public static void ToggleMusic()
@@ -109,39 +104,31 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public static void Play(string audioName)
+    public static void PlayMusic(string audioName)
     {
         if (Instance != null)
         {
-            Instance.PlayIfExists(audioName);
+            Instance.PlayMusicIfExists(audioName);
         }
     }
 
-    private void PlayIfExists(string audioName)
+    private void PlayMusicIfExists(string audioName)
     {
-        AudioFile audioFile = AllFiles.Find(audio => audio.name.Equals(audioName));
+        AudioFile audioFile = MusicFiles.Find(audio => audio.name.Equals(audioName));
         if (audioFile == null)
         {
             return;
         }
 
-        if (audioFile.isMusic)
+        if (CurrentMusic.GetAudioSource() != null)
         {
-            // This is music - only one can play at a time
-            if (CurrentMusic.GetAudioSource() != null)
-            {
-                CurrentMusic.GetAudioSource().Stop();
-            }
-            CurrentMusic = audioFile;
-
-            CurrentMusic.GetAudioSource().Play();
-        } else
-        {
-            // This is SFX
-            audioFile.GetAudioSource().Play();
+            CurrentMusic.GetAudioSource().Stop();
         }
+        CurrentMusic = audioFile;
+        CurrentMusic.GetAudioSource().Play();
     }
 
+    /*
     public static void Stop(string audioName)
     {
         if (Instance != null)
@@ -160,6 +147,7 @@ public class AudioManager : MonoBehaviour
 
         audioFile.GetAudioSource().Stop();
     }
+    */
 
     public static void StopAllAudio()
     {
@@ -171,7 +159,11 @@ public class AudioManager : MonoBehaviour
 
     private void StopPlayingAllAudio()
     {
-        foreach (AudioFile audio in AllFiles)
+        foreach (AudioFile audio in MusicFiles)
+        {
+            audio.GetAudioSource().Stop();
+        }
+        foreach (AudioFile audio in SFXFiles)
         {
             audio.GetAudioSource().Stop();
         }

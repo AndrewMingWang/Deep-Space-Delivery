@@ -14,6 +14,7 @@ public class SpawnPlayers : MonoBehaviour
     void Start()
     {
         // StartCoroutine(AddPlayers());
+        AudioManager.EnrollSFXSource(GetComponent<AudioSource>());
     }
 
     // Update is called once per frame
@@ -27,6 +28,8 @@ public class SpawnPlayers : MonoBehaviour
         for (int i = 0; i < GoalTrigger.NUM_PLAYERS; i += 1)
         {
             Instantiate(playerPrefab, transform.position + UpwardOffset * transform.up, transform.localRotation, hitchhikerManager.transform);
+
+            GetComponent<AudioSource>().Play();
 
             yield return new WaitForSeconds(1f);
         }

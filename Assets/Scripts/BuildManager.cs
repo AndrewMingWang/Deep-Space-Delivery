@@ -31,6 +31,13 @@ public class BuildManager : MonoBehaviour
     public BuildPrefab[] BuildPrefabsList;
     public Dictionary<string, GameObject> BuildingPrefabs = new Dictionary<string, GameObject>();
 
+    [Header("SFX")]
+    public AudioClip SpawnBuilding;
+    public AudioClip DespawnBuilding;
+    public AudioClip PickupBuilding;
+    public AudioClip PlaceBuilding;
+    AudioSource audioSource;
+
     private void Awake()
     {
         if (Instance != null)
@@ -43,6 +50,12 @@ public class BuildManager : MonoBehaviour
         {
             BuildingPrefabs.Add(bp.name, bp.prefab);
         }
+    }
+
+    private void Start()
+    {
+        AudioManager.EnrollSFXSource(GetComponent<AudioSource>());
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void BuildBuilding(string buildingString)
@@ -75,6 +88,9 @@ public class BuildManager : MonoBehaviour
 
         // Set current building
         CurrBuilding = newBuilding;
+
+        // SFX
+        audioSource.PlayOneShot(SpawnBuilding);
     }
 
     // Update is called once per frame
@@ -118,6 +134,9 @@ public class BuildManager : MonoBehaviour
                             TileManager.Instance.SetTileOccupied(CurrBuilding.TileUnder);
                             CurrBuilding.PlaceBuilding();
 
+                            // SFX
+                            audioSource.PlayOneShot(PlaceBuilding);
+
                             CurrBuilding = null;
                         }
                         else
@@ -136,6 +155,9 @@ public class BuildManager : MonoBehaviour
                             CurrBuilding.TileUnder.SetHoverColor();
                             TileManager.Instance.SetTileUnoccupied(CurrBuilding.TileUnder);
                             CurrBuilding.PickUpBuilding();
+
+                            // SFX
+                            audioSource.PlayOneShot(PickupBuilding);
                         }
                     }
                     else
@@ -145,11 +167,17 @@ public class BuildManager : MonoBehaviour
                         CurrBuilding.GetComponent<Building>().TileUnder.OccupyingBuilding = null;
                         TileManager.Instance.SetTileUnoccupied(CurrBuilding.TileUnder);
                         CurrBuilding.GetComponent<Building>().PickUpBuilding();
+
+                        // SFX
+                        audioSource.PlayOneShot(PickupBuilding);
                     }
                 }
             } else if (Input.GetMouseButtonDown(1))
             {
                 CancelBuilding();
+
+                // SFX
+                audioSource.PlayOneShot(DespawnBuilding);
             }
 
             // Handle additional options for specifc buildings bound to the q and e keys

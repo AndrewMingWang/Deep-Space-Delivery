@@ -15,6 +15,7 @@ public class TutorialGoalTrigger : MonoBehaviour
     void Start()
     {
         NUM_PLAYERS = 1;
+        AudioManager.EnrollSFXSource(GetComponent<AudioSource>());
     }
 
     // Update is called once per frame
@@ -30,7 +31,7 @@ public class TutorialGoalTrigger : MonoBehaviour
     {
         if (other.CompareTag("player"))
         {
-            AudioManager.Play(AudioManager.SFX_REACH_GOAL);
+            GetComponent<AudioSource>().Play();
             PlayersReached += 1;
             other.gameObject.SetActive(false);
         }
