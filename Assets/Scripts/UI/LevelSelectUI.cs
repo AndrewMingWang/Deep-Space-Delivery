@@ -90,4 +90,9 @@ public class LevelSelectUI : BaseUI
         Application.Quit();
     }
 
+    public void SFXButtonPress()
+    {
+        AudioManager.PlaySFX(AudioManager.UI_BUTTON_PRESS);
+    }
+
 }

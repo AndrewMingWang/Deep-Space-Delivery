@@ -10,6 +10,12 @@ public class AudioManager : MonoBehaviour
     public static readonly string MUSIC_WORLD1 = "world1";
     public static readonly string MUSIC_WORLD2 = "world2";
 
+    // UI SFX names
+    public static readonly string UI_BUTTON_PRESS = "buttonpress";
+    public static readonly string UI_CANNOT_BUILD = "cannotbuild";
+    public static readonly string UI_WIN_LEVEL = "winlevel";
+    public static readonly string UI_LOSE_LEVEL = "loselevel";
+
     public static AudioManager Instance;
     public static bool SFXOn = true;
     public static bool MusicOn = true;
@@ -28,13 +34,19 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            // MusicFiles instantiated here, SFX per prefab
             foreach (AudioFile audioFile in MusicFiles)
             {
                 audioFile.SetAudioSource(gameObject.AddComponent<AudioSource>());
                 audioFile.GetAudioSource().clip = audioFile.clip;
                 audioFile.GetAudioSource().volume = audioFile.volume;
             }
+            foreach (AudioFile audioFile in SFXFiles)
+            {
+                audioFile.SetAudioSource(gameObject.AddComponent<AudioSource>());
+                audioFile.GetAudioSource().clip = audioFile.clip;
+                audioFile.GetAudioSource().volume = audioFile.volume;
+            }
+
         }
         else
         {
@@ -93,14 +105,21 @@ public class AudioManager : MonoBehaviour
         SFXOn = !SFXOn;
         foreach (AudioFile audioFile in SFXFiles)
         {
-            if (SFXOn)
+            if (audioFile != null)
             {
-                audioFile.Unmute();
-            }
-            else
+                if (SFXOn)
+                {
+                    audioFile.Unmute();
+                }
+                else
+                {
+                    audioFile.Mute();
+                }
+            } else
             {
-                audioFile.Mute();
+                SFXFiles.Remove(audioFile);
             }
+
         }
     }
 
@@ -126,6 +145,25 @@ public class AudioManager : MonoBehaviour
         }
         CurrentMusic = audioFile;
         CurrentMusic.GetAudioSource().Play();
+    }
+
+    public static void PlaySFX(string audioName)
+    {
+        if (Instance != null)
+        {
+            Instance.PlaySFXIfExists(audioName);
+        }
+    }
+
+    private void PlaySFXIfExists(string audioName)
+    {
+        AudioFile audioFile = SFXFiles.Find(audio => audio.name.Equals(audioName));
+        if (audioFile == null)
+        {
+            return;
+        }
+
+        audioFile.GetAudioSource().Play();
     }
 
     /*

@@ -22,6 +22,8 @@ public class GoalTrigger : MonoBehaviour
     public int PlayersReached = 0;
     public int PlayersFailed = 0;
 
+    bool levelDoneAlready = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,11 @@ public class GoalTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (levelDoneAlready)
+        {
+            return;
+        }
+
         if (IsLevelDone())
         {
             MenuButtons.SetActive(false);
@@ -46,31 +53,39 @@ public class GoalTrigger : MonoBehaviour
             if (successRate < 50.0f || moneyLeft < 0)
             {
                 Fail.SetActive(true);
+                AudioManager.PlaySFX(AudioManager.UI_LOSE_LEVEL);
             }
+            // TODO: Animate the stars popping up
             else if (successRate >= 50.0f && successRate < 100.0f && moneyLeft == 0)
             {
                 Star1.SetActive(true);
+                AudioManager.PlaySFX(AudioManager.UI_WIN_LEVEL);
             }
             else if (successRate >= 50.0f && successRate < 100.0f && moneyLeft > 0)
             {
                 Star1.SetActive(true);
                 Star2.SetActive(true);
+                AudioManager.PlaySFX(AudioManager.UI_WIN_LEVEL);
             }
             else if (successRate == 100.0f && moneyLeft == 0)
             {
                 Star1.SetActive(true);
                 Star2.SetActive(true);
+                AudioManager.PlaySFX(AudioManager.UI_WIN_LEVEL);
             }
             else if (successRate == 100.0f && moneyLeft > 0)
             {
                 Star1.SetActive(true);
                 Star2.SetActive(true);
                 Star3.SetActive(true);
+                AudioManager.PlaySFX(AudioManager.UI_WIN_LEVEL);
             }
             else
             {
                 Debug.LogError("Unknown score");
             }
+
+            levelDoneAlready = true;
         }
     }
 

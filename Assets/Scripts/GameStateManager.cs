@@ -108,4 +108,8 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
+    public void SFXButtonPress()
+    {
+        AudioManager.PlaySFX(AudioManager.UI_BUTTON_PRESS);
+    }
 }

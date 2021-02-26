@@ -114,4 +114,8 @@ public class MoneyManager : MonoBehaviour
         DisplayRemainingMoney();
     }
 
+    public void SFXButtonPress()
+    {
+        AudioManager.PlaySFX(AudioManager.UI_BUTTON_PRESS);
+    }
 }

@@ -95,4 +95,9 @@ public class LevelUI : BaseUI
         }
     }
 
+    public void SFXButtonPress()
+    {
+        AudioManager.PlaySFX(AudioManager.UI_BUTTON_PRESS);
+    }
+
 }

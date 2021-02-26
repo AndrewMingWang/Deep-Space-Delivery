@@ -46,75 +46,25 @@ MonoBehaviour:
   CurrentMusic:
     name: 
     clip: {fileID: 8300000, guid: e15010a032f77a843bf6094714f11a44, type: 3}
-    isLoop: 0
-    isMusic: 1
     volume: 0.2
   StartingSong: menu
   MusicFiles:
   - name: menu
     clip: {fileID: 8300000, guid: e15010a032f77a843bf6094714f11a44, type: 3}
-    isLoop: 0
-    isMusic: 1
     volume: 0.2
   - name: world1
     clip: {fileID: 8300000, guid: a445762999bd5c14e8087098c317c2c2, type: 3}
-    isLoop: 0
-    isMusic: 1
     volume: 0.2
   - name: world2
     clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
-    isLoop: 0
-    isMusic: 1
     volume: 0.2
   SFXFiles:
-  - name: exit
-    clip: {fileID: 8300000, guid: a59963e9014add047a1a88100ad3d143, type: 3}
-    isLoop: 0
-    isMusic: 0
+  - name: buttonpress
+    clip: {fileID: 8300000, guid: 3f45e5b970eeb3a4cb4577ab9d4116ea, type: 3}
     volume: 1
-  - name: walking
-    clip: {fileID: 8300000, guid: 8cbf1be0b1ca07b42bc3af4e68d607c9, type: 3}
-    isLoop: 1
-    isMusic: 0
+  - name: cannotbuild
+    clip: {fileID: 8300000, guid: a1f214ccd6da5ad4ba74d8b8f108a193, type: 3}
     volume: 1
-  - name: wind
-    clip: {fileID: 8300000, guid: 31eaba9c6addc4843b22bf19b1095b95, type: 3}
-    isLoop: 1
-    isMusic: 0
+  - name: winlevel
+    clip: {fileID: 8300000, guid: 67bede34f863464409aa57e1329e97f0, type: 3}
     volume: 1
-  - name: reachGoal
-    clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
-    isLoop: 0
-    isMusic: 0
-    volume: 1
-  - name: reachGoal
-    clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
-    isLoop: 0
-    isMusic: 0
-    volume: 1
-  - name: reachGoal
-    clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
-    isLoop: 0
-    isMusic: 0
-    volume: 1
-  - name: reachGoal
-    clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
-    isLoop: 0
-    isMusic: 0
-    volume: 1
-  - name: reachGoal
-    clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
-    isLoop: 0
-    isMusic: 0
-    volume: 1
-  - name: reachGoal
-    clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
-    isLoop: 0
-    isMusic: 0
-    volume: 1
-  - name: reachGoal
-    clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
-    isLoop: 0
-    isMusic: 0
-    volume: 1
-  AllFiles: []
