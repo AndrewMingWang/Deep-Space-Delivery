@@ -68,6 +68,51 @@ MonoBehaviour:
     volume: 0.2
   SFXFiles:
   - name: reachGoal
+    clip: {fileID: 8300000, guid: a59963e9014add047a1a88100ad3d143, type: 3}
+    isLoop: 0
+    isMusic: 0
+    volume: 1
+  - name: walking
+    clip: {fileID: 8300000, guid: 8cbf1be0b1ca07b42bc3af4e68d607c9, type: 3}
+    isLoop: 1
+    isMusic: 0
+    volume: 1
+  - name: wind
+    clip: {fileID: 8300000, guid: 31eaba9c6addc4843b22bf19b1095b95, type: 3}
+    isLoop: 1
+    isMusic: 0
+    volume: 1
+  - name: reachGoal
+    clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
+    isLoop: 0
+    isMusic: 0
+    volume: 1
+  - name: reachGoal
+    clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
+    isLoop: 0
+    isMusic: 0
+    volume: 1
+  - name: reachGoal
+    clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
+    isLoop: 0
+    isMusic: 0
+    volume: 1
+  - name: reachGoal
+    clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
+    isLoop: 0
+    isMusic: 0
+    volume: 1
+  - name: reachGoal
+    clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
+    isLoop: 0
+    isMusic: 0
+    volume: 1
+  - name: reachGoal
+    clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
+    isLoop: 0
+    isMusic: 0
+    volume: 1
+  - name: reachGoal
     clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
     isLoop: 0
     isMusic: 0
