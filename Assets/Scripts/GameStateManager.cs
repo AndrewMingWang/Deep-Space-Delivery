@@ -20,6 +20,11 @@ public class GameStateManager : MonoBehaviour
     public Sprite resetButtonRewind;
 
     public GameObject Spawn;
+    public GameObject ResultsPanel;
+    public GameObject Actions;
+    public GameObject EnergyBar;
+    public GameObject EnergyText;
+    public GameObject Menu;
     private SpawnPlayers _spawnscript;
 
     public enum State{Plan,Play,Paused}
@@ -106,6 +111,12 @@ public class GameStateManager : MonoBehaviour
             GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().ResetPlayerResults();
             break;
         }
+        ResultsPanel.GetComponent<Animator>().SetTrigger("closed");
+        Actions.SetActive(true);
+        EnergyBar.SetActive(true);
+        EnergyText.SetActive(true);
+        Menu.SetActive(true);
+        
     }
 
     public void SFXButtonPress()

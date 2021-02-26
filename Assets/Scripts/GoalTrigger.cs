@@ -44,7 +44,7 @@ public class GoalTrigger : MonoBehaviour
             ActionButtons.SetActive(false);
             EnergyBar.SetActive(false);
             MoneyManager moneyManager = GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>();
-            moneyManager.MoneyText.text = "";
+            moneyManager.MoneyText.gameObject.SetActive(false);
             int moneyLeft = moneyManager.GetRemainingMoney();
             float successRate = (PlayersReached * 100.0f / NUM_PLAYERS);
             ResultsPanel.GetComponent<Animator>().SetTrigger("open");
@@ -103,6 +103,7 @@ public class GoalTrigger : MonoBehaviour
     {
         PlayersReached = 0;
         PlayersFailed = 0;
+        levelDoneAlready = false;
     }
 
     public bool IsLevelDone()
