@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitSpeed: 2
-  WindSpeed: 1.5
+  WindSpeed: 2
   SceneParent: {fileID: 0}
   TargetDirection: {x: 0, y: 0, z: 0}
   IsStopped: 0
