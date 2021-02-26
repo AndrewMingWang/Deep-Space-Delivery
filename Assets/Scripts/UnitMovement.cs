@@ -8,7 +8,7 @@ public class UnitMovement : MonoBehaviour
     public float UnitSpeed = 2.0f;
 
     [Header("Wind")]
-    public float WindSpeed = 100f;
+    public float WindSpeed;
     [HideInInspector]
     public GameObject SceneParent;
 
@@ -44,7 +44,8 @@ public class UnitMovement : MonoBehaviour
     {
         int windLayerMask = 1 << 11; // Wind layer
         int buildingLayerMask = 1 << 9; // Building layer
-        int layerMask = windLayerMask | buildingLayerMask;
+        int envBuildingLayerMask = 1 << 13; // Environment Buildings
+        int layerMask = windLayerMask | buildingLayerMask | envBuildingLayerMask;
         RaycastHit hit;
 
         Vector3 res = Vector3.zero;
