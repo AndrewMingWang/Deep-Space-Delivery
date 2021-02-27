@@ -21,6 +21,7 @@ public class TileRandomizer : MonoBehaviour
         Debug.Log("Randomizing " + numTiles.ToString() + " Tiles");
         List<Vector3> positions = new List<Vector3>();
         List<Quaternion> rotations = new List<Quaternion>();
+        List<GameObject> occupiers = new List<GameObject>();
         List<GameObject> toBeDestroyed = new List<GameObject>();
 
         // Record existing info
@@ -28,6 +29,7 @@ public class TileRandomizer : MonoBehaviour
         {
             positions.Add(transform.GetChild(i).transform.position);
             rotations.Add(transform.GetChild(i).transform.rotation);
+            occupiers.Add(transform.GetChild(i).GetComponent<Tile>().OccupyingBuilding);
             toBeDestroyed.Add(transform.GetChild(i).gameObject);
         }
 
@@ -55,7 +57,8 @@ public class TileRandomizer : MonoBehaviour
             {
                 if (r <= cutoffs[j])
                 {
-                    Instantiate(TilePrefabs[j].prefab, positions[i], rotations[i], transform);
+                    GameObject newTile = Instantiate(TilePrefabs[j].prefab, positions[i], rotations[i], transform);
+                    newTile.GetComponent<Tile>().OccupyingBuilding = occupiers[i];
                     break;
                 }
             }
