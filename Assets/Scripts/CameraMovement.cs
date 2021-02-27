@@ -9,6 +9,7 @@ public class CameraMovement : MonoBehaviour
     // For Panning
     private Vector3 screenOrigin;
     private Vector3 worldOrigin;
+    private bool _originSet = false;
 
     // For Rotation
     float _startCameraDist;
@@ -34,14 +35,21 @@ public class CameraMovement : MonoBehaviour
             {
                 screenOrigin = Input.mousePosition;
                 worldOrigin = transform.parent.position;
+                _originSet = true;
             }
-            else if (Input.GetMouseButton(0))
+            else if (Input.GetMouseButton(0) && _originSet)
             {
                 Vector3 worldDelta = Camera.main.ScreenToWorldPoint(Input.mousePosition) - Camera.main.ScreenToWorldPoint(screenOrigin);
                 Vector3 planeDelta = Vector3.ProjectOnPlane(worldDelta, Vector3.up);
 
                 transform.parent.position = worldOrigin - planeDelta;
+            } else
+            {
+                _originSet = false;
             }
+        } else
+        {
+            _originSet = false;
         }
     }
 
