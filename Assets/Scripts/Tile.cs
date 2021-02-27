@@ -7,15 +7,18 @@ public class Tile : MonoBehaviour
     public Color BaseColor;
     public Color HoverColor;
 
+    [HideInInspector]
     public bool Hovered = false;
-
+    [HideInInspector]
     public GameObject OccupyingBuilding = null;
 
     private Material _tileMaterial;
 
+    public GameObject Top;
+
     private void Awake()
     {
-        _tileMaterial = GetComponent<Renderer>().material;
+        _tileMaterial = Top.GetComponent<Renderer>().materials[1];
         _tileMaterial.SetColor("_Color", BaseColor);
     }
 
