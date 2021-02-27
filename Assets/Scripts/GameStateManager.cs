@@ -86,6 +86,7 @@ public class GameStateManager : MonoBehaviour
                 Time.timeScale = 1.0f;
             break;
         }
+        ResultsPanel.GetComponent<Animator>().SetBool("closed", false);
     }
 
     public void ResetButtonPressed(){
@@ -111,11 +112,15 @@ public class GameStateManager : MonoBehaviour
             GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().ResetPlayerResults();
             break;
         }
-        ResultsPanel.GetComponent<Animator>().SetTrigger("closed");
+        ResultsPanel.GetComponent<Animator>().SetBool("open", false);
+        ResultsPanel.GetComponent<Animator>().SetBool("closed", true);        
+        // ResultsPanel.GetComponent<CanvasGroup>().interactable = false;
+        // ResultsPanel.GetComponent<CanvasGroup>().alpha = 0;
         Actions.SetActive(true);
         EnergyBar.SetActive(true);
         EnergyText.SetActive(true);
         Menu.SetActive(true);
+        // ResultsPanel.GetComponent<Animator>().SetBool("closed", false);
         
     }
 
