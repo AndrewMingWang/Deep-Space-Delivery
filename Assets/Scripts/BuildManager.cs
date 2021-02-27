@@ -38,6 +38,10 @@ public class BuildManager : MonoBehaviour
     public AudioClip PlaceBuilding;
     AudioSource audioSource;
 
+    [Header("Toggle Keys")]
+    public KeyCode Toggle1 = KeyCode.A;
+    public KeyCode Toggle2 = KeyCode.D;
+
     private void Awake()
     {
         if (Instance != null)
@@ -189,14 +193,14 @@ public class BuildManager : MonoBehaviour
                         // Don't toggle wall height anymore
                         break;
                     case ARROW:
-                        if (Input.GetKeyDown(KeyCode.E))
+                        if (Input.GetKeyDown(Toggle1))
                         {
                             CurrBuilding.transform.RotateAround(
                                 CurrBuilding.transform.position,
                                 CurrBuilding.transform.up, 
                                 45f);
                         }
-                        else if (Input.GetKeyDown(KeyCode.Q))
+                        else if (Input.GetKeyDown(Toggle2))
                         {
                             CurrBuilding.transform.RotateAround(
                                 CurrBuilding.transform.position,
@@ -209,11 +213,11 @@ public class BuildManager : MonoBehaviour
                         break;
                     case HOLDING:
                         Holding currHolding = (Holding)CurrBuilding;
-                        if (Input.GetKeyDown(KeyCode.E))
+                        if (Input.GetKeyDown(Toggle1))
                         {
                             currHolding.IncrementThreshold();
                         }
-                        else if (Input.GetKeyDown(KeyCode.Q))
+                        else if (Input.GetKeyDown(Toggle2))
                         {
                             currHolding.DecrementThreshold();
                         }

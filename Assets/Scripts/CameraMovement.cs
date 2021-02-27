@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CameraMovement : MonoBehaviour
 {
+    [Header("Sensitivity")]
     public float RotateSensitivity = 0.05f;
     public float ZoomSensitivity = 0.05f;
 
@@ -12,6 +13,9 @@ public class CameraMovement : MonoBehaviour
     private bool _originSet = false;
 
     // For Rotation
+    [Header("Rotation Keys")]
+    public KeyCode CWRotationKey = KeyCode.Q;
+    public KeyCode CCWRotationKey = KeyCode.E;
     float _startCameraDist;
 
     void Start()
@@ -63,16 +67,14 @@ public class CameraMovement : MonoBehaviour
         curDir.y = 9.15f;
         transform.localPosition = curDir;
 
-        if (BuildManager.BuildingSelected == false)
+
+        if (Input.GetKey(CWRotationKey))
         {
-            if (Input.GetKey(KeyCode.Q))
-            {
-                transform.position -= transform.right * RotateSensitivity * Time.deltaTime;
-            }
-            else if (Input.GetKey(KeyCode.E))
-            {
-                transform.position += transform.right * RotateSensitivity * Time.deltaTime;
-            }
+            transform.position -= transform.right * RotateSensitivity * Time.deltaTime;
+        }
+        else if (Input.GetKey(CCWRotationKey))
+        {
+            transform.position += transform.right * RotateSensitivity * Time.deltaTime;
         }
 
         transform.LookAt(transform.parent.position);
