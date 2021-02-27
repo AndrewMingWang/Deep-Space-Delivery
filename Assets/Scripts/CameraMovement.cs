@@ -11,17 +11,11 @@ public class CameraMovement : MonoBehaviour
     private Vector3 worldOrigin;
 
     // For Rotation
-    private float _rotateDirection;
-    float dist;
-    Vector3 cameraPos;
-    Vector3 parentPos;
+    float _startCameraDist;
 
     void Start()
     {
-        dist = transform.localPosition.magnitude;
-        cameraPos = transform.position;
-        parentPos = transform.parent.position;
-        _rotateDirection = 1f;
+        _startCameraDist = transform.localPosition.magnitude;
     }
 
 
@@ -34,16 +28,20 @@ public class CameraMovement : MonoBehaviour
 
     public void Panning()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (BuildManager.BuildingSelected == false)
         {
-            screenOrigin = Input.mousePosition;
-            worldOrigin = transform.parent.position;
-        } else if (Input.GetMouseButton(0))
-        {
-            Vector3 worldDelta = Camera.main.ScreenToWorldPoint(Input.mousePosition) - Camera.main.ScreenToWorldPoint(screenOrigin);
-            Vector3 planeDelta = Vector3.ProjectOnPlane(worldDelta, Vector3.up);
+            if (Input.GetMouseButtonDown(0))
+            {
+                screenOrigin = Input.mousePosition;
+                worldOrigin = transform.parent.position;
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                Vector3 worldDelta = Camera.main.ScreenToWorldPoint(Input.mousePosition) - Camera.main.ScreenToWorldPoint(screenOrigin);
+                Vector3 planeDelta = Vector3.ProjectOnPlane(worldDelta, Vector3.up);
 
-            transform.parent.position = worldOrigin - planeDelta;
+                transform.parent.position = worldOrigin - planeDelta;
+            }
         }
     }
 
@@ -53,21 +51,20 @@ public class CameraMovement : MonoBehaviour
     }
 
     public void Rotation(){
-        
-        Vector3 curDir = transform.localPosition.normalized * dist;
+        Vector3 curDir = transform.localPosition.normalized * _startCameraDist;
         curDir.y = 9.15f;
         transform.localPosition = curDir;
 
-        if (( Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E)) && (BuildManager.BuildingSelected == false)) {
-            if (Input.GetKey(KeyCode.Q)){
-                _rotateDirection = 1f;
-            } else {
-                _rotateDirection = -1f;
+        if (BuildManager.BuildingSelected == false)
+        {
+            if (Input.GetKey(KeyCode.Q))
+            {
+                transform.position -= transform.right * RotateSensitivity * Time.deltaTime;
             }
-
-            cameraPos -= transform.right * _rotateDirection * RotateSensitivity * Time.deltaTime;
-            RotateSensitivity *= 1.008f;
-
+            else if (Input.GetKey(KeyCode.E))
+            {
+                transform.position += transform.right * RotateSensitivity * Time.deltaTime;
+            }
         }
 
         transform.LookAt(transform.parent.position);
