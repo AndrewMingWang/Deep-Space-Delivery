@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ public class LevelUI : BaseUI
     public Sprite soundSpriteOn;
     public Sprite soundSpriteOff;
     public GameObject controlDisplay;
+    public TMP_Text levelTitle;
 
     private void Awake()
     {
@@ -32,6 +34,17 @@ public class LevelUI : BaseUI
         else
         {
             musicButton.GetComponent<Image>().sprite = musicSpriteOff;
+        }
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        int currentLevel = -1;
+        if (int.TryParse(currentSceneName.Substring(5), out currentLevel))
+        {
+            string buffer = "";
+            if (currentLevel < 10)
+            {
+                buffer = "0";
+            }
+            levelTitle.text = "Level " + buffer + currentLevel;
         }
     }
 
