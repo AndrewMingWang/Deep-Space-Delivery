@@ -17,12 +17,12 @@ public class Building : MonoBehaviour
         meshRenderer.material.SetColor("_Color", SelectedColor);
     }
 
-    public void setColorPickedUp()
+    public virtual void setColorPickedUp()
     {
         meshRenderer.material.SetColor("_Color", SelectedColor);
     }
 
-    public void setColorPlaced()
+    public virtual void setColorPlaced()
     {
         meshRenderer.material.SetColor("_Color", PlacedColor);
     }

@@ -107,10 +107,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca8bfdf5e3f0d14ebd0260e39f19176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0, g: 0.69457674, b: 1, a: 0.46666667}
-  PlacedColor: {r: 0, g: 0.7750714, b: 1, a: 1}
+  SelectedColor: {r: 1, g: 0, b: 0.11237717, a: 0.46666667}
+  PlacedColor: {r: 1, g: 0, b: 0.11237717, a: 1}
   BuildingName: arrow
   TileUnder: {fileID: 0}
+  SignRenderer: {fileID: 6423483768475927940}
+  PoleRenderer: {fileID: 4902592540033810520}
 --- !u!1 &5066602774286968432
 GameObject:
   m_ObjectHideFlags: 0
