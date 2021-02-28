@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7775227202675978089}
   - component: {fileID: 5524353268607556741}
   - component: {fileID: 6476583559165036459}
+  - component: {fileID: 6073969626872714908}
   m_Layer: 8
   m_Name: FTile_Grass2
   m_TagString: Foundation
@@ -125,6 +126,21 @@ MonoBehaviour:
   Hovered: 0
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 2826783143036443189}
+--- !u!114 &6073969626872714908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8922785760038725226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149ad8af1eb2e614fb404a5986164015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxYRange: {x: 0.01, y: 0.03}
+  MaxY: 0.02
+  Period: 4
 --- !u!1001 &6680270656929719717
 PrefabInstance:
   m_ObjectHideFlags: 0
