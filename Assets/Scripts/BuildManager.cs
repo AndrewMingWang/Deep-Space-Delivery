@@ -199,6 +199,7 @@ public class BuildManager : MonoBehaviour
                                 CurrBuilding.transform.position,
                                 CurrBuilding.transform.up, 
                                 45f);
+                            CurrBuilding.GetComponent<AudioSource>().Play();
                         }
                         else if (Input.GetKeyDown(Toggle2))
                         {
@@ -206,6 +207,7 @@ public class BuildManager : MonoBehaviour
                                 CurrBuilding.transform.position,
                                 CurrBuilding.transform.up,
                                 -45f);
+                            CurrBuilding.GetComponent<AudioSource>().Play();
                         }
                         break;
                     case TRAMPOLINE:
