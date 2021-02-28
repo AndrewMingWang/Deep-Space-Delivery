@@ -51,6 +51,7 @@ public class MoneyManager : MonoBehaviour
             itemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + item.quantity.ToString();
             itemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = item.price.ToString();
             itemButton.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = item.name;
+            itemButton.GetComponent<Image>().sprite = item.icon;
         }
         for (int i = itemCount; i < NUMBER_ITEMS; i += 1)
         {
