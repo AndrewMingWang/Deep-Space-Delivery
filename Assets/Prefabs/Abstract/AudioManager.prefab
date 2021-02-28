@@ -68,3 +68,6 @@ MonoBehaviour:
   - name: winlevel
     clip: {fileID: 8300000, guid: 67bede34f863464409aa57e1329e97f0, type: 3}
     volume: 1
+  - name: loselevel
+    clip: {fileID: 8300000, guid: ae44df55cfeca9a4188e648b76fd4db9, type: 3}
+    volume: 1

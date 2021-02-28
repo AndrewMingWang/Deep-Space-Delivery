@@ -38,6 +38,7 @@ public class AudioManager : MonoBehaviour
             {
                 audioFile.SetAudioSource(gameObject.AddComponent<AudioSource>());
                 audioFile.GetAudioSource().clip = audioFile.clip;
+                audioFile.GetAudioSource().loop = true;
                 audioFile.GetAudioSource().volume = audioFile.volume;
             }
             foreach (AudioFile audioFile in SFXFiles)

@@ -4239,25 +4239,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
-        type: 3}
-      propertyPath: SFXFiles.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
-        type: 3}
-      propertyPath: SFXFiles.Array.data[3].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: ae44df55cfeca9a4188e648b76fd4db9, type: 3}
-    - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
-        type: 3}
-      propertyPath: SFXFiles.Array.data[3].name
-      value: loselevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
-        type: 3}
-      propertyPath: SFXFiles.Array.data[3].volume
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39a838a7452df824c8d78976d8032762, type: 3}
