@@ -32,6 +32,17 @@ public class TutorialBuildManager : MonoBehaviour
     public BuildPrefab[] BuildPrefabsList;
     public Dictionary<string, GameObject> BuildingPrefabs = new Dictionary<string, GameObject>();
 
+    [Header("SFX")]
+    public AudioClip SpawnBuilding;
+    public AudioClip DespawnBuilding;
+    public AudioClip PickupBuilding;
+    public AudioClip PlaceBuilding;
+    AudioSource audioSource;
+
+    [Header("Toggle Keys")]
+    public KeyCode Toggle1 = KeyCode.A;
+    public KeyCode Toggle2 = KeyCode.D;
+
     private void Awake()
     {
         if (Instance != null)
@@ -44,6 +55,11 @@ public class TutorialBuildManager : MonoBehaviour
         {
             BuildingPrefabs.Add(bp.name, bp.prefab);
         }
+    }
+    private void Start()
+    {
+        AudioManager.EnrollSFXSource(GetComponent<AudioSource>());
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void BuildBuilding(string buildingString)
@@ -76,6 +92,9 @@ public class TutorialBuildManager : MonoBehaviour
 
         // Set current building
         CurrBuilding = newBuilding;
+
+        // SFX
+        audioSource.PlayOneShot(SpawnBuilding);
     }
 
     // Update is called once per frame
@@ -108,13 +127,16 @@ public class TutorialBuildManager : MonoBehaviour
             {
                 if (SpecialGameManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.fourS ||
                     SpecialGameManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.fourU ||
+                    SpecialGameManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.fourUA ||
+                    SpecialGameManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.fourUAB ||
+                    SpecialGameManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.fourUAA || 
                     SpecialGameManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.sixS  ||
                     SpecialGameManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.sixU  ||
                     SpecialGameManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.sixB   )
                     {
                     if (MouseRaycast("Building", out hit))
                     {
-                        if (CurrBuilding != null)
+                        if (CurrBuilding != null && SpecialGameManager.GetComponent<TutorialStateMachine>().currState != TutorialStateMachine.State.fourUAA)
                         {
                             if (hit.transform.GetComponent<Building>() == CurrBuilding)
                             {
@@ -124,6 +146,7 @@ public class TutorialBuildManager : MonoBehaviour
                                 CurrBuilding.TileUnder.OccupyingBuilding = CurrBuilding.gameObject;
                                 TileManager.Instance.SetTileOccupied(CurrBuilding.TileUnder);
                                 CurrBuilding.PlaceBuilding();
+                                audioSource.PlayOneShot(PlaceBuilding);
 
                                 CurrBuilding = null;
                             }
@@ -143,11 +166,14 @@ public class TutorialBuildManager : MonoBehaviour
                                 CurrBuilding.TileUnder.SetHoverColor();
                                 TileManager.Instance.SetTileUnoccupied(CurrBuilding.TileUnder);
                                 CurrBuilding.PickUpBuilding();
+
+                                audioSource.PlayOneShot(PlaceBuilding);
                             }
                         }
                         else
                         {
-                            if (SpecialGameManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.sixS ||
+                            if (SpecialGameManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.fourUA ||
+                                SpecialGameManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.sixS ||
                                 SpecialGameManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.sixU ||
                                 SpecialGameManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.sixB )
                             {
@@ -156,13 +182,14 @@ public class TutorialBuildManager : MonoBehaviour
                                 CurrBuilding.GetComponent<Building>().TileUnder.OccupyingBuilding = null;
                                 TileManager.Instance.SetTileUnoccupied(CurrBuilding.TileUnder);
                                 CurrBuilding.GetComponent<Building>().PickUpBuilding();
+                                audioSource.PlayOneShot(PlaceBuilding);
                             }
                         }
                     }
-                } // else if (Input.GetMouseButtonDown(1))
-                // {
-                //     CancelBuilding();
-                // }
+                } 
+            } else if (Input.GetMouseButtonDown(1) && SpecialGameManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.fourUAA)
+            {
+                CancelBuilding();
             }
                 
 
@@ -176,19 +203,21 @@ public class TutorialBuildManager : MonoBehaviour
                         break;
                     case ARROW:
                         if (SpecialGameManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.sixU){
-                            if (Input.GetKeyDown(KeyCode.E))
+                            if (Input.GetKeyDown(KeyCode.D))
                             {
                                 CurrBuilding.transform.RotateAround(
                                     CurrBuilding.transform.position,
                                     CurrBuilding.transform.up, 
                                     45f);
+                                CurrBuilding.GetComponent<AudioSource>().Play();
                             }
-                            else if (Input.GetKeyDown(KeyCode.Q))
+                            else if (Input.GetKeyDown(KeyCode.A))
                             {
                                 CurrBuilding.transform.RotateAround(
                                     CurrBuilding.transform.position,
                                     CurrBuilding.transform.up,
                                     -45f);
+                                CurrBuilding.GetComponent<AudioSource>().Play();
                             }
                         }
                         break;
@@ -233,7 +262,7 @@ public class TutorialBuildManager : MonoBehaviour
     {
         if (CurrBuilding != null)
         {
-            MoneyManager.Instance.RefundItem(CurrBuilding.BuildingName);
+            TutorialMoneyManager.Instance.RefundItem(CurrBuilding.BuildingName);
             TileManager.Instance.UnhoverAllTiles();
             Destroy(CurrBuilding.gameObject);
             CurrBuilding = null;

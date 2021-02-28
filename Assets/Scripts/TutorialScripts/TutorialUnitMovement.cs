@@ -115,7 +115,7 @@ public class TutorialUnitMovement : MonoBehaviour
         transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.LookRotation(TargetDirection), 360f * Time.deltaTime);
 
         // Check for unit out of bounds
-        if (transform.position.y < -40.0f)
+        if (transform.position.y < -35.0f)
         {
             LosePlayer();
         }

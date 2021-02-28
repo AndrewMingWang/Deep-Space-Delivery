@@ -6,7 +6,7 @@ using UnityEngine;
 public class TutorialStateMachine : MonoBehaviour
 {
 
-    public enum State{zeroStart, zeroA, zeroB, zeroS, zeroSB, oneS, oneU, twoS, twoU, threeS, threeU, fourS, fourU, fourUB, fiveS, fiveU, sixS, sixU, sixB, sevenS, sevenSB, sevenU, eightS}
+    public enum State{minusOneS, zeroStart, zeroA, zeroB, zeroS, zeroSB, oneS, oneU, twoS, twoU, threeS, threeU, fourS, fourU, fourUA, fourUAA, fourUAB, fourUB, fiveS, fiveU, sixS, sixU, sixB, sevenS, sevenSB, sevenU, eightS}
     public State currState;
 
     public GameObject BuildingPanel;
@@ -17,6 +17,7 @@ public class TutorialStateMachine : MonoBehaviour
     public GameObject EnergyText;
     public GameObject EnergyBar;
     public GameObject TutorialNarration;
+    public GameObject LevelTitle;
     public GameObject MainCamera;
     private Animator _cameraAnim;
   
@@ -30,7 +31,7 @@ public class TutorialStateMachine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currState = State.zeroStart;
+        currState = State.minusOneS;
         _cameraAnim = MainCamera.GetComponent<Animator>();
     }
 
@@ -38,15 +39,21 @@ public class TutorialStateMachine : MonoBehaviour
     void Update()
     {
         switch(currState){
-        case State.zeroStart:
+        case State.minusOneS:
             BuildingPanel.SetActive(false);
             PlayButton.SetActive(false);
             ResetButton.SetActive(false);
             EnergyBar.SetActive(false);
             EnergyText.SetActive(false);
+            Menu.SetActive(false);
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "I hear something, but it's so far away. I can zoom in by scrolling the mouse wheel.";
+            if (Input.mouseScrollDelta.y != 0){
+                currState = State.zeroStart;
+            }
+            break;
+        case State.zeroStart:
             TutorialNarration.SetActive(false);
             _cameraAnim.Play("CameraZoomIn");
-            Menu.SetActive(false);
             currState = State.zeroA;
             break;
         case State.zeroA:
@@ -69,11 +76,13 @@ public class TutorialStateMachine : MonoBehaviour
         case State.zeroSB:
             if (_cameraAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1){
                 currState = State.oneS;
+                MainCamera.GetComponent<Animator>().SetTrigger("cameraAnimDone");
+                MainCamera.GetComponent<Animator>().enabled = false;
             }
             break;
         case State.oneS:
             Goal.GetComponent<TutorialGoalTrigger>().ResetPlayerResults();
-            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "Oh no! There must be something I can do! Let's try rewinding time...";
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "Oh no! There must be something I can do! Let's try rewinding time.";
             TutorialNarration.SetActive(true);
             ResetButton.SetActive(true);
             currState = State.oneU;
@@ -84,7 +93,7 @@ public class TutorialStateMachine : MonoBehaviour
             }
             break;
         case State.twoS:
-            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "Let's try that again...";
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "And if I press this...?";
             PlayButton.SetActive(true);
             ResetButton.SetActive(false);
             if (GameManager.GetComponent<TutorialGameStateManager>().CurrState == TutorialGameStateManager.State.Play){
@@ -93,13 +102,15 @@ public class TutorialStateMachine : MonoBehaviour
             break;
         case State.twoU:
             PlayButton.SetActive(false);
+            TutorialNarration.SetActive(false);
             if(Goal.GetComponent<TutorialGoalTrigger>().IsLevelFailed()){
                 currState = State.threeS;
             }
             break;
         case State.threeS:
             Goal.GetComponent<TutorialGoalTrigger>().ResetPlayerResults();
-            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "I don't know why I thought that would work... Hmm, I have an idea!";
+            TutorialNarration.SetActive(true);
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "Hmm, I have to put something in the way next time. I have an idea!";
             ResetButton.SetActive(true);
             if (GameManager.GetComponent<TutorialGameStateManager>().CurrState == TutorialGameStateManager.State.Plan){
                 currState = State.fourS;
@@ -116,7 +127,25 @@ public class TutorialStateMachine : MonoBehaviour
             }
             break;    
         case State.fourU:
-            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "That took some energy... Hmm, I just need to click it to place it down.";
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "That took some energy... I just need to click it to place it down.";
+            if (TheTile.GetComponent<Tile>().OccupyingBuilding != null){
+                currState = State.fourUA;
+            }
+            break;
+        case State.fourUA:
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "If I place it in the wrong spot, I think I can pick it up and remove it.";
+            if (BuildManager.GetComponent<TutorialBuildManager>().CurrBuilding != null){
+                currState = State.fourUAA;
+            }
+            break;
+        case State.fourUAA:
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "I'll try to remove it by right clicking.";
+            if (BuildManager.GetComponent<TutorialBuildManager>().CurrBuilding == null){
+                currState = State.fourUAB;
+            }
+            break;
+        case State.fourUAB:
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "Good to know, I'll put one back down.";
             if (TheTile.GetComponent<Tile>().OccupyingBuilding != null){
                 currState = State.fourUB;
             }
@@ -152,9 +181,8 @@ public class TutorialStateMachine : MonoBehaviour
             }
             break;
         case State.sixU:
-            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "What was it again... Q or E? I'll turn the sign to face the exit.";
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "What was it again... A or D? I'll turn the sign to face the exit.";
             if (BuildManager.GetComponent<TutorialBuildManager>().CurrBuilding == null){
-                Debug.Log(TheTile.GetComponent<Tile>().OccupyingBuilding.transform.rotation.eulerAngles.y);
                 if (TheTile.GetComponent<Tile>().OccupyingBuilding.transform.rotation.eulerAngles.y > 89 &&
                     TheTile.GetComponent<Tile>().OccupyingBuilding.transform.rotation.eulerAngles.y < 91){
                     currState = State.sevenS;
@@ -192,6 +220,7 @@ public class TutorialStateMachine : MonoBehaviour
             break;
         case State.eightS:
             TutorialNarration.SetActive(false);
+            LevelTitle.SetActive(false);
             Controls.SetActive(true);
             break;
         }

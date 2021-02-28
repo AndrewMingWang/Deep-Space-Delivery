@@ -3,9 +3,11 @@ using System.Collections;
 
 public class TutorialCameraMovement : MonoBehaviour
 {
-    public float VerticalPanSensitivity = 0.08f;
-    public float HorizontalPanSensitivity = 0.05f;
-    public float RotateSensitivity = 0.05f;
+    private float VerticalPanSensitivity = 0.08f;
+    private float HorizontalPanSensitivity = 0.05f;
+    private float RotateSensitivity = 0.05f;
+    private float ZoomSensitivity = 10;
+
     public GameObject SpecialStateManager;
     public GameObject CameraParent;
     public GameObject Spawn;
@@ -35,42 +37,39 @@ public class TutorialCameraMovement : MonoBehaviour
 
     void Update() {
         // Panning();
-        // Zoom();
+        Zoom();
         Rotation();
     }
 
 
     public void Panning()
     {
-        parentPos -= transform.right * (Input.GetAxis("Horizontal") * -1) * HorizontalPanSensitivity;
-        cameraPos -= transform.right * (Input.GetAxis("Horizontal") * -1) * HorizontalPanSensitivity;
-        parentPos -= Vector3.ProjectOnPlane(transform.up * (Input.GetAxis("Vertical") * -1),Vector3.up) * VerticalPanSensitivity;
-        cameraPos -= Vector3.ProjectOnPlane(transform.up * (Input.GetAxis("Vertical") * -1),Vector3.up) * VerticalPanSensitivity;
-        transform.parent.position = parentPos;
-        transform.position = cameraPos;
+        if (!(SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.minusOneS ||
+            SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.zeroStart ||
+            SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.zeroA ||
+            SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.zeroB ||
+            SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.zeroSB ||  
+            SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.oneS))
+        {
+            parentPos -= transform.right * (Input.GetAxis("Horizontal") * -1) * HorizontalPanSensitivity;
+            cameraPos -= transform.right * (Input.GetAxis("Horizontal") * -1) * HorizontalPanSensitivity;
+            parentPos -= Vector3.ProjectOnPlane(transform.up * (Input.GetAxis("Vertical") * -1),Vector3.up) * VerticalPanSensitivity;
+            cameraPos -= Vector3.ProjectOnPlane(transform.up * (Input.GetAxis("Vertical") * -1),Vector3.up) * VerticalPanSensitivity;
+            transform.parent.position = parentPos;
+            transform.position = cameraPos;
+        }
         // transform.LookAt(transform.parent.position);
     }
 
     public void Zoom()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
+        if (!(SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.zeroStart ||
+            SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.zeroA ||
+            SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.zeroB ||
+            SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.zeroSB ||  
+            SpecialStateManager.GetComponent<TutorialStateMachine>().currState == TutorialStateMachine.State.oneS))
         {
-            Camera.main.orthographicSize = 3;
-            HorizontalPanSensitivity = 0.03f;
-            VerticalPanSensitivity = 0.045f;
-        }
-        else if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            Camera.main.orthographicSize = 5;
-            HorizontalPanSensitivity = 0.05f;
-            VerticalPanSensitivity = 0.08f;
-
-        }
-        else if (Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            Camera.main.orthographicSize = 8;
-            HorizontalPanSensitivity = 0.05f;
-            VerticalPanSensitivity = 0.08f;
+            this.GetComponent<Camera>().orthographicSize -= Input.mouseScrollDelta.y * ZoomSensitivity * Time.deltaTime;
         }
     }
 
