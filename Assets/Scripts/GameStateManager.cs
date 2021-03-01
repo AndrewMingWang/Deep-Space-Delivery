@@ -92,25 +92,32 @@ public class GameStateManager : MonoBehaviour
     public void ResetButtonPressed(){
         Time.timeScale = 1.0f;
         switch (CurrState){
-        case State.Plan:
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-            break;
-        default:
-            CurrState = State.Plan;
-            int i = 0;
-            foreach (Transform child in UserBuildings.transform){
-                child.localPosition = _allChildrenTransformsPositions[i];
-                i++;
-            }
-            foreach (Transform child in HitchhikerManager.transform){
-                Destroy(child.gameObject);
-            }
-            StopAllCoroutines();
-            PlayButton.GetComponent<Image>().sprite = playButtonPlay;
-            ResetButton.GetComponent<Image>().sprite = resetButtonReset;
-            BuildingPanel.SetActive(true);
-            GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().ResetPlayerResults();
-            break;
+            case State.Plan:
+                SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+                break;
+            default:
+                CurrState = State.Plan;
+                int i = 0;
+                foreach (Transform child in UserBuildings.transform){
+                    child.localPosition = _allChildrenTransformsPositions[i];
+                    // TODO: Remove this hack
+                    child.gameObject.SetActive(true);
+                    if (child.GetComponent<Holding>() != null)
+                    {
+                        child.GetComponent<Holding>().stopped = false;
+                        child.GetComponent<Holding>().ThresholdText.text = "0/" + child.GetComponent<Holding>().ThresholdNumHeldPlayers.ToString();
+                    }
+                    i++;
+                }
+                foreach (Transform child in HitchhikerManager.transform){
+                    Destroy(child.gameObject);
+                }
+                StopAllCoroutines();
+                PlayButton.GetComponent<Image>().sprite = playButtonPlay;
+                ResetButton.GetComponent<Image>().sprite = resetButtonReset;
+                BuildingPanel.SetActive(true);
+                GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().ResetPlayerResults();
+                break;
         }
         ResultsPanel.GetComponent<Animator>().SetBool("open", false);
         ResultsPanel.GetComponent<Animator>().SetBool("closed", true);        
