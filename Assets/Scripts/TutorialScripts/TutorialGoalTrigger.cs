@@ -34,6 +34,11 @@ public class TutorialGoalTrigger : MonoBehaviour
             GetComponent<AudioSource>().Play();
             PlayersReached += 1;
             other.gameObject.SetActive(false);
+            int highestLevelUnlocked = PlayerPrefs.GetInt(LevelSelectUI.PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED, 0);
+            if (highestLevelUnlocked == 0)
+            {
+                PlayerPrefs.SetInt(LevelSelectUI.PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED, 1);
+            }
         }
     }
 
