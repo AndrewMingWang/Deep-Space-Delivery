@@ -7,6 +7,8 @@ public class CameraMovement : MonoBehaviour
     public float RotateSensitivity = 0.05f;
     public float ZoomSensitivity = 0.05f;
 
+    private float _verticalRotationAngle;
+
     // For Panning
     private Vector3 screenOrigin;
     private Vector3 worldOrigin;
@@ -16,11 +18,14 @@ public class CameraMovement : MonoBehaviour
     [Header("Rotation Keys")]
     public KeyCode CWRotationKey = KeyCode.Q;
     public KeyCode CCWRotationKey = KeyCode.E;
+    // public KeyCode VerticalRotationUpKey = KeyCode.W;
+    // public KeyCode VerticalRotationDownKey = KeyCode.S;
     float _startCameraDist;
 
     void Start()
     {
         _startCameraDist = transform.localPosition.magnitude;
+        _verticalRotationAngle = 45;
     }
 
 
@@ -77,11 +82,20 @@ public class CameraMovement : MonoBehaviour
             transform.position += transform.right * RotateSensitivity * Time.deltaTime;
         }
 
+        // if (Input.GetKey(VerticalRotationUpKey) && _verticalRotationAngle <= 70)
+        // {
+        //     _verticalRotationAngle += 20 * Time.deltaTime;
+        // }
+        // else if (Input.GetKey(VerticalRotationDownKey) && _verticalRotationAngle >= 20)
+        // {
+        //     _verticalRotationAngle -= 20 * Time.deltaTime;
+        // }
+
         transform.LookAt(transform.parent.position);
 
         float y = transform.localRotation.eulerAngles.y;
         float z = transform.localRotation.eulerAngles.z;
-        Quaternion curRot = Quaternion.Euler(45, y, z);
+        Quaternion curRot = Quaternion.Euler(_verticalRotationAngle, y, z);
 
         transform.localRotation = curRot;
 
