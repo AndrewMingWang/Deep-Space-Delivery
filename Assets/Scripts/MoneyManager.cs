@@ -48,7 +48,11 @@ public class MoneyManager : MonoBehaviour
         {
             GameObject itemButton = ItemButtons[i];
             Item item = Items[i];
-            itemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + item.quantity.ToString();
+            if (!(item.unlimited)){
+                itemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + item.quantity.ToString();
+            } else {
+                itemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().enabled = false;
+            }
             itemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = item.price.ToString();
             itemButton.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = item.name;
             itemButton.GetComponent<Image>().sprite = item.icon;
@@ -68,7 +72,13 @@ public class MoneyManager : MonoBehaviour
     public void ChooseItem(int itemId)
     {
         string itemName = ItemButtons[itemId].transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text;
-        int itemQuantity = int.Parse(ItemButtons[itemId].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text.Substring(1));
+        int itemQuantity;
+        if (Items[itemId].unlimited){
+            itemQuantity = 999;
+        } else {
+            itemQuantity = int.Parse(ItemButtons[itemId].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text.Substring(1));
+        }
+        
         int itemPrice = int.Parse(ItemButtons[itemId].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text);
         if (itemPrice > GetRemainingMoney() || itemQuantity < 1)
         {
@@ -95,7 +105,12 @@ public class MoneyManager : MonoBehaviour
             GameObject ItemButton = ItemButtons[i];
             if (ItemButton != null && ItemButton.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text.Equals(itemName))
             {
-                int itemQuantity = int.Parse(ItemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text.Substring(1));
+                int itemQuantity;
+                if (Items[i].unlimited){
+                    itemQuantity = 999;
+                } else {
+                    itemQuantity = int.Parse(ItemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text.Substring(1));
+                }
                 ItemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + (itemQuantity + 1);
                 int itemPrice = int.Parse(ItemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text);
                 moneySpent -= itemPrice;
