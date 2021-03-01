@@ -31,7 +31,7 @@ public class TutorialStateMachine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currState = State.minusOneS;
+        currState = State.zeroStart;
         _cameraAnim = MainCamera.GetComponent<Animator>();
     }
 
@@ -52,6 +52,12 @@ public class TutorialStateMachine : MonoBehaviour
             }
             break;
         case State.zeroStart:
+            BuildingPanel.SetActive(false);
+            PlayButton.SetActive(false);
+            ResetButton.SetActive(false);
+            EnergyBar.SetActive(false);
+            EnergyText.SetActive(false);
+            Menu.SetActive(false);
             TutorialNarration.SetActive(false);
             _cameraAnim.Play("CameraZoomIn");
             currState = State.zeroA;
@@ -110,7 +116,7 @@ public class TutorialStateMachine : MonoBehaviour
         case State.threeS:
             Goal.GetComponent<TutorialGoalTrigger>().ResetPlayerResults();
             TutorialNarration.SetActive(true);
-            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "Hmm, I have to put something in the way next time. I have an idea!";
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "Hmm, I have to put something in the way. I have an idea!";
             ResetButton.SetActive(true);
             if (GameManager.GetComponent<TutorialGameStateManager>().CurrState == TutorialGameStateManager.State.Plan){
                 currState = State.fourS;
@@ -129,7 +135,7 @@ public class TutorialStateMachine : MonoBehaviour
         case State.fourU:
             TutorialNarration.GetComponent<TextMeshProUGUI>().text = "That took some energy... I just need to click it to place it down.";
             if (TheTile.GetComponent<Tile>().OccupyingBuilding != null){
-                currState = State.fourUA;
+                currState = State.fourUB;
             }
             break;
         case State.fourUA:
@@ -174,14 +180,14 @@ public class TutorialStateMachine : MonoBehaviour
             }
             break;
         case State.sixS:
-            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "I can pick up the sign and rotate it.";
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "Just have to pick up the sign by clicking on it.";
             ResetButton.SetActive(false);
             if (BuildManager.GetComponent<TutorialBuildManager>().CurrBuilding != null){
                 currState = State.sixU;
             }
             break;
         case State.sixU:
-            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "What was it again... A or D? I'll turn the sign to face the exit.";
+            TutorialNarration.GetComponent<TextMeshProUGUI>().text = "How do you rotate again... A or D? I should turn the sign to face the exit.";
             if (BuildManager.GetComponent<TutorialBuildManager>().CurrBuilding == null){
                 if (TheTile.GetComponent<Tile>().OccupyingBuilding.transform.rotation.eulerAngles.y > 89 &&
                     TheTile.GetComponent<Tile>().OccupyingBuilding.transform.rotation.eulerAngles.y < 91){
