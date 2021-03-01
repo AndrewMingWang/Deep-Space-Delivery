@@ -25,12 +25,18 @@ public class AudioFile
 
     public void Mute()
     {
-        this.source.volume = 0;
+        if (this.source != null)
+        {
+            this.source.volume = 0;
+        }
     }
 
     public void Unmute()
     {
-        this.source.volume = volume;
+        if (this.source != null)
+        {
+            this.source.volume = volume;
+        }
     }
 
 }
