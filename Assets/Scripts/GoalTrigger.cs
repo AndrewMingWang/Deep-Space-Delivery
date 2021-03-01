@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoalTrigger : MonoBehaviour
 {
@@ -55,8 +56,17 @@ public class GoalTrigger : MonoBehaviour
                 Fail.SetActive(true);
                 AudioManager.PlaySFX(AudioManager.UI_LOSE_LEVEL);
             }
+            else
+            {
+                int highestLevelUnlocked = PlayerPrefs.GetInt(LevelSelectUI.PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED, 0);
+                int nextLevel = GetCurrentLevel() + 1;
+                if (highestLevelUnlocked < nextLevel)
+                {
+                    PlayerPrefs.SetInt(LevelSelectUI.PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED, nextLevel);
+                }
+            }
             // TODO: Animate the stars popping up
-            else if (successRate >= 50.0f && successRate < 100.0f && moneyLeft == 0)
+            if (successRate >= 50.0f && successRate < 100.0f && moneyLeft == 0)
             {
                 Star1.SetActive(true);
                 AudioManager.PlaySFX(AudioManager.UI_WIN_LEVEL);
@@ -109,6 +119,17 @@ public class GoalTrigger : MonoBehaviour
     public bool IsLevelDone()
     {
         return PlayersReached + PlayersFailed == NUM_PLAYERS;
+    }
+
+    private int GetCurrentLevel()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        int currentLevel = -1;
+        if (int.TryParse(currentSceneName.Substring(5), out currentLevel))
+        {
+            return currentLevel;
+        }
+        return -1;
     }
 
 }
