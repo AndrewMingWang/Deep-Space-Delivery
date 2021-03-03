@@ -381,6 +381,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotateSensitivity: 15
   ZoomSensitivity: 10
+  XBounds: {x: 0, y: 0}
+  ZBounds: {x: 0, y: 0}
+  ZoomBounds: {x: 1, y: 9}
   CWRotationKey: 113
   CCWRotationKey: 101
 --- !u!114 &7375395166951208481

@@ -10,9 +10,16 @@ public class CameraMovement : MonoBehaviour
     private float _verticalRotationAngle;
 
     // For Panning
+    [Header("Panning")]
+    public Vector2 XBounds;
+    public Vector2 ZBounds;
     private Vector3 screenOrigin;
     private Vector3 worldOrigin;
     private bool _originSet = false;
+
+    // For Zooming
+    [Header("Zooming")]
+    public Vector2 ZoomBounds;
 
     // For Rotation
     [Header("Rotation Keys")]
@@ -21,6 +28,8 @@ public class CameraMovement : MonoBehaviour
     // public KeyCode VerticalRotationUpKey = KeyCode.W;
     // public KeyCode VerticalRotationDownKey = KeyCode.S;
     float _startCameraDist;
+
+
 
     void Start()
     {
@@ -50,8 +59,13 @@ public class CameraMovement : MonoBehaviour
             {
                 Vector3 worldDelta = Camera.main.ScreenToWorldPoint(Input.mousePosition) - Camera.main.ScreenToWorldPoint(screenOrigin);
                 Vector3 planeDelta = Vector3.ProjectOnPlane(worldDelta, Vector3.up);
+                Vector3 newPos = worldOrigin - planeDelta;
 
-                transform.parent.position = worldOrigin - planeDelta;
+                // Bound new position
+                newPos.x = Mathf.Clamp(newPos.x, XBounds.x, XBounds.y);
+                newPos.z = Mathf.Clamp(newPos.z, ZBounds.x, ZBounds.y);
+
+                transform.parent.position = newPos;
             } else
             {
                 _originSet = false;
@@ -64,7 +78,13 @@ public class CameraMovement : MonoBehaviour
 
     public void Zoom()
     {
-        Camera.main.orthographicSize -= Input.mouseScrollDelta.y * Time.deltaTime * ZoomSensitivity;
+        float newOrthographicSize = Mathf.Clamp(
+            Camera.main.orthographicSize
+            - Input.mouseScrollDelta.y * Time.deltaTime * ZoomSensitivity,
+            ZoomBounds.x,
+            ZoomBounds.y
+        );
+        Camera.main.orthographicSize = newOrthographicSize;
     }
 
     public void Rotation(){
