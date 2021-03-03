@@ -64,16 +64,8 @@ public class BuildManager : MonoBehaviour
 
     public void BuildBuilding(string buildingString)
     {
-        TileManager.Instance.UnhoverAllTiles();
-        // If there is a current building, place it and unhover any tile it is highlighting
-        if (CurrBuilding != null)
-        {
-            // Place current building and set Tile its hovering over as occupied
-            CurrBuilding.PlaceBuilding();
-            CurrBuilding.TileUnder.OccupyingBuilding = CurrBuilding.gameObject;
-            TileManager.Instance.SetTileOccupied(CurrBuilding.TileUnder);
-            CurrBuilding = null;
-        }
+        // If there is a current building, cancel it
+        CancelBuilding();
 
         // Instantiate the new building
         GameObject newBuildingGO = Instantiate(BuildingPrefabs[buildingString], transform.position, this.transform.rotation) as GameObject;
