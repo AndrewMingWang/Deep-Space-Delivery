@@ -145,6 +145,7 @@ public class BuildManager : MonoBehaviour
                         }
                         else
                         {
+                            /*
                             TileManager.Instance.UnhoverAllTiles();
 
                             // Place current building and set Tile its hovering over as occupied
@@ -162,6 +163,7 @@ public class BuildManager : MonoBehaviour
 
                             // SFX
                             audioSource.PlayOneShot(PickupBuilding);
+                            */
                         }
                     }
                     else
