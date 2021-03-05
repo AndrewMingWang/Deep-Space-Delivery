@@ -625,16 +625,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisplayText: {fileID: 1470705327}
-  Content: Date:\p 02/29/2104\n\n\p\pWelcome <REPLACE-THIS-WITH-EMPLOYEE-NAME>!\n\n\p\pCongratulations
+  Content: 'Date:\p 02/29/2104\n\n\p\pWelcome <REPLACE-THIS-WITH-EMPLOYEE-NAME>!\n\n\p\pCongratulations
     on securing the position of\p Senior Junior Chief Vice Director of\nLoss Prevention
-    Coordination!\p\p\p\p As you know,\p being the Galaxy's largest and most\nprofitable
-    delivery company leads to quite a few lost packages.\p\p As the newest member
-    of our Loss Prevention team,\s\s\s your top priority is coordinating the retrieval
-    of\npackages lost\s-in\s-transit.\n\n\p\p\pYou will be working with our division's
-    finest unpaid interns!\p These on-the-ground\nemployees are the backbone of Loss
-    Prevention's operations.\s\s\s You'll get to meet the\nteam soon,\s don't worry,\p
-    they won't bite.\n\n\p\pLaura will be in touch for onboarding.\n\n\p\pWelcome
-    to Deep Space Delivery!
+    Coordination!\p\p As you know,\p being the Galaxy''s largest delivery\ncompany
+    leads to quite a few lost packages.\p\p Your top priority is coordinating the
+    retrieval of these lost-in-transit packages.\n\n\p\p\pYou''ll be working with
+    our division''s finest unpaid interns.\p These on-the-ground\nemployees are the
+    backbone of Loss Prevention''s operations!\s\s\s You''ll get to meet the\nteam
+    soon.\p Don''t worry,\p they won''t bite.\n\n\p\pLaura will be in touch soon
+    for onboarding.\n\n\p\pWelcome to Deep Space Delivery! '
   CharTypeSpeed: 1
 --- !u!1001 &7375395166563818327
 PrefabInstance:
