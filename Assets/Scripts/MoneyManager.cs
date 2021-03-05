@@ -53,7 +53,7 @@ public class MoneyManager : MonoBehaviour
             } else {
                 itemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().enabled = false;
             }
-            itemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = item.price.ToString();
+            itemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "$" + item.price.ToString();
             itemButton.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = item.name;
             itemButton.GetComponent<Image>().sprite = item.icon;
         }
@@ -79,7 +79,7 @@ public class MoneyManager : MonoBehaviour
             itemQuantity = int.Parse(ItemButtons[itemId].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text.Substring(1));
         }
         
-        int itemPrice = int.Parse(ItemButtons[itemId].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text);
+        int itemPrice = int.Parse(ItemButtons[itemId].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text.Substring(1));
         if (itemPrice > GetRemainingMoney() || itemQuantity < 1)
         {
             return;
@@ -94,7 +94,14 @@ public class MoneyManager : MonoBehaviour
 
     private void DisplayRemainingMoney()
     {
-        MoneyText.text = GetRemainingMoney().ToString();
+        int remainingMoney = GetRemainingMoney();
+        if (remainingMoney <= 0)
+        {
+            MoneyText.text = "NO FUNDS";
+        } else
+        {
+            MoneyText.text = "$" + remainingMoney.ToString();
+        }
         energyBar.value = (float) GetRemainingMoney() / StartingMoney;
     }
 
@@ -112,7 +119,7 @@ public class MoneyManager : MonoBehaviour
                     itemQuantity = int.Parse(ItemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text.Substring(1));
                 }
                 ItemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + (itemQuantity + 1);
-                int itemPrice = int.Parse(ItemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text);
+                int itemPrice = int.Parse(ItemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text.Substring(1));
                 moneySpent -= itemPrice;
             }
         }
