@@ -57,7 +57,7 @@ public class LevelUI : BaseUI
             }
             levelTitle.text = "Level " + buffer + currentLevel;
         }
-        levelInformation.text = levelToInformation[currentLevel];
+        StringUtility.TypeTextEffect(levelInformation, levelToInformation[currentLevel], 1.0f);
         StartCoroutine(FadeLevelInformation());
     }
 
@@ -68,7 +68,7 @@ public class LevelUI : BaseUI
 
     private IEnumerator FadeLevelInformation()
     {
-        yield return new WaitForSecondsRealtime(10.0f);
+        yield return new WaitForSecondsRealtime(20.0f);
         alphaDecrease = 0.1f;
     }
 
