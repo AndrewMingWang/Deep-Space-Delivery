@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class StringUtility : MonoBehaviour
 {
+    public const char BACKSLASH = '\\';
 
     public static StringUtility Instance;
 
@@ -39,11 +40,38 @@ public class StringUtility : MonoBehaviour
 
     private IEnumerator TypeText(TMP_Text displayText, string contentText, float speedMultiplier)
     {
-        displayText.text = "";
-        foreach (char letter in contentText)
+        for (int i = 0; i < contentText.Length; i++)
         {
-            displayText.text += letter;
-            yield return new WaitForSecondsRealtime(0.05f / speedMultiplier);
+            char letter = contentText[i];
+            if (letter.Equals(BACKSLASH))
+            {
+                if (i == contentText.Length - 1)
+                {
+                    Debug.Log("ERROR: You have a backslash as the last character of your input string.");
+                    break;
+                }
+
+                char nextLetter = contentText[i + 1];
+                i += 1;
+                switch (nextLetter)
+                {
+                    case 'p': // '\p' means pause for this character
+                        yield return new WaitForSecondsRealtime(0.5f / speedMultiplier);
+                        break;
+                    case 's': // '\p' means small pause for this character
+                        yield return new WaitForSecondsRealtime(0.1f / speedMultiplier);
+                        break;
+                    case 'n': // '\n' means add a new line
+                        displayText.text += '\n';
+                        yield return new WaitForSecondsRealtime(0.05f / speedMultiplier);
+                        break;
+                }
+            } 
+            else
+            {
+                displayText.text += letter;
+                yield return new WaitForSecondsRealtime(0.05f / speedMultiplier);
+            }
         }
     }
 
