@@ -16,9 +16,20 @@ public class LevelUI : BaseUI
     public Sprite soundSpriteOff;
     public GameObject controlDisplay;
     public TMP_Text levelTitle;
+    public TMP_Text levelInformation;
+
+    private Dictionary<int, string> levelToInformation = new Dictionary<int, string>();
+    private float alphaDecrease = 0.0f;
 
     private void Awake()
     {
+        levelToInformation[0] = "Deep Space Delivery is a puzzle game where you guide dogs to retrieve packages. You want to maximize profit so try to save money when possible. Make sure to get all dogs to safety...";
+        levelToInformation[1] = "Gaps will make you lose dogs";
+        levelToInformation[2] = "";
+        levelToInformation[3] = "Wind will push dogs in the direction they are blowing. If you move at a right angle to the wind, you will move diagonally. Walls block wind.";
+        levelToInformation[4] = "Walls can be stacked.";
+        levelToInformation[5] = "";
+        levelToInformation[6] = "";
         if (AudioManager.SFXOn)
         {
             soundButton.GetComponent<Image>().sprite = soundSpriteOn;
@@ -46,6 +57,19 @@ public class LevelUI : BaseUI
             }
             levelTitle.text = "Level " + buffer + currentLevel;
         }
+        levelInformation.text = levelToInformation[currentLevel];
+        StartCoroutine(FadeLevelInformation());
+    }
+
+    private void Update()
+    {
+        levelInformation.alpha -= alphaDecrease * Time.deltaTime;
+    }
+
+    private IEnumerator FadeLevelInformation()
+    {
+        yield return new WaitForSecondsRealtime(10.0f);
+        alphaDecrease = 0.1f;
     }
 
     public void ToggleMusic()
