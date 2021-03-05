@@ -51,6 +51,10 @@ public class GoalTrigger : MonoBehaviour
             ResultsPanel.GetComponent<Animator>().SetBool("open", true);
             SuccessRate.text = successRate + "%";
             MoneyLeft.text = moneyLeft.ToString();
+            Fail.SetActive(false);
+            Star1.SetActive(false);
+            Star2.SetActive(false);
+            Star3.SetActive(false);
             if (successRate < 50.0f || moneyLeft < 0)
             {
                 Fail.SetActive(true);
@@ -90,11 +94,6 @@ public class GoalTrigger : MonoBehaviour
                 Star3.SetActive(true);
                 AudioManager.PlaySFX(AudioManager.UI_WIN_LEVEL);
             }
-            else
-            {
-                Debug.LogError("Unknown score");
-            }
-
             levelDoneAlready = true;
         }
     }
