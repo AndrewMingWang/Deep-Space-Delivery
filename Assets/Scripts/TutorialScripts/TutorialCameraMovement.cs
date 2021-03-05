@@ -5,7 +5,7 @@ public class TutorialCameraMovement : MonoBehaviour
 {
     private float VerticalPanSensitivity = 0.08f;
     private float HorizontalPanSensitivity = 0.05f;
-    private float RotateSensitivity = 0.05f;
+    // private float RotateSensitivity = 0.05f;
     private float ZoomSensitivity = 10;
 
     public GameObject SpecialStateManager;
