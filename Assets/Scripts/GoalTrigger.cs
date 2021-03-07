@@ -19,6 +19,8 @@ public class GoalTrigger : MonoBehaviour
     public GameObject MenuButtons;
     public GameObject ActionButtons;
     public GameObject EnergyBar;
+    public GameObject LevelInformation;
+    public GameObject GoalEffectPrefab;
 
     public int PlayersReached = 0;
     public int PlayersFailed = 0;
@@ -44,6 +46,7 @@ public class GoalTrigger : MonoBehaviour
             MenuButtons.SetActive(false);
             ActionButtons.SetActive(false);
             EnergyBar.SetActive(false);
+            LevelInformation.SetActive(false);
             MoneyManager moneyManager = GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>();
             moneyManager.MoneyText.gameObject.SetActive(false);
             int moneyLeft = moneyManager.GetRemainingMoney();
@@ -105,6 +108,7 @@ public class GoalTrigger : MonoBehaviour
             GetComponent<AudioSource>().Play();
             PlayersReached += 1;
             other.gameObject.SetActive(false);
+            Instantiate(GoalEffectPrefab, transform.position, Quaternion.Euler(270.0f, 0.0f, 0.0f));
         }
     }
 
