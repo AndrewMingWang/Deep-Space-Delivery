@@ -15,11 +15,15 @@ public class LevelUI : BaseUI
     public Sprite soundSpriteOn;
     public Sprite soundSpriteOff;
     public GameObject controlDisplay;
+    public GameObject informationDisplay;
     public TMP_Text levelTitle;
     public TMP_Text levelInformation;
 
     private Dictionary<int, string> levelToInformation = new Dictionary<int, string>();
-    private float alphaDecrease = 0.0f;
+    // private float alphaDecrease = 0.0f;
+
+    private int _currentLevel;
+    private bool _levelInformationRecieved;
 
     private void Awake()
     {
@@ -47,30 +51,40 @@ public class LevelUI : BaseUI
             musicButton.GetComponent<Image>().sprite = musicSpriteOff;
         }
         string currentSceneName = SceneManager.GetActiveScene().name;
-        int currentLevel = -1;
-        if (int.TryParse(currentSceneName.Substring(5), out currentLevel))
+        _currentLevel = -1;
+        if (int.TryParse(currentSceneName.Substring(5), out _currentLevel))
         {
             string buffer = "";
-            if (currentLevel < 10)
+            if (_currentLevel < 10)
             {
                 buffer = "0";
             }
-            levelTitle.text = "Level " + buffer + currentLevel;
+            levelTitle.text = "Level " + buffer + _currentLevel;
         }
-        StringUtility.TypeTextEffect(levelInformation, levelToInformation[currentLevel], 1.0f);
-        StartCoroutine(FadeLevelInformation());
+        
+        _levelInformationRecieved = false;
+        
+    }
+
+    public void StartLevelInformation(){
+        if (!(_levelInformationRecieved)){
+            StringUtility.TypeTextEffect(levelInformation, levelToInformation[_currentLevel], 1.0f);
+            // StartCoroutine(FadeLevelInformation());
+            _levelInformationRecieved = true;
+        }
+        
     }
 
     private void Update()
     {
-        levelInformation.alpha -= alphaDecrease * Time.deltaTime;
+        // levelInformation.alpha -= alphaDecrease * Time.deltaTime;
     }
 
-    private IEnumerator FadeLevelInformation()
-    {
-        yield return new WaitForSecondsRealtime(20.0f);
-        alphaDecrease = 0.1f;
-    }
+    // private IEnumerator FadeLevelInformation()
+    // {
+    //     yield return new WaitForSecondsRealtime(20.0f);
+    //     alphaDecrease = 0.1f;
+    // }
 
     public void ToggleMusic()
     {
@@ -100,12 +114,25 @@ public class LevelUI : BaseUI
 
     public void ViewControls()
     {
+        informationDisplay.SetActive(false);
         if (!controlDisplay.activeSelf)
         {
             controlDisplay.SetActive(true);
         } else
         {
             controlDisplay.SetActive(false);
+        }
+    }
+
+    public void ViewInformation()
+    {
+        controlDisplay.SetActive(false);
+        if (!informationDisplay.activeSelf)
+        {
+            informationDisplay.SetActive(true);
+        } else
+        {
+            informationDisplay.SetActive(false);
         }
     }
 
