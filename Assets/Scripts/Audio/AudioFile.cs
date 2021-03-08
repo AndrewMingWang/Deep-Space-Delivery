@@ -11,7 +11,7 @@ public class AudioFile
     [Range(0.0f, 1.0f)]
     public float volume = 0.5f;
 
-    private AudioSource source;
+    public AudioSource source;
 
     public AudioSource GetAudioSource()
     {

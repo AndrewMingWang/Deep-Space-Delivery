@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 2402215328507676618}
   m_Layer: 0
   m_Name: Goal
-  m_TagString: goal
+  m_TagString: start
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -372,6 +372,9 @@ MonoBehaviour:
   MenuButtons: {fileID: 0}
   ActionButtons: {fileID: 0}
   EnergyBar: {fileID: 0}
+  LevelInformation: {fileID: 0}
+  GoalEffectPrefab: {fileID: 1628744458893394, guid: e243632bb3aff9549abdcfcc2ef0c4f0,
+    type: 3}
   PlayersReached: 0
   PlayersFailed: 0
 --- !u!82 &2402215328507676618

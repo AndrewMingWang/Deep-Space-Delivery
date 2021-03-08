@@ -12,8 +12,8 @@ public class GameStateManager : MonoBehaviour
     public GameObject HitchhikerManager;
     private List<Vector3> _allChildrenTransformsPositions;
 
-    public Button PlayButton;
-    public Button ResetButton;
+    public Image PlayButtonIcon;
+    public Image ResetButtonIcon;
     public Sprite playButtonPlay;
     public Sprite playButtonPause;
     public Sprite resetButtonReset;
@@ -21,10 +21,8 @@ public class GameStateManager : MonoBehaviour
 
     public GameObject Spawn;
     public GameObject ResultsPanel;
-    public GameObject Actions;
-    public GameObject EnergyBar;
-    public GameObject EnergyText;
-    public GameObject Menu;
+    public GameObject ActionsPanel;
+    public GameObject MenuPanel;
     private SpawnPlayers _spawnscript;
 
     public enum State{Plan,Play,Paused}
@@ -58,38 +56,46 @@ public class GameStateManager : MonoBehaviour
 
     public void PlayButtonPressed() {
         switch(CurrState){
-        case State.Plan:
-            CurrState = State.Play;
-            // _resetButton.interactable = true;
+            case State.Plan:
+                CurrState = State.Play;
+                // _resetButton.interactable = true;
 
-            // SAVING USERBUILDING TRANSFORMS
-            _allChildrenTransformsPositions.Clear();
-            foreach (Transform child in UserBuildings.transform){
-                _allChildrenTransformsPositions.Add(child.localPosition);
-            }
+                // SAVING USERBUILDING TRANSFORMS
+                _allChildrenTransformsPositions.Clear();
+                foreach (Transform child in UserBuildings.transform)
+                {
+                    _allChildrenTransformsPositions.Add(child.localPosition);
+                }
              
-            PlayButton.GetComponent<Image>().sprite = playButtonPause;
-            ResetButton.GetComponent<Image>().sprite = resetButtonRewind;
-            BuildingPanel.SetActive(false);
-            
-            StartCoroutine(_spawnscript.AddPlayers());
+                PlayButtonIcon.sprite = playButtonPause;
+                ResetButtonIcon.sprite = resetButtonRewind;
+                BuildingPanel.SetActive(false);
 
-            break;
-        case State.Play:
-            CurrState = State.Paused;
-                PlayButton.GetComponent<Image>().sprite = playButtonPlay;
-                Time.timeScale = 0f;
-            break;
-        case State.Paused:
-            CurrState = State.Play;
-                PlayButton.GetComponent<Image>().sprite = playButtonPause;
-                Time.timeScale = 1.0f;
-            break;
-        }
+                _spawnscript.StopSpawning = false;
+                StartCoroutine(_spawnscript.AddPlayers());
+
+                break;
+            case State.Play:
+                CurrState = State.Paused;
+                    PlayButtonIcon.sprite = playButtonPlay;
+                    Time.timeScale = 0f;
+                break;
+            case State.Paused:
+                CurrState = State.Play;
+                    PlayButtonIcon.sprite = playButtonPause;
+                    Time.timeScale = 1.0f;
+                break;
+            }
         ResultsPanel.GetComponent<Animator>().SetBool("closed", false);
     }
 
-    public void ResetButtonPressed(){
+    public void ResetButtonPressedAfterPause()
+    {
+        StartCoroutine(ResetButtonPressed());
+    }
+
+    public IEnumerator ResetButtonPressed(){
+        yield return new WaitForSecondsRealtime(0.5f);
         Time.timeScale = 1.0f;
         switch (CurrState){
             case State.Plan:
@@ -112,9 +118,9 @@ public class GameStateManager : MonoBehaviour
                 foreach (Transform child in HitchhikerManager.transform){
                     Destroy(child.gameObject);
                 }
-                StopAllCoroutines();
-                PlayButton.GetComponent<Image>().sprite = playButtonPlay;
-                ResetButton.GetComponent<Image>().sprite = resetButtonReset;
+                _spawnscript.StopSpawning = true;
+                PlayButtonIcon.sprite = playButtonPlay;
+                ResetButtonIcon.sprite = resetButtonReset;
                 BuildingPanel.SetActive(true);
                 GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().ResetPlayerResults();
                 break;
@@ -123,10 +129,8 @@ public class GameStateManager : MonoBehaviour
         ResultsPanel.GetComponent<Animator>().SetBool("closed", true);        
         // ResultsPanel.GetComponent<CanvasGroup>().interactable = false;
         // ResultsPanel.GetComponent<CanvasGroup>().alpha = 0;
-        Actions.SetActive(true);
-        EnergyBar.SetActive(true);
-        EnergyText.SetActive(true);
-        Menu.SetActive(true);
+        ActionsPanel.SetActive(true);
+        MenuPanel.SetActive(true);
         // ResultsPanel.GetComponent<Animator>().SetBool("closed", false);
         
     }

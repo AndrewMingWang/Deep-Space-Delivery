@@ -9,6 +9,6 @@ public class BasicRotationAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(Vector3.up, RotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up, RotationSpeed * Time.deltaTime);
     }
 }

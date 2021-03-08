@@ -63,7 +63,11 @@ public class AudioManager : MonoBehaviour
         AudioFile audioFile = new AudioFile();
         audioFile.volume = source.volume;
         audioFile.SetAudioSource(source);
-
+        if (!SFXOn)
+        {
+            audioFile.Mute();
+        }
+        
         if (Instance != null)
         {
             Instance.SFXFiles.Add(audioFile);

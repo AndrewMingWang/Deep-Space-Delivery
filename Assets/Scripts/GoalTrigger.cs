@@ -16,10 +16,8 @@ public class GoalTrigger : MonoBehaviour
     public GameObject Star2;
     public GameObject Star3;
     public GameObject Fail;
-    public GameObject MenuButtons;
-    public GameObject ActionButtons;
-    public GameObject EnergyBar;
-    public GameObject LevelInformation;
+    public GameObject MenuPanel;
+    public GameObject ActionsPanel;
     public GameObject GoalEffectPrefab;
 
     public int PlayersReached = 0;
@@ -43,10 +41,8 @@ public class GoalTrigger : MonoBehaviour
 
         if (IsLevelDone())
         {
-            MenuButtons.SetActive(false);
-            ActionButtons.SetActive(false);
-            EnergyBar.SetActive(false);
-            LevelInformation.SetActive(false);
+            MenuPanel.SetActive(false);
+            ActionsPanel.SetActive(false);
             MoneyManager moneyManager = GameObject.FindGameObjectWithTag("moneyManager").GetComponent<MoneyManager>();
             moneyManager.MoneyText.gameObject.SetActive(false);
             int moneyLeft = moneyManager.GetRemainingMoney();

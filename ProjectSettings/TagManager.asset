@@ -12,6 +12,7 @@ TagManager:
   - Wind
   - SceneParent
   - tooltip
+  - start
   layers:
   - Default
   - TransparentFX

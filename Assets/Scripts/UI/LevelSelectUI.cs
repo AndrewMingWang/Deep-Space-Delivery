@@ -1,48 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LevelSelectUI : BaseUI
 {
-
     private const int MIN_WORLD = 1;
     private const int MAX_WORLD = 5;
     private const int LEVELS_PER_WORLD = 6;
     public static readonly string PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED = "Level";
 
-    public GameObject title1;
-    public GameObject title2;
-    public GameObject title3;
-    public GameObject title4;
-    public GameObject title5;
-    public GameObject level0;
-    public GameObject levelCleared0;
-    public GameObject levelCleared1;
-    public GameObject levelLocked1;
-    public GameObject levelCleared2;
-    public GameObject levelLocked2;
-    public GameObject levelCleared3;
-    public GameObject levelLocked3;
-    public GameObject levelCleared4;
-    public GameObject levelLocked4;
-    public GameObject levelCleared5;
-    public GameObject levelLocked5;
-    public GameObject levelCleared6;
-    public GameObject levelLocked6;
+    public TMP_Text WorldTitle;
+    public int[] LevelStates = new int[LEVELS_PER_WORLD + 1]; // 0 - locked, 1 - unlocked, 2 - cleared
+    public LevelSelectButton[] LevelSelectButtons = new LevelSelectButton[LEVELS_PER_WORLD + 1];
+    public LevelSelectButton DownWorldButton;
+    public LevelSelectButton UpWorldButton;
 
     private int currentWorld = 1;
     private int highestLevelUnlocked = 0;
     private int cheatCodeCount = 0;
     private int resetCodeCount = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         highestLevelUnlocked = PlayerPrefs.GetInt(PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED, 0);
+        Debug.Log(highestLevelUnlocked);
+        highestLevelUnlocked = 8;
         DisplayWorld();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -87,103 +73,74 @@ public class LevelSelectUI : BaseUI
 
     public void DisplayWorld()
     {
-        title1.SetActive(false);
-        title2.SetActive(false);
-        title3.SetActive(false);
-        title4.SetActive(false);
-        title5.SetActive(false);
-        level0.SetActive(false);
-        levelCleared0.SetActive(false);
-        levelCleared1.SetActive(false);
-        levelLocked1.SetActive(false);
-        levelCleared2.SetActive(false);
-        levelLocked2.SetActive(false);
-        levelCleared3.SetActive(false);
-        levelLocked3.SetActive(false);
-        levelCleared4.SetActive(false);
-        levelLocked4.SetActive(false);
-        levelCleared5.SetActive(false);
-        levelLocked5.SetActive(false);
-        levelCleared6.SetActive(false);
-        levelLocked6.SetActive(false);
+        // Set the world text
+        switch (currentWorld)
+        {
+            case 1:
+                WorldTitle.text = "1. Plains";
+                break;
+            case 2:
+                WorldTitle.text = "2. Night Plains";
+                break;
+            case 3:
+                WorldTitle.text = "3. Ruins";
+                break;
+            case 4:
+                WorldTitle.text = "4. Night Ruins";
+                break;
+            case 5:
+                WorldTitle.text = "5. Station";
+                break;
+        }
+
+        // Unlock tutorial
         if (currentWorld == 1)
         {
-            title1.SetActive(true);
-            level0.SetActive(true);
-            if (highestLevelUnlocked > 0)
+            if (highestLevelUnlocked >= 1)
             {
-                levelCleared0.SetActive(true);
+                LevelSelectButtons[0].SetCleared();
+            } else
+            {
+                LevelSelectButtons[0].SetUnlocked();
+            }
+            
+        }
+
+        // Unlock levels
+        int baseLevel = (currentWorld - 1) * LEVELS_PER_WORLD;
+
+        for (int i = 1; i <= LEVELS_PER_WORLD; i++)
+        {
+            if (baseLevel + i < highestLevelUnlocked)
+            {
+                LevelSelectButtons[i].SetCleared();
+            } else if (baseLevel + i == highestLevelUnlocked)
+            {
+                LevelSelectButtons[i].SetUnlocked();
+            } else
+            {
+                LevelSelectButtons[i].SetLocked();
             }
         }
-        else if (currentWorld == 2)
-        {
-            title2.SetActive(true);
-        }
-        else if (currentWorld == 3)
-        {
-            title3.SetActive(true);
-        }
-        else if (currentWorld == 4)
-        {
-            title4.SetActive(true);
-        }
-        else
-        {
-            title5.SetActive(true);
-        }
-        int baseLevel = (currentWorld - 1) * LEVELS_PER_WORLD;
-        if (baseLevel + 1 < highestLevelUnlocked)
-        {
-            levelCleared1.SetActive(true);
-        }
-        else if (baseLevel + 1 > highestLevelUnlocked) 
-        {
-            levelLocked1.SetActive(true);
-        }
-        if (baseLevel + 2 < highestLevelUnlocked)
-        {
-            levelCleared2.SetActive(true);
-        }
-        else if (baseLevel + 2 > highestLevelUnlocked)
-        {
-            levelLocked2.SetActive(true);
-        }
-        if (baseLevel + 3 < highestLevelUnlocked)
-        {
-            levelCleared3.SetActive(true);
-        }
-        else if (baseLevel + 3 > highestLevelUnlocked)
-        {
-            levelLocked3.SetActive(true);
-        }
-        if (baseLevel + 4 < highestLevelUnlocked)
-        {
-            levelCleared4.SetActive(true);
-        }
-        else if (baseLevel + 4 > highestLevelUnlocked)
-        {
-            levelLocked4.SetActive(true);
-        }
-        if (baseLevel + 5 < highestLevelUnlocked)
-        {
-            levelCleared5.SetActive(true);
-        }
-        else if (baseLevel + 5 > highestLevelUnlocked)
-        {
-            levelLocked5.SetActive(true);
-        }
-        if (baseLevel + 6 < highestLevelUnlocked)
-        {
-            levelCleared6.SetActive(true);
-        }
-        else if (baseLevel + 6 > highestLevelUnlocked)
-        {
-            levelLocked6.SetActive(true);
-        }
+
+        // Set World Navigation Buttons
+        DownWorldButton.SetUnlocked();
+        UpWorldButton.SetUnlocked();
     }
 
     public void GoToLevel(int levelNumber)
     {
+        StartCoroutine(GoToLevelAfterPause(levelNumber));
+    }
+
+    private IEnumerator GoToLevelAfterPause(int levelNumber)
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (levelNumber == 0)
+        {
+            LoadLevel(0);
+        }
+
         int levelOrderNumber = (currentWorld - 1) * LEVELS_PER_WORLD + levelNumber;
         if (highestLevelUnlocked >= levelOrderNumber)
         {
@@ -191,15 +148,39 @@ public class LevelSelectUI : BaseUI
         }
     }
 
+
     public void QuitGame()
     {
         Debug.Log("QUIT GAME");
         Application.Quit();
     }
 
-    public void SFXButtonPress()
+    public void SFXButtonPressed(int levelNumber)
+    {
+        if (levelNumber == 0)
+        {
+            SFXButtonPressSuccess();
+            return;
+        }
+
+        int baseLevel = (currentWorld - 1) * LEVELS_PER_WORLD;
+        if (baseLevel + levelNumber > highestLevelUnlocked)
+        {
+            SFXButtonPressFail();
+        } else
+        {
+            SFXButtonPressSuccess();
+        }
+    }
+
+    public void SFXButtonPressSuccess()
     {
         AudioManager.PlaySFX(AudioManager.UI_BUTTON_PRESS);
+    }
+
+    public void SFXButtonPressFail()
+    {
+        AudioManager.PlaySFX(AudioManager.UI_CANNOT_BUILD);
     }
 
 }

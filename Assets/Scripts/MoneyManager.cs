@@ -6,24 +6,31 @@ using UnityEngine.UI;
 
 public class MoneyManager : MonoBehaviour
 {
+    [System.Serializable]
+    public struct ItemUI
+    {
+        public GameObject Panel;
+        public GameObject Button;
+        public TMP_Text PriceText;
+    }
 
     public static MoneyManager Instance;
 
-    private const int NUMBER_ITEMS = 5;
+    public int StartingMoney = 10000;
+    private int moneySpent = 0;
 
-    public int StartingMoney = 100;
+    [Header("Building Properties")]
     public Item[] Items;
 
-    public GameObject ItemButton1;
-    public GameObject ItemButton2;
-    public GameObject ItemButton3;
-    public GameObject ItemButton4;
-    public GameObject ItemButton5;
-    private GameObject[] ItemButtons = new GameObject[10];
-    public TMP_Text MoneyText;
-    public Slider energyBar;
+    [Header("UI")]
+    public ItemUI[] ItemUis;
 
-    private int moneySpent = 0;
+    public TMP_Text MoneyText;
+
+    public RectTransform EnergyBarRT;
+    Vector2 energyBarRTMin;
+    Vector2 energyBarRTMax;
+
 
     private void Awake()
     {
@@ -32,35 +39,36 @@ public class MoneyManager : MonoBehaviour
             Destroy(Instance);
         }
         Instance = this;
+
+        energyBarRTMin = EnergyBarRT.offsetMax;
+        energyBarRTMax = Vector2.zero;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         DisplayRemainingMoney();
-        ItemButtons[0] = ItemButton1;
-        ItemButtons[1] = ItemButton2;
-        ItemButtons[2] = ItemButton3;
-        ItemButtons[3] = ItemButton4;
-        ItemButtons[4] = ItemButton5;
         int itemCount = Items.Length;
         for (int i = 0; i < itemCount; i += 1)
         {
-            GameObject itemButton = ItemButtons[i];
+            GameObject itemButton = ItemUis[i].Button;
+            TMP_Text priceText = ItemUis[i].PriceText;
             Item item = Items[i];
+
             if (!(item.unlimited)){
                 itemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + item.quantity.ToString();
             } else {
                 itemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().enabled = false;
             }
-            itemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "$" + item.price.ToString();
-            itemButton.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = item.name;
-            itemButton.GetComponent<Image>().sprite = item.icon;
+            itemButton.transform.GetChild(1).GetComponent<Image>().sprite = item.icon;
+            priceText.text = "$" + item.price.ToString();
         }
-        for (int i = itemCount; i < NUMBER_ITEMS; i += 1)
+        for (int i = itemCount; i < ItemUis.Length; i += 1)
         {
-            ItemButtons[i].SetActive(false);
+            ItemUis[i].Panel.SetActive(false);
         }
+
+        
     }
 
     // Update is called once per frame
@@ -71,25 +79,18 @@ public class MoneyManager : MonoBehaviour
 
     public void ChooseItem(int itemId)
     {
-        string itemName = ItemButtons[itemId].transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text;
-        int itemQuantity;
-        if (Items[itemId].unlimited){
-            itemQuantity = 999;
-        } else {
-            itemQuantity = int.Parse(ItemButtons[itemId].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text.Substring(1));
-        }
-        
-        int itemPrice = int.Parse(ItemButtons[itemId].transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text.Substring(1));
-        if (itemPrice > GetRemainingMoney() || itemQuantity < 1)
+        Item item = Items[itemId];
+        if (item.price > GetRemainingMoney() || (item.quantity < 1 && !item.unlimited))
         {
             return;
         } else
         {
-            moneySpent += itemPrice;
-            ItemButtons[itemId].transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + (itemQuantity - 1);
+            moneySpent += item.price;
+            item.quantity -= 1;
+            ItemUis[itemId].Button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + (item.quantity);
         }
         DisplayRemainingMoney();
-        BuildManager.Instance.BuildBuilding(itemName);
+        BuildManager.Instance.BuildBuilding(item.name);
     }
 
     private void DisplayRemainingMoney()
@@ -97,30 +98,50 @@ public class MoneyManager : MonoBehaviour
         int remainingMoney = GetRemainingMoney();
         if (remainingMoney <= 0)
         {
-            MoneyText.text = "NO FUNDS";
-        } else
-        {
-            MoneyText.text = "$" + remainingMoney.ToString();
+            MoneyText.text = "NO CASH";
+        } else {
+            if (remainingMoney >= 1000)
+            {
+                int thousands = remainingMoney / 1000;
+                int ones = remainingMoney - thousands * 1000;
+                string onesString = ones.ToString();
+                if (ones >= 100)
+                {
+                    ;
+                } else if (ones >= 10)
+                {
+                    onesString = "0" + onesString;
+                } else if (ones >= 1)
+                {
+                    onesString = "00" + onesString;
+                } else
+                {
+                    onesString = "000";
+                }
+
+                MoneyText.text = "$" + thousands.ToString() + "," + onesString;
+            } else
+            {
+                MoneyText.text = "$" + remainingMoney.ToString();
+            }
         }
-        energyBar.value = (float) GetRemainingMoney() / StartingMoney;
+
+        float t = (float)GetRemainingMoney() / StartingMoney;
+        Vector2 energyBarRTCur = Vector2.Lerp(energyBarRTMin, energyBarRTMax, t);
+        EnergyBarRT.offsetMax = energyBarRTCur;
     }
 
     public void RefundItem(string itemName)
     {
-        for (int i = 0; i < ItemButtons.Length; i += 1)
+        for (int i = 0; i < Items.Length; i += 1)
         {
-            GameObject ItemButton = ItemButtons[i];
-            if (ItemButton != null && ItemButton.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text.Equals(itemName))
+            if (Items[i].name.Equals(itemName))
             {
-                int itemQuantity;
-                if (Items[i].unlimited){
-                    itemQuantity = 999;
-                } else {
-                    itemQuantity = int.Parse(ItemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text.Substring(1));
-                }
-                ItemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + (itemQuantity + 1);
-                int itemPrice = int.Parse(ItemButton.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text.Substring(1));
-                moneySpent -= itemPrice;
+                GameObject ItemButton = ItemUis[i].Button;
+                Items[i].quantity += 1;
+                ItemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + (Items[i].quantity);
+                moneySpent -= Items[i].price;
+                break;
             }
         }
         DisplayRemainingMoney();
