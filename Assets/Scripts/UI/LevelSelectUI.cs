@@ -24,8 +24,6 @@ public class LevelSelectUI : BaseUI
     private void Awake()
     {
         highestLevelUnlocked = PlayerPrefs.GetInt(PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED, 0);
-        Debug.Log(highestLevelUnlocked);
-        highestLevelUnlocked = 8;
         DisplayWorld();
     }
 
