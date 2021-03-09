@@ -73,4 +73,11 @@ public class TileManager : MonoBehaviour
         UnoccupiedTiles.Add(tile);
         AllTiles.Add(tile);
     }
+    
+    // NEVER USE THIS unless you know what you're doing
+    public void RemoveTile(Tile tile){
+        AllTiles.Remove(tile);
+        OccupiedTiles.Remove(tile);
+        UnoccupiedTiles.Remove(tile);
+    }
 }
