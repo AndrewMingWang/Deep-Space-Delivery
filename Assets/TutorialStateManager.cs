@@ -29,6 +29,9 @@ public class TutorialStateManager : MonoBehaviour
 
     [Header("Abstract")]
     public GameObject buildManager;
+
+    private bool textFlag = true;
+
     private void Start() {
         
     }
@@ -36,50 +39,72 @@ public class TutorialStateManager : MonoBehaviour
     private void Update() {
         switch(currState){
         case State.one_text:
-            StringUtility.TypeTextEffect(tutorialNarration, 
-            "Hey!\\p Laura here,\\p\\p\\n" +
-            "let's walk through how \\n" +
-            "loss prevention works.\\p\\p\\n" +
-            "Press the play button to\\n" +
-            "send in our associates!",
-            2.0f);
-            PlayButton.GetComponent<Animator>().SetTrigger("Highlighted");
-            currState = State.one_wait;
+            if (textFlag){
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "Hey!\\p Laura here,\\p\\p\\n" +
+                "let's walk through how \\n" +
+                "loss prevention works.\\p\\p\\n" +
+                "Press the play button to\\n" +
+                "send in our associates!",
+                2.0f);
+                PlayButton.interactable = false;
+                ResetButton.interactable = false;
+                textFlag = false;
+            }
+            // PlayButton.GetComponent<Animator>().SetTrigger("Highlighted");
+            if (!StringUtility.Instance.IsTyping){
+                PlayButton.interactable = true;
+                currState = State.one_wait;
+                textFlag = true;
+            }
             break;
         case State.one_wait:
             if (GameStateManager.Instance.CurrState == GameStateManager.State.Play){
                 PlayButton.interactable = false;
                 ResetButton.interactable = false;
-                PlayButton.GetComponent<Animator>().SetTrigger("Normal");
+                // PlayButton.GetComponent<Animator>().SetTrigger("Normal");
             }
             if (GoalTrigger.Instance.IsLevelDone()){
                 currState = State.two_text;
-                ResetButton.interactable = true;
+                textFlag = true;
             }
             break;
         case State.two_text:
-            tutorialNarration.text = "";
-            StringUtility.TypeTextEffect(tutorialNarration, 
-            "Oops!\\p\\p Don't worry we'll pick them up later. Did I mention Deep Space Delivery is number 1 in human employee safety? Press the retry button to try again.",
-            2.0f);
-            ResetButton.GetComponent<Animator>().SetTrigger("Highlighted");
-            currState = State.two_wait;
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "Oops!\\p\\p Don't worry we'll pick them up later. Did I mention Deep Space Delivery is number 1 in human employee safety? Press the retry button to try again.",
+                2.0f);
+                ResetButton.interactable = true;
+                textFlag = false;
+            }
+            // ResetButton.GetComponent<Animator>().SetTrigger("Highlighted");
+            if (!StringUtility.Instance.IsTyping){
+                textFlag = true;
+                currState = State.two_wait;
+            }
             break;
         case State.two_wait:
             if (GameStateManager.Instance.CurrState == GameStateManager.State.Plan){
                 currState = State.three_text;
-                ResetButton.GetComponent<Animator>().SetTrigger("Normal");
+                // ResetButton.GetComponent<Animator>().SetTrigger("Normal");
             }
             break;
         case State.three_text:
-            tutorialNarration.text = "";
-            StringUtility.TypeTextEffect(tutorialNarration, 
-            "While our associates are diligent, they're not always the brightest. It's our job to point them in the right direction. Let's try building a sign.",
-            2.0f);
-            ResetButton.interactable = false;
-            BuildingPanel.SetActive(true);
-            BuildManager.Instance.allowBuildingNewBuildings = true;
-            currState = State.three_wait;
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "While our associates are diligent, they're not always the brightest. It's our job to point them in the right direction. Let's try building a sign.",
+                2.0f);
+                BuildingPanel.SetActive(true);
+                textFlag = false;
+                ResetButton.interactable = false;
+            }
+            if (!StringUtility.Instance.IsTyping){
+                BuildManager.Instance.allowBuildingNewBuildings = true;
+                textFlag = true;
+                currState = State.three_wait;
+            }
             break;
         case State.three_wait:
             if (BuildManager.Instance.CurrBuilding != null){
@@ -89,11 +114,17 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.four_text:
-            tutorialNarration.text = "";
-            StringUtility.TypeTextEffect(tutorialNarration, 
-            "Just click the tile to place it down.",
-            2.0f);
-            currState = State.four_wait;
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "Just click the tile to place it down.",
+                2.0f);
+                textFlag = false;
+            }
+            if (!StringUtility.Instance.IsTyping){
+                textFlag = true;
+                currState = State.four_wait;
+            }
             break;
         case State.four_wait:
             if (Tile1.GetComponent<Tile>().OccupyingBuilding != null){
@@ -101,12 +132,18 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.five_text:
-            tutorialNarration.text = "";
-            StringUtility.TypeTextEffect(tutorialNarration, 
-            "Right now, it won’t point the dogs in a new direction, but we can rotate it. Click the sign to pick it up again.",
-            2.0f);
-            BuildManager.Instance.allowPickingUpBuildings = true;
-            currState = State.five_wait;
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "Right now, it won’t point the dogs in a new direction, but we can rotate it. Click the sign to pick it up again.",
+                2.0f);
+                textFlag = false;
+            }
+            if (!StringUtility.Instance.IsTyping){
+                BuildManager.Instance.allowPickingUpBuildings = true;
+                textFlag = true;
+                currState = State.five_wait;
+            }
             break;
         case State.five_wait:
             if (BuildManager.Instance.CurrBuilding != null){
@@ -115,11 +152,17 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.six_text:
-            tutorialNarration.text = "";
-            StringUtility.TypeTextEffect(tutorialNarration, 
-            "You can rotate the sign with A or D, turn it to point to the right.",
-            2.0f);
-            currState = State.six_wait;
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "You can rotate the sign with A or D, turn it to point to the right.",
+                2.0f);
+                textFlag = false;
+            }
+            if (!StringUtility.Instance.IsTyping){
+                textFlag = true;
+                currState = State.six_wait;
+            }
             break;
         case State.six_wait:
             if (Tile1.GetComponent<Tile>().OccupyingBuilding != null){
@@ -131,11 +174,17 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.seven_text:
-            tutorialNarration.text = "";
-            StringUtility.TypeTextEffect(tutorialNarration, 
-            "That’s not quite the right direction, let’s pick it up again, and point it to the right",
-            2.0f);
-            currState = State.seven_wait;
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "That’s not quite the right direction, let’s pick it up again, and point it to the right",
+                2.0f);
+                textFlag = false;
+            }
+            if (!StringUtility.Instance.IsTyping){
+                textFlag = true;
+                currState = State.seven_wait;
+            }
             break;
         case State.seven_wait:
             if (BuildManager.Instance.CurrBuilding != null){
@@ -144,30 +193,42 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.eight_text:
-            tutorialNarration.text = "";
-            StringUtility.TypeTextEffect(tutorialNarration, 
-            "Great, now put down one more sign to redirect the dogs to the exit.",
-            2.0f);
-            BuildingPanel.SetActive(true);
-            BuildManager.Instance.allowBuildingNewBuildings = true;
-            BuildManager.Instance.allowRotatingBuildings = false;
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "Great, now put down one more sign to redirect the dogs to the exit.",
+                2.0f);
+                textFlag = false;
+                BuildingPanel.SetActive(true);
+            }
             TileManager.Instance.AddUnoccupiedTile(Tile2.GetComponent<Tile>());
-            currState = State.eight_wait;
+            if (!StringUtility.Instance.IsTyping){
+                BuildManager.Instance.allowBuildingNewBuildings = true;
+                BuildManager.Instance.allowRotatingBuildings = false;
+                textFlag = true;
+                currState = State.eight_wait;
+            }
             break;
         case State.eight_wait:
             if (Tile2.GetComponent<Tile>().OccupyingBuilding != null){
                 currState = State.nine_text;
                 PlayButton.interactable = true;
-                PlayButton.GetComponent<Animator>().SetTrigger("Normal");
+                // PlayButton.GetComponent<Animator>().SetTrigger("Normal");
             }
             break;
         case State.nine_text:
-            PlayButton.GetComponent<Animator>().SetTrigger("Highlighted");
-            tutorialNarration.text = "";
-            StringUtility.TypeTextEffect(tutorialNarration, 
-            "This should work! Let’s test it.",
-            2.0f);
-            currState = State.nine_wait;
+            // PlayButton.GetComponent<Animator>().SetTrigger("Highlighted");
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "This should work! Let’s test it.",
+                2.0f);
+                textFlag = false;
+            }
+            if (!StringUtility.Instance.IsTyping){
+                textFlag = true;
+                currState = State.nine_wait;
+            }
             break;
         case State.nine_wait:
             if (GoalTrigger.Instance.IsLevelDone()){
@@ -176,11 +237,17 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.ten_text:
-            tutorialNarration.text = "";
-            StringUtility.TypeTextEffect(tutorialNarration, 
-            "That was great, but we can actually solve it more efficiently. Every penny counts. Restart the level.",
-            2.0f);
-            currState = State.ten_wait;
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "That was great, but we can actually solve it more efficiently. Every penny counts. Restart the level.",
+                2.0f);
+                textFlag = false;
+            }
+            if (!StringUtility.Instance.IsTyping){
+                textFlag = true;
+                currState = State.ten_wait;
+            }
             break;
         case State.ten_wait:
             if (GameStateManager.Instance.CurrState == GameStateManager.State.Plan){
@@ -190,13 +257,19 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.eleven_text:
-            tutorialNarration.text = "";
-            StringUtility.TypeTextEffect(tutorialNarration, 
-            "If you pick up and then right click you can remove objects you’ve put down. Remove all of the signs.",
-            2.0f);
-            BuildManager.Instance.allowPickingUpBuildings = true;
-            BuildManager.Instance.allowDeletingBuildings = true;
-            currState = State.eleven_wait;
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "If you pick up and then right click you can remove objects you’ve put down. Remove all of the signs.",
+                2.0f);
+                textFlag = false;
+            }
+            if (!StringUtility.Instance.IsTyping){
+                BuildManager.Instance.allowPickingUpBuildings = true;
+                BuildManager.Instance.allowDeletingBuildings = true;
+                textFlag = true;
+                currState = State.eleven_wait;
+            }
             break;
         case State.eleven_wait:
             int childcount = 0;
@@ -208,14 +281,20 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.twelve_text:
-            tutorialNarration.text = "";
-            StringUtility.TypeTextEffect(tutorialNarration, 
-            "Put a sign down on the center tile, but have it face the goal.",
-            2.0f);
-            BuildManager.Instance.allowBuildingNewBuildings = true;
-            BuildManager.Instance.allowRotatingBuildings = true;
-            BuildingPanel.SetActive(true);
-            currState = State.twelve_wait;
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "Put a sign down on the center tile, but have it face the goal.",
+                2.0f);
+                textFlag = false;
+                BuildingPanel.SetActive(true);
+            }
+            if (!StringUtility.Instance.IsTyping){
+                BuildManager.Instance.allowBuildingNewBuildings = true;
+                BuildManager.Instance.allowRotatingBuildings = true;
+                textFlag = true;
+                currState = State.twelve_wait;
+            }
             break;
         case State.twelve_wait:
             if (Tile1.GetComponent<Tile>().OccupyingBuilding != null){
@@ -227,11 +306,17 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.thirteen_text:
-            tutorialNarration.text = "";
-            StringUtility.TypeTextEffect(tutorialNarration, 
-            "That’s not quite the right direction, let’s pick it up again, and make it face the goal",
-            2.0f);
-            currState = State.thirteen_wait;
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "That’s not quite the right direction, let’s pick it up again, and make it face the goal",
+                2.0f);
+                textFlag = false;
+            }
+            if (!StringUtility.Instance.IsTyping){
+                textFlag = true;
+                currState = State.thirteen_wait;
+            }
             break;
         case State.thirteen_wait:
              if (BuildManager.Instance.CurrBuilding != null){
@@ -240,12 +325,18 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.fourteen_text:
-            tutorialNarration.text = "";
-            StringUtility.TypeTextEffect(tutorialNarration, 
-            "That’s how it’s done. Now press play and see the fruits of our labour.",
-            2.0f);
-            currState = State.fourteen_wait;
-            PlayButton.interactable = true;
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "That’s how it’s done. Now press play and see the fruits of our labour.",
+                2.0f);
+                textFlag = false;
+            }
+            if (!StringUtility.Instance.IsTyping){
+                currState = State.fourteen_wait;
+                textFlag = true;
+                PlayButton.interactable = true;
+            }
             break;
         case State.fourteen_wait:
             if (GoalTrigger.Instance.IsLevelDone()){
@@ -253,12 +344,18 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.fifteen_text:
-            tutorialNarration.text = "";
-            StringUtility.TypeTextEffect(tutorialNarration, 
-            "You can always find the controls to the interface up here, make sure you read them.",
-            2.0f);
-            MenuPanel.SetActive(true);
-            currState = State.fifteen_wait;
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "You can always find the controls to the interface up here, make sure you read them.",
+                2.0f);
+                textFlag = false;
+                MenuPanel.SetActive(true);
+            }
+            if (!StringUtility.Instance.IsTyping){
+                textFlag = true;
+                currState = State.fifteen_wait;
+            }
             break;
         case State.fifteen_wait:
             if (Controls.activeInHierarchy){
