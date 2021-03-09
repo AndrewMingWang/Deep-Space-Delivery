@@ -22,6 +22,7 @@ public class TutorialStateManager : MonoBehaviour
     public GameObject MenuPanel;
     public GameObject Controls;
     public Button SignButton;
+    public Button ControlsButton;
 
     [Header("Tiles")]
     public GameObject Tile1;
@@ -55,12 +56,14 @@ public class TutorialStateManager : MonoBehaviour
             // PlayButton.GetComponent<Animator>().SetTrigger("Highlighted");
             if (!StringUtility.Instance.IsTyping){
                 PlayButton.interactable = true;
+                PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", true);
                 currState = State.one_wait;
                 textFlag = true;
             }
             break;
         case State.one_wait:
             if (GameStateManager.Instance.CurrState == GameStateManager.State.Play){
+                PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", false);
                 PlayButton.interactable = false;
                 ResetButton.interactable = false;
                 // PlayButton.GetComponent<Animator>().SetTrigger("Normal");
@@ -80,6 +83,7 @@ public class TutorialStateManager : MonoBehaviour
             }
             // ResetButton.GetComponent<Animator>().SetTrigger("Highlighted");
             if (!StringUtility.Instance.IsTyping){
+                ResetButton.transform.parent.GetComponent<Animator>().SetBool("highlightedReset", true);
                 textFlag = true;
                 ResetButton.interactable = true;
                 currState = State.two_wait;
@@ -87,6 +91,7 @@ public class TutorialStateManager : MonoBehaviour
             break;
         case State.two_wait:
             if (GameStateManager.Instance.CurrState == GameStateManager.State.Plan){
+                ResetButton.transform.parent.GetComponent<Animator>().SetBool("highlightedReset", false);
                 currState = State.three_text;
                 ResetButton.interactable = false;
                 // ResetButton.GetComponent<Animator>().SetTrigger("Normal");
@@ -107,6 +112,7 @@ public class TutorialStateManager : MonoBehaviour
                 SignButton.interactable = true;
                 BuildManager.Instance.allowBuildingNewBuildings = true;
                 textFlag = true;
+                SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
                 currState = State.three_wait;
             }
             break;
@@ -114,7 +120,9 @@ public class TutorialStateManager : MonoBehaviour
             if (BuildManager.Instance.CurrBuilding != null){
                 currState = State.four_text;
                 BuildManager.Instance.allowBuildingNewBuildings = false;
-                BuildingPanel.SetActive(false);
+                SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
+                // BuildingPanel.SetActive(false);
+                SignButton.interactable = false;
             }
             break;
         case State.four_text:
@@ -206,10 +214,11 @@ public class TutorialStateManager : MonoBehaviour
                 BuildingPanel.SetActive(true);
                 SignButton.interactable = false;
                 Tile2.layer = 8;
+                TileManager.Instance.AddUnoccupiedTile(Tile2.GetComponent<Tile>());
             }
-            TileManager.Instance.AddUnoccupiedTile(Tile2.GetComponent<Tile>());
             if (!StringUtility.Instance.IsTyping){
                 SignButton.interactable = true;
+                SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
                 BuildManager.Instance.allowBuildingNewBuildings = true;
                 BuildManager.Instance.allowRotatingBuildings = false;
                 textFlag = true;
@@ -220,6 +229,7 @@ public class TutorialStateManager : MonoBehaviour
             if (Tile2.GetComponent<Tile>().OccupyingBuilding != null){
                 currState = State.nine_text;
                 PlayButton.interactable = true;
+                SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
                 // PlayButton.GetComponent<Animator>().SetTrigger("Normal");
             }
             break;
@@ -233,11 +243,14 @@ public class TutorialStateManager : MonoBehaviour
                 textFlag = false;
             }
             if (!StringUtility.Instance.IsTyping){
+                PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", true);
                 textFlag = true;
                 currState = State.nine_wait;
             }
             break;
         case State.nine_wait:
+            if (GameStateManager.Instance.CurrState == GameStateManager.State.Play) PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", false);
+                BuildingPanel.SetActive(true);
             if (GoalTrigger.Instance.IsLevelDone()){
                 currState = State.ten_text;
                 ResetButton.interactable = true;
@@ -252,12 +265,14 @@ public class TutorialStateManager : MonoBehaviour
                 textFlag = false;
             }
             if (!StringUtility.Instance.IsTyping){
+                ResetButton.transform.parent.GetComponent<Animator>().SetBool("highlightedReset", true);
                 textFlag = true;
                 currState = State.ten_wait;
             }
             break;
         case State.ten_wait:
             if (GameStateManager.Instance.CurrState == GameStateManager.State.Plan){
+                ResetButton.transform.parent.GetComponent<Animator>().SetBool("highlightedReset", false);
                 currState = State.eleven_text;
                 ResetButton.interactable = false;
                 PlayButton.interactable = false;
@@ -300,6 +315,7 @@ public class TutorialStateManager : MonoBehaviour
                 TileManager.Instance.RemoveTile(Tile2.GetComponent<Tile>());
                 Tile2.GetComponent<Tile>().enabled = false;
                 MoneyManager.Instance.StartingMoney -= 200;
+                SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
             }
             if (!StringUtility.Instance.IsTyping){
                 SignButton.interactable = true;
@@ -311,6 +327,7 @@ public class TutorialStateManager : MonoBehaviour
             break;
         case State.twelve_wait:
             if (Tile1.GetComponent<Tile>().OccupyingBuilding != null){
+                SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
                 BuildManager.Instance.allowDeletingBuildings = false;
                 if (Tile1.GetComponent<Tile>().OccupyingBuilding.transform.eulerAngles.y > 44 && Tile1.GetComponent<Tile>().OccupyingBuilding.transform.eulerAngles.y < 46){
                     currState = State.fourteen_text;
@@ -350,12 +367,15 @@ public class TutorialStateManager : MonoBehaviour
                 textFlag = false;
             }
             if (!StringUtility.Instance.IsTyping){
+                PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", true);
                 currState = State.fourteen_wait;
                 textFlag = true;
                 PlayButton.interactable = true;
             }
             break;
         case State.fourteen_wait:
+            if (GameStateManager.Instance.CurrState == GameStateManager.State.Play) PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", false);
+            BuildingPanel.SetActive(true);
             if (GoalTrigger.Instance.IsLevelDone()){
                 currState = State.fifteen_text;
             }
@@ -368,6 +388,7 @@ public class TutorialStateManager : MonoBehaviour
                 2.0f);
                 textFlag = false;
                 MenuPanel.SetActive(true);
+                ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
             }
             if (!StringUtility.Instance.IsTyping){
                 textFlag = true;
@@ -376,6 +397,7 @@ public class TutorialStateManager : MonoBehaviour
             break;
         case State.fifteen_wait:
             if (Controls.activeInHierarchy){
+                ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
                 tutorialNarration.text = "";
                 NarrationPanel.SetActive(false);
             }
