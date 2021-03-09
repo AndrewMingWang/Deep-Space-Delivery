@@ -22,7 +22,9 @@ public class TileRandomizer : MonoBehaviour
         List<Vector3> positions = new List<Vector3>();
         List<Quaternion> rotations = new List<Quaternion>();
         List<GameObject> occupiers = new List<GameObject>();
+        List<bool> tileManagerOnAwakes = new List<bool>();
         List<GameObject> toBeDestroyed = new List<GameObject>();
+
 
         // Record existing info
         for (int i = 0; i < numTiles; i++)
@@ -30,6 +32,7 @@ public class TileRandomizer : MonoBehaviour
             positions.Add(transform.GetChild(i).transform.position);
             rotations.Add(transform.GetChild(i).transform.rotation);
             occupiers.Add(transform.GetChild(i).GetComponent<Tile>().OccupyingBuilding);
+            tileManagerOnAwakes.Add(transform.GetChild(i).GetComponent<Tile>().AddToTileManagerOnAwake);
             toBeDestroyed.Add(transform.GetChild(i).gameObject);
         }
 
@@ -59,6 +62,7 @@ public class TileRandomizer : MonoBehaviour
                 {
                     GameObject newTile = Instantiate(TilePrefabs[j].prefab, positions[i], rotations[i], transform);
                     newTile.GetComponent<Tile>().OccupyingBuilding = occupiers[i];
+                    newTile.GetComponent<Tile>().AddToTileManagerOnAwake = tileManagerOnAwakes[i];
                     break;
                 }
             }

@@ -96,6 +96,7 @@ public class GameStateManager : MonoBehaviour
     }
 
     public IEnumerator ResetButtonPressed(){
+        Debug.Log("helo");
         yield return new WaitForSecondsRealtime(0.3f);
         Time.timeScale = 1.0f;
         switch (CurrState){

@@ -125,7 +125,7 @@ public class UnitMovement : MonoBehaviour
 
     public void LosePlayer()
     {
-        GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().PlayersFailed += 1;
+        GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().packagesLost += 1;
         gameObject.SetActive(false);
     }
 
