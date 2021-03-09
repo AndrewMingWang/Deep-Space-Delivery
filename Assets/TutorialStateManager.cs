@@ -37,7 +37,11 @@ public class TutorialStateManager : MonoBehaviour
         switch(currState){
         case State.one_text:
             StringUtility.TypeTextEffect(tutorialNarration, 
-            "Oh hey, Laura here. Let's walk you through how Loss Prevention works. Click the play button to send in our associates.",
+            "Hey!\\p Laura here,\\p\\p\\n" +
+            "let's walk through how \\n" +
+            "loss prevention works.\\p\\p\\n" +
+            "Press the play button to\\n" +
+            "send in our associates!",
             2.0f);
             PlayButton.GetComponent<Animator>().SetTrigger("Highlighted");
             currState = State.one_wait;
@@ -56,7 +60,7 @@ public class TutorialStateManager : MonoBehaviour
         case State.two_text:
             tutorialNarration.text = "";
             StringUtility.TypeTextEffect(tutorialNarration, 
-            "Oops! Don't worry we'll pick them up later. Did I mention Deep Space Delivery is number 1 in human employee safety? Press the retry button to try again.",
+            "Oops!\\p\\p Don't worry we'll pick them up later. Did I mention Deep Space Delivery is number 1 in human employee safety? Press the retry button to try again.",
             2.0f);
             ResetButton.GetComponent<Animator>().SetTrigger("Highlighted");
             currState = State.two_wait;
