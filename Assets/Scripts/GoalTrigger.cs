@@ -15,16 +15,18 @@ public class GoalTrigger : MonoBehaviour
 
     public static GoalTrigger Instance;
 
-    public static readonly int NUM_PACKAGES = 4;
+    [Header("Level Specifics")]
+    public int NumPackages = 4;
+    public int packagesDelivered = 0;
+    public int packagesLost = 0;
+    public bool levelCanEnd = true;
 
+    [Header("UI")]
     public GameObject ResultsPanel;
     public GameObject MenuPanel;
     public GameObject ActionsPanel;
     public GameObject GoalEffectPrefab;
     public ResultsPanelTypeEffect ResultsPanelTypeEffect;
-
-    public int packagesDelivered = 0;
-    public int packagesLost = 0;
 
     bool levelDoneAlready = false;
 
@@ -53,7 +55,7 @@ public class GoalTrigger : MonoBehaviour
         }
 
         // Finish level and bring up results panel
-        if (IsLevelDone())
+        if (IsLevelDone() && levelCanEnd)
         {
             FinishLevel();
             levelDoneAlready = true;
@@ -68,7 +70,7 @@ public class GoalTrigger : MonoBehaviour
         ActionsPanel.SetActive(false);
 
         int remainingBudget = MoneyManager.Instance.GetRemainingMoney();
-        float percentPackagesDelivered = packagesDelivered / NUM_PACKAGES * 100f;
+        float percentPackagesDelivered = packagesDelivered / NumPackages * 100f;
         
         // Determining performance string
         string performanceString = DeterminePerformance(percentPackagesDelivered, remainingBudget, TEMP_OPTIMAL_BUDGET);
@@ -84,7 +86,7 @@ public class GoalTrigger : MonoBehaviour
             }
         }
 
-        ResultsPanelTypeEffect.SetIntroText(packagesDelivered, NUM_PACKAGES, remainingBudget, TEMP_OPTIMAL_BUDGET, performanceString);
+        ResultsPanelTypeEffect.SetIntroText(packagesDelivered, NumPackages, remainingBudget, TEMP_OPTIMAL_BUDGET, performanceString);
 
         ResultsPanel.GetComponent<Animator>().SetBool("open", true);
 
@@ -132,7 +134,7 @@ public class GoalTrigger : MonoBehaviour
 
     public bool IsLevelDone()
     {
-        return packagesDelivered + packagesLost == NUM_PACKAGES;
+        return packagesDelivered + packagesLost == NumPackages;
     }
 
     private int GetCurrentLevel()

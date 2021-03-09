@@ -26,7 +26,7 @@ public class SpawnPlayers : MonoBehaviour
 
     public IEnumerator AddPlayers()
     {
-        for (int i = 0; i < GoalTrigger.NUM_PACKAGES; i += 1)
+        for (int i = 0; i < GoalTrigger.Instance.NumPackages; i += 1)
         {
             if (StopSpawning)
             {
