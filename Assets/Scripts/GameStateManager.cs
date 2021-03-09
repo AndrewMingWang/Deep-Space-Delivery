@@ -29,6 +29,7 @@ public class GameStateManager : MonoBehaviour
     public State CurrState;
 
     public GameObject BuildingPanel;
+    public bool EnablePanelsOnReset = true;
 
     private void Awake()
     {
@@ -95,7 +96,7 @@ public class GameStateManager : MonoBehaviour
     }
 
     public IEnumerator ResetButtonPressed(){
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.3f);
         Time.timeScale = 1.0f;
         switch (CurrState){
             case State.Plan:
@@ -121,7 +122,6 @@ public class GameStateManager : MonoBehaviour
                 _spawnscript.StopSpawning = true;
                 PlayButtonIcon.sprite = playButtonPlay;
                 ResetButtonIcon.sprite = resetButtonReset;
-                BuildingPanel.SetActive(true);
                 GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().ResetPlayerResults();
                 break;
         }
@@ -129,8 +129,12 @@ public class GameStateManager : MonoBehaviour
         ResultsPanel.GetComponent<Animator>().SetBool("closed", true);        
         // ResultsPanel.GetComponent<CanvasGroup>().interactable = false;
         // ResultsPanel.GetComponent<CanvasGroup>().alpha = 0;
-        ActionsPanel.SetActive(true);
-        MenuPanel.SetActive(true);
+        if (EnablePanelsOnReset){
+            ActionsPanel.SetActive(true);
+            MenuPanel.SetActive(true);
+            BuildingPanel.SetActive(true);
+        }
+        
         // ResultsPanel.GetComponent<Animator>().SetBool("closed", false);
         
     }

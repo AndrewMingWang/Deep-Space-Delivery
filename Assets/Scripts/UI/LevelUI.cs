@@ -15,6 +15,9 @@ public class LevelUI : BaseUI
     public Sprite soundSpriteOn;
     public Sprite soundSpriteOff;
     public GameObject controlDisplay;
+    // public GameObject informationDisplay;
+    // public TMP_Text levelInformation;
+    // private bool _levelInformationRecieved
     public TMP_Text levelTitle;
 
     private void Awake()
@@ -52,6 +55,15 @@ public class LevelUI : BaseUI
     {
         // levelInformation.alpha -= alphaDecrease * Time.deltaTime;
     }
+
+    // public void StartLevelInformation(){
+    //     if (!(_levelInformationRecieved)){
+    //         StringUtility.TypeTextEffect(levelInformation, levelToInformation[_currentLevel], 1.0f);
+    //         // StartCoroutine(FadeLevelInformation());
+    //         _levelInformationRecieved = true;
+    //     }
+        
+    // }
 
     public void ToggleMusic()
     {

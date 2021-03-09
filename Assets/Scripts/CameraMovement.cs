@@ -29,7 +29,10 @@ public class CameraMovement : MonoBehaviour
     // public KeyCode VerticalRotationDownKey = KeyCode.S;
     float _startCameraDist;
 
-
+    [Header("Permissions")]
+    public bool allowPan = true;
+    public bool allowZoom = true;
+    public bool allowRotation = true;
 
     void Start()
     {
@@ -39,9 +42,9 @@ public class CameraMovement : MonoBehaviour
 
 
     void Update() {
-        Panning();
-        Zoom();
-        Rotation();
+        if (allowPan) Panning();
+        if (allowZoom) Zoom();
+        if (allowRotation) Rotation();
     }
 
 

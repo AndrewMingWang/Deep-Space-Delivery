@@ -15,6 +15,13 @@ public class Tile : MonoBehaviour
     private Material _tileMaterial;
 
     public GameObject Top;
+    public bool AddToTileManagerOnAwake = true;
+
+    public Tile(Color basecol, Color hovercol, GameObject top){
+        BaseColor = basecol;
+        HoverColor = hovercol;
+        Top = top;
+    }
 
     private void Awake()
     {

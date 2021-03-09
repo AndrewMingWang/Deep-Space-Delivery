@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GoalTrigger : MonoBehaviour
 {
+    public static GoalTrigger Instance;
 
     public static readonly int NUM_PLAYERS = 4;
 
@@ -24,6 +25,16 @@ public class GoalTrigger : MonoBehaviour
     public int PlayersFailed = 0;
 
     bool levelDoneAlready = false;
+    public bool levelEndEnabled = true;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(Instance);
+        }
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +50,7 @@ public class GoalTrigger : MonoBehaviour
             return;
         }
 
-        if (IsLevelDone())
+        if (IsLevelDone() && levelEndEnabled)
         {
             MenuPanel.SetActive(false);
             ActionsPanel.SetActive(false);
