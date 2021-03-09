@@ -9,6 +9,8 @@ public class StringUtility : MonoBehaviour
 
     public static StringUtility Instance;
 
+    public bool IsTyping = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -42,6 +44,7 @@ public class StringUtility : MonoBehaviour
     {
         for (int i = 0; i < contentText.Length; i++)
         {
+            IsTyping = true;
             char letter = contentText[i];
             if (letter.Equals(BACKSLASH))
             {
@@ -73,6 +76,6 @@ public class StringUtility : MonoBehaviour
                 yield return new WaitForSecondsRealtime(0.05f / speedMultiplier);
             }
         }
+        IsTyping = false;
     }
-
 }
