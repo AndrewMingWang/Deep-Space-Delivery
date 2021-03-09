@@ -42,6 +42,12 @@ public class BuildManager : MonoBehaviour
     public KeyCode Toggle1 = KeyCode.A;
     public KeyCode Toggle2 = KeyCode.D;
 
+    [Header("Permissions")]
+    public bool allowBuildingNewBuildings = true;
+    public bool allowPickingUpBuildings = true;
+    public bool allowRotatingBuildings = true;
+    public bool allowDeletingBuildings = true;
+
     private void Awake()
     {
         if (Instance != null)
@@ -64,29 +70,33 @@ public class BuildManager : MonoBehaviour
 
     public void BuildBuilding(string buildingString)
     {
-        // If there is a current building, cancel it
-        CancelBuilding();
+        if (allowBuildingNewBuildings){
+            // If there is a current building, cancel it
+            CancelBuilding();
 
-        // Instantiate the new building
-        GameObject newBuildingGO = Instantiate(BuildingPrefabs[buildingString], transform.position, this.transform.rotation) as GameObject;
-        newBuildingGO.transform.parent = transform;
-        Building newBuilding = newBuildingGO.GetComponent<Building>();
+            // Instantiate the new building
+            GameObject newBuildingGO = Instantiate(BuildingPrefabs[buildingString], transform.position, this.transform.rotation) as GameObject;
+            newBuildingGO.transform.parent = transform;
+            Building newBuilding = newBuildingGO.GetComponent<Building>();
 
-        // Get a random unoccupied tile to place it on
-        Tile randomTile = TileManager.Instance.GetRandomUnoccupiedTile();
+            // Get a random unoccupied tile to place it on
+            Tile randomTile = TileManager.Instance.GetRandomUnoccupiedTile();
 
-        // Set transform of building to unoccupied tile
-        newBuilding.transform.position = randomTile.transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
+            // Set transform of building to unoccupied tile
+            newBuilding.transform.position = randomTile.transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
 
-        // Set building to be hovering over the tile
-        newBuilding.TileUnder = randomTile;
-        randomTile.SetHoverColor();
+            // Set building to be hovering over the tile
+            newBuilding.TileUnder = randomTile;
+            randomTile.SetHoverColor();
 
-        // Set current building
-        CurrBuilding = newBuilding;
+            // Set current building
+            CurrBuilding = newBuilding;
 
-        // SFX
-        audioSource.PlayOneShot(SpawnBuilding);
+            // SFX
+            audioSource.PlayOneShot(SpawnBuilding);
+        }
+        
+        
     }
 
     // Update is called once per frame
@@ -158,7 +168,7 @@ public class BuildManager : MonoBehaviour
                             */
                         }
                     }
-                    else
+                    else if (allowPickingUpBuildings)
                     {
                         // Pickup building
                         CurrBuilding = hit.transform.GetComponent<Building>();
@@ -170,7 +180,7 @@ public class BuildManager : MonoBehaviour
                         audioSource.PlayOneShot(PickupBuilding);
                     }
                 }
-            } else if (Input.GetMouseButtonDown(1))
+            } else if (Input.GetMouseButtonDown(1) && allowDeletingBuildings)
             {
                 CancelBuilding();
 
@@ -178,8 +188,8 @@ public class BuildManager : MonoBehaviour
                 audioSource.PlayOneShot(DespawnBuilding);
             }
 
-            // Handle additional options for specifc buildings bound to the q and e keys
-            if (CurrBuilding != null)
+            // Handle additional options for specifc buildings bound to the a and d keys
+            if (CurrBuilding != null && allowRotatingBuildings)
             {
                 switch (CurrBuilding.GetComponent<Building>().BuildingName)
                 {

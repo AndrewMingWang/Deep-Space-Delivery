@@ -26,15 +26,18 @@ public class TileManager : MonoBehaviour
         EnvironmentTiles = transform.GetComponentsInChildren<Tile>();
         foreach (Tile tile in EnvironmentTiles)
         {
-            if (tile.OccupyingBuilding == null)
-            {
-                UnoccupiedTiles.Add(tile);
+            if (tile.AddToTileManagerOnAwake){
+                if (tile.OccupyingBuilding == null)
+                {
+                    UnoccupiedTiles.Add(tile);
+                }
+                if (tile.OccupyingBuilding != null)
+                {
+                    OccupiedTiles.Add(tile);
+                }
+                AllTiles.Add(tile);
             }
-            if (tile.OccupyingBuilding != null)
-            {
-                OccupiedTiles.Add(tile);
-            }
-            AllTiles.Add(tile);
+            
         }
     }
 
@@ -64,5 +67,10 @@ public class TileManager : MonoBehaviour
         int n = UnoccupiedTiles.Count;
         int i = Random.Range(0, n);
         return UnoccupiedTiles[i];
+    }
+
+    public void AddUnoccupiedTile(Tile tile){
+        UnoccupiedTiles.Add(tile);
+        AllTiles.Add(tile);
     }
 }
