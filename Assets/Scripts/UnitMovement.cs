@@ -24,13 +24,16 @@ public class UnitMovement : MonoBehaviour
     public Animator Animator;
     private bool _groundedLastFrame = false;
     private bool _groundedThisFrame = true;
+    private bool _isAirborne = false;
     private float _distToGround;
+    private AudioSource AudioSource;
 
     private void Awake()
     {
         SceneParent = GameObject.FindGameObjectWithTag("SceneParent");
         Animator = GetComponent<Animator>();
         Collider = GetComponent<Collider>();
+        AudioSource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -96,13 +99,28 @@ public class UnitMovement : MonoBehaviour
         if (_groundedLastFrame && !_groundedThisFrame)
         {
             Animator.SetBool("isAirborne", true);
-            GetComponent<AudioSource>().Pause();
+            _isAirborne = true;
         } else if (!_groundedLastFrame && _groundedThisFrame)
         {
             Animator.SetBool("isAirborne", false);
-            GetComponent<AudioSource>().Play();
+            _isAirborne = false;
         }
         _groundedLastFrame = _groundedThisFrame;
+
+        // Walking SFX
+        if (_isAirborne)
+        {
+            if (AudioSource.isPlaying)
+            {
+                GetComponent<AudioSource>().Pause();
+            }
+        } else
+        {
+            if (!AudioSource.isPlaying)
+            {
+                GetComponent<AudioSource>().Play();
+            }
+        }
 
         // Move unit
         if (!IsStopped)

@@ -39,4 +39,21 @@ public class AudioFile
         }
     }
 
+    // Should only be used for looping SFX
+    public void Pause()
+    {
+        if (this.source != null)
+        {
+            this.source.Stop();
+        }
+    }
+
+    public void Unpause()
+    {
+        if (this.source != null && this.source.isActiveAndEnabled)
+        {
+            this.source.Play();
+        }
+    }
+
 }

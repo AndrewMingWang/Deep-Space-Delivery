@@ -78,13 +78,15 @@ public class GameStateManager : MonoBehaviour
                 break;
             case State.Play:
                 CurrState = State.Paused;
-                    PlayButtonIcon.sprite = playButtonPlay;
-                    Time.timeScale = 0f;
+                AudioManager.PauseAllLoopingSFX();
+                PlayButtonIcon.sprite = playButtonPlay;
+                Time.timeScale = 0f;
                 break;
             case State.Paused:
                 CurrState = State.Play;
-                    PlayButtonIcon.sprite = playButtonPause;
-                    Time.timeScale = 1.0f;
+                AudioManager.UnpauseAllLoopingSFX();
+                PlayButtonIcon.sprite = playButtonPause;
+                Time.timeScale = 1.0f;
                 break;
             }
         ResultsPanel.GetComponent<Animator>().SetBool("closed", false);

@@ -192,6 +192,59 @@ public class AudioManager : MonoBehaviour
     }
     */
 
+    public static void PauseAllLoopingSFX()
+    {
+        if (Instance != null)
+        {
+            Instance.IPauseAllLoopingSFX();
+        }
+    }
+    
+    public static void UnpauseAllLoopingSFX()
+    {
+        if (Instance != null)
+        {
+            Instance.IUnpauseAllLoopingSFX(); 
+        }
+    }
+
+    public void IPauseAllLoopingSFX()
+    {
+        foreach (AudioFile audioFile in SFXFiles)
+        {
+            if (audioFile != null)
+            {
+                if (audioFile.source.loop)
+                {
+                    audioFile.Pause();
+                }
+            }
+            else
+            {
+                SFXFiles.Remove(audioFile);
+            }
+        }
+    }
+
+    public void IUnpauseAllLoopingSFX()
+    {
+        foreach (AudioFile audioFile in SFXFiles)
+        {
+            if (audioFile != null)
+            {
+                if (audioFile.source.loop)
+                {
+                    audioFile.Unpause();
+                }
+            }
+            else
+            {
+                SFXFiles.Remove(audioFile);
+            }
+        }
+    }
+
+
     public static void StopAllAudio()
     {
         if (Instance != null)

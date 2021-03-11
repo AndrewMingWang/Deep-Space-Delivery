@@ -350,7 +350,6 @@ GameObject:
   - component: {fileID: 2135377601365160348}
   - component: {fileID: 5039806260333593738}
   - component: {fileID: 7546406268038824925}
-  - component: {fileID: 2664887202947194064}
   - component: {fileID: 408091427309099315}
   m_Layer: 10
   m_Name: TutorialDog
@@ -424,26 +423,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &2664887202947194064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2135377601355792984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4c84d94fc6334c42a0b9a6dc62f3d79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UnitSpeed: 2
-  WindSpeed: 100
-  SceneParent: {fileID: 0}
-  TargetDirection: {x: 0, y: 0, z: 0}
-  IsStopped: 0
-  GroundingEpsilon: 0.2
-  Collider: {fileID: 0}
-  Animator: {fileID: 0}
 --- !u!82 &408091427309099315
 AudioSource:
   m_ObjectHideFlags: 0
