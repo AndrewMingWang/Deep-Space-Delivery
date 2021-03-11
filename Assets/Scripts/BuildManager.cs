@@ -182,10 +182,7 @@ public class BuildManager : MonoBehaviour
                 }
             } else if (Input.GetMouseButtonDown(1) && allowDeletingBuildings)
             {
-                CancelBuilding();
-
-                // SFX
-                audioSource.PlayOneShot(DespawnBuilding);
+                CancelBuilding();               
             }
 
             // Handle additional options for specifc buildings bound to the a and d keys
@@ -259,6 +256,8 @@ public class BuildManager : MonoBehaviour
             TileManager.Instance.UnhoverAllTiles();
             Destroy(CurrBuilding.gameObject);
             CurrBuilding = null;
+
+            audioSource.PlayOneShot(DespawnBuilding);
         }
     }
 
