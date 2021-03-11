@@ -13,6 +13,7 @@ TagManager:
   - SceneParent
   - tooltip
   - start
+  - Package
   layers:
   - Default
   - TransparentFX
