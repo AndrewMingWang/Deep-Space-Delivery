@@ -24,6 +24,9 @@ public class TutorialStateManager : MonoBehaviour
     public Button SignButton;
     public Button ControlsButton;
 
+    [Header("Type Speed")]
+    public float TypeSpeed;
+
     [Header("Tiles")]
     public GameObject Tile1;
     public GameObject Tile2;
@@ -48,7 +51,7 @@ public class TutorialStateManager : MonoBehaviour
                 "loss prevention works.\\p\\p\\n" +
                 "Press the play button to\\n" +
                 "send in our associates!",
-                2.0f);
+                TypeSpeed);
                 PlayButton.interactable = false;
                 ResetButton.interactable = false;
                 textFlag = false;
@@ -78,7 +81,7 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Oops!\\p\\p Don't worry we'll pick them up later. Did I mention Deep Space Delivery is number 1 in human employee safety? Press the retry button to try again.",
-                2.0f);
+                TypeSpeed);
                 textFlag = false;
             }
             // ResetButton.GetComponent<Animator>().SetTrigger("Highlighted");
@@ -102,7 +105,7 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "While our associates are diligent, they're not always the brightest. It's our job to point them in the right direction. Let's try building a sign.",
-                2.0f);
+                TypeSpeed);
                 BuildingPanel.SetActive(true);
                 SignButton.interactable = false;
                 Tile2.layer = 0;
@@ -130,7 +133,7 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Just click the tile to place it down.",
-                2.0f);
+                TypeSpeed);
                 textFlag = false;
             }
             if (!StringUtility.Instance.IsTyping){
@@ -148,7 +151,7 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Right now, it won’t point the dogs in a new direction, but we can rotate it. Click the sign to pick it up again.",
-                2.0f);
+                TypeSpeed);
                 textFlag = false;
             }
             if (!StringUtility.Instance.IsTyping){
@@ -168,7 +171,7 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "You can rotate the sign with A or D, turn it to point to the right.",
-                2.0f);
+                TypeSpeed);
                 textFlag = false;
             }
             if (!StringUtility.Instance.IsTyping){
@@ -190,7 +193,7 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "That’s not quite the right direction, let’s pick it up again, and point it to the right",
-                2.0f);
+                TypeSpeed);
                 textFlag = false;
             }
             if (!StringUtility.Instance.IsTyping){
@@ -209,7 +212,7 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Great, now put down one more sign to redirect the dogs to the exit.",
-                2.0f);
+                TypeSpeed);
                 textFlag = false;
                 BuildingPanel.SetActive(true);
                 SignButton.interactable = false;
@@ -239,7 +242,7 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "This should work! Let’s test it.",
-                2.0f);
+                TypeSpeed);
                 textFlag = false;
             }
             if (!StringUtility.Instance.IsTyping){
@@ -261,7 +264,7 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "That was great, but we can actually solve it more efficiently. Every penny counts. Restart the level.",
-                2.0f);
+                TypeSpeed);
                 textFlag = false;
             }
             if (!StringUtility.Instance.IsTyping){
@@ -283,7 +286,7 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "If you pick up and then right click you can remove objects you’ve put down. Remove all of the signs.",
-                2.0f);
+                TypeSpeed);
                 textFlag = false;
             }
             if (!StringUtility.Instance.IsTyping){
@@ -307,7 +310,7 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Put a sign down on the center tile, but have it face the goal.",
-                2.0f);
+                TypeSpeed);
                 textFlag = false;
                 BuildingPanel.SetActive(true);
                 SignButton.interactable = false;
@@ -341,7 +344,7 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "That’s not quite the right direction, let’s pick it up again, and make it face the goal",
-                2.0f);
+                TypeSpeed);
                 BuildManager.Instance.allowPickingUpBuildings = false;
                 textFlag = false;
             }
@@ -362,7 +365,7 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "That’s how it’s done. Now press play and see the fruits of our labour.",
-                2.0f);
+                TypeSpeed);
                 BuildManager.Instance.allowPickingUpBuildings = false;
                 textFlag = false;
             }
@@ -385,7 +388,7 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "You can always find the controls to the interface up here, make sure you read them.",
-                2.0f);
+                TypeSpeed);
                 textFlag = false;
                 MenuPanel.SetActive(true);
                 ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);

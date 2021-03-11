@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8156914908459046089}
   - component: {fileID: 7454010425617118909}
   - component: {fileID: 5690861992972957735}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3573995820695990167}
   - component: {fileID: 2846983645862610004}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,9 +266,9 @@ GameObject:
   - component: {fileID: 7159854052944462978}
   - component: {fileID: 7159854052944462979}
   - component: {fileID: 2402215328507676618}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Goal
-  m_TagString: start
+  m_TagString: goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -362,21 +362,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99342cd574cc6047b07ced3be20d254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NumPackages: 4
+  packagesDelivered: 0
+  packagesLost: 0
+  levelCanEnd: 1
   ResultsPanel: {fileID: 0}
-  SuccessRate: {fileID: 0}
-  MoneyLeft: {fileID: 0}
-  Star1: {fileID: 0}
-  Star2: {fileID: 0}
-  Star3: {fileID: 0}
-  Fail: {fileID: 0}
-  MenuButtons: {fileID: 0}
-  ActionButtons: {fileID: 0}
-  EnergyBar: {fileID: 0}
-  LevelInformation: {fileID: 0}
+  MenuPanel: {fileID: 0}
+  ActionsPanel: {fileID: 0}
   GoalEffectPrefab: {fileID: 1628744458893394, guid: e243632bb3aff9549abdcfcc2ef0c4f0,
     type: 3}
-  PlayersReached: 0
-  PlayersFailed: 0
+  ResultsPanelTypeEffect: {fileID: 0}
 --- !u!82 &2402215328507676618
 AudioSource:
   m_ObjectHideFlags: 0

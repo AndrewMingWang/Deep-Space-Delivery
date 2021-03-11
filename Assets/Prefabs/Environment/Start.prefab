@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 4503092064688613888}
   - component: {fileID: 4503092064688613889}
   - component: {fileID: -1412776915908352123}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,6 +331,8 @@ MonoBehaviour:
   playerPrefab: {fileID: 4132604990437301898, guid: 94b4e0f893f33d8419c66f52edda10d5,
     type: 3}
   hitchhikerManager: {fileID: 0}
+  GoalEffectPrefab: {fileID: 100008, guid: 1ca16f2a31fb6a548ad8954bed1d321f, type: 3}
+  StopSpawning: 0
   UpwardOffset: 0.3
 --- !u!82 &-1412776915908352123
 AudioSource:
