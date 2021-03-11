@@ -114,7 +114,7 @@ public class LevelUI : BaseUI
 
     public IEnumerator QuitPlay()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.25f);
         GoToScene("LevelSelect");
     }
 
