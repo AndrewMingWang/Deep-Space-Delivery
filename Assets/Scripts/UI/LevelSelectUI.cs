@@ -10,11 +10,13 @@ public class LevelSelectUI : BaseUI
     private const int LEVELS_PER_WORLD = 6;
     public static readonly string PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED = "Level";
 
-    public TMP_Text WorldTitle;
-    public int[] LevelStates = new int[LEVELS_PER_WORLD + 1]; // 0 - locked, 1 - unlocked, 2 - cleared
     public LevelSelectButton[] LevelSelectButtons = new LevelSelectButton[LEVELS_PER_WORLD + 1];
+
+    [Header("References")]
+    public TMP_Text WorldTitle;
     public LevelSelectButton DownWorldButton;
     public LevelSelectButton UpWorldButton;
+    public Animator FadeInOut;
 
     private int currentWorld = 1;
     private int highestLevelUnlocked = 0;
@@ -133,15 +135,18 @@ public class LevelSelectUI : BaseUI
 
     private IEnumerator GoToLevelAfterPause(int levelNumber)
     {
-        yield return new WaitForSeconds(0.3f);
         if (levelNumber == 0)
         {
+            FadeInOut.SetTrigger("out");
+            yield return new WaitForSeconds(2.1f);
             LoadLevel(0);
         }
 
         int levelOrderNumber = (currentWorld - 1) * LEVELS_PER_WORLD + levelNumber;
         if (highestLevelUnlocked >= levelOrderNumber)
         {
+            FadeInOut.SetTrigger("out");
+            yield return new WaitForSeconds(2.1f);
             LoadLevel(levelOrderNumber);
         }
     }
@@ -149,6 +154,7 @@ public class LevelSelectUI : BaseUI
 
     public void QuitGame()
     {
+        FadeInOut.SetTrigger("out");
         Debug.Log("QUIT GAME");
         Application.Quit();
     }
