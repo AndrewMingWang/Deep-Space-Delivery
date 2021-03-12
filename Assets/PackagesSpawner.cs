@@ -9,6 +9,8 @@ public class PackagesSpawner : MonoBehaviour
     public bool DoneSpawning = false;
     public bool DoneLanding = false;
     public int NumLanded = 0;
+    public List<Package> SpawnedPackages = new List<Package>();
+    private int _spawnedPackagesIdx = 0;
 
     [Header("Spawning Parameters")]
     public Transform SpawnPoint;
@@ -43,6 +45,9 @@ public class PackagesSpawner : MonoBehaviour
             if (NumLanded == NumPackages)
             {
                 DoneLanding = true;
+                // After all packages land prevent them from
+                // colliding with each other.
+                Physics.IgnoreLayerCollision(16, 16);
             }
         }
     }
@@ -75,6 +80,8 @@ public class PackagesSpawner : MonoBehaviour
             Vector3 targetPos = transform.position + targetPosOffset;
 
             GameObject NewPackage = Instantiate(PackagePrefab, spawnPos, Quaternion.identity, transform);
+            SpawnedPackages.Add(NewPackage.GetComponent<Package>());
+
             Vector3 dir = targetPos - spawnPos;
 
             NewPackage.GetComponent<Rigidbody>().AddForce(PushForce * dir.normalized, ForceMode.VelocityChange);
@@ -84,5 +91,31 @@ public class PackagesSpawner : MonoBehaviour
         }
         DoneSpawning = true;
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("player"))
+        {
+            other.gameObject.GetComponent<Animator>().SetTrigger("pickup");
+
+            UnitMovement unit = other.gameObject.GetComponent<UnitMovement>();
+            if (!unit.PackageShown)
+            {
+                StartCoroutine(PickupPackage(unit));
+                
+            }
+        }
+    }
+
+    private IEnumerator PickupPackage(UnitMovement unit)
+    {
+        yield return new WaitForSecondsRealtime(0.15f);
+        unit.ShowPackage();
+        if (_spawnedPackagesIdx <= SpawnedPackages.Count - 1)
+        {
+            SpawnedPackages[_spawnedPackagesIdx].gameObject.SetActive(false);
+            _spawnedPackagesIdx += 1;
+        }
+    }
+
 }
