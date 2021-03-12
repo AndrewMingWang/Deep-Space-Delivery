@@ -11,7 +11,6 @@ public class GoalTrigger : MonoBehaviour
     public const string SUCCESS2_STRING = "good";
     public const string SUCCESS3_STRING = "excellent";
     public const string UNKNOWN_STRING = "unknown";
-    public const int TEMP_OPTIMAL_BUDGET = 2000;
 
     public static GoalTrigger Instance;
 
@@ -19,6 +18,7 @@ public class GoalTrigger : MonoBehaviour
     public int NumPackages = 4;
     public int packagesDelivered = 0;
     public int packagesLost = 0;
+    public int localOptimalRemainingBudget = 0;
     public bool levelCanEnd = true;
 
     [Header("UI")]
@@ -73,7 +73,7 @@ public class GoalTrigger : MonoBehaviour
         float percentPackagesDelivered = packagesDelivered / NumPackages * 100f;
         
         // Determining performance string
-        string performanceString = DeterminePerformance(percentPackagesDelivered, remainingBudget, TEMP_OPTIMAL_BUDGET);
+        string performanceString = DeterminePerformance(percentPackagesDelivered, remainingBudget, localOptimalRemainingBudget);
 
         // Unlock next level
         if (percentPackagesDelivered >= 50 && remainingBudget >= 0)
@@ -86,7 +86,7 @@ public class GoalTrigger : MonoBehaviour
             }
         }
 
-        ResultsPanelTypeEffect.SetIntroText(packagesDelivered, NumPackages, remainingBudget, TEMP_OPTIMAL_BUDGET, performanceString);
+        ResultsPanelTypeEffect.SetIntroText(packagesDelivered, NumPackages, remainingBudget, localOptimalRemainingBudget, performanceString);
 
         ResultsPanel.GetComponent<Animator>().SetBool("open", true);
 
