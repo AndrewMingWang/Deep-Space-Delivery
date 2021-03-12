@@ -9,7 +9,8 @@ public class TutorialStateManager : MonoBehaviour
   
     public enum State{one_text, one_wait, two_text, two_wait, three_text, three_wait, four_text, four_wait, five_text, five_wait, 
                         six_text, six_wait, seven_text, seven_wait, eight_text, eight_wait, nine_text, nine_wait, ten_text, ten_wait,
-                        eleven_text, eleven_wait, twelve_text, twelve_wait, thirteen_text, thirteen_wait, fourteen_text, fourteen_wait, fifteen_text, fifteen_wait}
+                        eleven_text, eleven_wait, twelve_text, twelve_wait, thirteen_text, thirteen_wait, fourteen_text, fourteen_wait, fifteen_text, fifteen_wait,
+                        sixteen_text, sixteen_wait, seventeen_text, seventeen_wait}
 
     public State currState;
 
@@ -27,10 +28,11 @@ public class TutorialStateManager : MonoBehaviour
     [Header("Type Speed")]
     public float TypeSpeed;
 
-    [Header("Tiles")]
+    [Header("Objects")]
     public GameObject Tile1;
     public GameObject Tile2;
     public GameObject Tile2_pcube1;
+    public GameObject mainCamera;
 
     [Header("Abstract")]
     public GameObject buildManager;
@@ -38,7 +40,7 @@ public class TutorialStateManager : MonoBehaviour
     private bool textFlag = true;
 
     private void Start() {
-        
+        tutorialNarration.text = "";
     }
 
     private void Update() {
@@ -291,7 +293,7 @@ public class TutorialStateManager : MonoBehaviour
                 "That was great,\\p but we can\\n"+
                 "actually solve it more\\n"+
                 "efficiently.\\p\\p Every penny\\n"+
-                "counts.\\p\\p Restart the stage\\n"+
+                "counts.\\p\\p Reset the stage\\n"+
                 "and we can see how.",
                 TypeSpeed);
                 textFlag = false;
@@ -422,10 +424,63 @@ public class TutorialStateManager : MonoBehaviour
                 currState = State.fifteen_text;
             }
             break;
-        case State.fifteen_text:
+        case State.fifteen_text: // camera rotation
+             if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "Before I send you off,\\p\\n"+
+                "you should know you can\\n"+
+                "control the camera as\\n"+
+                "well.\\p\\p Try rotating the\\n"+
+                "camera around the scene\\n"+
+                "with Q or E.",
+                TypeSpeed);
+                textFlag = false;
+            }
+            if (!StringUtility.Instance.IsTyping){
+                PlayButton.interactable = false;
+                currState = State.fifteen_wait;
+                mainCamera.GetComponent<CameraMovement>().allowRotation = true;
+                textFlag = true;
+            }
+            break;
+        case State.fifteen_wait:
+            if (mainCamera.transform.rotation.eulerAngles.y < 40 || mainCamera.transform.rotation.eulerAngles.y > 46){
+                currState = State.sixteen_text;
+            }
+            break;
+        case State.sixteen_text: // camera zoom
             if (textFlag){
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
+                "If you wish to get a\\n"+
+                "closer or further view,\\p\\n"+
+                "you can zoom the camera in\\n"+
+                "and out with the scroll\\n"+
+                "wheel.",
+                TypeSpeed);
+                textFlag = false;
+            }
+            if (!StringUtility.Instance.IsTyping){
+                currState = State.sixteen_wait;
+                mainCamera.GetComponent<CameraMovement>().allowZoom = true;
+                textFlag = true;
+            }
+            break;
+        case State.sixteen_wait:
+            if (mainCamera.GetComponent<Camera>().orthographicSize < 8 || mainCamera.GetComponent<Camera>().orthographicSize > 10){
+                currState = State.seventeen_text;
+            }
+            break;
+        case State.seventeen_text:
+            if (textFlag){
+                tutorialNarration.text = "";
+                mainCamera.GetComponent<CameraMovement>().allowPan = true;
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "Lastly you can pan the \\n"+
+                "camera around the area by\\n"+
+                "left clicking the area and\\n"+
+                "dragging the mouse.\\p\\p\\n"+
                 "You can always find the\\n"+
                 "controls to the interface\\n"+
                 "up here,\\p make sure you\\n"+
@@ -437,10 +492,10 @@ public class TutorialStateManager : MonoBehaviour
             }
             if (!StringUtility.Instance.IsTyping){
                 textFlag = true;
-                currState = State.fifteen_wait;
+                currState = State.seventeen_wait;
             }
             break;
-        case State.fifteen_wait:
+        case State.seventeen_wait:
             if (Controls.activeInHierarchy){
                 ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
                 tutorialNarration.text = "";
