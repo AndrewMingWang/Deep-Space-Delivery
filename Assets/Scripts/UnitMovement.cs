@@ -22,11 +22,25 @@ public class UnitMovement : MonoBehaviour
     [Header("Animation")]
     [HideInInspector]
     public Animator Animator;
+    public GameObject Package;
+    public bool PackageShown = false;
     private bool _groundedLastFrame = false;
     private bool _groundedThisFrame = true;
     private bool _isAirborne = false;
     private float _distToGround;
     private AudioSource AudioSource;
+
+    public void ShowPackage()
+    {
+        PackageShown = true;
+        Package.SetActive(true);
+    }
+
+    public void HidePackage()
+    {
+        PackageShown = false;
+        Package.SetActive(false);
+    }
 
     private void Awake()
     {
