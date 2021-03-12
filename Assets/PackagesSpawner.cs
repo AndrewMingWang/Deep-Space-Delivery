@@ -11,6 +11,7 @@ public class PackagesSpawner : MonoBehaviour
     public int NumLanded = 0;
     public List<Package> SpawnedPackages = new List<Package>();
     private int _spawnedPackagesIdx = 0;
+    public Animator LevelEntryScene;
 
     [Header("Spawning Parameters")]
     public Transform SpawnPoint;
@@ -48,6 +49,9 @@ public class PackagesSpawner : MonoBehaviour
                 // After all packages land prevent them from
                 // colliding with each other.
                 Physics.IgnoreLayerCollision(16, 16);
+
+                // Continue level entry animation by starting goal/start animations
+                LevelEntryScene.SetTrigger("landportals");
             }
         }
     }
@@ -115,6 +119,15 @@ public class PackagesSpawner : MonoBehaviour
         {
             SpawnedPackages[_spawnedPackagesIdx].gameObject.SetActive(false);
             _spawnedPackagesIdx += 1;
+        }
+    }
+
+    public void ResetAllPackages()
+    {
+        _spawnedPackagesIdx = 0;
+        foreach (Package package in SpawnedPackages)
+        {
+            package.gameObject.SetActive(true);
         }
     }
 

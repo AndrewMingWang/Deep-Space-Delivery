@@ -19,6 +19,7 @@ public class LevelUI : BaseUI
     // public TMP_Text levelInformation;
     // private bool _levelInformationRecieved
     public TMP_Text levelTitle;
+    public Animator UIAnimator;
 
     private void Awake()
     {
@@ -114,7 +115,8 @@ public class LevelUI : BaseUI
 
     public IEnumerator QuitPlay()
     {
-        yield return new WaitForSecondsRealtime(0.25f);
+        UIAnimator.SetTrigger("out");
+        yield return new WaitForSecondsRealtime(2.1f);
         GoToScene("LevelSelect");
     }
 
