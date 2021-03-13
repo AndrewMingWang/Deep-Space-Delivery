@@ -16,21 +16,23 @@ public class MoneyManager : MonoBehaviour
 
     public static MoneyManager Instance;
 
-    public int StartingMoney = 10000;
-    private int moneySpent = 0;
+    [Header("Level Properties")]
+    public int StartingMoney;
+    public int TargetRemaining;
+    public int OptimalRemaining;
+    private int _moneySpent = 0;
+    private float _targetPercent;
 
     [Header("Building Properties")]
     public Item[] Items;
 
     [Header("UI")]
     public ItemUI[] ItemUis;
-
     public TMP_Text MoneyText;
-
-    public RectTransform EnergyBarRT;
-    Vector2 energyBarRTMin;
-    Vector2 energyBarRTMax;
-
+    public RectTransform MoneyBarRT;
+    public RectTransform TargetRT;
+    Vector2 MoneyBarRTMin;
+    Vector2 MoneyBarRTMax;
 
     private void Awake()
     {
@@ -40,8 +42,8 @@ public class MoneyManager : MonoBehaviour
         }
         Instance = this;
 
-        energyBarRTMin = EnergyBarRT.offsetMax;
-        energyBarRTMax = Vector2.zero;
+        MoneyBarRTMin = MoneyBarRT.offsetMax;
+        MoneyBarRTMax = Vector2.zero;
     }
 
     // Start is called before the first frame update
@@ -68,7 +70,9 @@ public class MoneyManager : MonoBehaviour
             ItemUis[i].Panel.SetActive(false);
         }
 
-        
+        // Position target indicator
+        _targetPercent = (float) TargetRemaining / StartingMoney;
+        TargetRT.offsetMax = Vector2.Lerp(MoneyBarRTMin, MoneyBarRTMax, _targetPercent);
     }
 
     // Update is called once per frame
@@ -85,7 +89,7 @@ public class MoneyManager : MonoBehaviour
             return;
         } else
         {
-            moneySpent += item.price;
+            _moneySpent += item.price;
             item.quantity -= 1;
             ItemUis[itemId].Button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + (item.quantity);
         }
@@ -127,8 +131,8 @@ public class MoneyManager : MonoBehaviour
         }
 
         float t = (float)GetRemainingMoney() / StartingMoney;
-        Vector2 energyBarRTCur = Vector2.Lerp(energyBarRTMin, energyBarRTMax, t);
-        EnergyBarRT.offsetMax = energyBarRTCur;
+        Vector2 energyBarRTCur = Vector2.Lerp(MoneyBarRTMin, MoneyBarRTMax, t);
+        MoneyBarRT.offsetMax = energyBarRTCur;
     }
 
     public void RefundItem(string itemName)
@@ -140,7 +144,7 @@ public class MoneyManager : MonoBehaviour
                 GameObject ItemButton = ItemUis[i].Button;
                 Items[i].quantity += 1;
                 ItemButton.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + (Items[i].quantity);
-                moneySpent -= Items[i].price;
+                _moneySpent -= Items[i].price;
                 break;
             }
         }
@@ -149,12 +153,12 @@ public class MoneyManager : MonoBehaviour
 
     public int GetRemainingMoney()
     {
-        return StartingMoney - moneySpent;
+        return StartingMoney - _moneySpent;
     }
 
     public void ResetMoney()
     {
-        moneySpent = 0;
+        _moneySpent = 0;
         DisplayRemainingMoney();
     }
 

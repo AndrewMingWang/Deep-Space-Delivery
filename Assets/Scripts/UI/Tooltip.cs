@@ -10,6 +10,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public string Description;
     bool _isHovering;
 
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -23,7 +24,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 HideTooltip();
             }
         }
-    }
+    }*/
 
     public void OnPointerEnter(PointerEventData eventData)
     {
