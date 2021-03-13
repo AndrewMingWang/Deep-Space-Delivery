@@ -10,6 +10,8 @@ public class StringUtility : MonoBehaviour
     public static StringUtility Instance;
 
     public bool IsTyping = false;
+    private bool SkipEnabled = false;
+    public bool ShouldSkip = false;
 
     private void Awake()
     {
@@ -32,7 +34,10 @@ public class StringUtility : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (SkipEnabled && Input.GetMouseButtonDown(0))
+        {
+            ShouldSkip = true;
+        }
     }
 
     public static void TypeTextEffect(TMP_Text displayText, string contentText, float speedMultiplier)
@@ -45,6 +50,7 @@ public class StringUtility : MonoBehaviour
         for (int i = 0; i < contentText.Length; i++)
         {
             IsTyping = true;
+            SkipEnabled = true;
             char letter = contentText[i];
             if (letter.Equals(BACKSLASH))
             {
@@ -59,23 +65,37 @@ public class StringUtility : MonoBehaviour
                 switch (nextLetter)
                 {
                     case 'p': // '\p' means pause for this character
-                        yield return new WaitForSecondsRealtime(0.5f / speedMultiplier);
+                        if (!ShouldSkip)
+                        {
+                            yield return new WaitForSecondsRealtime(0.5f / speedMultiplier);
+                        }
                         break;
                     case 's': // '\p' means small pause for this character
-                        yield return new WaitForSecondsRealtime(0.1f / speedMultiplier);
+                        if (!ShouldSkip)
+                        {
+                            yield return new WaitForSecondsRealtime(0.1f / speedMultiplier);
+                        }
                         break;
                     case 'n': // '\n' means add a new line
                         displayText.text += '\n';
-                        yield return new WaitForSecondsRealtime(0.05f / speedMultiplier);
+                        if (!ShouldSkip)
+                        {
+                            yield return new WaitForSecondsRealtime(0.05f / speedMultiplier);
+                        }
                         break;
                 }
             } 
             else
             {
                 displayText.text += letter;
-                yield return new WaitForSecondsRealtime(0.05f / speedMultiplier);
+                if (!ShouldSkip)
+                {
+                    yield return new WaitForSecondsRealtime(0.05f / speedMultiplier);
+                }
             }
         }
         IsTyping = false;
+        SkipEnabled = false;
+        ShouldSkip = false;
     }
 }
