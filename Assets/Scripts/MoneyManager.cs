@@ -31,6 +31,7 @@ public class MoneyManager : MonoBehaviour
     public TMP_Text MoneyText;
     public RectTransform MoneyBarRT;
     public RectTransform TargetRT;
+    public Animator MoneyTextAnimator;
     Vector2 MoneyBarRTMin;
     Vector2 MoneyBarRTMax;
 
@@ -84,8 +85,11 @@ public class MoneyManager : MonoBehaviour
     public void ChooseItem(int itemId)
     {
         Item item = Items[itemId];
-        if (item.price > GetRemainingMoney() || (item.quantity < 1 && !item.unlimited))
+        if (item.price > GetRemainingMoney())
         {
+            MoneyTextAnimator.SetTrigger("nomoney");
+            return;
+        } else if (item.quantity < 1 && !item.unlimited) {
             return;
         } else
         {
