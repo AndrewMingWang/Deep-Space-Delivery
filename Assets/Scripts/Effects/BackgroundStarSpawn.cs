@@ -7,6 +7,7 @@ public class BackgroundStarSpawn : MonoBehaviour
 
     public GameObject BackgroundStarEffect;
     public GameObject BackgroundWormholeEffect;
+    public GameObject AsteroidPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class BackgroundStarSpawn : MonoBehaviour
     {
         while (true)
         {
-            float waitTime = Random.Range(5.0f, 10.0f);
+            /*float waitTime = Random.Range(5.0f, 10.0f);
             yield return new WaitForSecondsRealtime(waitTime);
             float x = Random.Range(-10.0f, 10.0f);
             float z = Random.Range(-10.0f, 10.0f);
@@ -38,7 +39,14 @@ public class BackgroundStarSpawn : MonoBehaviour
                 float scaleX = Random.Range(0.25f, 0.5f);
                 float scaleY = Random.Range(0.25f, 0.5f);
                 newWormhole.transform.localScale = new Vector2(scaleX, scaleY);
-            }
+            }*/
+            float waitTime = Random.Range(10.0f, 20.0f);
+            yield return new WaitForSecondsRealtime(waitTime);
+            float x = Random.Range(0.0f, 5.0f);
+            GameObject asteroid = Instantiate(AsteroidPrefab, new Vector3(x, -5.0f, 18.0f), Quaternion.identity);
+            float size = Random.Range(0.5f, 0.8f);
+            asteroid.transform.localScale = new Vector3(size, size, size);
+            Destroy(asteroid, 20.0f);
         }
     }
 
