@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 6718540320313703558}
   - component: {fileID: 6718540320313703556}
   - component: {fileID: 6718540320313703559}
+  - component: {fileID: 5786497379677187113}
   m_Layer: 5
   m_Name: ButtonTopScreenBackground
   m_TagString: Untagged
@@ -224,6 +225,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 2
+--- !u!95 &5786497379677187113
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6718540320313703553}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0b87a3b5ec6c2c345add501a82dc7da7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6718540320541919345
 GameObject:
   m_ObjectHideFlags: 0

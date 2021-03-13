@@ -32,6 +32,7 @@ public class MoneyManager : MonoBehaviour
     public RectTransform MoneyBarRT;
     public RectTransform TargetRT;
     public Animator MoneyTextAnimator;
+    public List<Animator> BuildingNoStockAnimators;
     Vector2 MoneyBarRTMin;
     Vector2 MoneyBarRTMax;
 
@@ -65,6 +66,10 @@ public class MoneyManager : MonoBehaviour
             }
             itemButton.transform.GetChild(1).GetComponent<Image>().sprite = item.icon;
             priceText.text = "$" + item.price.ToString();
+
+            BuildingNoStockAnimators.Add(
+                itemButton.transform.parent.GetComponent<Animator>()
+                );
         }
         for (int i = itemCount; i < ItemUis.Length; i += 1)
         {
@@ -90,6 +95,7 @@ public class MoneyManager : MonoBehaviour
             MoneyTextAnimator.SetTrigger("nomoney");
             return;
         } else if (item.quantity < 1 && !item.unlimited) {
+            BuildingNoStockAnimators[itemId].SetTrigger("nostock");
             return;
         } else
         {
