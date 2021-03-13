@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db817232627cde4183c50b2b810744f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DontActuallyGoToIntro: 1
+  DontActuallyGoToIntro: 0
   DoneFadeIn: 0
   FadeAnimator: {fileID: 22597331}
 --- !u!1001 &675534944
