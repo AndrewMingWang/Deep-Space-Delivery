@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,6 +25,7 @@ public class GameStateManager : MonoBehaviour
     public GameObject ActionsPanel;
     public GameObject MenuPanel;
     private SpawnPlayers _spawnscript;
+    public TMP_Text ResultsText;
 
     public enum State{Plan,Play,Paused}
     public State CurrState;
@@ -126,6 +128,7 @@ public class GameStateManager : MonoBehaviour
                 ResetButtonIcon.sprite = resetButtonReset;
                 GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().ResetPlayerResults();
                 PackagesSpawner.Instance.ResetAllPackages();
+                ResultsText.text = "";
                 break;
         }
         ResultsPanel.GetComponent<Animator>().SetBool("open", false);
