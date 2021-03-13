@@ -238,6 +238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66464b07176d714f985279d6fa30f12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsTyping: 0
+  ShouldSkip: 0
 --- !u!1 &1087698045
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +252,7 @@ GameObject:
   - component: {fileID: 1087698048}
   - component: {fileID: 1087698047}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0, a: 0.6862745}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.33333334}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
