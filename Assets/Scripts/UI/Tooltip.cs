@@ -8,7 +8,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public TMP_Text Text;
     public string Description;
-    bool _isHovering;
+    //bool _isHovering;
 
     /*
     // Update is called once per frame
@@ -28,13 +28,13 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _isHovering = true;
+        //_isHovering = true;
         DisplayTooltip();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        _isHovering = false;
+        //_isHovering = false;
         HideTooltip();
     }
 
