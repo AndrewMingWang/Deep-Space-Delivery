@@ -104,7 +104,15 @@ public class GameStateManager : MonoBehaviour
         Time.timeScale = 1.0f;
         switch (CurrState){
             case State.Plan:
-                SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+                //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+                foreach (Transform child in UserBuildings.transform)
+                {
+                    MoneyManager.Instance.RefundItem(child.gameObject.name.Split('(')[0].ToLower());
+
+                    Destroy(child.gameObject);
+                }
+                PackagesSpawner.Instance.ResetAllPackages();
+                ResultsText.text = "";
                 break;
             default:
                 CurrState = State.Plan;
