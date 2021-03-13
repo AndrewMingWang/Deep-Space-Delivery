@@ -137,6 +137,10 @@ public class LevelSelectUI : BaseUI
     {
         if (levelNumber == 0)
         {
+            if (highestLevelUnlocked == 0)
+            {
+                PlayerPrefs.SetInt(LevelSelectUI.PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED, 1);
+            }
             FadeInOut.SetTrigger("out");
             yield return new WaitForSeconds(2.1f);
             LoadLevel(0);

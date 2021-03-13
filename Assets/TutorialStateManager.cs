@@ -191,7 +191,8 @@ public class TutorialStateManager : MonoBehaviour
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "You can rotate the sign\\n"+
                 "with A or D,\\p turn it to\\n"+
-                "point to the right.",
+                "point entirely towards\\n"+
+                "the right.",
                 TypeSpeed);
                 textFlag = false;
             }
@@ -216,7 +217,8 @@ public class TutorialStateManager : MonoBehaviour
                 "That is not quite the\\n"+
                 "right direction,\\p pick it\\n"+
                 "up again and turn it so\\n"+
-                "it faces right.",
+                "it points entirely\\n"+
+                "towards the right.",
                 TypeSpeed);
                 textFlag = false;
             }
