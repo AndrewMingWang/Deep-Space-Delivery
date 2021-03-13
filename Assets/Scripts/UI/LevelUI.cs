@@ -14,7 +14,7 @@ public class LevelUI : BaseUI
     public GameObject soundButton;
     public Sprite soundSpriteOn;
     public Sprite soundSpriteOff;
-    public GameObject controlDisplay;
+    public Animator ControlsAnimator;
     // public GameObject informationDisplay;
     // public TMP_Text levelInformation;
     // private bool _levelInformationRecieved
@@ -94,13 +94,7 @@ public class LevelUI : BaseUI
 
     public void ViewControls()
     {
-        if (!controlDisplay.activeSelf)
-        {
-            controlDisplay.SetActive(true);
-        } else
-        {
-            controlDisplay.SetActive(false);
-        }
+        ControlsAnimator.SetBool("show", !ControlsAnimator.GetBool("show"));
     }
 
     public void ResetLevel()
