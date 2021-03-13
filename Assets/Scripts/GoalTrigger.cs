@@ -10,6 +10,7 @@ public class GoalTrigger : MonoBehaviour
     public const string SUCCESS1_STRING = "satisfactory";
     public const string SUCCESS2_STRING = "good";
     public const string SUCCESS3_STRING = "excellent";
+    public const string PERFECT_STRING = "perfect";
     public const string UNKNOWN_STRING = "unknown";
 
     public static GoalTrigger Instance;
@@ -18,8 +19,10 @@ public class GoalTrigger : MonoBehaviour
     public int NumPackages = 4;
     public int packagesDelivered = 0;
     public int packagesLost = 0;
-    public int localOptimalRemainingBudget = 0;
     public bool levelCanEnd = true;
+
+    private int optimalRemainingBudget;
+    private int targetRemainingBudget;
 
     [Header("UI")]
     public GameObject ResultsPanel;
@@ -43,6 +46,8 @@ public class GoalTrigger : MonoBehaviour
     void Start()
     {
         AudioManager.EnrollSFXSource(GetComponent<AudioSource>());
+        targetRemainingBudget = MoneyManager.Instance.TargetRemaining;
+        optimalRemainingBudget = MoneyManager.Instance.OptimalRemaining;
     }
 
 
@@ -73,7 +78,12 @@ public class GoalTrigger : MonoBehaviour
         float percentPackagesDelivered = packagesDelivered / NumPackages * 100f;
         
         // Determining performance string
-        string performanceString = DeterminePerformance(percentPackagesDelivered, remainingBudget, localOptimalRemainingBudget);
+        string performanceString = DeterminePerformance(
+            percentPackagesDelivered, 
+            remainingBudget,
+            targetRemainingBudget,
+            optimalRemainingBudget
+            );
 
         // Unlock next level
         if (percentPackagesDelivered >= 50 && remainingBudget >= 0)
@@ -86,30 +96,39 @@ public class GoalTrigger : MonoBehaviour
             }
         }
 
-        ResultsPanelTypeEffect.SetIntroText(packagesDelivered, NumPackages, remainingBudget, localOptimalRemainingBudget, performanceString);
+        ResultsPanelTypeEffect.SetIntroText(packagesDelivered, NumPackages, remainingBudget, performanceString);
 
         ResultsPanel.GetComponent<Animator>().SetBool("open", true);
 
         levelDoneAlready = true;
     }
 
-    private string DeterminePerformance(float percentPackagesDelivered, int remainingBudget, int optimalRemainingBudget)
+    private string DeterminePerformance(
+        float percentPackagesDelivered, 
+        int remainingBudget,
+        int targetRemainingBudget,
+        int optimalRemainingBudget
+        )
     {
         if (percentPackagesDelivered < 50 || remainingBudget < 0)
         {
             return FAIL_STRING;
-        } else if (percentPackagesDelivered < 100 && remainingBudget < optimalRemainingBudget)
+        } else if (percentPackagesDelivered < 100 && remainingBudget < targetRemainingBudget)
         {
             return SUCCESS1_STRING;
-        } else if (percentPackagesDelivered < 100 && remainingBudget >= optimalRemainingBudget)
+        } else if (percentPackagesDelivered < 100 && remainingBudget >= targetRemainingBudget)
         {
             return SUCCESS2_STRING;
-        } else if (percentPackagesDelivered == 100 && remainingBudget < optimalRemainingBudget)
+        } else if (percentPackagesDelivered == 100 && remainingBudget < targetRemainingBudget)
         {
             return SUCCESS2_STRING;
-        } else if (percentPackagesDelivered == 100 && remainingBudget >= optimalRemainingBudget)
+        } else if (percentPackagesDelivered == 100 && 
+            (remainingBudget >= targetRemainingBudget && remainingBudget < optimalRemainingBudget))
         {
             return SUCCESS3_STRING;
+        } else if (percentPackagesDelivered == 100 && remainingBudget >= optimalRemainingBudget)
+        {
+            return PERFECT_STRING;
         }
         return UNKNOWN_STRING;
     }
