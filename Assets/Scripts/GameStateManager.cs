@@ -11,6 +11,7 @@ public class GameStateManager : MonoBehaviour
 
     public GameObject UserBuildings;
     public GameObject HitchhikerManager;
+    public GameObject EnemyManager;
     private List<Vector3> _allChildrenTransformsPositions;
 
     public Image PlayButtonIcon;
@@ -32,6 +33,7 @@ public class GameStateManager : MonoBehaviour
 
     public GameObject BuildingPanel;
     public bool EnablePanelsOnReset = true;
+    private Coroutine _spawner;
 
     private void Awake()
     {
@@ -75,7 +77,7 @@ public class GameStateManager : MonoBehaviour
                 BuildingPanel.SetActive(false);
 
                 _spawnscript.StopSpawning = false;
-                StartCoroutine(_spawnscript.AddPlayers());
+                _spawner = StartCoroutine(_spawnscript.AddPlayers());
 
                 break;
             case State.Play:
@@ -115,6 +117,7 @@ public class GameStateManager : MonoBehaviour
                 ResultsText.text = "";
                 break;
             default:
+                StopCoroutine(_spawner);
                 CurrState = State.Plan;
                 int i = 0;
                 foreach (Transform child in UserBuildings.transform){
@@ -129,7 +132,15 @@ public class GameStateManager : MonoBehaviour
                     i++;
                 }
                 foreach (Transform child in HitchhikerManager.transform){
-                    Destroy(child.gameObject);
+                    // Destroy(child.gameObject);
+                    child.gameObject.SetActive(false);
+                }
+                if (EnemyManager!= null){
+                    foreach (Transform child in EnemyManager.transform){
+                        child.GetComponent<EnemyAI>().resetState();
+                    }
+                } else {
+                    Debug.Log("No EnemyManager GameObject attached to GameStateManager");
                 }
                 _spawnscript.StopSpawning = true;
                 PlayButtonIcon.sprite = playButtonPlay;

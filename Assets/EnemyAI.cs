@@ -49,7 +49,7 @@ public class EnemyAI : MonoBehaviour
                         // Debug.Log("HIT PLAYER");
                         currState = State.chargingAnimationStart;
                         target_pos = hit.transform.position;
-                        lerpFrameTotal = (int)(15*hit.distance);
+                        lerpFrameTotal = (int)(12*hit.distance);
                         Animator.SetBool("ChargeUp", true);
                     }
                 }
@@ -70,7 +70,7 @@ public class EnemyAI : MonoBehaviour
                     elapsedFrames = 0;
                     // currState = State.chargingAnimationEnd;
                     currState = State.chargingAnimationEnd;
-                    lerpFrameTotal = (int)(30*hit.distance);
+                    lerpFrameTotal = (int)(25*hit.distance);
                     Animator.SetBool("CoolDown", true);   
                 }
                 break;
@@ -97,5 +97,14 @@ public class EnemyAI : MonoBehaviour
             case State.stunned:
                 break;
         }
+    }
+
+    public void resetState(){
+        Animator.SetTrigger("LevelReset");
+        Animator.SetBool("ChargeUp", false);
+        Animator.SetBool("CoolDown", false);
+        Animator.SetBool("EnemyCollision", false);
+        transform.position = starting_pos;
+        currState = State.waiting;
     }
 }
