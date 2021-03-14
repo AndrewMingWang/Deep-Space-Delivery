@@ -74,6 +74,7 @@ public class GameStateManager : MonoBehaviour
              
                 PlayButtonIcon.sprite = playButtonPause;
                 ResetButtonIcon.sprite = resetButtonRewind;
+                BuildManager.Instance.CancelBuilding();
                 BuildingPanel.SetActive(false);
 
                 _spawner = StartCoroutine(_spawnscript.AddPlayers());

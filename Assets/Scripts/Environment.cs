@@ -8,16 +8,9 @@ public class Environment : MonoBehaviour
     private const float BUMP_BACK_FORCE = -4.0f;
     private const float BUMP_UP_FORCE = 1.0f;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        AudioManager.EnrollSFXSource(GetComponent<AudioSource>());
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -27,6 +20,9 @@ public class Environment : MonoBehaviour
             Vector3 dir = collision.gameObject.GetComponent<UnitMovement>().TargetDirection;
             collision.gameObject.GetComponent<Rigidbody>().AddForce(BUMP_BACK_FORCE * dir + BUMP_UP_FORCE * collision.transform.up, ForceMode.VelocityChange);
             collision.gameObject.GetComponent<UnitMovement>().Animator.SetTrigger("bump");
+
+            // Sound Effect
+            GetComponent<AudioSource>().Play();
         }
     }
 
