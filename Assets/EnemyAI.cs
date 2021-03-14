@@ -105,6 +105,8 @@ public class EnemyAI : MonoBehaviour
         Animator.SetBool("CoolDown", false);
         Animator.SetBool("EnemyCollision", false);
         transform.position = starting_pos;
+        lerpPosition = starting_pos;
+        elapsedFrames = 0;
         currState = State.waiting;
     }
 }
