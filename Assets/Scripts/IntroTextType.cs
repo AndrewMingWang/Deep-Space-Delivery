@@ -9,6 +9,8 @@ public class IntroTextType : MonoBehaviour
     public TMP_Text DisplayText;
     public string Content;
     public float CharTypeSpeed;
+    public AudioSource DialogueSource;
+    public Animator FadeAnimator;
 
     private void Awake()
     {
@@ -17,13 +19,26 @@ public class IntroTextType : MonoBehaviour
 
     private void Update()
     {
+        // If we skip, stop the intro sound
+        if (StringUtility.Instance.ShouldSkip)
+        {
+            DialogueSource.Stop();
+        }
+
         if (!StringUtility.Instance.IsTyping)
         {
             if (Input.anyKeyDown)
             {
-                SceneManager.LoadSceneAsync("LevelSelect");
+                FadeAnimator.SetTrigger("out");
+                StartCoroutine(GoToLevelSelect());
             }
         }
+    }
+
+    private IEnumerator GoToLevelSelect()
+    {
+        yield return new WaitForSecondsRealtime(4.05f);
+        SceneManager.LoadSceneAsync("LevelSelect");
     }
 
     public void PlayIntroText()
