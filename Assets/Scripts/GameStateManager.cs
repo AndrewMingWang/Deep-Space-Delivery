@@ -76,7 +76,6 @@ public class GameStateManager : MonoBehaviour
                 ResetButtonIcon.sprite = resetButtonRewind;
                 BuildingPanel.SetActive(false);
 
-                _spawnscript.StopSpawning = false;
                 _spawner = StartCoroutine(_spawnscript.AddPlayers());
 
                 break;
@@ -96,13 +95,8 @@ public class GameStateManager : MonoBehaviour
         ResultsPanel.GetComponent<Animator>().SetBool("closed", false);
     }
 
-    public void ResetButtonPressedAfterPause()
+    public void ResetButtonPressed()
     {
-        StartCoroutine(ResetButtonPressed());
-    }
-
-    public IEnumerator ResetButtonPressed(){
-        yield return new WaitForSecondsRealtime(0.25f);
         Time.timeScale = 1.0f;
         switch (CurrState){
             case State.Plan:
@@ -142,7 +136,6 @@ public class GameStateManager : MonoBehaviour
                 } else {
                     Debug.Log("No EnemyManager GameObject attached to GameStateManager");
                 }
-                _spawnscript.StopSpawning = true;
                 PlayButtonIcon.sprite = playButtonPlay;
                 ResetButtonIcon.sprite = resetButtonReset;
                 GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().ResetPlayerResults();
