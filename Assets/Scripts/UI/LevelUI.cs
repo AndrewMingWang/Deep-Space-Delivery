@@ -116,12 +116,20 @@ public class LevelUI : BaseUI
 
     public void NextLevel()
     {
+        StartCoroutine(NextLevelAfterPause());
+    }
+
+    private IEnumerator NextLevelAfterPause()
+    {
+        UIAnimator.SetTrigger("out");
+        yield return new WaitForSeconds(2.1f);
         string currentSceneName = SceneManager.GetActiveScene().name;
         int currentLevel = 0;
         if (int.TryParse(currentSceneName.Substring(5), out currentLevel))
         {
             GoToScene("Level" + (currentLevel + 1));
-        } else
+        }
+        else
         {
             GoToScene("Level1");
         }

@@ -259,7 +259,7 @@ MonoBehaviour:
   Collider: {fileID: 0}
   Animator: {fileID: 0}
   Package: {fileID: 1560651542618350261}
-  HasPackage: 0
+  PackageShown: 0
 --- !u!82 &4741875905108083488
 AudioSource:
   m_ObjectHideFlags: 0
@@ -788,7 +788,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9215950378025903148, guid: 3beac359e5cb6f54188fa39b77ad1e01, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3beac359e5cb6f54188fa39b77ad1e01, type: 3}
 --- !u!4 &5431351616354374123 stripped
 Transform:
