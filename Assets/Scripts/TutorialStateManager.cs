@@ -48,9 +48,9 @@ public class TutorialStateManager : MonoBehaviour
         case State.one_text:
             if (textFlag){
                 StringUtility.TypeTextEffect(tutorialNarration, 
-                "Hey!\\p Laura here,\\p\\p\\n" +
-                "let's walk through how \\n" +
-                "loss prevention works.\\p\\p\\n" +
+                "Hey!\\p Laura here.\\p\\p\\n" +
+                "Let's walk through how \\n" +
+                "Loss Prevention works.\\p\\p\\n" +
                 "Press the play button to\\n" +
                 "send in our associates!",
                 TypeSpeed);
