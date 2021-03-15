@@ -7,7 +7,7 @@ using TMPro;
 public class TutorialStateManager : MonoBehaviour
 {
   
-    public enum State{one_text, one_wait, two_text, two_wait, three_text, three_wait, four_text, four_wait, five_text, five_wait, 
+    public enum State{zero, one_text, one_wait, two_text, two_wait, three_text, three_wait, four_text, four_wait, five_text, five_wait, 
                         six_text, six_wait, seven_text, seven_wait, eight_text, eight_wait, nine_text, nine_wait, ten_text, ten_wait,
                         eleven_text, eleven_wait, twelve_text, twelve_wait, thirteen_text, thirteen_wait, fourteen_text, fourteen_wait, fifteen_text, fifteen_wait,
                         sixteen_text, sixteen_wait, seventeen_text, seventeen_wait}
@@ -45,6 +45,11 @@ public class TutorialStateManager : MonoBehaviour
 
     private void Update() {
         switch(currState){
+        case State.zero:
+            if (NarrationPanel.GetComponent<NarrationPanelScript>().canUse){
+                currState = State.one_text;
+            }
+            break;
         case State.one_text:
             if (textFlag){
                 StringUtility.TypeTextEffect(tutorialNarration, 
@@ -62,14 +67,14 @@ public class TutorialStateManager : MonoBehaviour
             // PlayButton.GetComponent<Animator>().SetTrigger("Highlighted");
             if (!StringUtility.Instance.IsTyping){
                 PlayButton.interactable = true;
-                // PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", true);
+                PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", true);
                 currState = State.one_wait;
                 textFlag = true;
             }
             break;
         case State.one_wait:
             if (GameStateManager.Instance.CurrState == GameStateManager.State.Play){
-                // PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", false);
+                PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", false);
                 PlayButton.interactable = false;
                 ResetButton.interactable = false;
                 // PlayButton.GetComponent<Animator>().SetTrigger("Normal");
@@ -95,7 +100,7 @@ public class TutorialStateManager : MonoBehaviour
             }
             // ResetButton.GetComponent<Animator>().SetTrigger("Highlighted");
             if (!StringUtility.Instance.IsTyping){
-                // ResetButton.transform.parent.GetComponent<Animator>().SetBool("highlightedReset", true);
+                ResetButton.transform.parent.GetComponent<Animator>().SetBool("highlightedReset", true);
                 textFlag = true;
                 ResetButton.interactable = true;
                 currState = State.two_wait;
@@ -103,7 +108,7 @@ public class TutorialStateManager : MonoBehaviour
             break;
         case State.two_wait:
             if (GameStateManager.Instance.CurrState == GameStateManager.State.Plan){
-                // ResetButton.transform.parent.GetComponent<Animator>().SetBool("highlightedReset", false);
+                ResetButton.transform.parent.GetComponent<Animator>().SetBool("highlightedReset", false);
                 currState = State.three_text;
                 ResetButton.interactable = false;
                 // ResetButton.GetComponent<Animator>().SetTrigger("Normal");
@@ -130,7 +135,7 @@ public class TutorialStateManager : MonoBehaviour
                 SignButton.interactable = true;
                 BuildManager.Instance.allowBuildingNewBuildings = true;
                 textFlag = true;
-                // SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
+                SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
                 currState = State.three_wait;
             }
             break;
@@ -138,7 +143,7 @@ public class TutorialStateManager : MonoBehaviour
             if (BuildManager.Instance.CurrBuilding != null){
                 currState = State.four_text;
                 BuildManager.Instance.allowBuildingNewBuildings = false;
-                // SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
+                SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
                 // BuildingPanel.SetActive(false);
                 SignButton.interactable = false;
             }
@@ -250,7 +255,7 @@ public class TutorialStateManager : MonoBehaviour
             }
             if (!StringUtility.Instance.IsTyping){
                 SignButton.interactable = true;
-                // SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
+                SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
                 BuildManager.Instance.allowBuildingNewBuildings = true;
                 BuildManager.Instance.allowRotatingBuildings = false;
                 textFlag = true;
@@ -261,7 +266,7 @@ public class TutorialStateManager : MonoBehaviour
             if (Tile2.GetComponent<Tile>().OccupyingBuilding != null){
                 currState = State.nine_text;
                 PlayButton.interactable = true;
-                // SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
+                SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
                 // PlayButton.GetComponent<Animator>().SetTrigger("Normal");
             }
             break;
@@ -276,13 +281,13 @@ public class TutorialStateManager : MonoBehaviour
                 textFlag = false;
             }
             if (!StringUtility.Instance.IsTyping){
-                // PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", true);
+                PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", true);
                 textFlag = true;
                 currState = State.nine_wait;
             }
             break;
         case State.nine_wait:
-            // if (GameStateManager.Instance.CurrState == GameStateManager.State.Play) PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", false);
+            if (GameStateManager.Instance.CurrState == GameStateManager.State.Play) PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", false);
             BuildingPanel.SetActive(true);
             if (GoalTrigger.Instance.IsLevelDone()){
                 currState = State.ten_text;
@@ -302,14 +307,14 @@ public class TutorialStateManager : MonoBehaviour
                 textFlag = false;
             }
             if (!StringUtility.Instance.IsTyping){
-                // ResetButton.transform.parent.GetComponent<Animator>().SetBool("highlightedReset", true);
+                ResetButton.transform.parent.GetComponent<Animator>().SetBool("highlightedReset", true);
                 textFlag = true;
                 currState = State.ten_wait;
             }
             break;
         case State.ten_wait:
             if (GameStateManager.Instance.CurrState == GameStateManager.State.Plan){
-                // ResetButton.transform.parent.GetComponent<Animator>().SetBool("highlightedReset", false);
+                ResetButton.transform.parent.GetComponent<Animator>().SetBool("highlightedReset", false);
                 currState = State.eleven_text;
                 ResetButton.interactable = false;
                 PlayButton.interactable = false;
@@ -348,7 +353,7 @@ public class TutorialStateManager : MonoBehaviour
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Put a sign down on the\\n"+
                 "center tile, \\pbut have it\\n"+
-                "face the goal.",
+                "point to the goal.",
                 TypeSpeed);
                 textFlag = false;
                 BuildingPanel.SetActive(true);
@@ -357,7 +362,7 @@ public class TutorialStateManager : MonoBehaviour
                 TileManager.Instance.RemoveTile(Tile2.GetComponent<Tile>());
                 Tile2.GetComponent<Tile>().enabled = false;
                 MoneyManager.Instance.StartingMoney -= 200;
-                // SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
+                SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
             }
             if (!StringUtility.Instance.IsTyping){
                 SignButton.interactable = true;
@@ -369,7 +374,7 @@ public class TutorialStateManager : MonoBehaviour
             break;
         case State.twelve_wait:
             if (Tile1.GetComponent<Tile>().OccupyingBuilding != null){
-                // SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
+                SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
                 BuildManager.Instance.allowDeletingBuildings = false;
                 if (Tile1.GetComponent<Tile>().OccupyingBuilding.transform.eulerAngles.y > 44 && Tile1.GetComponent<Tile>().OccupyingBuilding.transform.eulerAngles.y < 46){
                     currState = State.fourteen_text;
@@ -385,7 +390,7 @@ public class TutorialStateManager : MonoBehaviour
                 "That is not quite the\\n"+
                 "right direction.\\p\\p Pick it\\n"+
                 "up again, and turn it to\\n"+
-                "face the goal",
+                "point to the goal.",
                 TypeSpeed);
                 BuildManager.Instance.allowPickingUpBuildings = false;
                 textFlag = false;
@@ -414,17 +419,18 @@ public class TutorialStateManager : MonoBehaviour
                 textFlag = false;
             }
             if (!StringUtility.Instance.IsTyping){
-                // PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", true);
+                PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", true);
                 currState = State.fourteen_wait;
                 textFlag = true;
                 PlayButton.interactable = true;
             }
             break;
         case State.fourteen_wait:
-            // if (GameStateManager.Instance.CurrState == GameStateManager.State.Play) PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", false);
+            if (GameStateManager.Instance.CurrState == GameStateManager.State.Play) PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", false);
             BuildingPanel.SetActive(true);
             if (GoalTrigger.Instance.IsLevelDone()){
                 currState = State.fifteen_text;
+                StringUtility.Instance.ShouldSkip = false;
             }
             break;
         case State.fifteen_text: // camera rotation
@@ -471,7 +477,7 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.sixteen_wait:
-            if (mainCamera.GetComponent<Camera>().orthographicSize < 8 || mainCamera.GetComponent<Camera>().orthographicSize > 10){
+            if (mainCamera.GetComponent<Camera>().orthographicSize < 5 || mainCamera.GetComponent<Camera>().orthographicSize > 7){
                 currState = State.seventeen_text;
             }
             break;
@@ -487,11 +493,14 @@ public class TutorialStateManager : MonoBehaviour
                 "You can always find the\\n"+
                 "controls to the interface\\n"+
                 "up here,\\p make sure you\\n"+
-                "read them.",
+                "read them.\\n\\n\\p\\p"+
+                "That's all! \\p\\pPress the X\\n"+
+                "button in the top right\\n"+
+                "to get to work!",
                 TypeSpeed);
                 textFlag = false;
                 MenuPanel.SetActive(true);
-                // ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
+                ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
             }
             if (!StringUtility.Instance.IsTyping){
                 textFlag = true;
@@ -501,8 +510,8 @@ public class TutorialStateManager : MonoBehaviour
         case State.seventeen_wait:
             if (Controls.activeInHierarchy){
                 // ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
-                tutorialNarration.text = "";
-                NarrationPanel.SetActive(false);
+                // tutorialNarration.text = "";
+                // NarrationPanel.SetActive(false); 
             }
             break;
         }
