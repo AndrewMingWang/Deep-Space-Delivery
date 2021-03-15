@@ -53,14 +53,13 @@ public class TutorialStateManager : MonoBehaviour
         case State.one_text:
             if (textFlag){
                 StringUtility.TypeTextEffect(tutorialNarration, 
-                "Hey!\\p Laura here.\\p\\p\\n" +
+                "Hey!\\p Laura here.\\p\\p\\n\\n" +
                 "Let's walk through how \\n" +
-                "Loss Prevention works.\\p\\p\\n" +
-                "Press the play button to\\n" +
-                "send in our associates!\\n\\p\\p"+
-                "They'll pick up all the\\n"+
-                "packages lost out here\\n"+
-                "in space.",
+                "Loss Prevention works.\\p\\p\\n\\n" +
+                "Send in our associates\\n"+
+                "to pick up those lost\\n"+
+                "packages by pressing\\n"+
+                "the play button.\\n",
                 TypeSpeed);
                 PlayButton.interactable = false;
                 ResetButton.interactable = false;
@@ -91,11 +90,11 @@ public class TutorialStateManager : MonoBehaviour
             if (textFlag){
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
-                "Oops!\\p\\p Don't worry we'll \\n"+
-                "pick them up later. \\p\\pDid I \\n"+
-                "mention Deep Space\\n"+ 
+                "Oops!\\p\\p\\p Don't worry we'll \\n"+
+                "pick them up later.\\p\\p\\n\\n"+
+                "Did I mention Deep Space\\n"+ 
                 "Delivery is number 1 in\\n"+
-                "human employee safety? \\p\\p\\n"+
+                "human employee safety? \\p\\p\\n\\n"+
                 "Press the retry button\\n"+
                 "to try again.",
                 TypeSpeed);
@@ -122,12 +121,11 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "While our associates are\\n"+
-                "diligent, they're not\\n"+
-                "always the brightest. \\p\\p\\n"+
-                "It's our job to point\\n"+
-                "them in the right \\n"+
-                "direction. \\p\\pTry building\\n"+
-                "a sign.",
+                "diligent,\\p they're not\\n"+
+                "always the brightest.\\p\\p\\n\\n"+
+                "It's our job to point 'em\\n"+
+                "in the right direction.\\n\\n"+
+                "\\p\\pTry building a sign.",
                 TypeSpeed);
                 BuildingPanel.SetActive(true);
                 SignButton.interactable = false;
@@ -155,20 +153,12 @@ public class TutorialStateManager : MonoBehaviour
             if (textFlag){
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
-                "You'll notice the bar to\\n"+
-                "the left of the sign\\n"+
-                "button, that is the money\\n"+
-                "alloted by the company\\n"+
-                "for the stage.\\p Every\\n"+
-                "building costs money to\\n"+
-                "create, especially in\\n"+
-                "space. Try to use funds\\n"+
-                "above the middle mark\\n"+
-                "that is the target. But,\\n"+
-                "the less you spend the\\n"+
-                "better.\\n\\p\\p"+
-                "Just click the tile to\\n"+
-                "place it down.",
+                "The meter on the left\\n"+
+                "tracks your expenditure.\\n\\p"+
+                "We've also marked it with\\n"+
+                "how much we expect you to\\n"+
+                "spend per mission.\\p\\p\\n\\n" + 
+                "Click to place the sign.",
                 TypeSpeed);
                 textFlag = false;
             }
@@ -187,10 +177,10 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Right now,\\p it won’t point\\n"+
-                "the dogs in a new\\n"+
-                "direction but we can\\n"+
-                "rotate it.\\p\\p Click the sign\\n"+
-                "to pick it up again.",
+                "them in a new direction,\\p\\n"+
+                "but we can fix that.\\p\\p\\n\\n"+
+                "Click the sign to pick\\n"+
+                "it up again.",
                 TypeSpeed);
                 textFlag = false;
             }
@@ -210,10 +200,9 @@ public class TutorialStateManager : MonoBehaviour
             if (textFlag){
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
-                "You can rotate the sign\\n"+
-                "with A or D,\\p turn it to\\n"+
-                "point entirely towards\\n"+
-                "the right.",
+                "Rotate the sign with A/D.\\n\\n\\p\\p"+
+                "Turn it to point entirely\\n"+
+                "towards the right.",
                 TypeSpeed);
                 textFlag = false;
             }
@@ -238,8 +227,8 @@ public class TutorialStateManager : MonoBehaviour
                 "That is not quite the\\n"+
                 "right direction,\\p pick it\\n"+
                 "up again and turn it so\\n"+
-                "it points entirely\\n"+
-                "towards the right.",
+                "it points entirely towards\\n"+
+                "the right.",
                 TypeSpeed);
                 textFlag = false;
             }
@@ -259,8 +248,8 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Great, now put down one\\n"+
-                "more sign to redirect the\\n"+
-                "dogs to the exit.",
+                "more sign to redirect our\\n"+
+                "associates to the exit.",
                 TypeSpeed);
                 textFlag = false;
                 BuildingPanel.SetActive(true);
@@ -290,7 +279,7 @@ public class TutorialStateManager : MonoBehaviour
             if (textFlag){
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
-                "This should work!\\p\\p\\n"+
+                "This should work!\\p\\p\\n\\n"+
                 "Let’s test it.",
                 TypeSpeed);
                 textFlag = false;
@@ -313,11 +302,10 @@ public class TutorialStateManager : MonoBehaviour
             if (textFlag){
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
-                "That was great,\\p but we can\\n"+
-                "actually solve it more\\n"+
-                "efficiently.\\p\\p Every penny\\n"+
-                "counts.\\p\\p Reset the stage\\n"+
-                "and we can see how.",
+                "That works,\\p but there's\\n"+
+                "a cheaper solution!\\p\\p\\n\\n"+
+                "Every penny counts.\\p\\p\\p\\n\\n"+
+                "Let's reset again.",
                 TypeSpeed);
                 textFlag = false;
             }
@@ -339,9 +327,9 @@ public class TutorialStateManager : MonoBehaviour
             if (textFlag){
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
-                "If you pick up and then\\n"+
-                "right click you can remove\\n"+
-                "objects you put down.\\p\\p\\n"+
+                "Click to select a sign\\n"+
+                "and then right click\\n"+
+                "to remove it.\\p\\p\\n\\n"+
                 "Remove all of the signs.",
                 TypeSpeed);
                 textFlag = false;
@@ -366,9 +354,10 @@ public class TutorialStateManager : MonoBehaviour
             if (textFlag){
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
-                "Put a sign down on the\\n"+
+                "Nice work.\\p\\n\\n" +
+                "Now put a sign down on the\\n"+
                 "center tile, \\pbut have it\\n"+
-                "point to the goal.",
+                "point at the goal.",
                 TypeSpeed);
                 textFlag = false;
                 BuildingPanel.SetActive(true);
@@ -406,7 +395,7 @@ public class TutorialStateManager : MonoBehaviour
                 "That is not quite the\\n"+
                 "right direction.\\p\\p Pick it\\n"+
                 "up again, and turn it to\\n"+
-                "point to the goal.",
+                "point directly to the goal.",
                 TypeSpeed);
                 BuildManager.Instance.allowPickingUpBuildings = false;
                 textFlag = false;
@@ -427,9 +416,9 @@ public class TutorialStateManager : MonoBehaviour
             if (textFlag){
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
-                "That’s how it’s done.\\p\\p Now\\n"+
-                "press play and see the\\n"+
-                "fruits of our labour.",
+                "That’s how it’s done.\\p\\p\\n\\n"+
+                "Press play and let's see\\n"+
+                "if this works!",
                 TypeSpeed);
                 BuildManager.Instance.allowPickingUpBuildings = false;
                 BuildManager.Instance.allowBuildingNewBuildings = false;
@@ -454,10 +443,11 @@ public class TutorialStateManager : MonoBehaviour
              if (textFlag){
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
+                "Great job!\\p\\n\\n" +
                 "Before I send you off,\\p\\n"+
                 "you should know you can\\n"+
-                "control the camera as\\n"+
-                "well.\\p\\p Try rotating the\\n"+
+                "control the camera.\\n\\n"+
+                "\\p\\pTry rotating the\\n"+
                 "camera around the scene\\n"+
                 "with Q or E.",
                 TypeSpeed);
@@ -479,11 +469,9 @@ public class TutorialStateManager : MonoBehaviour
             if (textFlag){
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
-                "If you wish to get a\\n"+
-                "closer or further view,\\p\\n"+
-                "you can zoom the camera in\\n"+
-                "and out with the scroll\\n"+
-                "wheel.",
+                "For a closer view,\\p\\n"+
+                "try zooming the camera\\n"+
+                "with the scroll wheel.",
                 TypeSpeed);
                 textFlag = false;
             }
@@ -504,14 +492,13 @@ public class TutorialStateManager : MonoBehaviour
                 mainCamera.GetComponent<CameraMovement>().allowPan = true;
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Lastly you can pan the \\n"+
-                "camera around the area by\\n"+
-                "left clicking the area and\\n"+
-                "dragging the mouse.\\p\\p\\n"+
+                "camera by clicking and\\n"+
+                "dragging.\\p\\p\\n\\n"+
                 "You can always find the\\n"+
                 "controls to the interface\\n"+
                 "up here,\\p make sure you\\n"+
-                "read them.\\n\\n\\p\\p"+
-                "That's all! \\p\\pPress the X\\n"+
+                "read them!\\n\\n\\p\\p"+
+                "That's all. \\p\\pPress the X\\n"+
                 "button in the top right\\n"+
                 "to get to work!",
                 TypeSpeed);

@@ -214,9 +214,12 @@ public class AudioManager : MonoBehaviour
         {
             if (audioFile != null)
             {
-                if (audioFile.source.loop)
+                if (audioFile.source != null)
                 {
-                    audioFile.Pause();
+                    if (audioFile.source.loop)
+                    {
+                        audioFile.Pause();
+                    }
                 }
             }
             else
@@ -232,9 +235,12 @@ public class AudioManager : MonoBehaviour
         {
             if (audioFile != null)
             {
-                if (audioFile.source.loop)
+                if (audioFile.source != null)
                 {
-                    audioFile.Unpause();
+                    if (audioFile.source.loop)
+                    {
+                        audioFile.Unpause();
+                    }
                 }
             }
             else
