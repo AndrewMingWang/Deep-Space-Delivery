@@ -5,14 +5,14 @@ using UnityEngine;
 public class FloorMovement : MonoBehaviour
 {
 
-    public float MaxHeight = 0.2f;
-    public float MinHeight = -0.2f;
-    public float SpeedUp = 0.05f;
-    public float SpeedDown = -0.05f;
-    public int frame = 0;
-    public int UpdateOnFrame;
+    private float MaxHeight = 0.1f;
+    private float MinHeight = -0.1f;
+    private float SpeedUp = 0.05f;
+    private float SpeedDown = -0.05f;
+    private int frame = 0;
+    private int UpdateOnFrame = 10;
 
-    private float speed = 0.0f;
+    private float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,6 @@ public class FloorMovement : MonoBehaviour
         if (frame == UpdateOnFrame)
         {
             frame = 0;
-            transform.position = new Vector3(0.0f, transform.position.y + UpdateOnFrame * speed * Time.deltaTime, 0.0f);
             if (transform.position.y >= MaxHeight)
             {
                 speed = SpeedDown;
@@ -35,6 +34,7 @@ public class FloorMovement : MonoBehaviour
             {
                 speed = SpeedUp;
             }
+            transform.position = new Vector3(0.0f, transform.position.y + UpdateOnFrame * speed * Time.deltaTime, 0.0f);
         }
         frame += 1;
     }
