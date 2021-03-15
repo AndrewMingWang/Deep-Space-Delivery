@@ -202,7 +202,8 @@ public class TutorialStateManager : MonoBehaviour
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Rotate the sign with A/D.\\n\\n\\p\\p"+
                 "Turn it to point entirely\\n"+
-                "towards the right.",
+                "towards the right and click\\n"+
+                "to place it.",
                 TypeSpeed);
                 textFlag = false;
             }
@@ -356,7 +357,7 @@ public class TutorialStateManager : MonoBehaviour
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Nice work.\\p\\n\\n" +
                 "Now put a sign down on the\\n"+
-                "center tile, \\pbut have it\\n"+
+                "same tile, \\pbut have it\\n"+
                 "point at the goal.",
                 TypeSpeed);
                 textFlag = false;
