@@ -7,6 +7,8 @@ public class Tile : MonoBehaviour
     public Color BaseColor;
     public Color HoverColor;
 
+    private Color _windColor;
+
     [HideInInspector]
     public bool Hovered = false;
 
@@ -15,9 +17,11 @@ public class Tile : MonoBehaviour
     private Material _tileMaterial;
 
     public GameObject Top;
+    public bool windTile = false;
     public bool AddToTileManagerOnAwake = true;
 
     public Tile(Color basecol, Color hovercol, GameObject top){
+
         BaseColor = basecol;
         HoverColor = hovercol;
         Top = top;
@@ -25,8 +29,11 @@ public class Tile : MonoBehaviour
 
     private void Awake()
     {
+        if (windTile){
+            BaseColor.g = 0.275f;
+        } 
         _tileMaterial = Top.GetComponent<Renderer>().materials[1];
-        _tileMaterial.SetColor("_Color", BaseColor);
+        _tileMaterial.SetColor("_Color", BaseColor);        
     }
 
     public void SetHoverColor()
