@@ -57,7 +57,10 @@ public class TutorialStateManager : MonoBehaviour
                 "Let's walk through how \\n" +
                 "Loss Prevention works.\\p\\p\\n" +
                 "Press the play button to\\n" +
-                "send in our associates!",
+                "send in our associates!\\n\\p\\p"+
+                "They'll pick up all the\\n"+
+                "packages lost out here\\n"+
+                "in space.",
                 TypeSpeed);
                 PlayButton.interactable = false;
                 ResetButton.interactable = false;
@@ -152,6 +155,18 @@ public class TutorialStateManager : MonoBehaviour
             if (textFlag){
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
+                "You'll notice the bar to\\n"+
+                "the left of the sign\\n"+
+                "button, that is the money\\n"+
+                "alloted by the company\\n"+
+                "for the stage.\\p Every\\n"+
+                "building costs money to\\n"+
+                "create, especially in\\n"+
+                "space. Try to use funds\\n"+
+                "above the middle mark\\n"+
+                "that is the target. But,\\n"+
+                "the less you spend the\\n"+
+                "better.\\n\\p\\p"+
                 "Just click the tile to\\n"+
                 "place it down.",
                 TypeSpeed);
@@ -361,7 +376,8 @@ public class TutorialStateManager : MonoBehaviour
                 Tile2.layer = 0;
                 TileManager.Instance.RemoveTile(Tile2.GetComponent<Tile>());
                 Tile2.GetComponent<Tile>().enabled = false;
-                MoneyManager.Instance.StartingMoney -= 200;
+                // MoneyManager.Instance.StartingMoney -= 200;
+                MoneyManager.Instance.Items[0].quantity = 1;
                 SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
             }
             if (!StringUtility.Instance.IsTyping){
@@ -416,6 +432,7 @@ public class TutorialStateManager : MonoBehaviour
                 "fruits of our labour.",
                 TypeSpeed);
                 BuildManager.Instance.allowPickingUpBuildings = false;
+                BuildManager.Instance.allowBuildingNewBuildings = false;
                 textFlag = false;
             }
             if (!StringUtility.Instance.IsTyping){
@@ -508,10 +525,10 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.seventeen_wait:
-            if (Controls.activeInHierarchy){
-                // ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
+            if (Controls.GetComponent<Animator>().GetBool("show")){
+                ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
                 // tutorialNarration.text = "";
-                // NarrationPanel.SetActive(false); 
+                NarrationPanel.SetActive(false); 
             }
             break;
         }
