@@ -48,7 +48,7 @@ public class LevelUI : BaseUI
             {
                 buffer = "0";
             }
-            levelTitle.text = "Level " + buffer + currentLevel;
+            levelTitle.text = "Level" + buffer + currentLevel;
         }
     }
 
