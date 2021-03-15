@@ -421,7 +421,7 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.fourteen_wait:
-            if (GameStateManager.Instance.CurrState == GameStateManager.State.Play) PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", false);
+            // if (GameStateManager.Instance.CurrState == GameStateManager.State.Play) PlayButton.transform.parent.GetComponent<Animator>().SetBool("highlightedPlay", false);
             BuildingPanel.SetActive(true);
             if (GoalTrigger.Instance.IsLevelDone()){
                 currState = State.fifteen_text;

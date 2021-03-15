@@ -110,18 +110,21 @@ public class BuildManager : MonoBehaviour
                 if (CurrBuilding != null)
                 {
                     Tile hitTile = hit.transform.GetComponent<Tile>();
-                    if (hitTile.OccupyingBuilding == null)
-                    {
-                        if (hitTile.Hovered == false)
+                    if (hitTile != null){
+                        if (hitTile.OccupyingBuilding == null)
                         {
-                            TileManager.Instance.UnhoverAllTiles();
-                            hitTile.SetHoverColor();
-                            hitTile.Hovered = true;
-                        }
+                            if (hitTile.Hovered == false)
+                            {
+                                TileManager.Instance.UnhoverAllTiles();
+                                hitTile.SetHoverColor();
+                                hitTile.Hovered = true;
+                            }
 
                         CurrBuilding.TileUnder = hitTile;
                         CurrBuilding.transform.position = hit.transform.position + CurrBuilding.transform.localScale.y / 2 * CurrBuilding.transform.up;
+                        }
                     }
+                    
                 }
             }
 
