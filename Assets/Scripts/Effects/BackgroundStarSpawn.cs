@@ -12,7 +12,7 @@ public class BackgroundStarSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnBackgroundObjects());
+        //StartCoroutine(SpawnBackgroundObjects());
     }
 
     // Update is called once per frame
