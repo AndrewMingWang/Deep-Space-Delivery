@@ -12,6 +12,7 @@ public class Tile : MonoBehaviour
     [HideInInspector]
     public bool Hovered = false;
 
+    public bool EnvOccupied = false;
     public GameObject OccupyingBuilding = null;
 
     private Material _tileMaterial;

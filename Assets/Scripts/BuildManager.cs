@@ -111,7 +111,7 @@ public class BuildManager : MonoBehaviour
                 {
                     Tile hitTile = hit.transform.GetComponent<Tile>();
                     if (hitTile != null){
-                        if (hitTile.OccupyingBuilding == null)
+                        if (hitTile.OccupyingBuilding == null && !hitTile.EnvOccupied)
                         {
                             if (hitTile.Hovered == false)
                             {

@@ -31,7 +31,7 @@ public class TileManager : MonoBehaviour
                 {
                     UnoccupiedTiles.Add(tile);
                 }
-                if (tile.OccupyingBuilding != null)
+                if (tile.OccupyingBuilding != null || tile.EnvOccupied)
                 {
                     OccupiedTiles.Add(tile);
                 }

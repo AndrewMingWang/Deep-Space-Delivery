@@ -22,6 +22,7 @@ public class TileRandomizer : MonoBehaviour
         List<Vector3> positions = new List<Vector3>();
         List<Quaternion> rotations = new List<Quaternion>();
         List<GameObject> occupiers = new List<GameObject>();
+        List<bool> envOccupied = new List<bool>();
         List<bool> windTiles = new List<bool>();
         List<bool> tileManagerOnAwakes = new List<bool>();
         List<GameObject> toBeDestroyed = new List<GameObject>();
@@ -33,6 +34,7 @@ public class TileRandomizer : MonoBehaviour
             positions.Add(transform.GetChild(i).transform.position);
             rotations.Add(transform.GetChild(i).transform.rotation);
             occupiers.Add(transform.GetChild(i).GetComponent<Tile>().OccupyingBuilding);
+            envOccupied.Add(transform.GetChild(i).GetComponent<Tile>().EnvOccupied);
             windTiles.Add(transform.GetChild(i).GetComponent<Tile>().windTile);
             tileManagerOnAwakes.Add(transform.GetChild(i).GetComponent<Tile>().AddToTileManagerOnAwake);
             toBeDestroyed.Add(transform.GetChild(i).gameObject);
@@ -63,6 +65,7 @@ public class TileRandomizer : MonoBehaviour
                 if (r <= cutoffs[j])
                 {
                     GameObject newTile = Instantiate(TilePrefabs[j].prefab, positions[i], rotations[i], transform);
+                    newTile.GetComponent<Tile>().EnvOccupied = envOccupied[i];
                     newTile.GetComponent<Tile>().OccupyingBuilding = occupiers[i];
                     newTile.GetComponent<Tile>().AddToTileManagerOnAwake = tileManagerOnAwakes[i];
                     newTile.GetComponent<Tile>().windTile = windTiles[i];
