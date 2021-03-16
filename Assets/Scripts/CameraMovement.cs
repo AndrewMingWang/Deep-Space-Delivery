@@ -22,9 +22,8 @@ public class CameraMovement : MonoBehaviour
     public Vector2 ZoomBounds;
 
     // For Rotation
-    [Header("Rotation Keys")]
-    public KeyCode CWRotationKey = KeyCode.Q;
-    public KeyCode CCWRotationKey = KeyCode.E;
+    private KeyCode CWRotationKey = KeyCode.A;
+    private KeyCode CCWRotationKey = KeyCode.D;
     // public KeyCode VerticalRotationUpKey = KeyCode.W;
     // public KeyCode VerticalRotationDownKey = KeyCode.S;
     float _startCameraDist;

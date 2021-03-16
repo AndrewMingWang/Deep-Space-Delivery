@@ -38,9 +38,8 @@ public class BuildManager : MonoBehaviour
     public AudioClip PlaceBuilding;
     AudioSource audioSource;
 
-    [Header("Toggle Keys")]
-    public KeyCode Toggle1 = KeyCode.A;
-    public KeyCode Toggle2 = KeyCode.D;
+    private KeyCode Toggle1 = KeyCode.E;
+    private KeyCode Toggle2 = KeyCode.Q;
 
     [Header("Permissions")]
     public bool allowBuildingNewBuildings = true;
