@@ -16,6 +16,7 @@ public class ResultsPanelTypeEffect : MonoBehaviour
 
     public void SetIntroText(int deliveredPackages, int totalPackages, int remainingBudget, string performanceString)
     {
+        DisplayText.text = "";
         Content = string.Format(
             "packages delivered:{0}{1}/{2}\\n\\n\\p\\p",
             new string(' ', 9 - deliveredPackages.ToString().Length - totalPackages.ToString().Length),
