@@ -67,7 +67,7 @@ public class GoalTrigger : MonoBehaviour
         ActionsPanel.SetActive(false);
 
         int remainingBudget = MoneyManager.Instance.GetRemainingMoney();
-        float percentPackagesDelivered = packagesDelivered / NumPackages * 100f;
+        float percentPackagesDelivered = (float) packagesDelivered / NumPackages * 100f;
         
         // Determining performance string
         int perfInt = DeterminePerformance(
@@ -108,6 +108,9 @@ public class GoalTrigger : MonoBehaviour
         int optimalRemainingBudget
         )
     {
+        Debug.Log(percentPackagesDelivered);
+        Debug.Log(remainingBudget);
+        Debug.Log(optimalRemainingBudget);
         if (percentPackagesDelivered < 50 || remainingBudget < 0)
         {
             return 0;

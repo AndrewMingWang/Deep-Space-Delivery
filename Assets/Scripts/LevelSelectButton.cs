@@ -10,6 +10,10 @@ public class LevelSelectButton : MonoBehaviour
     public TMP_Text Text;
     public TMP_FontAsset Glow;
     public TMP_FontAsset NonGlow;
+    public TMP_FontAsset YellowGlow;
+    public RectTransform ScoreLevelRT;
+    Vector2 ScoreLevelRTMin;
+    Vector2 ScoreLevelRTMax;
 
     [Header("Colors")]
     public Color UnlockedTextColor;
@@ -19,8 +23,15 @@ public class LevelSelectButton : MonoBehaviour
     public Color LockedScreenColor;
     public Color ClearedScreenColor;
 
+    private void Awake()
+    {
+        ScoreLevelRTMax = ScoreLevelRT.offsetMax;
+        ScoreLevelRTMin = ScoreLevelRT.offsetMin;
+    }
+
     public void SetLocked()
     {
+        SetScore(0);
         Text.color = LockedTextColor;
         Screen.color = LockedScreenColor;
         Text.font = NonGlow;
@@ -28,15 +39,22 @@ public class LevelSelectButton : MonoBehaviour
 
     public void SetUnlocked()
     {
+        SetScore(0);
         Text.color = UnlockedTextColor;
         Screen.color = UnlockedScreenColor;
         Text.font = Glow;
     }
 
-    public void SetCleared()
+    public void SetScore(int score)
     {
+        // 3 -> 0; 2 -> 1/3; 1 -> 2/3; 0 -> 1;
+        float ratio = (3f - score) / 3f;
+        Vector2 set = ScoreLevelRTMax * ratio;
+        set.x = 0;
+        ScoreLevelRT.offsetMax = set;
+
         Text.color = ClearedTextColor;
         Screen.color = ClearedScreenColor;
-        Text.font = Glow;
+        Text.font = YellowGlow;
     }
 }

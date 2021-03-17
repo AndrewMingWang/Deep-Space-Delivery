@@ -24,7 +24,7 @@ public class LevelSelectUI : BaseUI
     private int cheatCodeCount = 0;
     private int resetCodeCount = 0;
 
-    private void Awake()
+    private void Start()
     {
         highestLevelUnlocked = PlayerPrefs.GetInt(PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED, 0);
         for (int i = 1; i <= 6; i += 1)
@@ -103,7 +103,7 @@ public class LevelSelectUI : BaseUI
         {
             if (highestLevelUnlocked >= 1)
             {
-                LevelSelectButtons[0].SetCleared();
+                LevelSelectButtons[0].SetScore(3);
             } else
             {
                 LevelSelectButtons[0].SetUnlocked();
@@ -118,7 +118,8 @@ public class LevelSelectUI : BaseUI
         {
             if (baseLevel + i < highestLevelUnlocked)
             {
-                LevelSelectButtons[i].SetCleared();
+                int score = PlayerPrefs.GetInt(LevelSelectUI.PLAYER_PREFS_HIGH_SCORE_BASE + (baseLevel + i), 0);
+                LevelSelectButtons[i].SetScore(score);
             } else if (baseLevel + i == highestLevelUnlocked)
             {
                 LevelSelectButtons[i].SetUnlocked();
