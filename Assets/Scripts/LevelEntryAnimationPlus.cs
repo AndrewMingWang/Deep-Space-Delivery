@@ -5,17 +5,6 @@ using UnityEngine;
 public class LevelEntryAnimationPlus : MonoBehaviour
 {
     public Animator LevelEntryUI;
-    public AudioSource StartSource;
-    public AudioSource GoalSource;
-    public AudioClip Landing;
-    public AudioClip OpenStart;
-    public AudioClip OpenGoal;
-
-    private void Awake()
-    {
-        AudioManager.EnrollSFXSource(StartSource);
-        AudioManager.EnrollSFXSource(GoalSource);
-    }
 
     public void TriggerBringUpUI()
     {
@@ -24,21 +13,21 @@ public class LevelEntryAnimationPlus : MonoBehaviour
 
     public void PlayStartLand()
     {
-        StartSource.PlayOneShot(Landing);
+        AudioManager.PlaySFX(AudioManager.SFX_LAND_PORTAL);
     }
 
     public void PlayGoalLand()
     {
-        GoalSource.PlayOneShot(Landing);
+        AudioManager.PlaySFX(AudioManager.SFX_LAND_PORTAL);
     }
 
     public void PlayOpenStart()
     {
-        StartSource.PlayOneShot(OpenStart);
+        AudioManager.PlaySFX(AudioManager.SFX_OPEN_START);
     }
 
     public void PlayOpenGoal()
     {
-        GoalSource.PlayOneShot(OpenGoal);
+        AudioManager.PlaySFX(AudioManager.SFX_OPEN_GOAL);
     }
 }

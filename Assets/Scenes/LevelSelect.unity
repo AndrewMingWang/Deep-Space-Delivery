@@ -43101,6 +43101,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
         type: 3}
+      propertyPath: SFXFiles.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
+        type: 3}
+      propertyPath: SFXFiles.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f345eec2e07d7d947b159154d8e38d00, type: 3}
+    - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
+        type: 3}
+      propertyPath: SFXFiles.Array.data[4].name
+      value: landportal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
+        type: 3}
+      propertyPath: SFXFiles.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: bb6125faca27b92419528ad0a60b71f8, type: 3}
+    - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
+        type: 3}
+      propertyPath: SFXFiles.Array.data[5].name
+      value: openstart
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
+        type: 3}
+      propertyPath: SFXFiles.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 229883e3cf26516478a0dc69b4238874, type: 3}
+    - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
+        type: 3}
+      propertyPath: SFXFiles.Array.data[6].name
+      value: opengoal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
+        type: 3}
+      propertyPath: SFXFiles.Array.data[4].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
+        type: 3}
+      propertyPath: SFXFiles.Array.data[5].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
+        type: 3}
+      propertyPath: SFXFiles.Array.data[6].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
+        type: 3}
       propertyPath: MusicFiles.Array.data[0].volume
       value: 0.1
       objectReference: {fileID: 0}

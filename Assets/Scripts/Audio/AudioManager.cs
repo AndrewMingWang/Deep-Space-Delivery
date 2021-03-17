@@ -16,6 +16,12 @@ public class AudioManager : MonoBehaviour
     public static readonly string UI_WIN_LEVEL = "winlevel";
     public static readonly string UI_LOSE_LEVEL = "loselevel";
 
+    // In-level SFX names
+    public static readonly string SFX_LAND_PORTAL = "landportal";
+    public static readonly string SFX_OPEN_START = "openstart";
+    public static readonly string SFX_OPEN_GOAL = "opengoal";
+
+
     public static AudioManager Instance;
     public static bool SFXOn = true;
     public static bool MusicOn = true;
