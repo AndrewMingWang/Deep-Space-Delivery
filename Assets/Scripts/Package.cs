@@ -13,6 +13,7 @@ public class Package : MonoBehaviour
     {
         AudioManager.EnrollSFXSource(FlyingSource);
         AudioManager.EnrollSFXSource(LandingSource);
+        FlyingSource.Play();
     }
 
     private void OnCollisionEnter(Collision collision)
