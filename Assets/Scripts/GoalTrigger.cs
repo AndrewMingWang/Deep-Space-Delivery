@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GoalTrigger : MonoBehaviour
 {
     public const string FAIL_STRING = "fail";
-    public const string SUCCESS1_STRING = "satisfactory";
+    public const string SUCCESS1_STRING = "okay";
     public const string SUCCESS2_STRING = "good";
     public const string PERFECT_STRING = "perfect";
     public const string UNKNOWN_STRING = "unknown";
@@ -76,7 +76,7 @@ public class GoalTrigger : MonoBehaviour
         float percentPackagesDelivered = packagesDelivered / NumPackages * 100f;
         
         // Determining performance string
-        string performanceString = DeterminePerformance(
+        int perfInt = DeterminePerformance(
             percentPackagesDelivered, 
             remainingBudget,
             optimalRemainingBudget
@@ -93,14 +93,14 @@ public class GoalTrigger : MonoBehaviour
             }
         }
 
-        ResultsPanelTypeEffect.SetIntroText(packagesDelivered, NumPackages, remainingBudget, performanceString);
+        ResultsPanelTypeEffect.SetIntroText(packagesDelivered, NumPackages, remainingBudget, perfInt);
 
         ResultsPanel.GetComponent<Animator>().SetBool("open", true);
 
         levelDoneAlready = true;
     }
 
-    private string DeterminePerformance(
+    private int DeterminePerformance(
         float percentPackagesDelivered, 
         int remainingBudget,
         int optimalRemainingBudget
@@ -108,21 +108,21 @@ public class GoalTrigger : MonoBehaviour
     {
         if (percentPackagesDelivered < 50 || remainingBudget < 0)
         {
-            return FAIL_STRING;
+            return 0;
         } else if (percentPackagesDelivered < 100 && remainingBudget < optimalRemainingBudget)
         {
-            return SUCCESS1_STRING;
+            return 1;
         } else if (percentPackagesDelivered < 100 && remainingBudget >= optimalRemainingBudget)
         {
-            return SUCCESS2_STRING;
+            return 2;
         } else if (percentPackagesDelivered == 100 && remainingBudget < optimalRemainingBudget)
         {
-            return SUCCESS2_STRING;
+            return 2;
         } else if (percentPackagesDelivered == 100 && remainingBudget >= optimalRemainingBudget)
         {
-            return PERFECT_STRING;
+            return 3;
         }
-        return UNKNOWN_STRING;
+        return -1;
     }
 
     private void OnTriggerEnter(Collider other)

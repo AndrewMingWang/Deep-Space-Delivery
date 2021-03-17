@@ -12,6 +12,7 @@ public class StringUtility : MonoBehaviour
     public bool IsTyping = false;
     private bool SkipEnabled = false;
     public bool ShouldSkip = false;
+    public bool KeyFrameOne = false;
 
     private void Awake()
     {
@@ -83,6 +84,9 @@ public class StringUtility : MonoBehaviour
                         {
                             yield return new WaitForSecondsRealtime(0.05f / speedMultiplier);
                         }
+                        break;
+                    case 'o': // '\o' means set keyFrameOne to true
+                        KeyFrameOne = true;
                         break;
                 }
             } 

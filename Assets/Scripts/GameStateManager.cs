@@ -141,6 +141,7 @@ public class GameStateManager : MonoBehaviour
                 ResetButtonIcon.sprite = resetButtonReset;
                 GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().ResetPlayerResults();
                 PackagesSpawner.Instance.ResetAllPackages();
+                ResultsPanelTypeEffect.Instance.Reset();
                 ResultsText.text = "";
                 break;
         }
