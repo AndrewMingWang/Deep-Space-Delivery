@@ -9,6 +9,7 @@ public class LevelSelectUI : BaseUI
     private const int MAX_WORLD = 5;
     private const int LEVELS_PER_WORLD = 6;
     public static readonly string PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED = "Level";
+    public static readonly string PLAYER_PREFS_HIGH_SCORE_BASE = "Score";
 
     public LevelSelectButton[] LevelSelectButtons = new LevelSelectButton[LEVELS_PER_WORLD + 1];
 
@@ -26,6 +27,10 @@ public class LevelSelectUI : BaseUI
     private void Awake()
     {
         highestLevelUnlocked = PlayerPrefs.GetInt(PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED, 0);
+        for (int i = 1; i <= 6; i += 1)
+        {
+            Debug.Log(i + ": " + PlayerPrefs.GetInt(PLAYER_PREFS_HIGH_SCORE_BASE + i, 0));
+        }
         DisplayWorld();
     }
 
