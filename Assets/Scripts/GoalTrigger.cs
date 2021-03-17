@@ -6,12 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GoalTrigger : MonoBehaviour
 {
-    public const string FAIL_STRING = "fail";
-    public const string SUCCESS1_STRING = "okay";
-    public const string SUCCESS2_STRING = "good";
-    public const string PERFECT_STRING = "perfect";
-    public const string UNKNOWN_STRING = "unknown";
-
     public static GoalTrigger Instance;
 
     [Header("Level Specifics")]
