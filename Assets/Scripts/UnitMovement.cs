@@ -75,7 +75,7 @@ public class UnitMovement : MonoBehaviour
                     res += -SceneParent.transform.forward*0.77f;
                     
                 } else {
-                    res += -SceneParent.transform.forward;
+                    res += -SceneParent.transform.forward*1.01f;
                 }
             }
         }
@@ -87,7 +87,7 @@ public class UnitMovement : MonoBehaviour
                     res += -SceneParent.transform.right*0.77f;
                     
                 } else {
-                    res += -SceneParent.transform.right;
+                    res += -SceneParent.transform.right*1.01f;
                 }
                 
             }
@@ -100,7 +100,7 @@ public class UnitMovement : MonoBehaviour
                     res += SceneParent.transform.right*0.77f;
                     
                 } else {
-                    res += SceneParent.transform.right;
+                    res += SceneParent.transform.right*1.01f;
                 }
                 
             }
@@ -113,11 +113,11 @@ public class UnitMovement : MonoBehaviour
                     res += SceneParent.transform.forward*0.77f;
                     
                 } else {
-                    res += SceneParent.transform.forward;
+                    res += SceneParent.transform.forward*1.01f;
                 }
             }
         }
-        Debug.Log(res);
+        // Debug.Log(res);
         // Debug.Log(transform.forward.z);
         // forward
         
