@@ -47,6 +47,7 @@ public class StringUtility : MonoBehaviour
 
     private IEnumerator TypeText(TMP_Text displayText, string contentText, float speedMultiplier)
     {
+        displayText.text = "";
         for (int i = 0; i < contentText.Length; i++)
         {
             IsTyping = true;
