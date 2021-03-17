@@ -97,6 +97,14 @@ public class GoalTrigger : MonoBehaviour
 
         ResultsPanelTypeEffect.SetIntroText(packagesDelivered, NumPackages, remainingBudget, perfInt);
 
+        // Hide next button if the level is failed
+        if (perfInt == 0)
+        {
+            UIManager.Instance.NextButton.SetActive(false);
+        } else
+        {
+            UIManager.Instance.NextButton.SetActive(true);
+        }
         ResultsPanel.GetComponent<Animator>().SetBool("open", true);
 
         levelDoneAlready = true;
