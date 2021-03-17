@@ -2174,6 +2174,7 @@ GameObject:
   - component: {fileID: 3424367691047097357}
   - component: {fileID: 5594649129192130170}
   - component: {fileID: 6905391950249798923}
+  - component: {fileID: 837334120628764181}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Untagged
@@ -2243,6 +2244,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &837334120628764181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5121186207601591185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54509519a3ca72c47b6a5791e3f3ffb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5185151416945365612
 GameObject:
   m_ObjectHideFlags: 0
@@ -3688,6 +3701,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
+  EnvOccupied: 0
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 5121186207601591185}
   windTile: 0

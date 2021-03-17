@@ -200,7 +200,7 @@ public class TutorialStateManager : MonoBehaviour
             if (textFlag){
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
-                "Rotate the sign with A/D.\\n\\n\\p\\p"+
+                "Rotate the sign with Q/E.\\n\\n\\p\\p"+
                 "Turn it to point entirely\\n"+
                 "towards the right and click\\n"+
                 "to place it.",
@@ -450,7 +450,7 @@ public class TutorialStateManager : MonoBehaviour
                 "control the camera.\\n\\n"+
                 "\\p\\pTry rotating the\\n"+
                 "camera around the scene\\n"+
-                "with Q or E.",
+                "with A or D.",
                 TypeSpeed);
                 textFlag = false;
             }
