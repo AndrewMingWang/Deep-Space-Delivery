@@ -82,7 +82,7 @@ public class CameraMovement : MonoBehaviour
     {
         float newOrthographicSize = Mathf.Clamp(
             Camera.main.orthographicSize
-            - Input.mouseScrollDelta.y * Time.deltaTime * ZoomSensitivity,
+            - Input.mouseScrollDelta.y * Time.unscaledDeltaTime * ZoomSensitivity,
             ZoomBounds.x,
             ZoomBounds.y
         );
@@ -97,11 +97,11 @@ public class CameraMovement : MonoBehaviour
 
         if (Input.GetKey(CWRotationKey))
         {
-            transform.position -= transform.right * RotateSensitivity * Time.deltaTime;
+            transform.position -= transform.right * RotateSensitivity * Time.unscaledDeltaTime;
         }
         else if (Input.GetKey(CCWRotationKey))
         {
-            transform.position += transform.right * RotateSensitivity * Time.deltaTime;
+            transform.position += transform.right * RotateSensitivity * Time.unscaledDeltaTime;
         }
 
         // if (Input.GetKey(VerticalRotationUpKey) && _verticalRotationAngle <= 70)
