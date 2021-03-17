@@ -71,30 +71,56 @@ public class UnitMovement : MonoBehaviour
         if (Physics.Raycast(Collider.bounds.center, SceneParent.transform.forward, out hit, Mathf.Infinity, layerMask)) {
             if (hit.transform.CompareTag("Wind"))
             {
-                res += -SceneParent.transform.forward;
+                if ((transform.forward.z < 0.71f && transform.forward.z > 0.70f) || (transform.forward.z > -0.71f && transform.forward.z < -0.70f)){
+                    res += -SceneParent.transform.forward*0.77f;
+                    
+                } else {
+                    res += -SceneParent.transform.forward;
+                }
             }
         }
         if (Physics.Raycast(Collider.bounds.center, SceneParent.transform.right, out hit, Mathf.Infinity, layerMask))
         {
             if (hit.transform.CompareTag("Wind"))
             {
-                res += -SceneParent.transform.right;
+                if ((transform.forward.z < 0.71f && transform.forward.z > 0.70f) || (transform.forward.z > -0.71f && transform.forward.z < -0.70f)){
+                    res += -SceneParent.transform.right*0.77f;
+                    
+                } else {
+                    res += -SceneParent.transform.right;
+                }
+                
             }
         }
         if (Physics.Raycast(Collider.bounds.center, -SceneParent.transform.right, out hit, Mathf.Infinity, layerMask))
         {
             if (hit.transform.CompareTag("Wind"))
             {
-                res += SceneParent.transform.right;
+                if ((transform.forward.z < 0.71f && transform.forward.z > 0.70f) || (transform.forward.z > -0.71f && transform.forward.z < -0.70f)){
+                    res += SceneParent.transform.right*0.77f;
+                    
+                } else {
+                    res += SceneParent.transform.right;
+                }
+                
             }
         }
         if (Physics.Raycast(Collider.bounds.center, -SceneParent.transform.forward, out hit, Mathf.Infinity, layerMask))
         {
             if (hit.transform.CompareTag("Wind"))
             {
-                res += SceneParent.transform.forward;
+                if ((transform.forward.z < 0.71f && transform.forward.z > 0.70f) || (transform.forward.z > -0.71f && transform.forward.z < -0.70f)){
+                    res += SceneParent.transform.forward*0.77f;
+                    
+                } else {
+                    res += SceneParent.transform.forward;
+                }
             }
         }
+        Debug.Log(res);
+        // Debug.Log(transform.forward.z);
+        // forward
+        
 
         return res;
     }
