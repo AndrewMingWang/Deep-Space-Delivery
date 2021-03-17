@@ -12,7 +12,7 @@ public class PriceTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     private void Start()
     {
-        Description = "Target Remaining Budget: $" + MoneyManager.Instance.TargetRemaining.ToString();
+        Description = "Optimal Remaining Budget: $" + MoneyManager.Instance.OptimalRemaining.ToString();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

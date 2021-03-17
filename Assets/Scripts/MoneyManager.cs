@@ -18,7 +18,6 @@ public class MoneyManager : MonoBehaviour
 
     [Header("Level Properties")]
     public int StartingMoney;
-    public int TargetRemaining;
     public int OptimalRemaining;
     private int _moneySpent = 0;
     private float _targetPercent;
@@ -30,7 +29,7 @@ public class MoneyManager : MonoBehaviour
     public ItemUI[] ItemUis;
     public TMP_Text MoneyText;
     public RectTransform MoneyBarRT;
-    public RectTransform TargetRT;
+    public RectTransform OptimalRT;
     public Animator MoneyTextAnimator;
     public List<Animator> BuildingNoStockAnimators;
     Vector2 MoneyBarRTMin;
@@ -77,8 +76,8 @@ public class MoneyManager : MonoBehaviour
         }
 
         // Position target indicator
-        _targetPercent = (float) TargetRemaining / StartingMoney;
-        TargetRT.offsetMax = Vector2.Lerp(MoneyBarRTMin, MoneyBarRTMax, _targetPercent);
+        _targetPercent = (float) OptimalRemaining / StartingMoney;
+        OptimalRT.offsetMax = Vector2.Lerp(MoneyBarRTMin, MoneyBarRTMax, _targetPercent);
     }
 
     // Update is called once per frame

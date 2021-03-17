@@ -9,7 +9,6 @@ public class GoalTrigger : MonoBehaviour
     public const string FAIL_STRING = "fail";
     public const string SUCCESS1_STRING = "satisfactory";
     public const string SUCCESS2_STRING = "good";
-    public const string SUCCESS3_STRING = "excellent";
     public const string PERFECT_STRING = "perfect";
     public const string UNKNOWN_STRING = "unknown";
 
@@ -46,7 +45,6 @@ public class GoalTrigger : MonoBehaviour
     void Start()
     {
         AudioManager.EnrollSFXSource(GetComponent<AudioSource>());
-        targetRemainingBudget = MoneyManager.Instance.TargetRemaining;
         optimalRemainingBudget = MoneyManager.Instance.OptimalRemaining;
     }
 
@@ -81,7 +79,6 @@ public class GoalTrigger : MonoBehaviour
         string performanceString = DeterminePerformance(
             percentPackagesDelivered, 
             remainingBudget,
-            targetRemainingBudget,
             optimalRemainingBudget
             );
 
@@ -106,26 +103,21 @@ public class GoalTrigger : MonoBehaviour
     private string DeterminePerformance(
         float percentPackagesDelivered, 
         int remainingBudget,
-        int targetRemainingBudget,
         int optimalRemainingBudget
         )
     {
         if (percentPackagesDelivered < 50 || remainingBudget < 0)
         {
             return FAIL_STRING;
-        } else if (percentPackagesDelivered < 100 && remainingBudget < targetRemainingBudget)
+        } else if (percentPackagesDelivered < 100 && remainingBudget < optimalRemainingBudget)
         {
             return SUCCESS1_STRING;
-        } else if (percentPackagesDelivered < 100 && remainingBudget >= targetRemainingBudget)
+        } else if (percentPackagesDelivered < 100 && remainingBudget >= optimalRemainingBudget)
         {
             return SUCCESS2_STRING;
-        } else if (percentPackagesDelivered == 100 && remainingBudget < targetRemainingBudget)
+        } else if (percentPackagesDelivered == 100 && remainingBudget < optimalRemainingBudget)
         {
             return SUCCESS2_STRING;
-        } else if (percentPackagesDelivered == 100 && 
-            (remainingBudget >= targetRemainingBudget && remainingBudget < optimalRemainingBudget))
-        {
-            return SUCCESS3_STRING;
         } else if (percentPackagesDelivered == 100 && remainingBudget >= optimalRemainingBudget)
         {
             return PERFECT_STRING;
