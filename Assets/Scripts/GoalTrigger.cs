@@ -81,15 +81,22 @@ public class GoalTrigger : MonoBehaviour
             remainingBudget,
             optimalRemainingBudget
             );
+        int performanceScore = GetScoreFromPerformance(performanceString);
 
         // Unlock next level
         if (percentPackagesDelivered >= 50 && remainingBudget >= 0)
         {
+            int currentLevel = GetCurrentLevel();
             int highestLevelUnlocked = PlayerPrefs.GetInt(LevelSelectUI.PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED, 0);
-            int nextLevel = GetCurrentLevel() + 1;
+            int nextLevel = currentLevel + 1;
             if (highestLevelUnlocked < nextLevel)
             {
                 PlayerPrefs.SetInt(LevelSelectUI.PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED, nextLevel);
+            }
+            int highPerformanceScore = PlayerPrefs.GetInt(LevelSelectUI.PLAYER_PREFS_HIGH_SCORE_BASE + currentLevel, 0);
+            if (performanceScore > highPerformanceScore)
+            {
+                PlayerPrefs.SetInt(LevelSelectUI.PLAYER_PREFS_HIGH_SCORE_BASE + currentLevel, performanceScore);
             }
         }
 
@@ -100,7 +107,24 @@ public class GoalTrigger : MonoBehaviour
         levelDoneAlready = true;
     }
 
-    private string DeterminePerformance(
+    private int GetScoreFromPerformance(string performance)
+    {
+        if (performance.Equals(SUCCESS1_STRING))
+        {
+            return 1;
+        }
+        else if (performance.Equals(SUCCESS2_STRING))
+        {
+            return 2;
+        }
+        else if (performance.Equals(PERFECT_STRING))
+        {
+            return 3;
+        }
+        return 0;
+    }
+
+private string DeterminePerformance(
         float percentPackagesDelivered, 
         int remainingBudget,
         int optimalRemainingBudget
