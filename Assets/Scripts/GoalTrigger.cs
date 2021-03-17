@@ -85,7 +85,15 @@ public class GoalTrigger : MonoBehaviour
             {
                 PlayerPrefs.SetInt(LevelSelectUI.PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED, nextLevel);
             }
+
+            // Set Score
+            int currentHighScore = PlayerPrefs.GetInt(LevelSelectUI.PLAYER_PREFS_HIGH_SCORE_BASE + GetCurrentLevel(), 0);
+            if (perfInt > currentHighScore)
+            {
+                PlayerPrefs.SetInt(LevelSelectUI.PLAYER_PREFS_HIGH_SCORE_BASE + GetCurrentLevel(), perfInt);
+            }
         }
+
 
         ResultsPanelTypeEffect.SetIntroText(packagesDelivered, NumPackages, remainingBudget, perfInt);
 
