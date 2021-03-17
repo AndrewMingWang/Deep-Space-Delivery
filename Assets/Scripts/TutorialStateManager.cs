@@ -10,7 +10,7 @@ public class TutorialStateManager : MonoBehaviour
     public enum State{zero, one_text, one_wait, two_text, two_wait, three_text, three_wait, four_text, four_wait, five_text, five_wait, 
                         six_text, six_wait, seven_text, seven_wait, eight_text, eight_wait, nine_text, nine_wait, ten_text, ten_wait,
                         eleven_text, eleven_wait, twelve_text, twelve_wait, thirteen_text, thirteen_wait, fourteen_text, fourteen_wait, fifteen_text, fifteen_wait,
-                        sixteen_text, sixteen_wait, seventeen_text, seventeen_wait}
+                        sixteen_text, sixteen_wait, seventeen_text, seventeen_wait, eightteen_text, eightteen_wait, nineteen_text, nineteen_wait}
 
     public State currState;
 
@@ -38,6 +38,7 @@ public class TutorialStateManager : MonoBehaviour
     public GameObject buildManager;
 
     private bool textFlag = true;
+    private bool eighteen_wait_flag = true;
 
     private void Start() {
         tutorialNarration.text = "";
@@ -202,8 +203,8 @@ public class TutorialStateManager : MonoBehaviour
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Rotate the sign with Q/E.\\n\\n\\p\\p"+
                 "Turn it to point entirely\\n"+
-                "towards the right and click\\n"+
-                "to place it.",
+                "towards the right and\\n"+
+                " click to place it.",
                 TypeSpeed);
                 textFlag = false;
             }
@@ -269,6 +270,7 @@ public class TutorialStateManager : MonoBehaviour
             break;
         case State.eight_wait:
             if (Tile2.GetComponent<Tile>().OccupyingBuilding != null){
+                BuildManager.Instance.allowPickingUpBuildings = false;
                 currState = State.nine_text;
                 PlayButton.interactable = true;
                 SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
@@ -437,7 +439,7 @@ public class TutorialStateManager : MonoBehaviour
             BuildingPanel.SetActive(true);
             if (GoalTrigger.Instance.IsLevelDone()){
                 currState = State.fifteen_text;
-                StringUtility.Instance.ShouldSkip = false;
+                StringUtility.Instance.SkipEnabled = false;
             }
             break;
         case State.fifteen_text: // camera rotation
@@ -494,18 +496,9 @@ public class TutorialStateManager : MonoBehaviour
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Lastly you can pan the \\n"+
                 "camera by clicking and\\n"+
-                "dragging.\\p\\p\\n\\n"+
-                "You can always find the\\n"+
-                "controls to the interface\\n"+
-                "up here,\\p make sure you\\n"+
-                "read them!\\n\\n\\p\\p"+
-                "That's all. \\p\\pPress the X\\n"+
-                "button in the top right\\n"+
-                "to get to work!",
+                "dragging.\\p\\p\\n\\n",
                 TypeSpeed);
                 textFlag = false;
-                MenuPanel.SetActive(true);
-                ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
             }
             if (!StringUtility.Instance.IsTyping){
                 textFlag = true;
@@ -513,11 +506,55 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.seventeen_wait:
+            if (mainCamera.transform.parent.position.x != 0 || mainCamera.transform.parent.position.x != 0){
+                currState = State.eightteen_text;
+            }
+            break;
+        case State.eightteen_text:
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "You can always find the\\n"+
+                "controls to the interface\\n"+
+                "up here,\\p make sure you\\n"+
+                "read them!",
+                TypeSpeed);
+                textFlag = false;
+                MenuPanel.SetActive(true);
+                ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
+            }
+            if (!StringUtility.Instance.IsTyping){
+                textFlag = true;
+                currState = State.eightteen_wait;
+            }
+            break;
+        case State.eightteen_wait:
             if (Controls.GetComponent<Animator>().GetBool("show")){
                 ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
-                // tutorialNarration.text = "";
                 NarrationPanel.SetActive(false); 
+                eighteen_wait_flag = false;
             }
+            if (!(Controls.GetComponent<Animator>().GetBool("show")) && !eighteen_wait_flag){
+                currState = State.nineteen_text;
+                NarrationPanel.SetActive(true);
+                ControlsButton.interactable = false;
+            }
+            break;
+        case State.nineteen_text:
+            if (textFlag){
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "That's all. \\p\\pPress the X\\n"+
+                "button in the top right\\n"+
+                "to get to work!",
+                TypeSpeed);
+                textFlag = false;            }
+            if (!StringUtility.Instance.IsTyping){
+                textFlag = true;
+                currState = State.nineteen_wait;
+            }
+            break;
+        case State.nineteen_wait:
             break;
         }
     }

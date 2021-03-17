@@ -10,7 +10,7 @@ public class StringUtility : MonoBehaviour
     public static StringUtility Instance;
 
     public bool IsTyping = false;
-    private bool SkipEnabled = false;
+    public bool SkipEnabled = false;
     public bool ShouldSkip = false;
     public bool KeyFrameOne = false;
 
