@@ -364,7 +364,7 @@ public class TutorialStateManager : MonoBehaviour
                 "same tile, \\pbut have it\\n"+
                 "point at the goal.\\p\\p\\n\\n" +
                 "Remember you can rotate\\n" +
-                "the sign with Q/E",
+                "the sign with Q/E.",
                 TypeSpeed);
                 textFlag = false;
                 BuildingPanel.SetActive(true);
@@ -550,9 +550,8 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "That's all.\\n\\n\\p\\p" +
-                "Press the X button\\n"+
-                "in the top right\\n"+
-                "to get to work!",
+                "Press the X button in the\\n"+
+                "top right to get to work!",
                 TypeSpeed);
                 textFlag = false;            }
             if (!StringUtility.Instance.IsTyping){
