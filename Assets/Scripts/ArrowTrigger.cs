@@ -28,6 +28,7 @@ public class ArrowTrigger : MonoBehaviour
                 other.gameObject.GetComponent<UnitMovement>().Animator.SetTrigger("stop");
 
                 // SFX
+                GetComponent<AudioSource>().pitch = Random.Range(0.99f, 1.01f);
                 GetComponent<AudioSource>().Play();
             }
         }

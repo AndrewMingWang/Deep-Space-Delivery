@@ -30,6 +30,7 @@ public class SpawnPlayers : MonoBehaviour
             Instantiate(GoalEffectPrefab, transform.position, Quaternion.Euler(270.0f, 0.0f, 0.0f));
             Instantiate(playerPrefab, transform.position + UpwardOffset * transform.up, transform.localRotation, hitchhikerManager.transform);
 
+            GetComponent<AudioSource>().pitch = Random.Range(0.99f, 1.01f);
             GetComponent<AudioSource>().Play();
 
             yield return new WaitForSeconds(1f);
