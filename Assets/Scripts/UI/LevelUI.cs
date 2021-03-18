@@ -135,6 +135,19 @@ public class LevelUI : BaseUI
         }
     }
 
+    public void ChooseLevel(string sceneName)
+    {
+        StartCoroutine(ChooseLevelAfterPause(sceneName));
+    }
+
+    private IEnumerator ChooseLevelAfterPause(string sceneName)
+    {
+        UIAnimator.SetTrigger("out");
+        yield return new WaitForSeconds(2.1f);
+        
+        GoToScene(sceneName);
+    }
+
     public void SFXButtonPress()
     {
         AudioManager.PlaySFX(AudioManager.UI_BUTTON_PRESS);

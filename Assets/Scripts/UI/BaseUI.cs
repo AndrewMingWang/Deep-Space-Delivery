@@ -30,4 +30,11 @@ public class BaseUI : MonoBehaviour
         GoToScene("Level" + levelNumber);
     }
 
+    protected void LoadLevelString(string sceneName)
+    {
+        //TODO: Change this from hard coded
+        AudioManager.PlayMusic(AudioManager.MUSIC_WORLD1);
+        GoToScene(sceneName);
+    }
+
 }

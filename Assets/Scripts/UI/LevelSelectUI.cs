@@ -139,6 +139,15 @@ public class LevelSelectUI : BaseUI
         StartCoroutine(GoToLevelAfterPause(levelNumber));
     }
 
+    // TAKES IN A STRING FORMATED AS "Level3Intro-3" for a scene named "Level3Intro"
+    public void GoToLevelString(string sceneName)
+    {
+        string[] sceneNameParts = sceneName.Split('-');
+        string levelNumberPart = sceneNameParts[1];
+        int levelNumber = int.Parse(levelNumberPart);
+        StartCoroutine(GoToLevelStringAfterPause(levelNumber, sceneNameParts[0]));
+    }
+
     private IEnumerator GoToLevelAfterPause(int levelNumber)
     {
         if (levelNumber == 0)
@@ -158,6 +167,17 @@ public class LevelSelectUI : BaseUI
             FadeInOut.SetTrigger("out");
             yield return new WaitForSeconds(2.1f);
             LoadLevel(levelOrderNumber);
+        }
+    }
+
+    private IEnumerator GoToLevelStringAfterPause(int levelNumber, string sceneName)
+    {
+        int levelOrderNumber = (currentWorld - 1) * LEVELS_PER_WORLD + levelNumber;
+        if (highestLevelUnlocked >= levelOrderNumber)
+        {
+            FadeInOut.SetTrigger("out");
+            yield return new WaitForSeconds(2.1f);
+            LoadLevelString(sceneName);
         }
     }
 
