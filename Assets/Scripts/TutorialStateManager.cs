@@ -204,7 +204,7 @@ public class TutorialStateManager : MonoBehaviour
                 "Rotate the sign with Q/E.\\n\\n\\p\\p"+
                 "Turn it to point entirely\\n"+
                 "towards the right and\\n"+
-                " click to place it.",
+                "click to place it.",
                 TypeSpeed);
                 textFlag = false;
             }
@@ -251,7 +251,9 @@ public class TutorialStateManager : MonoBehaviour
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Great, now put down one\\n"+
                 "more sign to redirect our\\n"+
-                "associates to the exit.",
+                "associates to the exit.\\n\\n\\p\\p" +
+                "Don't forget to click it\\n" +
+                "to place it!",
                 TypeSpeed);
                 textFlag = false;
                 BuildingPanel.SetActive(true);
@@ -360,7 +362,9 @@ public class TutorialStateManager : MonoBehaviour
                 "Nice work.\\p\\n\\n" +
                 "Now put a sign down on the\\n"+
                 "same tile, \\pbut have it\\n"+
-                "point at the goal.",
+                "point at the goal.\\p\\p\\n\\n" +
+                "Remember you can rotate\\n" +
+                "the sign with Q/E",
                 TypeSpeed);
                 textFlag = false;
                 BuildingPanel.SetActive(true);
@@ -495,8 +499,9 @@ public class TutorialStateManager : MonoBehaviour
                 mainCamera.GetComponent<CameraMovement>().allowPan = true;
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Lastly you can pan the \\n"+
-                "camera by clicking and\\n"+
-                "dragging.\\p\\p\\n\\n",
+                "camera by moving your\\n"+
+                "cursor to the edge of\\n" +
+                "the screen.\\p\\p\\n\\n",
                 TypeSpeed);
                 textFlag = false;
             }
@@ -544,8 +549,9 @@ public class TutorialStateManager : MonoBehaviour
             if (textFlag){
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
-                "That's all. \\p\\pPress the X\\n"+
-                "button in the top right\\n"+
+                "That's all.\\n\\n\\p\\p" +
+                "Press the X button\\n"+
+                "in the top right\\n"+
                 "to get to work!",
                 TypeSpeed);
                 textFlag = false;            }

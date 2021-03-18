@@ -27,10 +27,10 @@ public class LevelSelectUI : BaseUI
     private void Start()
     {
         highestLevelUnlocked = PlayerPrefs.GetInt(PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED, 0);
-        for (int i = 1; i <= 6; i += 1)
+        /*for (int i = 1; i <= 6; i += 1)
         {
             Debug.Log(i + ": " + PlayerPrefs.GetInt(PLAYER_PREFS_HIGH_SCORE_BASE + i, 0));
-        }
+        }*/
         DisplayWorld();
     }
 
