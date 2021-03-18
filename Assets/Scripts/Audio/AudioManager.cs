@@ -15,6 +15,8 @@ public class AudioManager : MonoBehaviour
     public static readonly string UI_CANNOT_BUILD = "cannotbuild";
     public static readonly string UI_WIN_LEVEL = "winlevel";
     public static readonly string UI_LOSE_LEVEL = "loselevel";
+    public static readonly string UI_UNABLE = "unable";
+    public static readonly string UI_ENTER_LEVEL = "enterlevel";
 
     // In-level SFX names
     public static readonly string SFX_LAND_PORTAL = "landportal";
