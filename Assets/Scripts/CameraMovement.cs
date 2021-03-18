@@ -55,8 +55,8 @@ public class CameraMovement : MonoBehaviour
         {
             Vector3 parentPos = transform.parent.position;
             Vector3 cameraPos = transform.position;
-            parentPos -= transform.right * 1.0f * Time.unscaledDeltaTime * HorizontalPanSensitivity;
-            cameraPos -= transform.right * 1.0f * Time.unscaledDeltaTime * HorizontalPanSensitivity;
+            parentPos -= transform.right * 2.5f * Time.unscaledDeltaTime * HorizontalPanSensitivity;
+            cameraPos -= transform.right * 2.5f * Time.unscaledDeltaTime * HorizontalPanSensitivity;
             transform.parent.position = parentPos;
             transform.position = cameraPos;
         }
@@ -64,8 +64,8 @@ public class CameraMovement : MonoBehaviour
         {
             Vector3 parentPos = transform.parent.position;
             Vector3 cameraPos = transform.position;
-            parentPos -= transform.right * -1.0f * Time.unscaledDeltaTime * HorizontalPanSensitivity;
-            cameraPos -= transform.right * -1.0f * Time.unscaledDeltaTime * HorizontalPanSensitivity;
+            parentPos -= transform.right * -2.5f * Time.unscaledDeltaTime * HorizontalPanSensitivity;
+            cameraPos -= transform.right * -2.5f * Time.unscaledDeltaTime * HorizontalPanSensitivity;
             transform.parent.position = parentPos;
             transform.position = cameraPos;
         }
@@ -73,8 +73,8 @@ public class CameraMovement : MonoBehaviour
         {
             Vector3 parentPos = transform.parent.position;
             Vector3 cameraPos = transform.position;
-            parentPos -= transform.up * 1.0f * Time.unscaledDeltaTime * VerticalPanSensitivity;
-            cameraPos -= transform.up * 1.0f * Time.unscaledDeltaTime * VerticalPanSensitivity;
+            parentPos -= transform.up * 2.5f * Time.unscaledDeltaTime * VerticalPanSensitivity;
+            cameraPos -= transform.up * 2.5f * Time.unscaledDeltaTime * VerticalPanSensitivity;
             transform.parent.position = parentPos;
             transform.position = cameraPos;
         }
@@ -82,8 +82,8 @@ public class CameraMovement : MonoBehaviour
         {
             Vector3 parentPos = transform.parent.position;
             Vector3 cameraPos = transform.position;
-            parentPos -= transform.up * -1.0f * Time.unscaledDeltaTime * VerticalPanSensitivity;
-            cameraPos -= transform.up * -1.0f * Time.unscaledDeltaTime * VerticalPanSensitivity;
+            parentPos -= transform.up * -2.5f * Time.unscaledDeltaTime * VerticalPanSensitivity;
+            cameraPos -= transform.up * -2.5f * Time.unscaledDeltaTime * VerticalPanSensitivity;
             transform.parent.position = parentPos;
             transform.position = cameraPos;
         }
