@@ -157,16 +157,19 @@ public class LevelSelectUI : BaseUI
                 PlayerPrefs.SetInt(LevelSelectUI.PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED, 1);
             }
             FadeInOut.SetTrigger("out");
+            AudioManager.PlaySFX(AudioManager.UI_ENTER_LEVEL);
             yield return new WaitForSeconds(2.1f);
             LoadLevel(0);
-        }
-
-        int levelOrderNumber = (currentWorld - 1) * LEVELS_PER_WORLD + levelNumber;
-        if (highestLevelUnlocked >= levelOrderNumber)
+        } else
         {
-            FadeInOut.SetTrigger("out");
-            yield return new WaitForSeconds(2.1f);
-            LoadLevel(levelOrderNumber);
+            int levelOrderNumber = (currentWorld - 1) * LEVELS_PER_WORLD + levelNumber;
+            if (highestLevelUnlocked >= levelOrderNumber)
+            {
+                FadeInOut.SetTrigger("out");
+                AudioManager.PlaySFX(AudioManager.UI_ENTER_LEVEL);
+                yield return new WaitForSeconds(2.1f);
+                LoadLevel(levelOrderNumber);
+            }
         }
     }
 
@@ -214,7 +217,7 @@ public class LevelSelectUI : BaseUI
 
     public void SFXButtonPressFail()
     {
-        AudioManager.PlaySFX(AudioManager.UI_CANNOT_BUILD);
+        AudioManager.PlaySFX(AudioManager.UI_UNABLE);
     }
 
 }

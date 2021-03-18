@@ -91,3 +91,11 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 229883e3cf26516478a0dc69b4238874, type: 3}
     volume: 0.5
     source: {fileID: 0}
+  - name: unable
+    clip: {fileID: 8300000, guid: 52cabbd550a765241b30d66faa89a850, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+  - name: enterlevel
+    clip: {fileID: 8300000, guid: d306a70c44b3f4340b87a867e760dcbc, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
