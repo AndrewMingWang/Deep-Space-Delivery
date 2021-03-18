@@ -15,7 +15,6 @@ public class CameraMovement : MonoBehaviour
     public Vector2 ZBounds;
     private Vector3 screenOrigin;
     private Vector3 worldOrigin;
-    private bool _originSet = false;
 
     // For Zooming
     [Header("Zooming")]
@@ -49,32 +48,46 @@ public class CameraMovement : MonoBehaviour
 
     public void Panning()
     {
-        if (BuildManager.BuildingSelected == false)
+        Vector2 mouseLocation = Input.mousePosition;
+        if (mouseLocation.x < 20.0f)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                screenOrigin = Input.mousePosition;
-                worldOrigin = transform.parent.position;
-                _originSet = true;
-            }
-            else if (Input.GetMouseButton(0) && _originSet)
-            {
-                Vector3 worldDelta = Camera.main.ScreenToWorldPoint(Input.mousePosition) - Camera.main.ScreenToWorldPoint(screenOrigin);
-                Vector3 planeDelta = Vector3.ProjectOnPlane(worldDelta, Vector3.up);
-                Vector3 newPos = worldOrigin - planeDelta;
-
-                // Bound new position
-                newPos.x = Mathf.Clamp(newPos.x, XBounds.x, XBounds.y);
-                newPos.z = Mathf.Clamp(newPos.z, ZBounds.x, ZBounds.y);
-
-                transform.parent.position = newPos;
-            } else
-            {
-                _originSet = false;
-            }
-        } else
+            float HorizontalPanSensitivity = 0.2f;
+            Vector3 parentPos = transform.parent.position;
+            Vector3 cameraPos = transform.position;
+            parentPos -= transform.right * 1.0f * HorizontalPanSensitivity;
+            cameraPos -= transform.right * 1.0f * HorizontalPanSensitivity;
+            transform.parent.position = parentPos;
+            transform.position = cameraPos;
+        }
+        else if (mouseLocation.x > Screen.width - 20.0f)
         {
-            _originSet = false;
+            float HorizontalPanSensitivity = 0.2f;
+            Vector3 parentPos = transform.parent.position;
+            Vector3 cameraPos = transform.position;
+            parentPos -= transform.right * -1.0f * HorizontalPanSensitivity;
+            cameraPos -= transform.right * -1.0f * HorizontalPanSensitivity;
+            transform.parent.position = parentPos;
+            transform.position = cameraPos;
+        }
+        else if (mouseLocation.y < 20.0f)
+        {
+            float VerticalPanSensitivity = 0.2f;
+            Vector3 parentPos = transform.parent.position;
+            Vector3 cameraPos = transform.position;
+            parentPos -= transform.up * 1.0f * VerticalPanSensitivity;
+            cameraPos -= transform.up * 1.0f * VerticalPanSensitivity;
+            transform.parent.position = parentPos;
+            transform.position = cameraPos;
+        }
+        else if (mouseLocation.y > Screen.height - 20.0f)
+        {
+            float VerticalPanSensitivity = 0.2f;
+            Vector3 parentPos = transform.parent.position;
+            Vector3 cameraPos = transform.position;
+            parentPos -= transform.up * -1.0f * VerticalPanSensitivity;
+            cameraPos -= transform.up * -1.0f * VerticalPanSensitivity;
+            transform.parent.position = parentPos;
+            transform.position = cameraPos;
         }
     }
 
