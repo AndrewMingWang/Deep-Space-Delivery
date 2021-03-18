@@ -44,7 +44,7 @@ public class InterLevelTextType : MonoBehaviour
 
     private IEnumerator GoToLevel(string levelName)
     {
-        yield return new WaitForSecondsRealtime(4.05f);
+        yield return new WaitForSecondsRealtime(2.05f);
         SceneManager.LoadSceneAsync(levelName);
     }
 

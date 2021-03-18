@@ -722,6 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50183002dd7b2624daa0a3dc60194919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextButton: {fileID: 0}
 --- !u!95 &1805033720
 Animator:
   serializedVersion: 3
@@ -732,7 +733,7 @@ Animator:
   m_GameObject: {fileID: 1805033714}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6b4e76c55de424648869a8b94d272869, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4879af54dc023f549b420a316480620a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -754,7 +755,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 05fa5e47dec64514bb769b152a7cf230, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.301
-  m_Pitch: 1
+  m_Pitch: 1.95
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -850,13 +851,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisplayText: {fileID: 1470705327}
-  Content: Hello again,\p again!\p Laura here.\p\p\n\nOur management team has coordinated
-    with the engineering team to create a new building you can place in response
-    to the galactic winds.\p\n\nYou can find this new building, the wall, underneath
-    the sign in your building options.\p The wall lets you block galactic winds,
-    but keep an eye open for other ways you can use it in the future.\p\p\n\nLaura
-    out, good luck!
-  CharTypeSpeed: 1.75
+  Content: Laura here again!\p\n\nExcellent job getting past the wind.\p\p\n\nUPDATE:\p
+    R&D has dreamt-up a new building to help you against the wind.\n\n\p"Walls" can
+    be used to block galactic wind -- you can even build other buildings on\ntop
+    of them. Look out for this new building!
+  CharTypeSpeed: 1.5
   DialogueSource: {fileID: 1805033722}
   FadeAnimator: {fileID: 1805033720}
   LevelName: Level4
