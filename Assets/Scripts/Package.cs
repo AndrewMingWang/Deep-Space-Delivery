@@ -14,6 +14,7 @@ public class Package : MonoBehaviour
         AudioManager.EnrollSFXSource(FlyingSource);
         AudioManager.EnrollSFXSource(LandingSource);
         FlyingSource.Play();
+        StartCoroutine(ForceLand());
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -31,6 +32,15 @@ public class Package : MonoBehaviour
                     Land();
                 }
             }
+        }
+    }
+
+    private IEnumerator ForceLand()
+    {
+        yield return new WaitForSeconds(5.0f);
+        if (!Grounded)
+        {
+            Land();
         }
     }
 
