@@ -50,6 +50,6 @@ public class InterLevelTextType : MonoBehaviour
 
     public void PlayIntroText()
     {
-        StringUtility.TypeTextEffect(DisplayText, Content, CharTypeSpeed);
+        StringUtility.TypeTextEffect(DisplayText, Content + "\n\n(Left Mouse Click to continue...)", CharTypeSpeed);
     }
 }

@@ -13,7 +13,7 @@ public class TitleScreenManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKeyDown && DoneFadeIn)
+        if (Input.GetMouseButtonDown(0) && DoneFadeIn)
         {
             if (DontActuallyGoToIntro)
             {
