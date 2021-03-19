@@ -890,7 +890,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: is hiring! press any key to apply
+  m_text: is hiring! Left Mouse Click to apply
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 38aa8f32f731ace4997cfa2df904a9cb, type: 2}
   m_sharedMaterial: {fileID: -8147659361062792214, guid: 38aa8f32f731ace4997cfa2df904a9cb,
