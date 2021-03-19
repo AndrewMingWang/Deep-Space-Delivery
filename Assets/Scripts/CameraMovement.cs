@@ -51,7 +51,7 @@ public class CameraMovement : MonoBehaviour
     public void Panning()
     {
         Vector2 mouseLocation = Input.mousePosition;
-        if (mouseLocation.x < 20.0f)
+        if (mouseLocation.x >= 0.0f && mouseLocation.x < 20.0f)
         {
             Vector3 parentPos = transform.parent.position;
             Vector3 cameraPos = transform.position;
@@ -60,7 +60,7 @@ public class CameraMovement : MonoBehaviour
             transform.parent.position = parentPos;
             transform.position = cameraPos;
         }
-        else if (mouseLocation.x > Screen.width - 20.0f)
+        else if (mouseLocation.x >= Screen.width - 20.0f && mouseLocation.x < Screen.width)
         {
             Vector3 parentPos = transform.parent.position;
             Vector3 cameraPos = transform.position;
@@ -69,7 +69,7 @@ public class CameraMovement : MonoBehaviour
             transform.parent.position = parentPos;
             transform.position = cameraPos;
         }
-        else if (mouseLocation.y < 20.0f)
+        else if (mouseLocation.y >= 0.0f && mouseLocation.y < 20.0f)
         {
             Vector3 parentPos = transform.parent.position;
             Vector3 cameraPos = transform.position;
@@ -78,7 +78,7 @@ public class CameraMovement : MonoBehaviour
             transform.parent.position = parentPos;
             transform.position = cameraPos;
         }
-        else if (mouseLocation.y > Screen.height - 20.0f)
+        else if (mouseLocation.y > Screen.height - 20.0f && mouseLocation.y < Screen.height)
         {
             Vector3 parentPos = transform.parent.position;
             Vector3 cameraPos = transform.position;
