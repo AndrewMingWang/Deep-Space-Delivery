@@ -11,8 +11,11 @@ public class EnemyAI : MonoBehaviour
     int playerLayerMask = 1 << 10; // Player layer
     int buildingLayerMask = 1 << 9; // Building layer
     int envBuildingLayerMask = 1 << 13; // Environment Buildings
+
+    int tileLayerMask = 1 << 8;
     int layerMask;
     RaycastHit hit;
+    RaycastHit hit2;
 
     [HideInInspector]
     public Collider Collider;
@@ -26,6 +29,8 @@ public class EnemyAI : MonoBehaviour
     private int elapsedFrames = 0;
     private float lerpRatio;
     private Vector3 lerpPosition;
+    private Vector3 lastTile;
+    private Vector3 currTile;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +39,10 @@ public class EnemyAI : MonoBehaviour
         Collider = GetComponent<Collider>();
         Animator = GetComponent<Animator>();
         starting_pos = transform.position;
-        lerpRatio = 0;   
+        lerpRatio = 0;
+        Physics.Raycast(Collider.bounds.center, -transform.up, out hit, Mathf.Infinity, tileLayerMask);
+        lastTile = hit.collider.gameObject.transform.position;
+        currTile = hit.collider.gameObject.transform.position;
     }
 
     // Update is called once per frame
@@ -53,6 +61,7 @@ public class EnemyAI : MonoBehaviour
                         Animator.SetBool("ChargeUp", true);
                     }
                 }
+
                 break;
             case State.chargingAnimationStart:
                 if (Animator.GetCurrentAnimatorStateInfo(0).IsTag("ChargeUpFinished")){
@@ -93,9 +102,42 @@ public class EnemyAI : MonoBehaviour
                 }
                 break;
             case State.collisionAnimation:
+                lerpRatio = (float)elapsedFrames / lerpFrameTotal;
+                lerpPosition = Vector3.Lerp(transform.position, lastTile, lerpRatio);
+                transform.position = lerpPosition;
+                if (elapsedFrames != lerpFrameTotal){
+                    elapsedFrames++;
+                } else {
+                    elapsedFrames = 0;
+                    // currState = State.chargingAnimationEnd;
+                    currState = State.stunned;
+                }
                 break;
             case State.stunned:
+                // Debug.Log("Stunned");
                 break;
+        }
+
+        if (Physics.Raycast(Collider.bounds.center, -transform.up, out hit2, Mathf.Infinity, tileLayerMask)){
+            if (hit2.collider.gameObject.transform.position != currTile){
+                lastTile = currTile;
+                currTile = hit2.collider.gameObject.transform.position;
+            }
+            if (currState == State.waiting){
+                currTile = hit2.collider.gameObject.transform.position;
+                lastTile = currTile;
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "player"){
+            // Debug.Log("yea");
+            other.gameObject.GetComponent<UnitMovement>().LosePlayer();
+        }
+        if (other.gameObject.tag == "enemy"){
+            currState = State.collisionAnimation;
+            Animator.SetBool("EnemyCollision", true);
         }
     }
 
