@@ -146,6 +146,10 @@ public class BuildManager : MonoBehaviour
                             audioSource.PlayOneShot(PlaceBuilding);
 
                             CurrBuilding = null;
+                            if (Input.GetKey(KeyCode.LeftShift))
+                            {
+                                MoneyManager.Instance.CopyItem();
+                            }
                         }
                         else
                         {
