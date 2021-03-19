@@ -24,6 +24,7 @@ public class MoneyManager : MonoBehaviour
 
     [Header("Building Properties")]
     public Item[] Items;
+    private int lastItemId;
 
     [Header("UI")]
     public ItemUI[] ItemUis;
@@ -88,6 +89,7 @@ public class MoneyManager : MonoBehaviour
 
     public void ChooseItem(int itemId)
     {
+        lastItemId = itemId;
         Item item = Items[itemId];
         if (item.price > GetRemainingMoney())
         {
@@ -104,6 +106,11 @@ public class MoneyManager : MonoBehaviour
         }
         DisplayRemainingMoney();
         BuildManager.Instance.BuildBuilding(item.name);
+    }
+
+    public void CopyItem()
+    {
+        ChooseItem(lastItemId);
     }
 
     private void DisplayRemainingMoney()
