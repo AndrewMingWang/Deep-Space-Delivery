@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1186770952319669520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1186770952319669522}
+  - component: {fileID: 1186770952319669523}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1186770952319669522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186770952319669520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1186770952319669523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186770952319669520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09902a348d88c6d4f9983fddbf0ee82e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentMusic:
+    name: 
+    clip: {fileID: 8300000, guid: e15010a032f77a843bf6094714f11a44, type: 3}
+    volume: 0.2
+    source: {fileID: 0}
+  StartingSong: menu
+  MusicFiles:
+  - name: menu
+    clip: {fileID: 8300000, guid: e15010a032f77a843bf6094714f11a44, type: 3}
+    volume: 0.1
+    source: {fileID: 0}
+  - name: world1
+    clip: {fileID: 8300000, guid: a445762999bd5c14e8087098c317c2c2, type: 3}
+    volume: 0.1
+    source: {fileID: 0}
+  - name: world2
+    clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
+    volume: 0.2
+    source: {fileID: 0}
+  SFXFiles:
+  - name: buttonpress
+    clip: {fileID: 8300000, guid: 3f45e5b970eeb3a4cb4577ab9d4116ea, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: cannotbuild
+    clip: {fileID: 8300000, guid: a1f214ccd6da5ad4ba74d8b8f108a193, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: winlevel
+    clip: {fileID: 8300000, guid: 67bede34f863464409aa57e1329e97f0, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: loselevel
+    clip: {fileID: 8300000, guid: ae44df55cfeca9a4188e648b76fd4db9, type: 3}
+    volume: 1
+    source: {fileID: 0}
+  - name: landportal
+    clip: {fileID: 8300000, guid: f345eec2e07d7d947b159154d8e38d00, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+  - name: openstart
+    clip: {fileID: 8300000, guid: bb6125faca27b92419528ad0a60b71f8, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+  - name: opengoal
+    clip: {fileID: 8300000, guid: 229883e3cf26516478a0dc69b4238874, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+  - name: unable
+    clip: {fileID: 8300000, guid: 52cabbd550a765241b30d66faa89a850, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+  - name: enterlevel
+    clip: {fileID: 8300000, guid: d306a70c44b3f4340b87a867e760dcbc, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
