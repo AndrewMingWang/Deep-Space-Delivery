@@ -172,8 +172,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6286628, y: 1.8, z: 0.6459168}
-  m_Center: {x: 0.024056837, y: 0, z: 0.020225585}
+  m_Size: {x: 0.31007504, y: 4.0995545, z: 0.34584755}
+  m_Center: {x: 0.013240695, y: 1.149777, z: -0.022856891}
 --- !u!114 &-248485504848497095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,5 +190,5 @@ MonoBehaviour:
   PlacedColor: {r: 0, g: 1, b: 0.033422947, a: 1}
   BuildingName: trampoline
   TileUnder: {fileID: 0}
-  JumpForce: 260
+  JumpForce: 250
   Seen: 
