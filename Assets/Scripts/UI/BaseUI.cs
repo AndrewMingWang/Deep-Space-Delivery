@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 public class BaseUI : MonoBehaviour
 {
 
+    public virtual void Awake()
+    {
+        GameObject cursorPrefab = (GameObject)Resources.Load("Cursor");
+        GameObject newCursor = Instantiate(cursorPrefab, Vector2.zero, Quaternion.identity);
+        newCursor.transform.SetParent(GameObject.FindGameObjectWithTag("cursorCanvas").transform, false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

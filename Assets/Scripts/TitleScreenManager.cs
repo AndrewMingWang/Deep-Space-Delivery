@@ -11,6 +11,13 @@ public class TitleScreenManager : MonoBehaviour
 
     public Animator FadeAnimator;
 
+    private void Awake()
+    {
+        GameObject cursorPrefab = (GameObject)Resources.Load("Cursor");
+        GameObject newCursor = Instantiate(cursorPrefab, Vector2.zero, Quaternion.identity);
+        newCursor.transform.SetParent(GameObject.FindGameObjectWithTag("cursorCanvas").transform, false);
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && DoneFadeIn)

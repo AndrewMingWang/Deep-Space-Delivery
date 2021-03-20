@@ -21,8 +21,9 @@ public class LevelUI : BaseUI
     public TMP_Text levelTitle;
     public Animator UIAnimator;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         if (AudioManager.SFXOn)
         {
             soundButton.GetComponent<Image>().sprite = soundSpriteOn;

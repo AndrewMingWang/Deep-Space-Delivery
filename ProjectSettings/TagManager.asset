@@ -15,6 +15,7 @@ TagManager:
   - start
   - Package
   - enemy
+  - cursorCanvas
   layers:
   - Default
   - TransparentFX
