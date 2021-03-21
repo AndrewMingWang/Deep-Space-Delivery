@@ -3695,7 +3695,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 187310726}
   windTile: 0
@@ -4304,7 +4304,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1400784756}
   windTile: 0
@@ -8863,7 +8863,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1502952664}
   windTile: 0
@@ -12143,7 +12143,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1238986074}
   windTile: 0
@@ -16380,7 +16380,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 594538893}
   windTile: 0
@@ -16521,7 +16521,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1931251049}
   windTile: 0
