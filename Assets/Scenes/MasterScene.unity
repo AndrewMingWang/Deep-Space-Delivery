@@ -60750,11 +60750,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1496337690}
-    - target: {fileID: 3734532784612253892, guid: 6c71fb75931302643920ce0dd4afe317,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -7.999878
-      objectReference: {fileID: 0}
     - target: {fileID: 4394021744950888947, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -60890,15 +60885,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 5036928655072063191, guid: 6c71fb75931302643920ce0dd4afe317,
-        type: 3}
-      propertyPath: m_enableWordWrapping
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5036928655206114071, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 956.19995
+      value: 956.2
       objectReference: {fileID: 0}
     - target: {fileID: 7228321507604612286, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
@@ -60920,26 +60910,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 840879139}
-    - target: {fileID: 7993105790075153770, guid: 6c71fb75931302643920ce0dd4afe317,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChooseItem
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993105790075153770, guid: 6c71fb75931302643920ce0dd4afe317,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SFXButtonPress
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993105790075153770, guid: 6c71fb75931302643920ce0dd4afe317,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8603683585213665581, guid: 6c71fb75931302643920ce0dd4afe317,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -7.999878
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c71fb75931302643920ce0dd4afe317, type: 3}
 --- !u!1001 &7159854053871087331
