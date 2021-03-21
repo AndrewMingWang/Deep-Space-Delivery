@@ -7,7 +7,7 @@ public class LevelSelectUI : BaseUI
 {
     private const int MIN_WORLD = 1;
     private const int MAX_WORLD = 5;
-    private const int LEVELS_PER_WORLD = 6;
+    private const int LEVELS_PER_WORLD = 7;
     public static readonly string PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED = "Level";
     public static readonly string PLAYER_PREFS_HIGH_SCORE_BASE = "Score";
 
