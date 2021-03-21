@@ -34,6 +34,7 @@ public class InterLevelTextType : MonoBehaviour
 
         if (!StringUtility.Instance.IsTyping)
         {
+
             if (Input.anyKeyDown)
             {
                 FadeAnimator.SetTrigger("out");
@@ -50,6 +51,6 @@ public class InterLevelTextType : MonoBehaviour
 
     public void PlayIntroText()
     {
-        StringUtility.TypeTextEffect(DisplayText, Content + "\n\n(Left Mouse Click to continue...)", CharTypeSpeed);
+        StringUtility.TypeTextEffect(DisplayText, Content, CharTypeSpeed);
     }
 }

@@ -11,6 +11,8 @@ public class IntroTextType : MonoBehaviour
     public float CharTypeSpeed;
     public AudioSource DialogueSource;
     public Animator FadeAnimator;
+    public GameObject ContinueText;
+    public bool ContinueShown = false;
 
     private void Awake()
     {
@@ -27,10 +29,17 @@ public class IntroTextType : MonoBehaviour
 
         if (!StringUtility.Instance.IsTyping)
         {
+            if (!ContinueShown)
+            {
+                ContinueText.SetActive(true);
+                ContinueShown = true;
+            }
+
             if (Input.anyKeyDown)
             {
                 FadeAnimator.SetTrigger("out");
                 StartCoroutine(GoToLevelSelect());
+                ContinueText.SetActive(false);
             }
         }
     }
