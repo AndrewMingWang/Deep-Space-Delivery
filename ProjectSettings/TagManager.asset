@@ -14,6 +14,8 @@ TagManager:
   - tooltip
   - start
   - Package
+  - enemy
+  - cursorCanvas
   layers:
   - Default
   - TransparentFX
@@ -33,7 +35,7 @@ TagManager:
   - PackageEffect
   - Package
   - PackageLandingLayer
-  - 
+  - Enemy
   - 
   - 
   - 
