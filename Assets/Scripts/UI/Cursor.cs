@@ -11,6 +11,9 @@ public class Cursor : MonoBehaviour
     public Sprite BaseCursor;
     public Sprite HoldCursor;
 
+    int frame = 0;
+    public int CheckOnFrame = 10;
+
     Image cursorImage;
 
     // Start is called before the first frame update
@@ -28,13 +31,23 @@ public class Cursor : MonoBehaviour
         Vector2 adjustedPosition = new Vector2(cursorPosition.x + OFFSET_X, cursorPosition.y + OFFSET_Y);
         transform.position = adjustedPosition;
 
-        if (BuildManager.Instance.CurrBuilding != null)
+        if (frame == CheckOnFrame)
         {
-            cursorImage.sprite = HoldCursor;
-        } else
-        {
-            cursorImage.sprite = BaseCursor;
+            frame = 0;
+            if (BuildManager.Instance != null)
+            {
+                if (BuildManager.Instance.CurrBuilding != null)
+                {
+                    cursorImage.sprite = HoldCursor;
+                }
+                else
+                {
+                    cursorImage.sprite = BaseCursor;
+                }
+            }
         }
+
+        frame += 1;
     }
 
 }
