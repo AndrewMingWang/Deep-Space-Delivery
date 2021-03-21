@@ -121,7 +121,9 @@ public class UnitMovement : MonoBehaviour
         // Debug.Log(transform.forward.z);
         // forward
         
-
+        // if (!IsGrounded()){
+        //     res = res*2.0f;
+        // }
         return res;
     }
 
