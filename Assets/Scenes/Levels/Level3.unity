@@ -16342,6 +16342,9 @@ MonoBehaviour:
   - Panel: {fileID: 1848845331}
     Button: {fileID: 877022969}
     PriceText: {fileID: 2105193270}
+  - Panel: {fileID: 5036928655012304106}
+    Button: {fileID: 877022969}
+    PriceText: {fileID: 2105193270}
   MoneyText: {fileID: 1003988586}
   MoneyBarRT: {fileID: 288127499}
   OptimalRT: {fileID: 663890775}
@@ -42507,6 +42510,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c71fb75931302643920ce0dd4afe317, type: 3}
+--- !u!1 &5036928655012304106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7993105790215914804, guid: 6c71fb75931302643920ce0dd4afe317,
+    type: 3}
+  m_PrefabInstance: {fileID: 5036928655012304105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7159854053871087331
 PrefabInstance:
   m_ObjectHideFlags: 0
