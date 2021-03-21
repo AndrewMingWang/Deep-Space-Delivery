@@ -19,7 +19,7 @@ public class TileClickEditor : Editor
         // if (activeObj = null){
         //     activeObj = Selection.activeGameObject.transform.parent.gameObject.GetComponentInChildren<TileClickTarget>().gameObject;
         // }
-        Selection.activeGameObject = activeObj;
+        //Selection.activeGameObject = activeObj;
          
     }
 
