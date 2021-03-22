@@ -168,7 +168,11 @@ public class LevelSelectUI : BaseUI
                 FadeInOut.SetTrigger("out");
                 AudioManager.PlaySFX(AudioManager.UI_ENTER_LEVEL);
                 yield return new WaitForSeconds(2.1f);
-                LoadLevel(levelOrderNumber);
+                if (levelOrderNumber == 8){
+                    LoadLevelString("Level8intro");
+                } else {
+                    LoadLevel(levelOrderNumber);
+                }
             }
         }
     }
