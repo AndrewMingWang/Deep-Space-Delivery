@@ -13491,7 +13491,7 @@ MonoBehaviour:
     price: 300
     quantity: 10
     unlimited: 0
-    icon: {fileID: 21300000, guid: c289889c9eaf392408cb99426661828f, type: 3}
+    icon: {fileID: 21300000, guid: a0642891e9888334b9be0f378b53199a, type: 3}
   ItemUis:
   - Panel: {fileID: 591893860}
     Button: {fileID: 513490392}
