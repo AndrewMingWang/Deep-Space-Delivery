@@ -28,7 +28,12 @@ public class UnitMovement : MonoBehaviour
     private bool _groundedThisFrame = true;
     private bool _isAirborne = false;
     private float _distToGround;
+
+    [Header("Audio")]
     private AudioSource AudioSource;
+    public AudioSource BarkSource;
+    public AudioClip Bark1;
+    public AudioClip Bark2;
 
     public void ShowPackage()
     {
@@ -136,6 +141,18 @@ public class UnitMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        float barkRV = Random.Range(0.0f, 500.0f);
+        if (barkRV > 499)
+        {
+            if (Random.Range(0.0f, 1.0f) >= 0.5)
+            {
+                BarkSource.PlayOneShot(Bark1);
+            } else
+            {
+                BarkSource.PlayOneShot(Bark2);
+            }
+        }
+
         // Check for grounding
         _groundedThisFrame = IsGrounded();
         if (_groundedLastFrame && !_groundedThisFrame)
