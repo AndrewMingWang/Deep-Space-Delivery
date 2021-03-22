@@ -1728,7 +1728,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1720140694}
   windTile: 0
@@ -21465,7 +21465,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 1092006415}
   Top: {fileID: 131220569}
   windTile: 0
@@ -31904,7 +31904,7 @@ PrefabInstance:
     - target: {fileID: 7159854052944462983, guid: 891fbea317db49b46bdf17b7382c5510,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.5
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7159854052944462983, guid: 891fbea317db49b46bdf17b7382c5510,
         type: 3}
