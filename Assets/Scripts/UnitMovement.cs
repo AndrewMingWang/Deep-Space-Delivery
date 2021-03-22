@@ -141,8 +141,8 @@ public class UnitMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float barkRV = Random.Range(0.0f, 300.0f);
-        if (barkRV > 299)
+        float barkRV = Random.Range(0.0f, 500.0f);
+        if (barkRV > 499)
         {
             if (Random.Range(0.0f, 1.0f) >= 0.5)
             {
