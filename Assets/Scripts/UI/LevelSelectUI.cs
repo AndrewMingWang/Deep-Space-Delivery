@@ -170,6 +170,10 @@ public class LevelSelectUI : BaseUI
                 yield return new WaitForSeconds(2.1f);
                 if (levelOrderNumber == 8){
                     LoadLevelString("Level8intro");
+                } else if (levelOrderNumber == 3){
+                    LoadLevelString("Level4intro");
+                } else if (levelOrderNumber == 4){
+                    LoadLevelString("Level5intro");
                 } else {
                     LoadLevel(levelOrderNumber);
                 }
