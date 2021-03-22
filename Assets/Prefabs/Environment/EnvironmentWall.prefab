@@ -108,8 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnHeight: 0
-  SelectedColor: {r: 1, g: 0, b: 0, a: 1}
-  PlacedColor: {r: 1, g: 0, b: 0, a: 1}
+  SelectedColor: {r: 0.65882355, g: 0, b: 0, a: 1}
+  PlacedColor: {r: 0.65882355, g: 0, b: 0, a: 1}
   BuildingName: wall
   TileUnder: {fileID: 0}
   BumpBackForce: 4
