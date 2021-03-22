@@ -13486,17 +13486,17 @@ MonoBehaviour:
   - name: arrow
     price: 200
     quantity: 10
-    unlimited: 0
+    unlimited: 1
     icon: {fileID: 21300000, guid: 45c7ff81baede674d952001afc1a5b5b, type: 3}
   - name: wall
     price: 100
     quantity: 10
-    unlimited: 0
+    unlimited: 1
     icon: {fileID: 21300000, guid: c289889c9eaf392408cb99426661828f, type: 3}
   - name: trampoline
     price: 300
     quantity: 10
-    unlimited: 0
+    unlimited: 1
     icon: {fileID: 21300000, guid: a0642891e9888334b9be0f378b53199a, type: 3}
   ItemUis:
   - Panel: {fileID: 591893860}
