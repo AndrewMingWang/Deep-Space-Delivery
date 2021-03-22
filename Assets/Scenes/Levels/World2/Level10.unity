@@ -5691,8 +5691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f88cb4efe90ecf40aee567d5f1741b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingMoney: 2000
-  OptimalRemaining: 1000
+  StartingMoney: 1800
+  OptimalRemaining: 500
   Items:
   - name: arrow
     price: 200
@@ -7144,7 +7144,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1585724256}
   windTile: 0
@@ -13439,7 +13439,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1455212368}
   windTile: 0
@@ -15233,7 +15233,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1417208260}
   windTile: 0

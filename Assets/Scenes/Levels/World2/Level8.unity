@@ -1716,7 +1716,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 767529431}
   windTile: 0
@@ -9053,7 +9053,7 @@ MonoBehaviour:
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
+  OccupyingBuilding: {fileID: 7159854053871087332}
   Top: {fileID: 402188884}
   windTile: 1
   AddToTileManagerOnAwake: 1
@@ -23494,7 +23494,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1808798159}
   windTile: 0
@@ -24553,7 +24553,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1764162904}
   windTile: 0
@@ -27840,7 +27840,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 615005221}
   windTile: 0
@@ -28111,7 +28111,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 845332812}
   windTile: 0
@@ -28410,7 +28410,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 812115709}
   windTile: 0
@@ -32262,8 +32262,8 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 1
-  OccupyingBuilding: {fileID: 0}
+  EnvOccupied: 0
+  OccupyingBuilding: {fileID: 1092006415}
   Top: {fileID: 450034095}
   windTile: 0
   AddToTileManagerOnAwake: 1
@@ -33129,6 +33129,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 891fbea317db49b46bdf17b7382c5510, type: 3}
+--- !u!1 &7159854053871087332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7159854052944463036, guid: 891fbea317db49b46bdf17b7382c5510,
+    type: 3}
+  m_PrefabInstance: {fileID: 7159854053871087331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7375395166563818327
 PrefabInstance:
   m_ObjectHideFlags: 0

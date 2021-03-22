@@ -17442,7 +17442,7 @@ MonoBehaviour:
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
+  OccupyingBuilding: {fileID: 1092006415}
   Top: {fileID: 564074011}
   windTile: 0
   AddToTileManagerOnAwake: 1
@@ -43903,17 +43903,17 @@ PrefabInstance:
     - target: {fileID: 5036928653941898537, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -415.00037
+      value: -415.00043
       objectReference: {fileID: 0}
     - target: {fileID: 5036928654184533433, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 488.00037
+      value: 488.00043
       objectReference: {fileID: 0}
     - target: {fileID: 5036928654510901682, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 384.00037
+      value: 384.00043
       objectReference: {fileID: 0}
     - target: {fileID: 5036928654709892008, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
@@ -44038,12 +44038,12 @@ PrefabInstance:
     - target: {fileID: 5036928655206114071, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 956.2001
+      value: 956.20013
       objectReference: {fileID: 0}
     - target: {fileID: 5036928655588133124, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 487.50037
+      value: 487.50043
       objectReference: {fileID: 0}
     - target: {fileID: 7228321507604612286, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
