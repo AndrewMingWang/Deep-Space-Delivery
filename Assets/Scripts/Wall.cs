@@ -66,7 +66,7 @@ public class Wall : Building
         if (buildingAboveGO != null)
         {
             Building buildingAbove = buildingAboveGO.GetComponent<Building>();
-            buildingAbove.transform.position = TileUnder.transform.position + buildingAbove.transform.localScale.y / 2 * buildingAbove.transform.up;
+            buildingAbove.transform.position = TileUnder.transform.position + buildingAbove.SpawnHeight * buildingAbove.transform.up;
 
             buildingAbove.TileUnder = TileUnder;
             TileUnder.OccupyingBuilding = TileAbove.OccupyingBuilding;

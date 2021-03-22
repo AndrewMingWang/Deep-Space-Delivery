@@ -107,8 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102ea5d28a8e42340a3432288d0ac7c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedColor: {r: 0, g: 0.33333334, b: 0, a: 1}
-  PlacedColor: {r: 0, g: 0.33333334, b: 0, a: 1}
+  SpawnHeight: 0
+  SelectedColor: {r: 1, g: 0, b: 0, a: 1}
+  PlacedColor: {r: 1, g: 0, b: 0, a: 1}
   BuildingName: wall
   TileUnder: {fileID: 0}
   BumpBackForce: 4
@@ -116,6 +117,7 @@ MonoBehaviour:
   Occupied: 0
   TileAbove: {fileID: 0}
   Seen: 
+  Highlights: {fileID: 0}
 --- !u!82 &517941366225722177
 AudioSource:
   m_ObjectHideFlags: 0
