@@ -92,7 +92,7 @@ public class TutorialStateManager : MonoBehaviour
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Oops!\\p\\p\\p Don't worry we'll \\n"+
-                "pick them up later.\\p\\p\\n\\n"+
+                "pick him up later.\\p\\p\\n\\n"+
                 "Did I mention Deep Space\\n"+ 
                 "Delivery is number 1 in\\n"+
                 "human employee safety? \\p\\p\\n\\n"+
@@ -148,6 +148,7 @@ public class TutorialStateManager : MonoBehaviour
                 SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
                 // BuildingPanel.SetActive(false);
                 SignButton.interactable = false;
+                TileManager.Instance.AddUnoccupiedTile(Tile2.GetComponent<Tile>());
             }
             break;
         case State.four_text:

@@ -29909,7 +29909,7 @@ MonoBehaviour:
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1252940950}
   windTile: 0
-  AddToTileManagerOnAwake: 1
+  AddToTileManagerOnAwake: 0
 --- !u!1 &1284526825
 GameObject:
   m_ObjectHideFlags: 0
