@@ -41,7 +41,7 @@ public class LevelSelectUI : BaseUI
             cheatCodeCount += 1;
             if (cheatCodeCount >= 3)
             {
-                highestLevelUnlocked = 10;
+                highestLevelUnlocked = 100;
                 DisplayWorld();
             }
         } else if (Input.GetKeyDown(KeyCode.Alpha0))
