@@ -26,8 +26,11 @@ public class TrampolineTrigger : MonoBehaviour
                 Vector3 jumpDirection = (JumpForce * Vector3.up);
                 other.gameObject.GetComponent<Rigidbody>().AddRelativeForce(jumpDirection);
 
-                // Animate
+                // Animate unit
                 other.GetComponent<UnitMovement>().Animator.SetTrigger("jump");
+
+                // Animate trampoline
+                GetComponent<Animator>().SetTrigger("bounce");
             }
         }
     }
