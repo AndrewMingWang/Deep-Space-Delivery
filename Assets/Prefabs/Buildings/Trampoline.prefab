@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b43217608ecd4429217e35e7724a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 250
+  JumpForce: 245
   Seen: 
 --- !u!65 &8222061286765023030
 BoxCollider:
@@ -266,8 +266,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.53185546, y: 39.32737, z: 0.54209936}
-  m_Center: {x: 0.01391751, y: 14.663681, z: -0.013104925}
+  m_Size: {x: 0.7873667, y: 44.275124, z: 0.8729424}
+  m_Center: {x: 0.018406982, y: 17.13756, z: -0.006334285}
 --- !u!95 &307567560383290549
 Animator:
   serializedVersion: 3
