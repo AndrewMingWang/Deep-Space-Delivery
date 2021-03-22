@@ -9836,7 +9836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingMoney: 2200
-  OptimalRemaining: 600
+  OptimalRemaining: 800
   Items:
   - name: arrow
     price: 200
