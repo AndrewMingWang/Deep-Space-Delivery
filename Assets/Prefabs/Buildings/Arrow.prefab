@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca8bfdf5e3f0d14ebd0260e39f19176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnHeight: 0.15
   SelectedColor: {r: 1, g: 0, b: 0.11237717, a: 0.46666667}
   PlacedColor: {r: 1, g: 0, b: 0.11237717, a: 1}
   BuildingName: arrow

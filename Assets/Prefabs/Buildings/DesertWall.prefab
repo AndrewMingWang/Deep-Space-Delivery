@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102ea5d28a8e42340a3432288d0ac7c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnHeight: 0.5
   SelectedColor: {r: 0.6886792, g: 0.46927702, b: 0, a: 0.49803922}
   PlacedColor: {r: 0.6886792, g: 0.46927702, b: 0, a: 1}
   BuildingName: wall

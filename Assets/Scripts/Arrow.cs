@@ -7,7 +7,7 @@ public class Arrow : Building
     public MeshRenderer SignRenderer;
     public MeshRenderer PoleRenderer;
 
-    private void Awake()
+    public override void Awake()
     {
         SignRenderer.material.SetColor("_Color", SelectedColor);
         PoleRenderer.material.SetColor("_Color", SelectedColor);

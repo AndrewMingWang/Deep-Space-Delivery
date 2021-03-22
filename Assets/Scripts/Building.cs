@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
+    public float SpawnHeight;
     public Color SelectedColor;
     public Color PlacedColor;
     public string BuildingName;
@@ -11,7 +12,7 @@ public class Building : MonoBehaviour
     
     private MeshRenderer meshRenderer;
 
-    private void Awake()
+    public virtual void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
         meshRenderer.material.SetColor("_Color", SelectedColor);

@@ -82,7 +82,7 @@ public class BuildManager : MonoBehaviour
             Tile randomTile = TileManager.Instance.GetRandomUnoccupiedTile();
 
             // Set transform of building to unoccupied tile
-            newBuilding.transform.position = randomTile.transform.position + newBuilding.transform.localScale.y / 2 * newBuilding.transform.up;
+            newBuilding.transform.position = randomTile.transform.position + newBuilding.SpawnHeight * newBuilding.transform.up;
 
             // Set building to be hovering over the tile
             newBuilding.TileUnder = randomTile;
@@ -120,7 +120,7 @@ public class BuildManager : MonoBehaviour
                             }
 
                         CurrBuilding.TileUnder = hitTile;
-                        CurrBuilding.transform.position = hit.transform.position + CurrBuilding.transform.localScale.y / 2 * CurrBuilding.transform.up;
+                        CurrBuilding.transform.position = hit.transform.position + CurrBuilding.GetComponent<Building>().SpawnHeight * CurrBuilding.transform.up;
                         }
                     }
                     
