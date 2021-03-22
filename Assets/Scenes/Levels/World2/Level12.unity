@@ -10370,7 +10370,7 @@ MonoBehaviour:
     price: 300
     quantity: 10
     unlimited: 0
-    icon: {fileID: 21300000, guid: c289889c9eaf392408cb99426661828f, type: 3}
+    icon: {fileID: 21300000, guid: a0642891e9888334b9be0f378b53199a, type: 3}
   ItemUis:
   - Panel: {fileID: 591893860}
     Button: {fileID: 513490392}
@@ -26252,17 +26252,17 @@ PrefabInstance:
     - target: {fileID: 5036928653941898537, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -415.00018
+      value: -415.0003
       objectReference: {fileID: 0}
     - target: {fileID: 5036928654184533433, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 488.00018
+      value: 488.0003
       objectReference: {fileID: 0}
     - target: {fileID: 5036928654510901682, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 384.00018
+      value: 384.0003
       objectReference: {fileID: 0}
     - target: {fileID: 5036928654709892008, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
@@ -26387,12 +26387,12 @@ PrefabInstance:
     - target: {fileID: 5036928655206114071, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 956.1999
+      value: 956.2
       objectReference: {fileID: 0}
     - target: {fileID: 5036928655588133124, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 487.50018
+      value: 487.5003
       objectReference: {fileID: 0}
     - target: {fileID: 7228321507604612286, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
