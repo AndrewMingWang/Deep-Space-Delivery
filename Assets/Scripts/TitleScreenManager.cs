@@ -36,6 +36,7 @@ public class TitleScreenManager : MonoBehaviour
     private IEnumerator GoToIntro()
     {
         yield return new WaitForSeconds(2.0f);
+        GetComponent<AudioSource>().Stop();
         SceneManager.LoadSceneAsync("Intro");
     }
 }
