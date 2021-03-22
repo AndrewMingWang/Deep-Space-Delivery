@@ -5820,7 +5820,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 1
+  EnvOccupied: 0
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 676027730}
   windTile: 0
@@ -21431,7 +21431,7 @@ MonoBehaviour:
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
   Hovered: 0
-  EnvOccupied: 1
+  EnvOccupied: 0
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 922234416}
   windTile: 0

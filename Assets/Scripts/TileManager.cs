@@ -27,7 +27,7 @@ public class TileManager : MonoBehaviour
         foreach (Tile tile in EnvironmentTiles)
         {
             if (tile.AddToTileManagerOnAwake){
-                if (tile.OccupyingBuilding == null)
+                if (tile.OccupyingBuilding == null && !tile.EnvOccupied)
                 {
                     UnoccupiedTiles.Add(tile);
                 }
