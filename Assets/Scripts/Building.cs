@@ -10,7 +10,7 @@ public class Building : MonoBehaviour
     public string BuildingName;
     public Tile TileUnder;
     
-    private MeshRenderer meshRenderer;
+    protected MeshRenderer meshRenderer;
 
     public virtual void Awake()
     {

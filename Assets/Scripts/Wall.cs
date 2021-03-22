@@ -13,6 +13,9 @@ public class Wall : Building
     public Tile TileAbove;
     public List<int> Seen = new List<int>();
 
+    [Header("Highlights")]
+    public GameObject Highlights;
+
     private void Start()
     {
         AudioManager.EnrollSFXSource(GetComponent<AudioSource>());
@@ -73,5 +76,17 @@ public class Wall : Building
         TileAbove.OccupyingBuilding = null;
         TileAbove.gameObject.SetActive(false);
         TileManager.Instance.AllTiles.Remove(TileAbove);
+    }
+
+    public override void setColorPickedUp()
+    {
+        meshRenderer.material.SetColor("_Color", SelectedColor);
+        Highlights.SetActive(false);
+    }
+
+    public override void setColorPlaced()
+    {
+        meshRenderer.material.SetColor("_Color", PlacedColor);
+        Highlights.SetActive(true);
     }
 }

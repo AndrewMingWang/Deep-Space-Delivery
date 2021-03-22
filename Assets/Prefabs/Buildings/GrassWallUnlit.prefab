@@ -150,7 +150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6792622440972811214
 Transform:
   m_ObjectHideFlags: 0
@@ -242,7 +242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &859538352910960598
 Transform:
   m_ObjectHideFlags: 0
@@ -334,7 +334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3857905745440181704
 Transform:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4545866398346087701
 Transform:
   m_ObjectHideFlags: 0
@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 4937263598891983258}
   - component: {fileID: 517941366225722177}
   m_Layer: 9
-  m_Name: GrassWall
+  m_Name: GrassWallUnlit
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -734,7 +734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6902891270165200031
 Transform:
   m_ObjectHideFlags: 0
@@ -826,7 +826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7966226982175451016
 Transform:
   m_ObjectHideFlags: 0
@@ -1104,7 +1104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7168861203861349447
 Transform:
   m_ObjectHideFlags: 0
@@ -1196,7 +1196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5720303018074307798
 Transform:
   m_ObjectHideFlags: 0
