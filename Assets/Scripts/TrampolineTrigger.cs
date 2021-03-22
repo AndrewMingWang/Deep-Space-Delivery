@@ -10,6 +10,11 @@ public class TrampolineTrigger : MonoBehaviour
     [Header("Info")]
     public List<int> Seen = new List<int>();
 
+    private void Start()
+    {
+        AudioManager.EnrollSFXSource(GetComponent<AudioSource>());
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("player"))
@@ -31,6 +36,9 @@ public class TrampolineTrigger : MonoBehaviour
 
                 // Animate trampoline
                 GetComponent<Animator>().SetTrigger("bounce");
+
+                // SFX
+                GetComponent<AudioSource>().Play();
             }
         }
     }
