@@ -63,6 +63,7 @@ public class LevelSelectUI : BaseUI
         {
             currentWorld = MIN_WORLD;
         }
+        FloatinGraphicController.Instance.ShowScene(currentWorld-1);
         DisplayWorld();
     }
 
@@ -73,6 +74,7 @@ public class LevelSelectUI : BaseUI
         {
             currentWorld = MAX_WORLD;
         }
+        FloatinGraphicController.Instance.ShowScene(currentWorld - 1);
         DisplayWorld();
     }
 
