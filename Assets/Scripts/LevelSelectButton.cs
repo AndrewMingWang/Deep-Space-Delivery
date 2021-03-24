@@ -57,4 +57,22 @@ public class LevelSelectButton : MonoBehaviour
         Screen.color = ClearedScreenColor;
         Text.font = YellowGlow;
     }
+
+    public void SetLevelNumber(int num)
+    {
+        Text.text = num.ToString();
+        if (num >= 20)
+        {
+            Text.fontSize = 38;
+            Text.alignment = TextAlignmentOptions.Center;
+        } else if (num >= 10)
+        {
+            Text.fontSize = 38;
+            Text.alignment = TextAlignmentOptions.Left;
+        } else
+        {
+            Text.fontSize = 40;
+            Text.alignment = TextAlignmentOptions.Center;
+        }
+    }
 }

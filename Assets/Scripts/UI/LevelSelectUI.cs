@@ -82,38 +82,41 @@ public class LevelSelectUI : BaseUI
         switch (currentWorld)
         {
             case 1:
-                WorldTitle.text = "1. Plains";
+                WorldTitle.text = "1.Plains";
                 break;
             case 2:
-                WorldTitle.text = "2. Night Plains";
+                WorldTitle.text = "2.Night Plains";
                 break;
             case 3:
-                WorldTitle.text = "3. Ruins";
+                WorldTitle.text = "3.Ruins";
                 break;
             case 4:
-                WorldTitle.text = "4. Night Ruins";
+                WorldTitle.text = "4.Night Ruins";
                 break;
             case 5:
-                WorldTitle.text = "5. Station";
+                WorldTitle.text = "5.Station";
                 break;
         }
 
         // Unlock tutorial
-        if (currentWorld == 1)
+        if (highestLevelUnlocked >= 1)
         {
-            if (highestLevelUnlocked >= 1)
-            {
-                LevelSelectButtons[0].SetScore(3);
-            } else
-            {
-                LevelSelectButtons[0].SetUnlocked();
-            }
-            
+            LevelSelectButtons[0].SetScore(3);
+        } else
+        {
+            LevelSelectButtons[0].SetUnlocked();
+        }
+
+        int baseLevel = (currentWorld - 1) * LEVELS_PER_WORLD;
+
+        // Set level numbers
+        for (int i = 1; i < LEVELS_PER_WORLD + 1; i++)
+        {
+            LevelSelectButton button = LevelSelectButtons[i];
+            button.SetLevelNumber(baseLevel + i);
         }
 
         // Unlock levels
-        int baseLevel = (currentWorld - 1) * LEVELS_PER_WORLD;
-
         for (int i = 1; i <= LEVELS_PER_WORLD; i++)
         {
             if (baseLevel + i < highestLevelUnlocked)
