@@ -71,11 +71,29 @@ public class Wall : Building
             buildingAbove.TileUnder = TileUnder;
             TileUnder.OccupyingBuilding = TileAbove.OccupyingBuilding;
             TileManager.Instance.SetTileOccupied(TileUnder);
+
+            RepositionBuildingsAbove(buildingAboveGO);
         }
 
         TileAbove.OccupyingBuilding = null;
         TileAbove.gameObject.SetActive(false);
         TileManager.Instance.AllTiles.Remove(TileAbove);
+    }
+
+    public void RepositionBuildingsAbove(GameObject buildingGO)
+    {
+        Wall wall = buildingGO.GetComponent<Wall>();
+        if (wall != null)
+        {
+            GameObject buildingAboveGO = wall.TileAbove.OccupyingBuilding;
+            if (buildingAboveGO != null)
+            {
+                Building buildingAbove = buildingAboveGO.GetComponent<Building>();
+                buildingAbove.transform.position = wall.TileAbove.transform.position + buildingAbove.SpawnHeight * buildingAbove.transform.up;
+
+                RepositionBuildingsAbove(buildingAboveGO);
+            }
+        }
     }
 
     public override void setColorPickedUp()
