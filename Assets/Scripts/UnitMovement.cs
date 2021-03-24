@@ -59,7 +59,8 @@ public class UnitMovement : MonoBehaviour
     {
         TargetDirection = transform.forward;
         _distToGround = Collider.bounds.extents.y;
-        AudioManager.EnrollSFXSource(GetComponent<AudioSource>());
+        AudioManager.EnrollSFXSource(AudioSource);
+        AudioManager.EnrollSFXSource(BarkSource);
     }
 
     public Vector3 WindDirection()
@@ -171,13 +172,13 @@ public class UnitMovement : MonoBehaviour
         {
             if (AudioSource.isPlaying)
             {
-                GetComponent<AudioSource>().Pause();
+                AudioSource.Pause();
             }
         } else
         {
             if (!AudioSource.isPlaying)
             {
-                GetComponent<AudioSource>().Play();
+                AudioSource.Play();
             }
         }
 
