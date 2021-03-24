@@ -116,9 +116,6 @@ public class GoalTrigger : MonoBehaviour
         int optimalRemainingBudget
         )
     {
-        Debug.Log(percentPackagesDelivered);
-        Debug.Log(remainingBudget);
-        Debug.Log(optimalRemainingBudget);
         if (percentPackagesDelivered < 50 || remainingBudget < 0)
         {
             return 0;

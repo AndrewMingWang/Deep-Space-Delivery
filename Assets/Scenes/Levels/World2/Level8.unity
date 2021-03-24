@@ -32828,6 +32828,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1725239083241013700, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: Type
+      value: trampoline
+      objectReference: {fileID: 0}
     - target: {fileID: 3603220445405343633, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
