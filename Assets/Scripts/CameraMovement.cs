@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -78,6 +80,11 @@ public class CameraMovement : MonoBehaviour
         {
             _originSet = false;
         }
+    }
+
+    public void SetPanning(bool panningEnabled)
+    {
+        allowPan = panningEnabled;
     }
 
     public void Zoom()
