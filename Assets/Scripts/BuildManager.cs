@@ -182,6 +182,8 @@ public class BuildManager : MonoBehaviour
                         TileManager.Instance.SetTileUnoccupied(CurrBuilding.TileUnder);
                         CurrBuilding.GetComponent<Building>().PickUpBuilding();
 
+                        MoneyManager.Instance.UpdateLastItem(CurrBuilding.BuildingName);
+
                         // SFX
                         audioSource.PlayOneShot(PickupBuilding);
                     }
