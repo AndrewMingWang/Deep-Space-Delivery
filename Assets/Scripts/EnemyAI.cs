@@ -58,12 +58,11 @@ public class EnemyAI : MonoBehaviour
         switch(currState){
             case State.waiting:
                 // if (Animator.GetBool("PreWaitingState")){
-                    transform.parent.position = starting_parent_pos;
+                    transform.parent.position = starting_parent_pos + EnemyManager.Instance.SceneObjects.transform.position;
                     transform.parent.rotation = starting_parent_rotation;
                     transform.localPosition = starting_local_pos;
                     transform.localRotation = starting_local_rotation;
                     lerpPosition = starting_parent_pos;
-                    elapsedFrames = 0;
                     // Animator.SetBool("PreWaitingState", false);
                 // }
                 // Debug.DrawRay(Collider.bounds.center, transform.forward*10.0f, Color.white, 1.5f);
@@ -163,6 +162,7 @@ public class EnemyAI : MonoBehaviour
         Animator.SetBool("ChargeUp", false);
         Animator.SetBool("CoolDown", false);
         Animator.SetBool("EnemyCollision", false);
+        elapsedFrames = 0;
         
         currState = State.waiting;
     }
