@@ -5,20 +5,33 @@ using UnityEngine;
 public class Trampoline : Building
 {
     [Header("Pickup and Place")]
-    public MeshRenderer TarpMeshRenderer;
+    public GameObject Tarp;
+    public List<MeshRenderer> Frames;
 
     public override void Awake()
     {
-        TarpMeshRenderer.material.SetColor("_Color", SelectedColor);
+        Tarp.SetActive(false);
+        foreach (MeshRenderer m in Frames)
+        {
+            m.material.SetColor("_Color", SelectedColor);
+        }
     }
 
     public override void setColorPickedUp()
     {
-        TarpMeshRenderer.material.SetColor("_Color", SelectedColor);
+        Tarp.SetActive(false);
+        foreach (MeshRenderer m in Frames)
+        {
+            m.material.SetColor("_Color", SelectedColor);
+        }
     }
 
     public override void setColorPlaced()
     {
-        TarpMeshRenderer.material.SetColor("_Color", PlacedColor);
+        Tarp.SetActive(true);
+        foreach (MeshRenderer m in Frames)
+        {
+            m.material.SetColor("_Color", PlacedColor);
+        }
     }
 }

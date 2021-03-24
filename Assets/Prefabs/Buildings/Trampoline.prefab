@@ -735,11 +735,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnHeight: 0.06
-  SelectedColor: {r: 1, g: 0.18196462, b: 0, a: 0.5254902}
-  PlacedColor: {r: 1, g: 0.18039216, b: 0, a: 1}
+  SelectedColor: {r: 0.7735849, g: 0.13954866, b: 0, a: 0.36078432}
+  PlacedColor: {r: 0.6603774, g: 0.1191269, b: 0, a: 1}
   BuildingName: trampoline
   TileUnder: {fileID: 0}
-  TarpMeshRenderer: {fileID: 7584063089485775471}
+  Tarp: {fileID: 2459891548597252325}
+  Frames:
+  - {fileID: 3951161890437933832}
+  - {fileID: 3071353138624946294}
+  - {fileID: 756506304098160543}
+  - {fileID: 365084300861292783}
+  - {fileID: 309216272462414763}
+  - {fileID: 9151920125861253640}
+  - {fileID: 3385378425449734302}
+  - {fileID: 2657949885063711102}
 --- !u!1 &6308154057329880410
 GameObject:
   m_ObjectHideFlags: 0
