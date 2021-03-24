@@ -7,9 +7,12 @@ public class Tile : MonoBehaviour
     public Color BaseColor;
     public Color HoverColor;
 
+    /*
     private const float r = (float)255.0f / 255.0f;
     private const float g = (float)135.0f / 255.0f;
     private const float b = (float)150.0f / 255.0f;
+    */
+    public GameObject Leaves;
 
     [HideInInspector]
     public bool Hovered = false;
@@ -33,8 +36,9 @@ public class Tile : MonoBehaviour
     private void Awake()
     {
         if (windTile){
-            BaseColor = new Color(r, g, b);
+            // BaseColor = new Color(r, g, b);
             //Top.GetComponent<Renderer>().materials[0].SetColor("_Color", BaseColor);
+            Leaves.SetActive(true);
         } 
         _tileMaterial = Top.GetComponent<Renderer>().materials[1];
         _tileMaterial.SetColor("_Color", BaseColor);        
