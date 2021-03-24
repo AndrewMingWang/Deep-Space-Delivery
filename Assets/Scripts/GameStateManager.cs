@@ -101,10 +101,14 @@ public class GameStateManager : MonoBehaviour
         Time.timeScale = 1.0f;
         switch (CurrState){
             case State.Plan:
-                //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
                 foreach (Transform child in UserBuildings.transform)
                 {
-                    MoneyManager.Instance.RefundItem(child.gameObject.name.Split('(')[0].ToLower());
+                    string childName = child.gameObject.name.Split('(')[0].ToLower();
+                    if (childName.Contains("wall"))
+                    {
+                        childName = "wall";
+                    }
+                    MoneyManager.Instance.RefundItem(childName);
 
                     Destroy(child.gameObject);
                 }
