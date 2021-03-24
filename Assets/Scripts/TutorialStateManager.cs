@@ -386,6 +386,11 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.twelve_wait:
+            if (BuildManager.Instance.CurrBuilding != null){
+                BuildManager.Instance.CurrBuilding.transform.position = Tile1.transform.position + BuildManager.Instance.CurrBuilding.GetComponent<Building>().SpawnHeight * BuildManager.Instance.CurrBuilding.transform.up;
+                Tile2.GetComponent<Tile>().SetBaseColor();
+                Tile1.GetComponent<Tile>().SetHoverColor();
+            }
             if (Tile1.GetComponent<Tile>().OccupyingBuilding != null){
                 SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
                 BuildManager.Instance.allowDeletingBuildings = false;
@@ -500,9 +505,9 @@ public class TutorialStateManager : MonoBehaviour
                 mainCamera.GetComponent<CameraMovement>().allowPan = true;
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Lastly you can pan the \\n"+
-                "camera by moving your\\n"+
-                "cursor to the edge of\\n" +
-                "the screen.\\p\\p\\n\\n",
+                "camera by left clicking\\n"+
+                "and dragging the mouse\\n" +
+                "on the screen.\\p\\p\\n\\n",
                 TypeSpeed);
                 textFlag = false;
             }
@@ -536,11 +541,11 @@ public class TutorialStateManager : MonoBehaviour
             break;
         case State.eightteen_wait:
             if (Controls.GetComponent<Animator>().GetBool("show")){
-                ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
                 NarrationPanel.SetActive(false); 
                 eighteen_wait_flag = false;
             }
             if (!(Controls.GetComponent<Animator>().GetBool("show")) && !eighteen_wait_flag){
+                ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
                 currState = State.nineteen_text;
                 NarrationPanel.SetActive(true);
                 ControlsButton.interactable = false;
