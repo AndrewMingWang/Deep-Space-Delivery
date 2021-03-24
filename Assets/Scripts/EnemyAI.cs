@@ -24,7 +24,10 @@ public class EnemyAI : MonoBehaviour
 
     
     private Vector3 target_pos;
-    private Vector3 starting_pos;
+    private Vector3 starting_parent_pos;
+    private Quaternion starting_parent_rotation;
+      private Vector3 starting_local_pos;
+    private Quaternion starting_local_rotation;
     private int lerpFrameTotal; // Number of frames to completely interpolate between the 2 positions
     private int elapsedFrames = 0;
     private float lerpRatio;
@@ -39,7 +42,10 @@ public class EnemyAI : MonoBehaviour
         layerMask = playerLayerMask | buildingLayerMask | envBuildingLayerMask;
         Collider = GetComponent<Collider>();
         Animator = transform.parent.GetComponent<Animator>();
-        starting_pos = transform.parent.position;
+        starting_parent_pos = transform.parent.position;
+        starting_parent_rotation = transform.parent.rotation;
+        starting_local_pos = transform.localPosition;
+        starting_local_rotation = transform.localRotation;
         lerpRatio = 0;
         Physics.Raycast(Collider.bounds.center, -transform.up, out hit, Mathf.Infinity, tileLayerMask);
         lastTile = hit.collider.gameObject.transform.position;
@@ -51,6 +57,15 @@ public class EnemyAI : MonoBehaviour
     {
         switch(currState){
             case State.waiting:
+                // if (Animator.GetBool("PreWaitingState")){
+                    transform.parent.position = starting_parent_pos;
+                    transform.parent.rotation = starting_parent_rotation;
+                    transform.localPosition = starting_local_pos;
+                    transform.localRotation = starting_local_rotation;
+                    lerpPosition = starting_parent_pos;
+                    elapsedFrames = 0;
+                    // Animator.SetBool("PreWaitingState", false);
+                // }
                 // Debug.DrawRay(Collider.bounds.center, transform.forward*10.0f, Color.white, 1.5f);
                 if (Physics.Raycast(Collider.bounds.center, transform.forward, out hit, Mathf.Infinity, layerMask)){
                     if (hit.transform.CompareTag("player"))
@@ -73,7 +88,7 @@ public class EnemyAI : MonoBehaviour
                 break;
             case State.charging:
                 lerpRatio = (float)elapsedFrames / lerpFrameTotal;
-                lerpPosition = Vector3.Lerp(starting_pos, target_pos, lerpRatio);
+                lerpPosition = Vector3.Lerp(starting_parent_pos, target_pos, lerpRatio);
                 transform.parent.position = lerpPosition;
                 if (elapsedFrames != lerpFrameTotal){
                     elapsedFrames++;
@@ -93,7 +108,7 @@ public class EnemyAI : MonoBehaviour
                 break;
             case State.returning:
                 lerpRatio = (float)elapsedFrames / lerpFrameTotal;
-                lerpPosition = Vector3.Lerp(target_pos, starting_pos, lerpRatio);
+                lerpPosition = Vector3.Lerp(target_pos, starting_parent_pos, lerpRatio);
                 transform.parent.position = lerpPosition;
                 if (elapsedFrames != lerpFrameTotal){
                     elapsedFrames++;
@@ -148,9 +163,7 @@ public class EnemyAI : MonoBehaviour
         Animator.SetBool("ChargeUp", false);
         Animator.SetBool("CoolDown", false);
         Animator.SetBool("EnemyCollision", false);
-        transform.parent.position = starting_pos;
-        lerpPosition = starting_pos;
-        elapsedFrames = 0;
+        
         currState = State.waiting;
     }
 }
