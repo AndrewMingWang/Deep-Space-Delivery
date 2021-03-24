@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5741375721209946771}
   - component: {fileID: 7704410934935245274}
   m_Layer: 9
-  m_Name: Arrow
+  m_Name: Signpost
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,8 +109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnHeight: 0.15
-  SelectedColor: {r: 1, g: 0, b: 0.11237717, a: 0.46666667}
-  PlacedColor: {r: 1, g: 0, b: 0.11237717, a: 1}
+  SelectedColor: {r: 0.7830189, g: 0, b: 0.08904934, a: 0.46666667}
+  PlacedColor: {r: 0.7830189, g: 0, b: 0.08904934, a: 1}
   BuildingName: arrow
   TileUnder: {fileID: 0}
   SignRenderer: {fileID: 6423483768475927940}
