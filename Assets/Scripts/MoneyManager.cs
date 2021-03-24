@@ -113,6 +113,18 @@ public class MoneyManager : MonoBehaviour
         ChooseItem(lastItemId);
     }
 
+    public void UpdateLastItem(string itemName)
+    {
+        for (int i = 0; i < Items.Length; i += 1)
+        {
+            if (Items[i].name.Equals(itemName))
+            {
+                lastItemId = i;
+                break;
+            }
+        }
+    }
+
     private void DisplayRemainingMoney()
     {
         int remainingMoney = GetRemainingMoney();
