@@ -8,33 +8,23 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public TMP_Text Text;
     public string Description;
-    //bool _isHovering;
+    public string Type;
 
-    /*
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        if (_isHovering)
+        if (Type.ToLower().Equals("trampoline"))
         {
-            //Vector3 screenPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //screenPoint += new Vector3(Text.preferredWidth/2.0f, 10.0f, 0.0f);
-            //RectTransform.transform.localPosition = screenPoint;
-            if (Input.GetMouseButtonDown(0))
-            {
-                HideTooltip();
-            }
+            Description = "launches units forward and upwards";
         }
-    }*/
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //_isHovering = true;
         DisplayTooltip();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        //_isHovering = false;
         HideTooltip();
     }
 
