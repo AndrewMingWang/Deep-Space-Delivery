@@ -57,7 +57,7 @@ public class EnemyAI : MonoBehaviour
     {
         switch(currState){
             case State.waiting:
-                float xnoise = Random.Range(-0.15f, 0.15f);
+                float xnoise = Random.Range(-0.2f, 0.2f);
                 // xnoise = 0.0f;
                 float ynoise = Random.Range(0.1f, 0.7f);
                 ynoise = 0.3f;
