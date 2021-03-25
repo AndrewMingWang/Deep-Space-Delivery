@@ -57,14 +57,20 @@ public class EnemyAI : MonoBehaviour
     {
         switch(currState){
             case State.waiting:
+                float xnoise = Random.Range(-0.15f, 0.15f);
+                // xnoise = 0.0f;
+                float ynoise = Random.Range(0.1f, 0.7f);
+                ynoise = 0.3f;
+                // Debug.Log("xnoise");
                 transform.parent.position = starting_parent_pos + EnemyManager.Instance.SceneObjects.transform.position;
                 transform.parent.rotation = starting_parent_rotation;
                 transform.localPosition = starting_local_pos; 
                 transform.localRotation = starting_local_rotation;
                 lerpPosition = starting_parent_pos;
                     
-                Debug.DrawRay(transform.parent.position + new Vector3(0f,0.3f,0f), transform.forward*10.0f, Color.blue, 1.5f);
-                if (Physics.Raycast(transform.parent.position + new Vector3(0f,0.3f,0f), transform.forward, out hit, Mathf.Infinity, layerMask)){
+                Debug.DrawRay(transform.parent.position + new Vector3(xnoise, ynoise,0.0f), transform.forward*10.0f, Color.blue, 0.5f);
+                if (Physics.Raycast(transform.parent.position + new Vector3(xnoise, ynoise,0.0f), transform.forward, out hit, Mathf.Infinity, layerMask)){
+                    // Debug.Log("thats a dog");
                     if (hit.transform.CompareTag("player"))
                     {
                         // currState = State.chargingAnimationStart;
