@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
 
-    public enum State{waiting, chargingAnimationStart, charging, chargingAnimationEnd, returning, collisionAnimation, stunned}
+    public enum State{waiting, chargingAnimationStart, charging, chargingAnimationEnd, returning, collisionAnimation, stunned, reset_wait}
 
     public State currState = State.waiting;
     int playerLayerMask = 1 << 10; // Player layer
@@ -57,16 +57,14 @@ public class EnemyAI : MonoBehaviour
     {
         switch(currState){
             case State.waiting:
-                // if (Animator.GetBool("PreWaitingState")){
-                    transform.parent.position = starting_parent_pos + EnemyManager.Instance.SceneObjects.transform.position;
-                    transform.parent.rotation = starting_parent_rotation;
-                    transform.localPosition = starting_local_pos;
-                    transform.localRotation = starting_local_rotation;
-                    lerpPosition = starting_parent_pos;
-                    // Animator.SetBool("PreWaitingState", false);
-                // }
-                // Debug.DrawRay(Collider.bounds.center, transform.forward*10.0f, Color.white, 1.5f);
-                if (Physics.Raycast(Collider.bounds.center, transform.forward, out hit, Mathf.Infinity, layerMask)){
+                transform.parent.position = starting_parent_pos + EnemyManager.Instance.SceneObjects.transform.position;
+                transform.parent.rotation = starting_parent_rotation;
+                transform.localPosition = starting_local_pos; 
+                transform.localRotation = starting_local_rotation;
+                lerpPosition = starting_parent_pos;
+                    
+                Debug.DrawRay(transform.parent.position + new Vector3(0f,0.3f,0f), transform.forward*10.0f, Color.blue, 1.5f);
+                if (Physics.Raycast(transform.parent.position + new Vector3(0f,0.3f,0f), transform.forward, out hit, Mathf.Infinity, layerMask)){
                     if (hit.transform.CompareTag("player"))
                     {
                         // currState = State.chargingAnimationStart;
@@ -131,6 +129,12 @@ public class EnemyAI : MonoBehaviour
                 break;
             case State.stunned:
                 // Debug.Log("Stunned");
+                break;
+            case State.reset_wait:
+                if (Animator.GetBool("PreWaitingState")){
+                    currState = State.waiting;
+                    Animator.SetBool("PreWaitingState", false);
+                }
                 break;
         }
 

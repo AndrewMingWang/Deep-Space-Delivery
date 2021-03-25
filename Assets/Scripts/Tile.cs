@@ -6,6 +6,7 @@ public class Tile : MonoBehaviour
 {
     public Color BaseColor;
     public Color HoverColor;
+    public Color UnbuildableColor;
 
     /*
     private const float r = (float)255.0f / 255.0f;
@@ -25,6 +26,7 @@ public class Tile : MonoBehaviour
     public GameObject Top;
     public bool windTile = false;
     public bool AddToTileManagerOnAwake = true;
+    public bool UnbuildableShadingOn = false;
 
     public Tile(Color basecol, Color hovercol, GameObject top){
 
@@ -41,7 +43,11 @@ public class Tile : MonoBehaviour
             Leaves.SetActive(true);
         } 
         _tileMaterial = Top.GetComponent<Renderer>().materials[1];
-        _tileMaterial.SetColor("_Color", BaseColor);        
+        if (!UnbuildableShadingOn){
+            _tileMaterial.SetColor("_Color", BaseColor);        
+        } else {
+            _tileMaterial.SetColor("_Color", UnbuildableColor);        
+        }
     }
 
     public void SetHoverColor()
@@ -51,6 +57,10 @@ public class Tile : MonoBehaviour
 
     public void SetBaseColor()
     {
-        _tileMaterial.SetColor("_Color", BaseColor);
+        if (!UnbuildableShadingOn){
+            _tileMaterial.SetColor("_Color", BaseColor);
+        } else {
+            _tileMaterial.SetColor("_Color", UnbuildableColor);        
+        }
     }
 }
