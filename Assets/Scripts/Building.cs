@@ -37,4 +37,8 @@ public class Building : MonoBehaviour
     {
         setColorPickedUp();
     }
+
+    private void Update() {
+        transform.position = TileUnder.transform.position + SpawnHeight*transform.up;
+    }
 }

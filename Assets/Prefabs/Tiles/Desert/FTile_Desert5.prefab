@@ -5495,13 +5495,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.8679245, g: 0.7555883, b: 0, a: 1}
   HoverColor: {r: 0.57254905, g: 1, b: 0, a: 1}
+  UnbuildableColor: {r: 0.41509432, g: 0.39437577, b: 0.06852971, a: 0}
   Leaves: {fileID: 7454440863956488646}
   Hovered: 0
   EnvOccupied: 0
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 211906812940295569}
   windTile: 0
-  AddToTileManagerOnAwake: 0
+  AddToTileManagerOnAwake: 1
+  UnbuildableShading: 0
 --- !u!114 &8408527494030834370
 MonoBehaviour:
   m_ObjectHideFlags: 0
