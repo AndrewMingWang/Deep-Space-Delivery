@@ -12,6 +12,7 @@ public class LevelSelectUI : BaseUI
     public static readonly string PLAYER_PREFS_HIGH_SCORE_BASE = "Score";
 
     public LevelSelectButton[] LevelSelectButtons = new LevelSelectButton[LEVELS_PER_WORLD + 1];
+    public LevelSelectScore[] LevelSelectScores = new LevelSelectScore[LEVELS_PER_WORLD];
 
     [Header("References")]
     public TMP_Text WorldTitle;
@@ -124,13 +125,17 @@ public class LevelSelectUI : BaseUI
             if (baseLevel + i < highestLevelUnlocked)
             {
                 int score = PlayerPrefs.GetInt(LevelSelectUI.PLAYER_PREFS_HIGH_SCORE_BASE + (baseLevel + i), 0);
+                print(i.ToString() + " " + score.ToString());
                 LevelSelectButtons[i].SetScore(score);
+                LevelSelectScores[i].SetScore(score);
             } else if (baseLevel + i == highestLevelUnlocked)
             {
                 LevelSelectButtons[i].SetUnlocked();
+                LevelSelectScores[i].SetScore(0);
             } else
             {
                 LevelSelectButtons[i].SetLocked();
+                LevelSelectScores[i].SetScore(-1);
             }
         }
 
