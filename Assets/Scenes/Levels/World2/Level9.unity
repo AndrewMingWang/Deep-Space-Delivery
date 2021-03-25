@@ -445,12 +445,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1880279874}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1880279874}
 --- !u!114 &18998936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,12 +838,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1234849549}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1234849549}
 --- !u!114 &41031144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2087,12 +2095,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 1
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1178201424}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1178201424}
 --- !u!114 &106721411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2338,12 +2350,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1297466221}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1297466221}
 --- !u!114 &144842487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2589,12 +2605,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 1
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1318996769}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1318996769}
 --- !u!114 &164880463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2730,12 +2750,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 19652817}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 19652817}
 --- !u!114 &180021117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3285,12 +3309,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 1
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1687866683}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1687866683}
 --- !u!114 &230087393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4060,12 +4088,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 383941147}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 383941147}
 --- !u!114 &275679316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5850,12 +5882,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 1
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1885033395}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1885033395}
 --- !u!114 &386911003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6381,12 +6417,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 1092006415}
-  Top: {fileID: 252147709}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 1092006415}
+  Top: {fileID: 252147709}
 --- !u!114 &412034982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6553,12 +6593,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 308064904}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 308064904}
 --- !u!114 &417174446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6756,12 +6800,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 304381431}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 304381431}
 --- !u!114 &424920087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7007,12 +7055,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1664666518}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1664666518}
 --- !u!114 &437407109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7258,12 +7310,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 1092006415}
-  Top: {fileID: 1471138570}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 1092006415}
+  Top: {fileID: 1471138570}
 --- !u!114 &460000216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7969,12 +8025,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 48666286}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 48666286}
 --- !u!114 &528549746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8429,12 +8489,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 487904196}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 487904196}
 --- !u!114 &551234866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9036,12 +9100,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 1
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1462872824}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1462872824}
 --- !u!114 &600114438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9336,12 +9404,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1680320934}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1680320934}
 --- !u!114 &624093541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9865,12 +9937,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 308057150}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 308057150}
 --- !u!114 &681740501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10006,12 +10082,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1635523297}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1635523297}
 --- !u!114 &681794718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10226,12 +10306,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1029765955}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1029765955}
 --- !u!114 &693664656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10367,12 +10451,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1305828394}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1305828394}
 --- !u!114 &695074980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10508,12 +10596,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 334088827}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 334088827}
 --- !u!114 &699737017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10984,12 +11076,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 936424724}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 936424724}
 --- !u!114 &741458272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11156,12 +11252,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 2092685181}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 2092685181}
 --- !u!114 &751726705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11390,12 +11490,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1821711401}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1821711401}
 --- !u!114 &765981785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11531,12 +11635,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 306982446}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 306982446}
 --- !u!114 &771430286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11672,12 +11780,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1391298378}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1391298378}
 --- !u!114 &777240510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11892,12 +12004,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 1
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1770552339}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1770552339}
 --- !u!114 &788550656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12382,12 +12498,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1592913562}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1592913562}
 --- !u!114 &819328658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13150,12 +13270,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1270762063}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1270762063}
 --- !u!114 &876929767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13654,12 +13778,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 2015529969}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 2015529969}
 --- !u!114 &912503750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15883,12 +16011,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 377418309}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 377418309}
 --- !u!114 &1123477537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16853,12 +16985,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 80788444}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 80788444}
 --- !u!114 &1191627904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16994,12 +17130,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 7159854053871087332}
-  Top: {fileID: 69995175}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 7159854053871087332}
+  Top: {fileID: 69995175}
 --- !u!114 &1194388668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17245,12 +17385,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 286346447}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 286346447}
 --- !u!114 &1228010230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18757,12 +18901,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 300377208}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 300377208}
 --- !u!114 &1322781043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19056,12 +19204,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 2072879110}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 2072879110}
 --- !u!114 &1346686931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19859,12 +20011,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1845205832}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1845205832}
 --- !u!114 &1388232489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20093,12 +20249,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 1
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1744387574}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1744387574}
 --- !u!114 &1392806894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20265,12 +20425,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 599627866}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 599627866}
 --- !u!114 &1398281673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20516,12 +20680,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1758783681}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1758783681}
 --- !u!114 &1409298554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21312,12 +21480,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 376008944}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 376008944}
 --- !u!114 &1473866871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21713,6 +21885,7 @@ MonoBehaviour:
   Spawn: {fileID: 1092006415}
   ResultsPanel: {fileID: 299269315}
   ActionsPanel: {fileID: 598711788}
+  ControlsPanel: {fileID: 0}
   MenuPanel: {fileID: 1599691087}
   ResultsText: {fileID: 74512958}
   CurrState: 0
@@ -22868,12 +23041,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 1
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1173655000}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1173655000}
 --- !u!114 &1631788343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23164,12 +23341,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1360929479}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1360929479}
 --- !u!114 &1650708158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23384,12 +23565,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 964581650}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 964581650}
 --- !u!114 &1651523307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23778,12 +23963,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 18142029}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 18142029}
 --- !u!114 &1674950461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24246,12 +24435,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 39621802}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 39621802}
 --- !u!114 &1716784960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25010,12 +25203,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 271913293}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 271913293}
 --- !u!114 &1783758003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25416,12 +25613,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 1
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1354150938}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1354150938}
 --- !u!114 &1834566952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26081,12 +26282,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 681085908}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 681085908}
 --- !u!114 &1856920565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26656,12 +26861,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1273437833}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1273437833}
 --- !u!114 &1893006334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27173,12 +27382,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 1
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 765937703}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 765937703}
 --- !u!114 &1926248348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28173,12 +28386,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 243928877}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 243928877}
 --- !u!114 &2038541966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28314,12 +28531,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1570430574}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1570430574}
 --- !u!114 &2039281739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28597,12 +28818,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 54928882}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 54928882}
 --- !u!114 &2064892791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29065,12 +29290,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 0.12408519, g: 0.46226418, b: 0, a: 1}
   HoverColor: {r: 1, g: 0.9990684, b: 0, a: 0}
+  UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
+  Leaves: {fileID: 0}
   Hovered: 0
   EnvOccupied: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1122625135}
+  UnbuildableShadingOn: 0
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1122625135}
 --- !u!114 &2085594316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30348,7 +30577,7 @@ PrefabInstance:
     - target: {fileID: 7375395166274729888, guid: d5a2279f1abbc454d93f8d42c41a9c5b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7375395166274729888, guid: d5a2279f1abbc454d93f8d42c41a9c5b,
         type: 3}
