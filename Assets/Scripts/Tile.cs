@@ -19,6 +19,8 @@ public class Tile : MonoBehaviour
     public bool Hovered = false;
 
     public bool EnvOccupied = false;
+    public bool UnbuildableShadingOn = false;
+
     public GameObject OccupyingBuilding = null;
 
     private Material _tileMaterial;
@@ -26,7 +28,6 @@ public class Tile : MonoBehaviour
     public GameObject Top;
     public bool windTile = false;
     public bool AddToTileManagerOnAwake = true;
-    public bool UnbuildableShadingOn = false;
 
     public Tile(Color basecol, Color hovercol, GameObject top){
 
