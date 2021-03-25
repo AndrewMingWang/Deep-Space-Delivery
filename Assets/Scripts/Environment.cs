@@ -17,9 +17,9 @@ public class Environment : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("player"))
         {
-            Vector3 dir = collision.gameObject.GetComponent<UnitMovement>().TargetDirection;
+            Vector3 dir = collision.gameObject.GetComponent<Dog>().TargetDirection;
             collision.gameObject.GetComponent<Rigidbody>().AddForce(BUMP_BACK_FORCE * dir + BUMP_UP_FORCE * collision.transform.up, ForceMode.VelocityChange);
-            collision.gameObject.GetComponent<UnitMovement>().Animator.SetTrigger("bump");
+            collision.gameObject.GetComponent<Dog>().Animator.SetTrigger("bump");
 
             // Sound Effect
             GetComponent<AudioSource>().Play();

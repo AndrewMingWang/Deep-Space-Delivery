@@ -21,11 +21,11 @@ public class ArrowTrigger : MonoBehaviour
                 Seen.Add(other.gameObject.GetInstanceID());
 
                 // Set unit movement direction
-                other.gameObject.GetComponent<UnitMovement>().TargetDirection = transform.parent.forward;
+                other.gameObject.GetComponent<Dog>().TargetDirection = transform.parent.forward;
 
                 // Stop and Animate unit
-                other.gameObject.GetComponent<UnitMovement>().StopPlayer();
-                other.gameObject.GetComponent<UnitMovement>().Animator.SetTrigger("stop");
+                other.gameObject.GetComponent<Dog>().StopPlayer();
+                other.gameObject.GetComponent<Dog>().Animator.SetTrigger("stop");
 
                 // SFX
                 GetComponent<AudioSource>().pitch = Random.Range(0.99f, 1.01f);

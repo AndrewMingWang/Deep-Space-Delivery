@@ -153,7 +153,7 @@ public class EnemyAI : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "player"){
             // Debug.Log("yea");
-            other.gameObject.GetComponent<UnitMovement>().LosePlayer();
+            other.gameObject.GetComponent<Dog>().LosePlayer();
         }
         if (other.gameObject.tag == "enemy"){
             currState = State.collisionAnimation;

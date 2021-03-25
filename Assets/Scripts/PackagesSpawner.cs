@@ -102,8 +102,8 @@ public class PackagesSpawner : MonoBehaviour
         {
             other.gameObject.GetComponent<Animator>().SetTrigger("pickup");
 
-            UnitMovement unit = other.gameObject.GetComponent<UnitMovement>();
-            if (!unit.PackageShown)
+            Dog unit = other.gameObject.GetComponent<Dog>();
+            if (unit.PackagesShown == 0)
             {
                 StartCoroutine(PickupPackage(unit));
                 
@@ -111,10 +111,10 @@ public class PackagesSpawner : MonoBehaviour
         }
     }
 
-    private IEnumerator PickupPackage(UnitMovement unit)
+    private IEnumerator PickupPackage(Dog unit)
     {
         yield return new WaitForSecondsRealtime(0.15f);
-        unit.ShowPackage();
+        unit.ShowNPackages();
         if (_spawnedPackagesIdx <= SpawnedPackages.Count - 1)
         {
             SpawnedPackages[_spawnedPackagesIdx].gameObject.SetActive(false);

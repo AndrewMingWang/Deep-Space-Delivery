@@ -131,6 +131,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4913571262947583434}
     m_Modifications:
+    - target: {fileID: 6476583559165036459, guid: a14f160c4fe9cb249bae93fd862f71bd,
+        type: 3}
+      propertyPath: EnemyTile
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8864139252044828007, guid: a14f160c4fe9cb249bae93fd862f71bd,
         type: 3}
       propertyPath: m_RootOrder

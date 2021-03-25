@@ -32,7 +32,7 @@ public class TrampolineTrigger : MonoBehaviour
                 other.gameObject.GetComponent<Rigidbody>().AddRelativeForce(jumpDirection);
 
                 // Animate unit
-                other.GetComponent<UnitMovement>().Animator.SetTrigger("jump");
+                other.GetComponent<Dog>().Animator.SetTrigger("jump");
 
                 // Animate trampoline
                 GetComponent<Animator>().SetTrigger("bounce");

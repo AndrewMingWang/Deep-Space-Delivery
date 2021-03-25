@@ -144,7 +144,7 @@ public class GoalTrigger : MonoBehaviour
         {
             GetComponent<AudioSource>().pitch = Random.Range(0.99f, 1.01f);
             GetComponent<AudioSource>().Play();
-            packagesDelivered += 1;
+            packagesDelivered += other.GetComponent<Dog>().NumPackages;
             other.gameObject.SetActive(false);
             Instantiate(GoalEffectPrefab, transform.position, Quaternion.Euler(270.0f, 0.0f, 0.0f));
         }

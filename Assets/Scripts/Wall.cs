@@ -30,11 +30,11 @@ public class Wall : Building
                 Seen.Add(other.gameObject.GetInstanceID());
 
                 // Bump unit backwards and up
-                Vector3 dir = other.gameObject.GetComponent<UnitMovement>().TargetDirection;
+                Vector3 dir = other.gameObject.GetComponent<Dog>().TargetDirection;
                 other.gameObject.GetComponent<Rigidbody>().AddForce(-BumpBackForce * dir + BumpUpForce * other.transform.up, ForceMode.VelocityChange);
 
                 // Animate
-                other.gameObject.GetComponent<UnitMovement>().Animator.SetTrigger("bump");
+                other.gameObject.GetComponent<Dog>().Animator.SetTrigger("bump");
 
                 // Sound Effect
                 GetComponent<AudioSource>().Play();

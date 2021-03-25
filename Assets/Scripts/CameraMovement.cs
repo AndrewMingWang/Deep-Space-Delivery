@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class CameraMovement : MonoBehaviour
 {
+    public CameraMovement Instance;
+
     [Header("Sensitivity")]
     public float RotateSensitivity = 0.05f;
     public float ZoomSensitivity = 0.05f;
@@ -34,6 +36,15 @@ public class CameraMovement : MonoBehaviour
     public bool allowPan = true;
     public bool allowZoom = true;
     public bool allowRotation = true;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(Instance);
+        }
+        Instance = this;
+    }
 
     void Start()
     {
