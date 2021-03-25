@@ -11382,6 +11382,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingButtonPanel (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8726973956857044650, guid: 5a4ae3e5c61d3ac4bbb1eafa5f9025f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8726973956857044651, guid: 5a4ae3e5c61d3ac4bbb1eafa5f9025f3,
         type: 3}
       propertyPath: m_Pivot.x
