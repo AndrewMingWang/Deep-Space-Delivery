@@ -24,6 +24,7 @@ public class GameStateManager : MonoBehaviour
     public GameObject Spawn;
     public GameObject ResultsPanel;
     public GameObject ActionsPanel;
+    public GameObject ControlsPanel;
     public GameObject MenuPanel;
     private SpawnPlayers _spawnscript;
     public TMP_Text ResultsText;
@@ -51,6 +52,7 @@ public class GameStateManager : MonoBehaviour
         _allChildrenTransformsPositions = new List<Vector3>();
         _spawnscript = Spawn.GetComponent<SpawnPlayers>();
         // _resetButton.interactable = false;
+        ControlsPanel = GameObject.Find("Controls");
     }
 
     // Update is called once per frame
@@ -157,6 +159,8 @@ public class GameStateManager : MonoBehaviour
             ActionsPanel.SetActive(true);
             MenuPanel.SetActive(true);
             BuildingPanel.SetActive(true);
+            ControlsPanel.SetActive(true);
+            ControlsPanel.GetComponent<Animator>().SetBool("show", false);
         }
         
         // ResultsPanel.GetComponent<Animator>().SetBool("closed", false);

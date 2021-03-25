@@ -21,6 +21,7 @@ public class GoalTrigger : MonoBehaviour
     public GameObject ResultsPanel;
     public GameObject MenuPanel;
     public GameObject ActionsPanel;
+    public GameObject ControlsPanel;
     public GameObject GoalEffectPrefab;
     public ResultsPanelTypeEffect ResultsPanelTypeEffect;
 
@@ -40,6 +41,7 @@ public class GoalTrigger : MonoBehaviour
     {
         AudioManager.EnrollSFXSource(GetComponent<AudioSource>());
         optimalRemainingBudget = MoneyManager.Instance.OptimalRemaining;
+        ControlsPanel = GameObject.Find("Controls");
     }
 
 
@@ -65,6 +67,7 @@ public class GoalTrigger : MonoBehaviour
         // TODO: Make this an animation
         MenuPanel.SetActive(false);
         ActionsPanel.SetActive(false);
+        ControlsPanel.SetActive(false);
 
         int remainingBudget = MoneyManager.Instance.GetRemainingMoney();
         float percentPackagesDelivered = (float) packagesDelivered / NumPackages * 100f;
