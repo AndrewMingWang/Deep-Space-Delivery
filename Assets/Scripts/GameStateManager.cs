@@ -69,9 +69,9 @@ public class GameStateManager : MonoBehaviour
 
                 // SAVING USERBUILDING TRANSFORMS
                 _allChildrenTransformsPositions.Clear();
-                foreach (Transform child in UserBuildings.transform)
+                foreach (Building building in BuildManager.Instance.ExistingBuildings)
                 {
-                    _allChildrenTransformsPositions.Add(child.localPosition);
+                    _allChildrenTransformsPositions.Add(building.transform.localPosition);
                 }
              
                 PlayButtonIcon.sprite = playButtonPause;
@@ -103,8 +103,10 @@ public class GameStateManager : MonoBehaviour
         Time.timeScale = 1.0f;
         switch (CurrState){
             case State.Plan:
-                foreach (Transform child in UserBuildings.transform)
+                List<GameObject> cleanup = new List<GameObject>();
+                foreach (Building building in BuildManager.Instance.ExistingBuildings)
                 {
+                    Transform child = building.transform;
                     string childName = child.gameObject.name.Split('(')[0].ToLower();
                     if (childName.Contains("wall"))
                     {
@@ -112,8 +114,16 @@ public class GameStateManager : MonoBehaviour
                     }
                     MoneyManager.Instance.RefundItem(childName);
 
-                    Destroy(child.gameObject);
+                    cleanup.Add(building.gameObject);
                 }
+
+                // Cleanup memory
+                BuildManager.Instance.ExistingBuildings.Clear();
+                foreach (GameObject g in cleanup)
+                {
+                    Destroy(g);
+                }
+
                 PackagesSpawner.Instance.ResetAllPackages();
                 ResultsText.text = "";
                 break;
@@ -121,13 +131,15 @@ public class GameStateManager : MonoBehaviour
                 StopCoroutine(_spawner);
                 CurrState = State.Plan;
                 int i = 0;
-                foreach (Transform child in UserBuildings.transform){
-                    child.localPosition = _allChildrenTransformsPositions[i];
-                    // TODO: Remove this hack
-                    child.gameObject.SetActive(true);
-                    child.GetComponent<Building>().Reset();
+                foreach (Building building in BuildManager.Instance.ExistingBuildings)
+                {
+                    building.transform.localPosition = _allChildrenTransformsPositions[i];
+                    building.gameObject.SetActive(true);
+                    building.Reset();
                     i++;
                 }
+
+
                 foreach (Transform child in HitchhikerManager.transform){
                     // Destroy(child.gameObject);
                     child.gameObject.SetActive(false);

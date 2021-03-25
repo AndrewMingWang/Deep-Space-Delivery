@@ -30,7 +30,8 @@ public class BuildManager : MonoBehaviour
     }
     public BuildPrefab[] BuildPrefabsList;
     public Dictionary<string, GameObject> BuildingPrefabs = new Dictionary<string, GameObject>();
-
+    public List<Building> ExistingBuildings;
+     
     [Header("SFX")]
     public AudioClip SpawnBuilding;
     public AudioClip DespawnBuilding;
@@ -91,6 +92,9 @@ public class BuildManager : MonoBehaviour
             // Set current building
             CurrBuilding = newBuilding;
 
+            // Add to constructed buildings
+            ExistingBuildings.Add(CurrBuilding);
+
             // SFX
             audioSource.PlayOneShot(SpawnBuilding);
         }
@@ -141,6 +145,7 @@ public class BuildManager : MonoBehaviour
                             CurrBuilding.TileUnder.OccupyingBuilding = CurrBuilding.gameObject;
                             TileManager.Instance.SetTileOccupied(CurrBuilding.TileUnder);
                             CurrBuilding.PlaceBuilding();
+                            CurrBuilding.transform.parent = CurrBuilding.TileUnder.transform;
 
                             // SFX
                             audioSource.PlayOneShot(PlaceBuilding);
@@ -262,8 +267,11 @@ public class BuildManager : MonoBehaviour
         {
             MoneyManager.Instance.RefundItem(CurrBuilding.BuildingName);
             TileManager.Instance.UnhoverAllTiles();
+            ExistingBuildings.Remove(CurrBuilding);
             Destroy(CurrBuilding.gameObject);
             CurrBuilding = null;
+
+
 
             audioSource.PlayOneShot(DespawnBuilding);
         }

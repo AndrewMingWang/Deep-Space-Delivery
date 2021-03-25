@@ -68,6 +68,7 @@ public class Wall : Building
             Building buildingAbove = buildingAboveGO.GetComponent<Building>();
             buildingAbove.transform.position = TileUnder.transform.position + buildingAbove.SpawnHeight * buildingAbove.transform.up;
 
+            buildingAboveGO.transform.parent = TileUnder.transform;
             buildingAbove.TileUnder = TileUnder;
             TileUnder.OccupyingBuilding = TileAbove.OccupyingBuilding;
             TileManager.Instance.SetTileOccupied(TileUnder);
@@ -88,6 +89,7 @@ public class Wall : Building
             GameObject buildingAboveGO = wall.TileAbove.OccupyingBuilding;
             if (buildingAboveGO != null)
             {
+                buildingAboveGO.transform.parent = wall.TileAbove.transform;
                 Building buildingAbove = buildingAboveGO.GetComponent<Building>();
                 buildingAbove.transform.position = wall.TileAbove.transform.position + buildingAbove.SpawnHeight * buildingAbove.transform.up;
 
