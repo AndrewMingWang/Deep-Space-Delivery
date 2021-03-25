@@ -14,7 +14,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (Type.ToLower().Equals("trampoline"))
         {
-            Description = "launches units forward and upwards";
+            Description = "launches units forwards and upwards";
         }
     }
 
