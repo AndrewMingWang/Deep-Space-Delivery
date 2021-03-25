@@ -39,6 +39,11 @@ public class Building : MonoBehaviour
         setColorPickedUp();
     }
 
+    public virtual void Reset()
+    {
+
+    }
+
     // private void Update() {
     //     if (TileUnder != null && _updateTime == 5){
     //         transform.position = TileUnder.transform.position + SpawnHeight*transform.up;

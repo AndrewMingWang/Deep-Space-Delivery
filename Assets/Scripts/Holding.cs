@@ -6,93 +6,153 @@ using TMPro;
 public class Holding : Building
 {
     // How much does a player entering the hitbox change the scale?
-    public const float EntryScaleDelta = 0.05f;
-    public const float MinYScale = 0.1f;
+    float _ScaleDelta;
+    float _MaxYScale;
+    Dog _primeDog = null;
+    bool _finishedHolding = false;
+    List<GameObject> _seen = new List<GameObject>();
 
-    public int ThresholdNumHeldPlayers = 4;
+    [Header("Threshold")]
+    public int ThresholdDogCount = 4;
+    public int DogCount = 0;
+    public int MaxThreshold = 9;
+    public float MinYScale;
 
-    public List<GameObject> HeldPlayers = new List<GameObject>();
-
+    [Header("Appearance")]
     public TMP_Text ThresholdText;
+    public List<GameObject> Pillars;
 
-    public bool stopped = false;
+    private void Start()
+    {
+        _MaxYScale = Pillars[0].transform.localScale.y;
+        _ScaleDelta = (_MaxYScale - MinYScale) / ThresholdDogCount;
+        ThresholdText.text = "0/" + ThresholdDogCount.ToString();
+
+        foreach (GameObject pillar in Pillars)
+        {
+            pillar.GetComponent<MeshRenderer>().material.SetColor("_Color", SelectedColor);
+        }
+    }
 
     public void IncrementThreshold()
     {
-        ThresholdNumHeldPlayers += 1;
-
-        Vector3 currScale = transform.localScale;
-        transform.localScale = new Vector3(currScale.x, EntryScaleDelta * ThresholdNumHeldPlayers + MinYScale, currScale.z);
-        Vector3 currPosition = transform.localPosition;
-        transform.localPosition = new Vector3(currPosition.x, currPosition.y - currScale.y / 2 + transform.localScale.y / 2, currPosition.z);
-
-        ThresholdText.text = HeldPlayers.Count.ToString() + "/" + ThresholdNumHeldPlayers.ToString();
+        if (ThresholdDogCount == MaxThreshold)
+        {
+            return;
+        }
+        ThresholdDogCount += 1;
+        ThresholdText.text = "0/" + ThresholdDogCount.ToString();
+        _ScaleDelta = (_MaxYScale - MinYScale) / ThresholdDogCount;
     }
 
     public void DecrementThreshold()
     {
-        if (ThresholdNumHeldPlayers == 1)
+        if (ThresholdDogCount == 1)
         {
             return;
         }
-        ThresholdNumHeldPlayers -= 1;
-
-        Vector3 currScale = transform.localScale;
-        transform.localScale = new Vector3(currScale.x, EntryScaleDelta * ThresholdNumHeldPlayers + MinYScale, currScale.z);
-        Vector3 currPosition = transform.localPosition;
-        transform.localPosition = new Vector3(currPosition.x, currPosition.y - currScale.y / 2 + transform.localScale.y / 2, currPosition.z);
-
-        ThresholdText.text = HeldPlayers.Count.ToString() + "/" + ThresholdNumHeldPlayers.ToString();
+        ThresholdDogCount -= 1;
+        ThresholdText.text = "0/" + ThresholdDogCount.ToString();
+        _ScaleDelta = (_MaxYScale - MinYScale) / ThresholdDogCount;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void TriggerEntered(Collider other)
     {
-        if (!stopped)
+        if (!_finishedHolding)
         {
             // Debug.Log("enter");
-            if (other.CompareTag("player"))
+            if (other.CompareTag("player") && !_seen.Contains(other.gameObject))
             {
-                other.gameObject.GetComponent<Dog>().UnitSpeed = 0.2f;
-                HeldPlayers.Add(other.gameObject);
+                _seen.Add(other.gameObject);
+                DogCount += 1;
 
-                Vector3 currScale = transform.localScale;
-                transform.localScale = Vector3.Max(currScale - new Vector3(0, EntryScaleDelta, 0), Vector3.zero);
-                Vector3 currPosition = transform.localPosition;
-                transform.localPosition = new Vector3(currPosition.x, currPosition.y - currScale.y / 2 + transform.localScale.y / 2, currPosition.z);
-
-                ThresholdText.text = HeldPlayers.Count.ToString() + "/" + ThresholdNumHeldPlayers.ToString();
-            }
-            if (HeldPlayers.Count == ThresholdNumHeldPlayers)
-            {
-                stopped = true;
-                // Debug.Log("stopped");
-                foreach (GameObject player in HeldPlayers)
+                foreach (GameObject pillar in Pillars)
                 {
-                    player.GetComponent<Dog>().UnitSpeed = 2f;
+                    pillar.transform.localScale -= _ScaleDelta * transform.up;
+                    pillar.transform.localPosition = new Vector3(
+                        pillar.transform.localPosition.x,
+                        pillar.transform.localScale.y / 2,
+                        pillar.transform.localPosition.z);
                 }
-                HeldPlayers.Clear();
-                gameObject.SetActive(false);
+
+                ThresholdText.text = DogCount.ToString() + "/" + ThresholdDogCount.ToString();
+
+                Dog dog = other.GetComponent<Dog>();
+
+                if (_primeDog == null)
+                {
+                    _primeDog = dog;
+                    _primeDog.StopPlayer();
+                    _primeDog.Animator.SetBool("idle", true);
+                }
+                else
+                {
+                    _primeDog.SetNumPackages(_primeDog.NumPackages + 1);
+
+                    // TODO: Replace this with some animation
+                    dog.gameObject.SetActive(false);
+                }
+            }
+            if (DogCount == ThresholdDogCount)
+            {
+                _finishedHolding = true;
+
+                _primeDog.Animator.SetBool("idle", false);
+                _primeDog.UnstopPlayer();
+
+                _seen.Clear();
             }
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public override void Awake()
     {
-        if (!stopped)
+    }
+
+    public override void setColorPickedUp()
+    {
+        foreach (GameObject pillar in Pillars)
         {
-            // Debug.Log("exit");
-            if (other.CompareTag("player"))
-            {
-                other.gameObject.GetComponent<Dog>().UnitSpeed = 2f;
-                HeldPlayers.Remove(other.gameObject);
+            pillar.GetComponent<MeshRenderer>().material.SetColor("_Color", SelectedColor);
+        }
+    }
 
-                Vector3 currScale = transform.localScale;
-                transform.localScale = currScale + new Vector3(0, EntryScaleDelta, 0);
-                Vector3 currPosition = transform.localPosition;
-                transform.localPosition = new Vector3(currPosition.x, currPosition.y - currScale.y / 2 + transform.localScale.y / 2, currPosition.z);
+    public override void setColorPlaced()
+    {
+        foreach (GameObject pillar in Pillars)
+        {
+            pillar.GetComponent<MeshRenderer>().material.SetColor("_Color", PlacedColor);
+        }
+    }
 
-                ThresholdText.text = HeldPlayers.Count.ToString() + "/" + ThresholdNumHeldPlayers.ToString();
-            }
+    public override void PlaceBuilding()
+    {
+        setColorPlaced();
+    }
+
+    public override void PickUpBuilding()
+    {
+        setColorPickedUp();
+    }
+
+    public override void Reset()
+    {
+        base.Reset();
+        _finishedHolding = false;
+        _primeDog = null;
+        DogCount = 0;
+        ThresholdText.text = "0/" + ThresholdDogCount.ToString();
+
+        foreach (GameObject pillar in Pillars)
+        {
+            pillar.transform.localScale = new Vector3(
+                pillar.transform.localScale.x,
+                _MaxYScale,
+                pillar.transform.localScale.z);
+            pillar.transform.localPosition = new Vector3(
+                pillar.transform.localPosition.x,
+                pillar.transform.localScale.y / 2,
+                pillar.transform.localPosition.z);
         }
     }
 }

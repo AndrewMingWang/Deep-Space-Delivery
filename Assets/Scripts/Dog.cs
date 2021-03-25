@@ -43,23 +43,33 @@ public class Dog : MonoBehaviour
     public void SetNumPackages(int n)
     {
         NumPackages = n;
-        ShowNPackages(n);
+        ShowNPackagesAndText(n);
     }
 
-    public void ShowNPackages(int n = 1)
+    public void ShowNPackagesAndText(int n = 1)
     {
-        PackagesText.text = n.ToString();
+        // Activate pacakge gameobjects
         for (int i = 0; i < Packages.Count; i++)
         {
             if (i < n)
             {
-                Packages[i].SetActive(true);
+                Packages[i].SetActive(true); 
             } else
             {
                 Packages[i].SetActive(false);
             }
         }
+
+        // Set text
         PackagesShown = n;
+        PackagesText.text = n.ToString();
+        if (n <= 1)
+        {
+            PackagesTextPanel.SetActive(false);
+        } else
+        {
+            PackagesTextPanel.SetActive(true);
+        }
     }
 
     public void ShowAllPackages()

@@ -114,7 +114,7 @@ public class PackagesSpawner : MonoBehaviour
     private IEnumerator PickupPackage(Dog unit)
     {
         yield return new WaitForSecondsRealtime(0.15f);
-        unit.ShowNPackages();
+        unit.ShowNPackagesAndText();
         if (_spawnedPackagesIdx <= SpawnedPackages.Count - 1)
         {
             SpawnedPackages[_spawnedPackagesIdx].gameObject.SetActive(false);
