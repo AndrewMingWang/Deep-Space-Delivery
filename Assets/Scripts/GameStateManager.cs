@@ -125,11 +125,7 @@ public class GameStateManager : MonoBehaviour
                     child.localPosition = _allChildrenTransformsPositions[i];
                     // TODO: Remove this hack
                     child.gameObject.SetActive(true);
-                    if (child.GetComponent<Holding>() != null)
-                    {
-                        child.GetComponent<Holding>().stopped = false;
-                        child.GetComponent<Holding>().ThresholdText.text = "0/" + child.GetComponent<Holding>().ThresholdNumHeldPlayers.ToString();
-                    }
+                    child.GetComponent<Building>().Reset();
                     i++;
                 }
                 foreach (Transform child in HitchhikerManager.transform){

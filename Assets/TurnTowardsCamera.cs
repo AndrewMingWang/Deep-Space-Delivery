@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DogNumberIndicator : MonoBehaviour
+public class TurnTowardsCamera : MonoBehaviour
 {
     private void FixedUpdate()
     {
