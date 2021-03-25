@@ -52,10 +52,10 @@ MonoBehaviour:
   MusicFiles:
   - name: menu
     clip: {fileID: 8300000, guid: e15010a032f77a843bf6094714f11a44, type: 3}
-    volume: 0.1
+    volume: 0.05
     source: {fileID: 0}
   - name: world1
-    clip: {fileID: 8300000, guid: a445762999bd5c14e8087098c317c2c2, type: 3}
+    clip: {fileID: 8300000, guid: 3614b8412283ab64691483a60ef173cb, type: 3}
     volume: 0.1
     source: {fileID: 0}
   - name: world2
@@ -73,7 +73,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: winlevel
     clip: {fileID: 8300000, guid: 67bede34f863464409aa57e1329e97f0, type: 3}
-    volume: 1
+    volume: 0.5
     source: {fileID: 0}
   - name: loselevel
     clip: {fileID: 8300000, guid: ae44df55cfeca9a4188e648b76fd4db9, type: 3}
@@ -93,9 +93,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: unable
     clip: {fileID: 8300000, guid: 52cabbd550a765241b30d66faa89a850, type: 3}
-    volume: 0.5
+    volume: 0.15
     source: {fileID: 0}
   - name: enterlevel
     clip: {fileID: 8300000, guid: d306a70c44b3f4340b87a867e760dcbc, type: 3}
     volume: 0.5
+    source: {fileID: 0}
+  - name: spend
+    clip: {fileID: 8300000, guid: 58b1df5c4885f9c4c945325321909b0f, type: 3}
+    volume: 0.2
     source: {fileID: 0}

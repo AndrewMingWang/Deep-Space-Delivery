@@ -103,6 +103,7 @@ public class MoneyManager : MonoBehaviour
             _moneySpent += item.price;
             item.quantity -= 1;
             ItemUis[itemId].Button.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = "x" + (item.quantity);
+            AudioManager.PlaySFX(AudioManager.UI_SPEND);
         }
         DisplayRemainingMoney();
         BuildManager.Instance.BuildBuilding(item.name);
