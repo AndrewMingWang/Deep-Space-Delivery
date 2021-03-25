@@ -7318,7 +7318,7 @@ MonoBehaviour:
   EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
-  OccupyingBuilding: {fileID: 1092006415}
+  OccupyingBuilding: {fileID: 4748225952366826364}
   Top: {fileID: 1471138570}
 --- !u!114 &460000216
 MonoBehaviour:
@@ -21483,7 +21483,7 @@ MonoBehaviour:
   UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
   Leaves: {fileID: 0}
   Hovered: 0
-  EnvOccupied: 0
+  EnvOccupied: 1
   UnbuildableShadingOn: 0
   EnemyTile: 0
   windTile: 0
@@ -29699,6 +29699,7 @@ MonoBehaviour:
   - name: trampoline
     prefab: {fileID: 5133136652654359411, guid: ea30eeee910d21d47a57d6d2fd068d23,
       type: 3}
+  ExistingBuildings: []
   SpawnBuilding: {fileID: 8300000, guid: 59144fea5c3c29f46859d9acdd6d5ddd, type: 3}
   DespawnBuilding: {fileID: 8300000, guid: 4956264a88d0f084baae46fd530a70a7, type: 3}
   PickupBuilding: {fileID: 8300000, guid: 59144fea5c3c29f46859d9acdd6d5ddd, type: 3}
@@ -30130,6 +30131,12 @@ PrefabInstance:
 --- !u!4 &4748225952366826363 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4748225953367377290, guid: 95e1299649c47574daf845156b618bef,
+    type: 3}
+  m_PrefabInstance: {fileID: 4748225952366826362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4748225952366826364 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4748225953367377301, guid: 95e1299649c47574daf845156b618bef,
     type: 3}
   m_PrefabInstance: {fileID: 4748225952366826362}
   m_PrefabAsset: {fileID: 0}
