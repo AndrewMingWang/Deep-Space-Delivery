@@ -184,6 +184,14 @@ public class LevelSelectUI : BaseUI
                     LoadLevelString("Level3intro");
                 } else if (levelOrderNumber == 4){
                     LoadLevelString("Level4intro");
+                } else if (levelOrderNumber == 15){
+                    LoadLevelString("Level15intro");
+                } else if (levelOrderNumber == 16){
+                    LoadLevelString("Level16intro");
+                } else if (levelOrderNumber == 17){
+                    LoadLevelString("Level17intro");
+                } else if (levelOrderNumber == 19){
+                    LoadLevelString("Level19intro");
                 } else {
                     LoadLevel(levelOrderNumber);
                 }
