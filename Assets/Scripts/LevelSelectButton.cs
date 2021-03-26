@@ -53,9 +53,17 @@ public class LevelSelectButton : MonoBehaviour
         set.x = 0;
         ScoreLevelRT.offsetMax = set;
 
-        Text.color = ClearedTextColor;
-        Screen.color = ClearedScreenColor;
-        Text.font = YellowGlow;
+        if (score == 0)
+        {
+            Text.color = UnlockedTextColor;
+            Screen.color = UnlockedScreenColor;
+            Text.font = Glow;
+        } else
+        {
+            Text.color = ClearedTextColor;
+            Screen.color = ClearedScreenColor;
+            Text.font = YellowGlow;
+        }
     }
 
     public void SetLevelNumber(int num)
