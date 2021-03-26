@@ -24,6 +24,7 @@ public class TutorialStateManager : MonoBehaviour
     public GameObject Controls;
     public Button SignButton;
     public Button ControlsButton;
+    public Animator BuildingFadeIn;
 
     [Header("Type Speed")]
     public float TypeSpeed;
@@ -138,6 +139,7 @@ public class TutorialStateManager : MonoBehaviour
                 BuildManager.Instance.allowBuildingNewBuildings = true;
                 textFlag = true;
                 SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
+                BuildingFadeIn.SetBool("visible", true);
                 currState = State.three_wait;
             }
             break;
@@ -146,6 +148,7 @@ public class TutorialStateManager : MonoBehaviour
                 currState = State.four_text;
                 BuildManager.Instance.allowBuildingNewBuildings = false;
                 SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
+                BuildingFadeIn.SetBool("visible", false);
                 // BuildingPanel.SetActive(false);
                 SignButton.interactable = false;
                 TileManager.Instance.AddUnoccupiedTile(Tile2.GetComponent<Tile>());
@@ -278,7 +281,7 @@ public class TutorialStateManager : MonoBehaviour
                 PlayButton.interactable = true;
                 SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", false);
                 // PlayButton.GetComponent<Animator>().SetTrigger("Normal");
-            }
+                }
             break;
         case State.nine_text:
             // PlayButton.GetComponent<Animator>().SetTrigger("Highlighted");
@@ -376,7 +379,7 @@ public class TutorialStateManager : MonoBehaviour
                 // MoneyManager.Instance.StartingMoney -= 200;
                 MoneyManager.Instance.Items[0].quantity = 1;
                 SignButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
-            }
+                }
             if (!StringUtility.Instance.IsTyping){
                 SignButton.interactable = true;
                 BuildManager.Instance.allowBuildingNewBuildings = true;
