@@ -351,11 +351,14 @@ public class TutorialStateManager : MonoBehaviour
             }
             break;
         case State.eleven_wait:
-            int childcount = 0;
-            foreach (Transform building in buildManager.transform){
-                childcount++;
-            }
-            if (childcount == 0){
+            // int childcount = 0;
+            // foreach (Transform building in buildManager.transform){
+            //     childcount++;
+            // }
+            // if (childcount == 0){
+            //     currState = State.twelve_text;
+            // }
+            if (Tile1.GetComponent<Tile>().OccupyingBuilding == null && Tile2.GetComponent<Tile>().OccupyingBuilding == null && BuildManager.Instance.CurrBuilding == null){
                 currState = State.twelve_text;
             }
             break;
