@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class BaseUI : MonoBehaviour
 {
+    protected const int MIN_WORLD = 1;
+    protected const int MAX_WORLD = 5;
+    protected const int LEVELS_PER_WORLD = 7;
 
     public virtual void Awake()
     {
@@ -32,16 +35,18 @@ public class BaseUI : MonoBehaviour
 
     protected void LoadLevel(int levelNumber)
     {
-        //TODO: Change this from hard coded
-        AudioManager.PlayMusic(AudioManager.MUSIC_WORLD1);
+        int worldNum = Mathf.CeilToInt((float) levelNumber / LEVELS_PER_WORLD);
+        AudioManager.Instance.PlayWorldMusic(worldNum);
+
         GoToScene("Level" + levelNumber);
     }
 
-    protected void LoadLevelString(string sceneName)
+    protected void LoadLevelIntro(int levelNumber)
     {
-        //TODO: Change this from hard coded
-        AudioManager.PlayMusic(AudioManager.MUSIC_WORLD1);
-        GoToScene(sceneName);
+        int worldNum = Mathf.CeilToInt((float)levelNumber / LEVELS_PER_WORLD);
+        AudioManager.Instance.PlayWorldMusic(worldNum);
+
+        GoToScene("Level" + levelNumber + "intro");
     }
 
 }

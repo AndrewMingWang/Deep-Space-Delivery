@@ -5,9 +5,6 @@ using TMPro;
 
 public class LevelSelectUI : BaseUI
 {
-    private const int MIN_WORLD = 1;
-    private const int MAX_WORLD = 5;
-    private const int LEVELS_PER_WORLD = 7;
     public static readonly string PLAYER_PREFS_HIGHEST_LEVEL_UNLOCKED = "Level";
     public static readonly string PLAYER_PREFS_HIGH_SCORE_BASE = "Score";
 
@@ -125,7 +122,7 @@ public class LevelSelectUI : BaseUI
             if (baseLevel + i < highestLevelUnlocked)
             {
                 int score = PlayerPrefs.GetInt(LevelSelectUI.PLAYER_PREFS_HIGH_SCORE_BASE + (baseLevel + i), 0);
-                print(i.ToString() + " " + score.ToString());
+                // print(i.ToString() + " " + score.ToString());
                 LevelSelectButtons[i].SetScore(score);
                 LevelSelectScores[i].SetScore(score);
             } else if (baseLevel + i == highestLevelUnlocked)
@@ -150,13 +147,13 @@ public class LevelSelectUI : BaseUI
     }
 
     // TAKES IN A STRING FORMATED AS "Level3Intro-3" for a scene named "Level3Intro"
-    public void GoToLevelString(string sceneName)
+    /*public void GoToLevelString(string sceneName)
     {
         string[] sceneNameParts = sceneName.Split('-');
         string levelNumberPart = sceneNameParts[1];
         int levelNumber = int.Parse(levelNumberPart);
         StartCoroutine(GoToLevelStringAfterPause(levelNumber, sceneNameParts[0]));
-    }
+    }*/
 
     private IEnumerator GoToLevelAfterPause(int levelNumber)
     {
@@ -178,27 +175,20 @@ public class LevelSelectUI : BaseUI
                 FadeInOut.SetTrigger("out");
                 AudioManager.PlaySFX(AudioManager.UI_ENTER_LEVEL);
                 yield return new WaitForSeconds(2.1f);
-                if (levelOrderNumber == 8){
-                    LoadLevelString("Level8intro");
-                } else if (levelOrderNumber == 3){
-                    LoadLevelString("Level3intro");
-                } else if (levelOrderNumber == 4){
-                    LoadLevelString("Level4intro");
-                } else if (levelOrderNumber == 15){
-                    LoadLevelString("Level15intro");
-                } else if (levelOrderNumber == 16){
-                    LoadLevelString("Level16intro");
-                } else if (levelOrderNumber == 17){
-                    LoadLevelString("Level17intro");
-                } else if (levelOrderNumber == 19){
-                    LoadLevelString("Level19intro");
-                } else {
+
+                HashSet<int> levelsWithIntros = new HashSet<int> {3, 4, 8, 15, 16, 17, 19};
+                if (levelsWithIntros.Contains(levelOrderNumber))
+                {
+                    LoadLevelIntro(levelOrderNumber);
+                } else
+                {
                     LoadLevel(levelOrderNumber);
                 }
             }
         }
     }
 
+    /*
     private IEnumerator GoToLevelStringAfterPause(int levelNumber, string sceneName)
     {
         int levelOrderNumber = (currentWorld - 1) * LEVELS_PER_WORLD + levelNumber;
@@ -206,10 +196,10 @@ public class LevelSelectUI : BaseUI
         {
             FadeInOut.SetTrigger("out");
             yield return new WaitForSeconds(2.1f);
-            LoadLevelString(sceneName);
+            LoadLevelIntro(sceneName);
         }
     }
-
+    */
 
     public void QuitGame()
     {

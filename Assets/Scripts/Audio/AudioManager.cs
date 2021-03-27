@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     public static readonly string MUSIC_MENU = "menu";
     public static readonly string MUSIC_WORLD1 = "world1";
     public static readonly string MUSIC_WORLD2 = "world2";
+    public static readonly string MUSIC_WORLD3 = "world3";
 
     // UI SFX names
     public static readonly string UI_BUTTON_PRESS = "buttonpress";
@@ -277,6 +278,28 @@ public class AudioManager : MonoBehaviour
         foreach (AudioFile audio in SFXFiles)
         {
             audio.GetAudioSource().Stop();
+        }
+    }
+
+    public void PlayWorldMusic(int worldNum)
+    {
+        Debug.Log("Playing music for world: " + worldNum.ToString());
+        switch(worldNum)
+        {
+            case 0:
+                PlayMusic(AudioManager.MUSIC_MENU);
+                break;
+            case 1:
+                PlayMusic(AudioManager.MUSIC_WORLD1);
+                break;
+            case 2:
+                PlayMusic(AudioManager.MUSIC_WORLD2);
+                break;
+            case 3:
+                PlayMusic(AudioManager.MUSIC_WORLD3);
+                break;
+            default:
+                break;
         }
     }
 }
