@@ -12382,7 +12382,7 @@ MonoBehaviour:
     price: 400
     quantity: 1
     unlimited: 0
-    icon: {fileID: 21300000, guid: a0642891e9888334b9be0f378b53199a, type: 3}
+    icon: {fileID: 21300000, guid: aa8ac540fa455db499e43a8d38b2df47, type: 3}
   ItemUis:
   - Panel: {fileID: 591893860}
     Button: {fileID: 513490392}
