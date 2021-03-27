@@ -155,8 +155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -204}
-  m_SizeDelta: {x: 727.2727, y: 409.0909}
+  m_AnchoredPosition: {x: 0, y: -125}
+  m_SizeDelta: {x: 600, y: 420}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &50374520
 MonoBehaviour:
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6b3494896ff0e7146bf63aab325640d4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 376a27db369c00c4383550def722998c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1037,12 +1037,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisplayText: {fileID: 1470705327}
-  Content: Hello, Gideon here.\p\n\nLaura has been called to a meeting with human
-    resources.\p To make matters worse the quadrant of space you are entering has
-    harsh tiles we cannot build upon.\p\p\n\nIn the worst case scenario you can circumvent
-    the aliens by jumping onto the tile atop them.\p Additionally, you can build
-    on those tiles as well.\p However, please exercise extreme caution approaching
-    the aliens, for the sake of the associates.
+  Content: 'Hello, Gideon here.\p\n\nLaura has been called to a meeting with human
+    resources.\p To make matters worse we''ve\nalso detected that this quadrant of
+    space has particular tiles we can''t build on.\p\nYou''ll have to think of some
+    other way to circumvent the Floaters! '
   CharTypeSpeed: 1.5
   DialogueSource: {fileID: 1805033722}
   FadeAnimator: {fileID: 1805033720}
