@@ -11,7 +11,6 @@ public class Dog : MonoBehaviour
 
     [Header("Wind")]
     public float WindSpeed;
-    [HideInInspector]
     public GameObject SceneParent;
 
     [Header("Info")]
@@ -19,13 +18,11 @@ public class Dog : MonoBehaviour
     public bool IsStopped = false;
     public float GroundingEpsilon;
     public int NumPackages = 1;
-    [HideInInspector]
     public Collider Collider;
     public List<GameObject> Packages;
     public int PackagesShown = 0;
 
     [Header("Animation")]
-    [HideInInspector]
     public Animator Animator;
     private bool _groundedLastFrame = false;
     private bool _groundedThisFrame = true;
@@ -34,8 +31,8 @@ public class Dog : MonoBehaviour
     public TMP_Text PackagesText;
     public GameObject PackagesTextPanel;
 
-    [Header("Audio")]
     private AudioSource AudioSource;
+    [Header("Audio")]
     public AudioSource BarkSource;
     public AudioClip Bark1;
     public AudioClip Bark2;

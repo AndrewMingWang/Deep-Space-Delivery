@@ -21,6 +21,7 @@ public class Holding : Building
     [Header("Appearance")]
     public TMP_Text ThresholdText;
     public List<GameObject> Pillars;
+    public ParticleSystem Particles;
 
     private void Start()
     {
@@ -90,19 +91,57 @@ public class Holding : Building
                     _primeDog.SetNumPackages(_primeDog.NumPackages + 1);
 
                     // TODO: Replace this with some animation
-                    dog.gameObject.SetActive(false);
+                    StartCoroutine(SetInactive(dog));
                 }
             }
             if (DogCount == ThresholdDogCount)
             {
                 _finishedHolding = true;
-
                 _primeDog.Animator.SetBool("idle", false);
-                _primeDog.UnstopPlayer();
-
                 _seen.Clear();
+                StartCoroutine(ReleasePrime());
             }
         }
+    }
+
+    private IEnumerator ReleasePrime()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        _primeDog.UnstopPlayer();
+    }
+
+    private IEnumerator SetInactive(Dog dog)
+    {
+        _primeDog.transform.localScale *= 1.05f;
+        dog.gameObject.SetActive(false);
+        Particles.transform.position = dog.transform.position + dog.transform.up * 0.15f;
+        Particles.Play();
+        yield return new WaitForSeconds(0f);
+        /*
+        Rigidbody dogRB = dog.GetComponent<Rigidbody>();
+        dogRB.useGravity = false;
+        dogRB.freezeRotation = false;
+        dogRB.maxAngularVelocity = 300f;
+
+        dog.StopPlayer();
+        dog.SetNumPackages(0);
+        
+        yield return new WaitForSeconds(0.15f);
+        
+        dogRB.AddForce(dog.transform.up * 10, ForceMode.VelocityChange);
+        if (Random.Range(0f, 1f) > 0.5f)
+        {
+            dogRB.AddTorque(new Vector3(0, 8, 0), ForceMode.VelocityChange);
+        } else
+        {
+            dogRB.AddTorque(new Vector3(0, -8, 0), ForceMode.VelocityChange);
+        }
+        
+        dog.Animator.SetTrigger("jumpaway");
+        yield return new WaitForSeconds(3.0f);
+        dog.gameObject.SetActive(false);
+        */
     }
 
     public override void Awake()
