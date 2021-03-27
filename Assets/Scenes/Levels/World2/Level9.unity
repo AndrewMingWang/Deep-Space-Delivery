@@ -2098,7 +2098,7 @@ MonoBehaviour:
   UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
   Leaves: {fileID: 0}
   Hovered: 0
-  EnvOccupied: 1
+  EnvOccupied: 0
   UnbuildableShadingOn: 0
   EnemyTile: 0
   windTile: 0
@@ -20252,7 +20252,7 @@ MonoBehaviour:
   UnbuildableColor: {r: 0, g: 0, b: 0, a: 0}
   Leaves: {fileID: 0}
   Hovered: 0
-  EnvOccupied: 1
+  EnvOccupied: 0
   UnbuildableShadingOn: 0
   EnemyTile: 0
   windTile: 0

@@ -79,6 +79,7 @@ MonoBehaviour:
   DoneLanding: 0
   NumLanded: 0
   SpawnedPackages: []
+  LevelEntryScene: {fileID: 0}
   SpawnPoint: {fileID: 4748225952288109256}
   PackagePrefab: {fileID: 6664073691469426811, guid: 3beac359e5cb6f54188fa39b77ad1e01,
     type: 3}
@@ -86,7 +87,7 @@ MonoBehaviour:
   PushForce: 6
   SecondsBetweenSpawn: 0.05
   MaxSpawnPosOffset: {x: 0.5, y: 0.5, z: 0.5}
-  MaxTargetPosOffset: {x: 0.2, y: 0.1, z: 0.2}
+  MaxTargetPosOffset: {x: 0.15, y: 0, z: 0.15}
   MaxTorque: {x: 10, y: 10, z: 10}
 --- !u!65 &696985469
 BoxCollider:
