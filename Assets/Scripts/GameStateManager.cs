@@ -138,11 +138,8 @@ public class GameStateManager : MonoBehaviour
                     building.Reset();
                     i++;
                 }
-
-
                 foreach (Transform child in HitchhikerManager.transform){
-                    // Destroy(child.gameObject);
-                    child.gameObject.SetActive(false);
+                    child.gameObject.GetComponent<Dog>().DeleteDog();
                 }
                 if (EnemyManager!= null){
                     foreach (Transform child in EnemyManager.transform){

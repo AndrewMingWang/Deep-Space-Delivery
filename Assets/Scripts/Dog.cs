@@ -244,7 +244,13 @@ public class Dog : MonoBehaviour
     public void LosePlayer()
     {
         GameObject.FindGameObjectWithTag("goal").GetComponent<GoalTrigger>().packagesLost += NumPackages;
+        DeleteDog();
+    }
+
+    public void DeleteDog()
+    {
         gameObject.SetActive(false);
+        Destroy(gameObject, 5.0f);
     }
 
     public void StopPlayer()
