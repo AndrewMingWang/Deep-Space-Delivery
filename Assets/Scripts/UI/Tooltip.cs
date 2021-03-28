@@ -16,6 +16,10 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             Description = "launches units forwards and upwards";
         }
+        else if (Type.ToLower().Equals("holding"))
+        {
+            Description = "gathers units so they move as one";
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
