@@ -17,7 +17,8 @@ public class LevelSelectUI : BaseUI
     public LevelSelectButton UpWorldButton;
     public Animator FadeInOut;
 
-    private int currentWorld = 1;
+    private static int currentWorld = 1;
+
     private int highestLevelUnlocked = 0;
     private int cheatCodeCount = 0;
     private int resetCodeCount = 0;
@@ -61,7 +62,6 @@ public class LevelSelectUI : BaseUI
         {
             currentWorld = MIN_WORLD;
         }
-        FloatinGraphicController.Instance.ShowScene(currentWorld-1);
         DisplayWorld();
     }
 
@@ -72,12 +72,12 @@ public class LevelSelectUI : BaseUI
         {
             currentWorld = MAX_WORLD;
         }
-        FloatinGraphicController.Instance.ShowScene(currentWorld - 1);
         DisplayWorld();
     }
 
     public void DisplayWorld()
     {
+        FloatinGraphicController.Instance.ShowScene(currentWorld - 1);
         // Set the world text
         switch (currentWorld)
         {

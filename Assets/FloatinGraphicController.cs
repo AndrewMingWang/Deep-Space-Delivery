@@ -5,7 +5,6 @@ using UnityEngine;
 public class FloatinGraphicController : MonoBehaviour
 {
     public static FloatinGraphicController Instance;
-    public int curSceneNumber;
     public List<GameObject> SceneObjects;
 
     public Light MainLight;
@@ -21,13 +20,14 @@ public class FloatinGraphicController : MonoBehaviour
 
     private void Start()
     {
-        curSceneNumber = 0;
-        ShowScene(curSceneNumber);
+        //
     }
 
     public void ShowScene(int sceneNumber)
     {
-        SceneObjects[curSceneNumber].SetActive(false);
+        SceneObjects[0].SetActive(false);
+        SceneObjects[1].SetActive(false);
+        SceneObjects[2].SetActive(false);
 
         switch (sceneNumber)
         {
@@ -57,6 +57,5 @@ public class FloatinGraphicController : MonoBehaviour
             return;
         }
         SceneObjects[sceneNumber].SetActive(true);
-        curSceneNumber = sceneNumber;
     }
 }
