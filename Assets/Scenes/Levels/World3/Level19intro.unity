@@ -155,8 +155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -204}
-  m_SizeDelta: {x: 727.2727, y: 409.0909}
+  m_AnchoredPosition: {x: -51, y: -204}
+  m_SizeDelta: {x: 919.7, y: 349.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &50374520
 MonoBehaviour:
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6b3494896ff0e7146bf63aab325640d4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89efcef697773a64b8192f6f3c7840a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1038,9 +1038,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayText: {fileID: 1470705327}
   Content: "Thank you for subscribing to Fun Space Facts!\\p\\nHere are \\pthree\\p
-    fun facts you will not know about space:\\p\\n\\n  1.\\p\\p There is no oxygen
-    in space!\\p\\n  2.\\p\\p Planets have powerful magnetic fields!\\p\\n  3.\\p\\p
-    When two aliens bump into each other, both are knocked back to their previous
+    fun facts you will not know about space:\\p\\n\\n1.\\p\\p There is no oxygen
+    in space!\\p\\n2.\\p\\p Planets have powerful magnetic fields!\\p\\n3.\\p\\p
+    When two aliens bump into each other, both are knocked back to their previous\\n  
     tile and stay unconscious! Awesome!\\p\\n\\nReply to this email with \u201CUNSUBSCRIBE\u201D
     to unsubscribe from Fun Space Facts!"
   CharTypeSpeed: 1.5
