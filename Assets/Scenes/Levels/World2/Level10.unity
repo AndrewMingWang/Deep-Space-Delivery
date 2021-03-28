@@ -922,6 +922,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1687976869}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &138779447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2357,6 +2363,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1821352957}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &318139001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3252,6 +3264,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 7159854053871087332}
   Top: {fileID: 1538841481}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &487999839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3575,6 +3593,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 464351673}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &535079753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3720,6 +3744,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 187310726}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &537928435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4333,6 +4363,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1400784756}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &659393282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4662,6 +4698,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 790544968}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &709911007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5608,6 +5650,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1796388157}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &832916974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5724,7 +5772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingMoney: 1800
-  OptimalRemaining: 500
+  OptimalRemaining: 600
   Items:
   - name: arrow
     price: 200
@@ -6700,6 +6748,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 4748225952366826364}
   Top: {fileID: 275874480}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &942074339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6876,6 +6930,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1031531777}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &943751160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7021,6 +7081,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1072260125}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &954360185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7197,6 +7263,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1585724256}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &982923779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7954,6 +8026,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 269415853}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1077278357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8924,6 +9002,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1502952664}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1189607355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9337,6 +9421,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 2054853696}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1237420337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10668,6 +10758,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1597033068}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1384297742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11609,6 +11705,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 896898847}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1492642953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12221,6 +12323,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1238986074}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1545668377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13521,6 +13629,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1455212368}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1726809882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13819,6 +13933,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 1092006415}
   Top: {fileID: 1624657184}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1771425012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15323,6 +15443,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1417208260}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &2003079555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15536,6 +15662,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1481820949}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &2054234308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15774,6 +15906,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 894623675}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &2077161114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16483,6 +16621,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 594538893}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &2126466495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16628,6 +16772,12 @@ MonoBehaviour:
   AddToTileManagerOnAwake: 1
   OccupyingBuilding: {fileID: 0}
   Top: {fileID: 1931251049}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &2127495349
 MonoBehaviour:
   m_ObjectHideFlags: 0
