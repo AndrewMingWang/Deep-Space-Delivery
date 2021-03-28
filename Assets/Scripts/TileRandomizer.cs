@@ -28,6 +28,12 @@ public class TileRandomizer : MonoBehaviour
         List<bool> tileManagerOnAwakes = new List<bool>();
         List<GameObject> toBeDestroyed = new List<GameObject>();
 
+        List<bool> showleft = new List<bool>();
+        List<bool> showtop = new List<bool>();
+        List<bool> showright = new List<bool>();
+        List<bool> showbottom = new List<bool>();
+        List<Material> sidesmaterial = new List<Material>();
+
 
         // Record existing info
         for (int i = 0; i < numTiles; i++)
@@ -40,6 +46,12 @@ public class TileRandomizer : MonoBehaviour
             windTiles.Add(transform.GetChild(i).GetComponent<Tile>().windTile);
             tileManagerOnAwakes.Add(transform.GetChild(i).GetComponent<Tile>().AddToTileManagerOnAwake);
             toBeDestroyed.Add(transform.GetChild(i).gameObject);
+            showleft.Add(transform.GetChild(i).GetComponent<Tile>().showLeft);
+            showtop.Add(transform.GetChild(i).GetComponent<Tile>().showTop);
+            showright.Add(transform.GetChild(i).GetComponent<Tile>().showRight);
+            showbottom.Add(transform.GetChild(i).GetComponent<Tile>().showBottom);
+            sidesmaterial.Add(transform.GetChild(i).GetComponent<Tile>().sidesMaterial);
+
         }
 
         // Destroy current tiles
@@ -72,6 +84,11 @@ public class TileRandomizer : MonoBehaviour
                     newTile.GetComponent<Tile>().AddToTileManagerOnAwake = tileManagerOnAwakes[i];
                     newTile.GetComponent<Tile>().windTile = windTiles[i];
                     newTile.GetComponent<Tile>().UnbuildableShadingOn = unbuildableShading[i];
+                    newTile.GetComponent<Tile>().showLeft = showleft[i];
+                    newTile.GetComponent<Tile>().showTop = showtop[i];
+                    newTile.GetComponent<Tile>().showRight = showright[i];
+                    newTile.GetComponent<Tile>().showBottom = showbottom[i];
+                    newTile.GetComponent<Tile>().sidesMaterial = sidesmaterial[i];
                     break;
                 }
             }
