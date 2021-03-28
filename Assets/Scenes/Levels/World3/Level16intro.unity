@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -125}
+  m_AnchoredPosition: {x: 0, y: -145}
   m_SizeDelta: {x: 600, y: 420}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &50374520
@@ -1040,7 +1040,8 @@ MonoBehaviour:
   Content: 'Hello, Gideon here.\p\n\nLaura has been called to a meeting with human
     resources.\p To make matters worse we''ve\nalso detected that this quadrant of
     space has particular tiles we can''t build on.\p\nYou''ll have to think of some
-    other way to circumvent the Floaters! '
+    other way to circumvent the Floaters.\p\n\nBe careful approaching them, for the
+    sake of the associates. '
   CharTypeSpeed: 1.5
   DialogueSource: {fileID: 1805033722}
   FadeAnimator: {fileID: 1805033720}

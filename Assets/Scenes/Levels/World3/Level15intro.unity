@@ -212,7 +212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &368585954
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1042,7 +1042,7 @@ MonoBehaviour:
     Specialist Senior Junior Chief Vice Director of Loss Prevention.\\p\\n\\nWith
     that said, you\u2019re being moved to an old quadrant of space we've had to abandon\\ndue
     to an alien infestation. WARNING: These \"floaters\" will charge at anything
-    that\\ncrosses their line of sight. Any associate caught will be \\p\\p[REDACTED].
+    that\\ncrosses their line of sight. Any associate caught will be \\p\\p[\\pREDACTED\\p].\\p\\p
     Try blocking\\ntheir sight with walls!"
   CharTypeSpeed: 1.5
   DialogueSource: {fileID: 1805033722}
