@@ -58,7 +58,17 @@ public class GameStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (CurrState == State.Play)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Time.timeScale = 2.0f;
+            }
+            else if (Input.GetKeyUp(KeyCode.F))
+            {
+                Time.timeScale = 1.0f;
+            }
+        }
     }
 
     public void PlayButtonPressed() {
