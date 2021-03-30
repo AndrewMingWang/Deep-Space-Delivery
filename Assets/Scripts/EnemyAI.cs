@@ -58,7 +58,7 @@ public class EnemyAI : MonoBehaviour
         switch(currState){
             case State.waiting:
                 float xnoise = Random.Range(-0.2f, 0.2f);
-                // xnoise = 0.0f;
+                xnoise = 0.0f;
                 float ynoise = Random.Range(0.1f, 0.7f);
                 ynoise = 0.3f;
                 // Debug.Log("xnoise");
@@ -144,7 +144,7 @@ public class EnemyAI : MonoBehaviour
                 break;
         }
 
-        if (Physics.Raycast(Collider.bounds.center, -transform.up, out hit2, Mathf.Infinity, tileLayerMask)){
+        if (Physics.Raycast(Collider.bounds.center, -transform.up, out hit2, Mathf.Infinity, tileLayerMask) && currState != State.collisionAnimation){
             if (hit2.collider.gameObject.transform.position != currTile){
                 lastTile = currTile;
                 currTile = hit2.collider.gameObject.transform.position;
@@ -162,6 +162,7 @@ public class EnemyAI : MonoBehaviour
             other.gameObject.GetComponent<Dog>().LosePlayer();
         }
         if (other.gameObject.tag == "enemy"){
+            Debug.Log(other.gameObject.name);
             currState = State.collisionAnimation;
             Animator.SetBool("EnemyCollision", true);
         }
