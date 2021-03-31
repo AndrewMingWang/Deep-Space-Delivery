@@ -46,7 +46,11 @@ public class Ruler : MonoBehaviour
     [Header("Max 5 indicators")]
     public HeightIndicator[] ZAxisHeightIndicators;
 
-
+    [Header("Height indicator positioning")]
+    [Range(-0.5f, 0.5f)]
+    public float HeightPosX;
+    [Range(-0.5f, 0.5f)]
+    public float HeightPosZ;
 
     // Update is called once per frame
     void Update()
@@ -152,6 +156,14 @@ public class Ruler : MonoBehaviour
                 tick.gameObject.SetActive(true);
                 tick.localPosition = new Vector3(0, k + 1, 0);
                 tick.GetChild(0).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = (k + 1).ToString();
+
+                RectTransform rt = tick.GetChild(0).GetComponent<RectTransform>();
+                rt.anchoredPosition = new Vector2(HeightPosX, 0);
+                rt.localPosition = new Vector3(
+                    rt.localPosition.x,
+                    rt.localPosition.y,
+                    HeightPosZ
+                );
             }
         }
 
@@ -169,6 +181,11 @@ public class Ruler : MonoBehaviour
 
         // Position and set numbers on ticks
         ZTicksParent.localScale = new Vector3(
+            1f / ZAxis.localScale.x,
+            1f / ZAxis.localScale.y,
+            1f / ZAxis.localScale.z
+        );
+        ZHeightsParent.localScale = new Vector3(
             1f / ZAxis.localScale.x,
             1f / ZAxis.localScale.y,
             1f / ZAxis.localScale.z
@@ -252,6 +269,14 @@ public class Ruler : MonoBehaviour
                 tick.gameObject.SetActive(true);
                 tick.localPosition = new Vector3(0, k + 1, 0);
                 tick.GetChild(0).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = (k + 1).ToString();
+
+                RectTransform rt = tick.GetChild(0).GetComponent<RectTransform>();
+                rt.anchoredPosition = new Vector2(HeightPosX, 0);
+                rt.localPosition = new Vector3(
+                    rt.localPosition.x,
+                    rt.localPosition.y,
+                    HeightPosZ
+                );
             }
         }
     }
