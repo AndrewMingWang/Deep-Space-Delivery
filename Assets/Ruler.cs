@@ -14,20 +14,34 @@ public class Ruler : MonoBehaviour
         public int pos;
     }
 
-    [Header("XAxis")]
+    [Header("------------ XAxis ------------")]
     public Vector2Int XAxisBounds;
     public Transform XAxis;
     public Transform XTicksParent;
     public Transform XHeightsParent;
+    [Range(-0.3f, 0.3f)]
+    public float XNumberPosX;
+    [Range(-0.3f, 0.3f)]
+    public float XNumberPosY;
+    [Range(-0.3f, 0.3f)]
+    public float XNumberPosZ;
+    public float XfontSize;
 
     [Header("Max 5 indicators")]
     public HeightIndicator[] XAxisHeightIndicators;
 
-    [Header("ZAxis")]
+    [Header("------------ ZAxis ------------")]
     public Vector2Int ZAxisBounds;
     public Transform ZAxis;
     public Transform ZTicksParent;
     public Transform ZHeightsParent;
+    [Range(-0.3f, 0.3f)]
+    public float ZNumberPosX;
+    [Range(-0.3f, 0.3f)]
+    public float ZNumberPosY;
+    [Range(-0.3f, 0.3f)]
+    public float ZNumberPosZ;
+    public float ZfontSize;
 
     [Header("Max 5 indicators")]
     public HeightIndicator[] ZAxisHeightIndicators;
@@ -64,7 +78,7 @@ public class Ruler : MonoBehaviour
         // Hide all ticks
         foreach (Transform tick in XTicksParent)
         {
-            tick.gameObject.SetActive(false);
+            tick.gameObject.SetActive(false);;
         }
 
         // Unhide and position relevant ticks
@@ -84,6 +98,18 @@ public class Ruler : MonoBehaviour
             {
                 tick.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = (value).ToString();
             }
+
+            // Position canvas number
+            RectTransform rt = tick.GetChild(1).GetComponent<RectTransform>();
+            rt.anchoredPosition = new Vector2(XNumberPosX, XNumberPosY);
+            rt.localPosition = new Vector3(
+                rt.localPosition.x,
+                rt.localPosition.y,
+                XNumberPosZ
+            );
+
+            // Set font size
+            tick.GetChild(1).GetChild(0).GetComponent<TMP_Text>().fontSize = XfontSize;
         }
 
         // Height Indicators
@@ -172,6 +198,18 @@ public class Ruler : MonoBehaviour
             {
                 tick.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = (value).ToString();
             }
+
+            // Position canvas number
+            RectTransform rt = tick.GetChild(1).GetComponent<RectTransform>();
+            rt.anchoredPosition = new Vector2(ZNumberPosX, ZNumberPosY);
+            rt.localPosition = new Vector3(
+                rt.localPosition.x,
+                rt.localPosition.y,
+                ZNumberPosZ
+            );
+
+            // Set font size
+            tick.GetChild(1).GetChild(0).GetComponent<TMP_Text>().fontSize = ZfontSize;
         }
 
         // Height Indicators
