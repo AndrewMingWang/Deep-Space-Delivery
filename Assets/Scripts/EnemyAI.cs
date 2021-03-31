@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour
 
     public enum State{waiting, chargingAnimationStart, charging, chargingAnimationEnd, returning, collisionAnimation, stunned, reset_wait}
 
+    public Transform TopLevelParent;
     public State currState = State.waiting;
     int playerLayerMask = 1 << 10; // Player layer
     int buildingLayerMask = 1 << 9; // Building layer
@@ -22,7 +23,6 @@ public class EnemyAI : MonoBehaviour
     [HideInInspector]
     public Animator Animator;
 
-    
     private Vector3 target_pos;
     private Vector3 starting_parent_pos;
     private Quaternion starting_parent_rotation;
@@ -41,8 +41,8 @@ public class EnemyAI : MonoBehaviour
         currState = State.waiting;
         layerMask = playerLayerMask | buildingLayerMask | envBuildingLayerMask;
         Collider = GetComponent<Collider>();
-        Animator = transform.parent.GetComponent<Animator>();
-        starting_parent_pos = transform.parent.position;
+        Animator = transform.parent.parent.GetComponent<Animator>();
+        starting_parent_pos = TopLevelParent.position;
         starting_parent_rotation = transform.parent.rotation;
         starting_local_pos = transform.localPosition;
         starting_local_rotation = transform.localRotation;
@@ -62,14 +62,14 @@ public class EnemyAI : MonoBehaviour
                 float ynoise = Random.Range(0.1f, 0.7f);
                 ynoise = 0.3f;
                 // Debug.Log("xnoise");
-                transform.parent.position = starting_parent_pos + EnemyManager.Instance.SceneObjects.transform.position;
+                TopLevelParent.position = starting_parent_pos + EnemyManager.Instance.SceneObjects.transform.position;
                 transform.parent.rotation = starting_parent_rotation;
                 transform.localPosition = starting_local_pos; 
                 transform.localRotation = starting_local_rotation;
                 lerpPosition = starting_parent_pos;
                     
-                Debug.DrawRay(transform.parent.position + new Vector3(xnoise, ynoise,0.0f), transform.forward*10.0f, Color.blue, 0.5f);
-                if (Physics.Raycast(transform.parent.position + new Vector3(xnoise, ynoise,0.0f), transform.forward, out hit, Mathf.Infinity, layerMask)){
+                Debug.DrawRay(TopLevelParent.position + new Vector3(xnoise, ynoise,0.0f), transform.forward*10.0f, Color.blue, 0.5f);
+                if (Physics.Raycast(TopLevelParent.position + new Vector3(xnoise, ynoise,0.0f), transform.forward, out hit, Mathf.Infinity, layerMask)){
                     // Debug.Log("thats a dog");
                     if (hit.transform.CompareTag("player"))
                     {
@@ -92,7 +92,7 @@ public class EnemyAI : MonoBehaviour
             case State.charging:
                 lerpRatio = (float)elapsedFrames / lerpFrameTotal;
                 lerpPosition = Vector3.Lerp(starting_parent_pos, target_pos, lerpRatio);
-                transform.parent.position = lerpPosition;
+                TopLevelParent.position = lerpPosition;
                 if (elapsedFrames != lerpFrameTotal){
                     elapsedFrames++;
                 } else {
@@ -112,7 +112,7 @@ public class EnemyAI : MonoBehaviour
             case State.returning:
                 lerpRatio = (float)elapsedFrames / lerpFrameTotal;
                 lerpPosition = Vector3.Lerp(target_pos, starting_parent_pos, lerpRatio);
-                transform.parent.position = lerpPosition;
+                TopLevelParent.position = lerpPosition;
                 if (elapsedFrames != lerpFrameTotal){
                     elapsedFrames++;
                 } else {
@@ -123,8 +123,8 @@ public class EnemyAI : MonoBehaviour
                 break;
             case State.collisionAnimation:
                 lerpRatio = (float)elapsedFrames / lerpFrameTotal;
-                lerpPosition = Vector3.Lerp(transform.parent.position, lastTile, lerpRatio);
-                transform.parent.position = lerpPosition;
+                lerpPosition = Vector3.Lerp(TopLevelParent.position, lastTile, lerpRatio);
+                TopLevelParent.position = lerpPosition;
                 if (elapsedFrames != lerpFrameTotal){
                     elapsedFrames++;
                 } else {
