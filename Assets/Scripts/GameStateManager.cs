@@ -153,7 +153,10 @@ public class GameStateManager : MonoBehaviour
                 }
                 if (EnemyManager!= null){
                     foreach (Transform child in EnemyManager.transform){
-                        child.GetComponentInChildren<EnemyAI>().resetState();
+                        if (child.name.Contains("Alien"))
+                        {
+                            child.GetChild(0).GetComponentInChildren<EnemyAI>().resetState();
+                        }
                     }
                 } else {
                     Debug.Log("No EnemyManager GameObject attached to GameStateManager");

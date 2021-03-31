@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public enum State{waiting, chargingAnimationStart, charging, chargingAnimationEnd, returning, collisionAnimation, stunned, reset_wait}
 
     public Transform TopLevelParent;
+    public Transform Indicator;
     public State currState = State.waiting;
     int playerLayerMask = 1 << 10; // Player layer
     int buildingLayerMask = 1 << 9; // Building layer
@@ -38,6 +39,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Indicator.parent = TopLevelParent.parent;
         currState = State.waiting;
         layerMask = playerLayerMask | buildingLayerMask | envBuildingLayerMask;
         Collider = GetComponent<Collider>();
@@ -57,6 +59,7 @@ public class EnemyAI : MonoBehaviour
     {
         switch(currState){
             case State.waiting:
+                Indicator.gameObject.SetActive(false);
                 float xnoise = Random.Range(-0.2f, 0.2f);
                 xnoise = 0.0f;
                 float ynoise = Random.Range(0.1f, 0.7f);
@@ -77,8 +80,17 @@ public class EnemyAI : MonoBehaviour
                         // Debug.Log("HIT PLAYER");
                         currState = State.chargingAnimationStart;
                         target_pos = hit.transform.position;
+
+                        // Round target_pos to nearest 0.5, 0.5
+                        float target_pos_x = Mathf.Floor(target_pos.x) + 0.5f;
+                        float target_pos_z = Mathf.Floor(target_pos.z) + 0.5f;
+                        target_pos.x = target_pos_x;
+                        target_pos.z = target_pos_z;
+
                         lerpFrameTotal = (int)(8*hit.distance);
                         Animator.SetBool("ChargeUp", true);
+                        Indicator.position = target_pos + transform.up*0.03f;
+                        Indicator.gameObject.SetActive(true);
                     }
                 }
 
@@ -108,6 +120,7 @@ public class EnemyAI : MonoBehaviour
                     Animator.SetBool("CoolDown", false);
                     currState = State.returning;
                 }
+                Indicator.gameObject.SetActive(false);
                 break;
             case State.returning:
                 lerpRatio = (float)elapsedFrames / lerpFrameTotal;
@@ -167,6 +180,7 @@ public class EnemyAI : MonoBehaviour
             Debug.Log(other.gameObject.name);
             currState = State.collisionAnimation;
             Animator.SetBool("EnemyCollision", true);
+            Indicator.gameObject.SetActive(false);
         }
     }
 
@@ -175,6 +189,7 @@ public class EnemyAI : MonoBehaviour
         Animator.SetBool("ChargeUp", false);
         Animator.SetBool("CoolDown", false);
         Animator.SetBool("EnemyCollision", false);
+        Indicator.gameObject.SetActive(false); 
         elapsedFrames = 0;
         
         currState = State.waiting;
