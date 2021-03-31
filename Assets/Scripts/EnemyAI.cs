@@ -87,7 +87,7 @@ public class EnemyAI : MonoBehaviour
                         target_pos.x = target_pos_x;
                         target_pos.z = target_pos_z;
 
-                        lerpFrameTotal = (int)(12*hit.distance);
+                        lerpFrameTotal = (int)(8*hit.distance);
                         Animator.SetBool("ChargeUp", true);
                         Indicator.position = target_pos + transform.up*0.03f;
                         Indicator.gameObject.SetActive(true);
@@ -111,7 +111,7 @@ public class EnemyAI : MonoBehaviour
                     elapsedFrames = 0;
                     // currState = State.chargingAnimationEnd;
                     currState = State.chargingAnimationEnd;
-                    lerpFrameTotal = (int)(25*hit.distance);
+                    lerpFrameTotal = (int)(27*hit.distance);
                     Animator.SetBool("CoolDown", true);   
                 }
                 break;
@@ -175,6 +175,8 @@ public class EnemyAI : MonoBehaviour
             other.gameObject.GetComponent<Dog>().LosePlayer();
         }
         if (other.gameObject.tag == "enemy"){
+            elapsedFrames = 0;
+            lerpFrameTotal = 15;
             Debug.Log(other.gameObject.name);
             currState = State.collisionAnimation;
             Animator.SetBool("EnemyCollision", true);
