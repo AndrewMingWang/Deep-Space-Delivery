@@ -50,6 +50,8 @@ public class Ruler : MonoBehaviour
     [Range(-0.5f, 0.5f)]
     public float HeightPosX;
     [Range(-0.5f, 0.5f)]
+    public float HeightPosY;
+    [Range(-0.5f, 0.5f)]
     public float HeightPosZ;
 
     // Update is called once per frame
@@ -158,7 +160,7 @@ public class Ruler : MonoBehaviour
                 tick.GetChild(0).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = (k + 1).ToString();
 
                 RectTransform rt = tick.GetChild(0).GetComponent<RectTransform>();
-                rt.anchoredPosition = new Vector2(HeightPosX, 0);
+                rt.anchoredPosition = new Vector2(HeightPosX, HeightPosY);
                 rt.localPosition = new Vector3(
                     rt.localPosition.x,
                     rt.localPosition.y,
@@ -271,7 +273,7 @@ public class Ruler : MonoBehaviour
                 tick.GetChild(0).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = (k + 1).ToString();
 
                 RectTransform rt = tick.GetChild(0).GetComponent<RectTransform>();
-                rt.anchoredPosition = new Vector2(HeightPosX, 0);
+                rt.anchoredPosition = new Vector2(HeightPosX, HeightPosY);
                 rt.localPosition = new Vector3(
                     rt.localPosition.x,
                     rt.localPosition.y,
