@@ -98,7 +98,7 @@ public class GoalTrigger : MonoBehaviour
         }
 
 
-        ResultsPanelTypeEffect.SetIntroText(packagesDelivered, NumPackages, remainingBudget, perfInt);
+        ResultsPanelTypeEffect.SetIntroText(packagesDelivered, NumPackages, optimalRemainingBudget - remainingBudget, perfInt);
 
         // Hide next button if the level is failed
         if (perfInt == 0)

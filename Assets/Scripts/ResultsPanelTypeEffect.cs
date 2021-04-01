@@ -46,7 +46,7 @@ public class ResultsPanelTypeEffect : MonoBehaviour
         Instance = this;
     }
 
-    public void SetIntroText(int deliveredPackages, int totalPackages, int remainingBudget, int perfInt)
+    public void SetIntroText(int deliveredPackages, int totalPackages, int spentOverBudget, int perfInt)
     {
         DisplayText.text = "";
         Content = string.Format(
@@ -56,9 +56,9 @@ public class ResultsPanelTypeEffect : MonoBehaviour
             totalPackages
             );
         Content += string.Format(
-            "unspent budget:{0}${1}\\n\\n\\p\\p",
-            new string(' ', 13 - remainingBudget.ToString().Length),
-            remainingBudget
+            "spent over optimal:{0}${1}\\n\\n\\p\\p",
+            new string(' ', 9 - spentOverBudget.ToString().Length),
+            spentOverBudget
             );
 
         Content += "performance:\\o\\s.................\\n\\n\\p\\p\\p";
