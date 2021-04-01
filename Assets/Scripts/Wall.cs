@@ -54,7 +54,7 @@ public class Wall : Building
     {
         base.PlaceBuilding();
         TileAbove.gameObject.SetActive(true);
-        TileManager.Instance.AllTiles.Add(TileAbove);
+        TileManager.Instance.AddUnoccupiedTile(TileAbove);
     }
 
     public override void PickUpBuilding()
@@ -78,7 +78,7 @@ public class Wall : Building
 
         TileAbove.OccupyingBuilding = null;
         TileAbove.gameObject.SetActive(false);
-        TileManager.Instance.AllTiles.Remove(TileAbove);
+        TileManager.Instance.RemoveTile(TileAbove);
     }
 
     public void RepositionBuildingsAbove(GameObject buildingGO)
@@ -108,5 +108,10 @@ public class Wall : Building
     {
         meshRenderer.material.SetColor("_Color", PlacedColor);
         Highlights.SetActive(true);
+    }
+
+    public override void HardReset()
+    {
+        TileManager.Instance.RemoveTile(TileAbove);
     }
 }

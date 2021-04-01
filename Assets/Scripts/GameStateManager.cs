@@ -123,6 +123,7 @@ public class GameStateManager : MonoBehaviour
                         childName = "wall";
                     }
                     MoneyManager.Instance.RefundItem(childName);
+                    building.HardReset();
 
                     cleanup.Add(building.gameObject);
                 }

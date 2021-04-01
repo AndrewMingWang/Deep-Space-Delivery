@@ -268,6 +268,12 @@ public class BuildManager : MonoBehaviour
             MoneyManager.Instance.RefundItem(CurrBuilding.BuildingName);
             TileManager.Instance.UnhoverAllTiles();
             ExistingBuildings.Remove(CurrBuilding);
+
+            if (CurrBuilding.GetComponent<Wall>() != null)
+            {
+
+            }
+
             Destroy(CurrBuilding.gameObject);
             CurrBuilding = null;
 

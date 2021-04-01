@@ -42,6 +42,11 @@ public class Building : MonoBehaviour
 
     }
 
+    public virtual void HardReset()
+    {
+
+    }
+
     // private void Update() {
     //     if (TileUnder != null && _updateTime == 5){
     //         transform.position = TileUnder.transform.position + SpawnHeight*transform.up;
