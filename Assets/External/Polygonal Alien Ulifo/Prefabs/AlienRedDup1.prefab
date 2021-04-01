@@ -6660,7 +6660,6 @@ GameObject:
   - component: {fileID: 4086081443484908}
   - component: {fileID: 813993738}
   - component: {fileID: 813993739}
-  - component: {fileID: 813993741}
   - component: {fileID: 813993740}
   m_Layer: 18
   m_Name: AlienRedDup1
@@ -6678,7 +6677,7 @@ Transform:
   m_GameObject: {fileID: 1801529961041234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.2, z: 0}
-  m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
+  m_LocalScale: {x: 0.45, y: 0.5, z: 0.45}
   m_Children:
   - {fileID: 4205180395908350}
   - {fileID: 4565578734935870}
@@ -6739,30 +6738,11 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801529961041234}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.85
+  m_Radius: 0.65
   m_Center: {x: 0, y: 3.5, z: 0}
---- !u!95 &813993741
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1801529961041234}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c5fd36137dfb2e642bda042d6e744c95, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &813993740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6775,6 +6755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce196bcf2490afe459e5029ac0ef2808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TopLevelParent: {fileID: 0}
+  Indicator: {fileID: 0}
   currState: 0
   Collider: {fileID: 0}
   Animator: {fileID: 0}
