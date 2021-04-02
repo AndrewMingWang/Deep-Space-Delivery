@@ -173,6 +173,46 @@ public class Dog : MonoBehaviour
         return res;
     }
 
+    public void EnemyCheck()
+    {
+        int windLayerMask = 1 << 18; // Wind layer
+        int buildingLayerMask = 1 << 9; // Building layer
+        int envBuildingLayerMask = 1 << 13; // Environment Buildings
+        int layerMask = windLayerMask | buildingLayerMask | envBuildingLayerMask;
+        RaycastHit hit;
+
+        Vector3 res = Vector3.zero;
+
+        // Check if wind plane present in 4 cardinal directions
+        if (Physics.Raycast(Collider.bounds.center, SceneParent.transform.forward, out hit, Mathf.Infinity, layerMask)) {
+            if (hit.transform.CompareTag("enemy"))
+            {
+                hit.transform.gameObject.GetComponent<EnemyAI>().LineOfSightCheck(Collider.bounds.center.y);
+            }
+        }
+        if (Physics.Raycast(Collider.bounds.center, SceneParent.transform.right, out hit, Mathf.Infinity, layerMask))
+        {
+            if (hit.transform.CompareTag("enemy"))
+            {
+                hit.transform.gameObject.GetComponent<EnemyAI>().LineOfSightCheck(Collider.bounds.center.y);
+            }
+        }
+        if (Physics.Raycast(Collider.bounds.center, -SceneParent.transform.right, out hit, Mathf.Infinity, layerMask))
+        {
+            if (hit.transform.CompareTag("enemy"))
+            {
+                hit.transform.gameObject.GetComponent<EnemyAI>().LineOfSightCheck(Collider.bounds.center.y); 
+            }
+        }
+        if (Physics.Raycast(Collider.bounds.center, -SceneParent.transform.forward, out hit, Mathf.Infinity, layerMask))
+        {
+            if (hit.transform.CompareTag("enemy"))
+            {
+                hit.transform.gameObject.GetComponent<EnemyAI>().LineOfSightCheck(Collider.bounds.center.y);
+            }
+        }
+    }
+
     public bool IsGrounded()
     {
         // Debug.DrawLine(GetComponent<Collider>().bounds.center, GetComponent<Collider>().bounds.center - Vector3.up * (_distToGround + 0.2f), Color.red, 300f);
@@ -193,6 +233,8 @@ public class Dog : MonoBehaviour
                 BarkSource.PlayOneShot(Bark2);
             }
         }
+
+        EnemyCheck();
 
         // Check for grounding
         _groundedThisFrame = IsGrounded();

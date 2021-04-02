@@ -60,39 +60,13 @@ public class EnemyAI : MonoBehaviour
         switch(currState){
             case State.waiting:
                 Indicator.gameObject.SetActive(false);
-                float xnoise = Random.Range(-0.2f, 0.2f);
-                xnoise = 0.0f;
-                float ynoise = Random.Range(0.1f, 0.7f);
-                ynoise = 0.3f;
+                
                 // Debug.Log("xnoise");
                 TopLevelParent.position = starting_parent_pos + EnemyManager.Instance.SceneObjects.transform.position;
                 transform.parent.rotation = starting_parent_rotation;
                 transform.localPosition = starting_local_pos; 
                 transform.localRotation = starting_local_rotation;
                 lerpPosition = starting_parent_pos;
-                    
-                Debug.DrawRay(TopLevelParent.position + new Vector3(xnoise, ynoise,0.0f), transform.forward*10.0f, Color.blue, 0.5f);
-                if (Physics.Raycast(TopLevelParent.position + new Vector3(xnoise, ynoise,0.0f), transform.forward, out hit, Mathf.Infinity, layerMask)){
-                    // Debug.Log("thats a dog");
-                    if (hit.transform.CompareTag("player"))
-                    {
-                        // currState = State.chargingAnimationStart;
-                        // Debug.Log("HIT PLAYER");
-                        currState = State.chargingAnimationStart;
-                        target_pos = hit.transform.position;
-
-                        // Round target_pos to nearest 0.5, 0.5
-                        float target_pos_x = Mathf.Floor(target_pos.x) + 0.5f;
-                        float target_pos_z = Mathf.Floor(target_pos.z) + 0.5f;
-                        target_pos.x = target_pos_x;
-                        target_pos.z = target_pos_z;
-
-                        lerpFrameTotal = (int)(8*hit.distance);
-                        Animator.SetBool("ChargeUp", true);
-                        Indicator.position = target_pos + transform.up*0.03f;
-                        Indicator.gameObject.SetActive(true);
-                    }
-                }
 
                 break;
             case State.chargingAnimationStart:
@@ -142,7 +116,6 @@ public class EnemyAI : MonoBehaviour
                     elapsedFrames++;
                 } else {
                     elapsedFrames = 0;
-                    // currState = State.chargingAnimationEnd;
                     currState = State.stunned;
                 }
                 break;
@@ -169,6 +142,30 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    public void LineOfSightCheck(float dog_y){
+        Debug.DrawRay(TopLevelParent.position + new Vector3(0.0f, dog_y - TopLevelParent.position.y,0.0f), transform.forward*10.0f, Color.blue, 0.5f);
+        if (currState == State.waiting && Physics.Raycast(TopLevelParent.position + new Vector3(0.0f, dog_y - TopLevelParent.position.y,0.0f), transform.forward, out hit, Mathf.Infinity, layerMask)){
+            if (hit.transform.CompareTag("player"))
+            {
+                currState = State.chargingAnimationStart;
+                target_pos = hit.transform.position;
+
+
+                float target_pos_x = Mathf.Floor(target_pos.x) + 0.5f;
+                float target_pos_z = Mathf.Floor(target_pos.z) + 0.5f;
+                float target_pos_y = Mathf.Floor(Collider.bounds.center.y) + 0.15f;
+                target_pos.x = target_pos_x;
+                target_pos.z = target_pos_z;
+                target_pos.y = target_pos_y;
+
+                lerpFrameTotal = (int)(8*hit.distance);
+                Animator.SetBool("ChargeUp", true);
+                Indicator.position = target_pos + transform.up*0.03f;
+                Indicator.gameObject.SetActive(true);
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "player"){
             // Debug.Log("yea");
@@ -177,9 +174,9 @@ public class EnemyAI : MonoBehaviour
         if (other.gameObject.tag == "enemy"){
             elapsedFrames = 0;
             lerpFrameTotal = 15;
-            Debug.Log(other.gameObject.name);
+            // Debug.Log(other.gameObject.name);
             currState = State.collisionAnimation;
-            Animator.SetBool("EnemyCollision", true);
+            Animator.SetTrigger("EnemyCollision");
             Indicator.gameObject.SetActive(false);
         }
     }
@@ -188,7 +185,6 @@ public class EnemyAI : MonoBehaviour
         Animator.SetTrigger("LevelReset");
         Animator.SetBool("ChargeUp", false);
         Animator.SetBool("CoolDown", false);
-        Animator.SetBool("EnemyCollision", false);
         Indicator.gameObject.SetActive(false); 
         elapsedFrames = 0;
         
