@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.33333334}
+  m_Color: {r: 0.24270204, g: 0.509434, b: 0.25026584, a: 0.33333334}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1023,6 +1023,7 @@ MonoBehaviour:
   DialogueSource: {fileID: 1805033722}
   FadeAnimator: {fileID: 1805033720}
   ContinueText: {fileID: 9306493}
+  ContinueShown: 0
 --- !u!82 &1805033722
 AudioSource:
   m_ObjectHideFlags: 0
