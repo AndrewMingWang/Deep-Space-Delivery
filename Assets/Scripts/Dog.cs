@@ -187,28 +187,28 @@ public class Dog : MonoBehaviour
         if (Physics.Raycast(Collider.bounds.center, SceneParent.transform.forward, out hit, Mathf.Infinity, layerMask)) {
             if (hit.transform.CompareTag("enemy"))
             {
-                hit.transform.gameObject.GetComponent<EnemyAI>().LineOfSightCheck(Collider.bounds.center.y);
+                hit.transform.gameObject.GetComponent<EnemyAI>().LineOfSightCheck(Collider.bounds.center.y, Collider.bounds.center.x, Collider.bounds.center.z);
             }
         }
         if (Physics.Raycast(Collider.bounds.center, SceneParent.transform.right, out hit, Mathf.Infinity, layerMask))
         {
             if (hit.transform.CompareTag("enemy"))
             {
-                hit.transform.gameObject.GetComponent<EnemyAI>().LineOfSightCheck(Collider.bounds.center.y);
+                hit.transform.gameObject.GetComponent<EnemyAI>().LineOfSightCheck(Collider.bounds.center.y, Collider.bounds.center.x, Collider.bounds.center.z);
             }
         }
         if (Physics.Raycast(Collider.bounds.center, -SceneParent.transform.right, out hit, Mathf.Infinity, layerMask))
         {
             if (hit.transform.CompareTag("enemy"))
             {
-                hit.transform.gameObject.GetComponent<EnemyAI>().LineOfSightCheck(Collider.bounds.center.y); 
+                hit.transform.gameObject.GetComponent<EnemyAI>().LineOfSightCheck(Collider.bounds.center.y, Collider.bounds.center.x, Collider.bounds.center.z);
             }
         }
         if (Physics.Raycast(Collider.bounds.center, -SceneParent.transform.forward, out hit, Mathf.Infinity, layerMask))
         {
             if (hit.transform.CompareTag("enemy"))
             {
-                hit.transform.gameObject.GetComponent<EnemyAI>().LineOfSightCheck(Collider.bounds.center.y);
+                hit.transform.gameObject.GetComponent<EnemyAI>().LineOfSightCheck(Collider.bounds.center.y, Collider.bounds.center.x, Collider.bounds.center.z);
             }
         }
     }

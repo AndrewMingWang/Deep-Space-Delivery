@@ -142,9 +142,9 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    public void LineOfSightCheck(float dog_y){
-        Debug.DrawRay(TopLevelParent.position + new Vector3(0.0f, dog_y - TopLevelParent.position.y,0.0f), transform.forward*10.0f, Color.blue, 0.5f);
-        if (currState == State.waiting && Physics.Raycast(TopLevelParent.position + new Vector3(0.0f, dog_y - TopLevelParent.position.y,0.0f), transform.forward, out hit, Mathf.Infinity, layerMask)){
+    public void LineOfSightCheck(float dog_y, float dog_x, float dog_z){
+        Debug.DrawRay(TopLevelParent.position + new Vector3(Mathf.Floor(TopLevelParent.position.x)+(dog_x - Mathf.Floor(dog_x)), dog_y - TopLevelParent.position.y, Mathf.Floor(TopLevelParent.position.z)+(dog_z - Mathf.Floor(dog_z))), transform.forward*10.0f, Color.blue, 0.5f);
+        if (currState == State.waiting && Physics.Raycast(TopLevelParent.position + new Vector3(Mathf.Floor(TopLevelParent.position.x)+(dog_x - Mathf.Floor(dog_x)) - TopLevelParent.position.x, dog_y - TopLevelParent.position.y, Mathf.Floor(TopLevelParent.position.z)+(dog_z - Mathf.Floor(dog_z)) - TopLevelParent.position.z), transform.forward, out hit, Mathf.Infinity, layerMask)){
             if (hit.transform.CompareTag("player"))
             {
                 currState = State.chargingAnimationStart;
@@ -153,7 +153,7 @@ public class EnemyAI : MonoBehaviour
 
                 float target_pos_x = Mathf.Floor(target_pos.x) + 0.5f;
                 float target_pos_z = Mathf.Floor(target_pos.z) + 0.5f;
-                float target_pos_y = Mathf.Floor(Collider.bounds.center.y) + 0.15f;
+                float target_pos_y = Mathf.Floor(Collider.bounds.center.y) + 0.1f;
                 target_pos.x = target_pos_x;
                 target_pos.z = target_pos_z;
                 target_pos.y = target_pos_y;
