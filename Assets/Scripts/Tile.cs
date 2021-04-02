@@ -63,32 +63,18 @@ public class Tile : MonoBehaviour
         } else {
             _tileMaterial.SetColor("_Color", UnbuildableColor);        
         }
-
+        
         if (useSides){
             _leftSide = transform.GetChild(2).gameObject;
-            if (showLeft) {
-                _leftSide.SetActive(true);
-                _leftSide.GetComponent<Renderer>().material = sidesMaterial;
-            }
+            _leftSide.GetComponent<Renderer>().material = sidesMaterial;
             _topSide = transform.GetChild(3).gameObject;
-            if (showTop) {
-                _topSide.SetActive(true);
-                _topSide.GetComponent<Renderer>().material = sidesMaterial;
-            }
+            _topSide.GetComponent<Renderer>().material = sidesMaterial;
             _rightSide = transform.GetChild(4).gameObject;
-            if (showRight) {
-                _rightSide.SetActive(true);
-                _rightSide.GetComponent<Renderer>().material = sidesMaterial;
-
-            }
+            _rightSide.GetComponent<Renderer>().material = sidesMaterial;
             _bottomSide = transform.GetChild(5).gameObject;
-            if (showBottom) {
-                _bottomSide.SetActive(true);
-                _bottomSide.GetComponent<Renderer>().material = sidesMaterial;
-
-            }
+            _bottomSide.GetComponent<Renderer>().material = sidesMaterial;
         }
-        
+
     }
 
     private void Start()
@@ -110,6 +96,27 @@ public class Tile : MonoBehaviour
             _tileMaterial.SetColor("_Color", BaseColor);
         } else {
             _tileMaterial.SetColor("_Color", UnbuildableColor);        
+        }
+    }
+
+    public void EnableSides(bool active){
+        if (useSides){
+            _leftSide = transform.GetChild(2).gameObject;
+            if (showLeft) {
+                _leftSide.SetActive(active);
+            }
+            _topSide = transform.GetChild(3).gameObject;
+            if (showTop) {
+                _topSide.SetActive(active);
+            }
+            _rightSide = transform.GetChild(4).gameObject;
+            if (showRight) {
+                _rightSide.SetActive(active);
+            }
+            _bottomSide = transform.GetChild(5).gameObject;
+            if (showBottom) {
+                _bottomSide.SetActive(active);
+            }
         }
     }
 }

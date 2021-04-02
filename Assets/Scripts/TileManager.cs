@@ -5,11 +5,13 @@ using UnityEngine;
 public class TileManager : MonoBehaviour
 {
     public static TileManager Instance;
+    public GameObject YTicks;
 
     public Tile[] EnvironmentTiles;
     public List<Tile> AllTiles;
     public List<Tile> UnoccupiedTiles;
     public List<Tile> OccupiedTiles;
+    private bool _sidesOn;
 
     private void Awake()
     {
@@ -39,6 +41,7 @@ public class TileManager : MonoBehaviour
             }
             
         }
+        _sidesOn = false;
     }
 
     public void UnhoverAllTiles()
@@ -79,5 +82,15 @@ public class TileManager : MonoBehaviour
         AllTiles.Remove(tile);
         OccupiedTiles.Remove(tile);
         UnoccupiedTiles.Remove(tile);
+    }
+
+    public void EnableTileSides(){
+        _sidesOn = !_sidesOn;
+        foreach (Tile tile in AllTiles){
+            tile.EnableSides(_sidesOn);
+        }
+        if (YTicks != null){
+            YTicks.SetActive(_sidesOn);
+        }
     }
 }
