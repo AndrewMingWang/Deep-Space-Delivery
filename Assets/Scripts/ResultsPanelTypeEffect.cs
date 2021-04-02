@@ -50,18 +50,16 @@ public class ResultsPanelTypeEffect : MonoBehaviour
     {
         DisplayText.text = "";
         Content = string.Format(
-            "packages delivered:{0}{1}/{2}\\n\\n\\p\\p",
-            new string(' ', 9 - deliveredPackages.ToString().Length - totalPackages.ToString().Length),
+            "delivered:{0}{1}/{2}\\n\\p\\p",
+            new string(' ', 16 - deliveredPackages.ToString().Length - totalPackages.ToString().Length - 1),
             deliveredPackages,
             totalPackages
             );
         Content += string.Format(
-            "spent over optimal:{0}${1}\\n\\n\\p\\p",
-            new string(' ', 9 - spentOverBudget.ToString().Length),
+            "over optimal:{0}${1}\\n\\p\\p\\o",
+            new string(' ', 13 - spentOverBudget.ToString().Length - 1),
             spentOverBudget
             );
-
-        Content += "performance:\\o\\s.................\\n\\n\\p\\p\\p";
         PerfInt = perfInt;
     }
 
