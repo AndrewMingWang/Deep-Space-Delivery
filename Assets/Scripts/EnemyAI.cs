@@ -52,6 +52,11 @@ public class EnemyAI : MonoBehaviour
         Physics.Raycast(Collider.bounds.center, -transform.up, out hit, Mathf.Infinity, tileLayerMask);
         lastTile = hit.collider.gameObject.transform.position;
         currTile = hit.collider.gameObject.transform.position;
+
+        Tile toptile = transform.parent.GetComponentInChildren<Tile>();
+        if (!toptile.EnvOccupied){
+            TileManager.Instance.AddUnoccupiedTile(toptile);
+        }
     }
 
     // Update is called once per frame
