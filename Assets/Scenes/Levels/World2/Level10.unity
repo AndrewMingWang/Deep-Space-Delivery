@@ -14728,6 +14728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67cf5b868aea9114da666b4a11bc229b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  YTicks: {fileID: 0}
   EnvironmentTiles: []
   AllTiles: []
   UnoccupiedTiles: []
@@ -17121,6 +17122,16 @@ PrefabInstance:
       propertyPath: Type
       value: trampoline
       objectReference: {fileID: 0}
+    - target: {fileID: 2458546653128164797, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1874787701}
+    - target: {fileID: 2458546653128164797, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnableTileSides
+      objectReference: {fileID: 0}
     - target: {fileID: 3603220445405343633, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -17290,6 +17301,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 956.19995
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400522876727073162, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -189.00006
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690206689852198594, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -130.00012
       objectReference: {fileID: 0}
     - target: {fileID: 7228321507604612286, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
