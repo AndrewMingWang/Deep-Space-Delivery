@@ -189,10 +189,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 499914845}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 499914845}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &6086131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,10 +543,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 161755357}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 161755357}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &27769606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,10 +725,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 2125930571}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 2125930571}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &33422625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2165,10 +2186,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1302265502}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1302265502}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &102454246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2780,10 +2808,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 203657049}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 203657049}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &129571217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3189,10 +3224,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1720140694}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1720140694}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &137230774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3590,10 +3632,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 711483119}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 711483119}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &148330877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3920,10 +3969,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 871405756}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 871405756}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &160513650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4645,10 +4701,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 2125661303}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 2125661303}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &196183823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5539,10 +5602,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 660801892}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 660801892}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &218714471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5844,10 +5914,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1881910928}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1881910928}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &224556570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6155,10 +6232,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1867620795}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1867620795}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &234917755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6507,10 +6591,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1965317634}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1965317634}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &244924440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6651,10 +6742,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 936293083}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 936293083}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &246644017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6919,10 +7017,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1518626437}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1518626437}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &253968842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7063,10 +7168,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1600684021}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1600684021}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &254343173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7348,10 +7460,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 652947367}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 652947367}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &266578387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7554,10 +7673,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 400588053}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 400588053}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &267934023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7844,10 +7970,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 692533083}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 692533083}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &273994199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8465,10 +8598,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 462937934}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 462937934}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &291121135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8688,10 +8828,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1853842750}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1853842750}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &292256457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9714,10 +9861,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 783635857}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 783635857}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &329979991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10327,10 +10481,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1923115105}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1923115105}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &365578032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11113,6 +11274,24 @@ Transform:
   m_Father: {fileID: 1305868206}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &391887957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7375395166274729889, guid: d5a2279f1abbc454d93f8d42c41a9c5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7375395166563818327}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &391887958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391887957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd971b0482bbd0c4f86fac22fdb9f1e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &392011797
 GameObject:
   m_ObjectHideFlags: 0
@@ -11526,10 +11705,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1830374681}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1830374681}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &401981793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11670,10 +11856,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 502140211}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 502140211}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &402737995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12381,10 +12574,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 247182278}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 247182278}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &428671940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13368,10 +13568,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 11084466}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 11084466}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &466659271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13622,10 +13829,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 955630175}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 955630175}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &475859197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14110,10 +14324,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 794905653}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 794905653}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &492518486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14285,10 +14506,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 430677094}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 430677094}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &495126264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14909,10 +15137,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1996850758}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1996850758}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &507683903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15452,10 +15687,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1409205529}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1409205529}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &529832206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15940,10 +16182,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 364648250}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 364648250}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &542372840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16535,10 +16784,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1013552039}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1013552039}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &566201214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16930,10 +17186,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 529317634}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 529317634}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &572261203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17655,10 +17918,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1906264777}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1906264777}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &604681626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18949,10 +19219,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 967180539}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 967180539}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &658412583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20762,10 +21039,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1160765606}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1160765606}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &707710559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20906,10 +21190,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 697879889}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 697879889}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &710840272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21611,10 +21902,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 437474875}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 437474875}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &744779727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21925,10 +22223,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1746499185}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1746499185}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &756084153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22320,10 +22625,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 713386492}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 713386492}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &779694999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22715,10 +23027,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1296064296}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1296064296}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &790362132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22952,10 +23271,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 449250328}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 449250328}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &798357930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23939,10 +24265,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 2112911596}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 2112911596}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &828242499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24176,10 +24509,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 47374720}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 47374720}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &835277728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25221,10 +25561,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1876100632}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1876100632}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &869319130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25647,10 +25994,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 92366837}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 92366837}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &874111634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25791,10 +26145,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1164219227}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1164219227}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &875175142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26433,10 +26794,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1896965084}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1896965084}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &895673892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26811,10 +27179,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1141396371}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1141396371}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &904397339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27065,10 +27440,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1211098991}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1211098991}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &909781171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28830,10 +29212,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 401545653}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 401545653}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1000967168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29110,10 +29499,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1547267966}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1547267966}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1019205519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29364,10 +29760,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 896682347}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 896682347}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1022158619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30040,10 +30443,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 313195137}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 313195137}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1039097320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30440,10 +30850,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 815873795}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 815873795}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1056981939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30730,10 +31147,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 559872953}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 559872953}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1067714710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30953,10 +31377,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 959168031}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 959168031}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1074220389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31128,10 +31559,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1819535878}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1819535878}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1078727271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31278,10 +31716,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1036762922}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1036762922}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1082239616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31422,10 +31867,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1705202374}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1705202374}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1083497501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31952,10 +32404,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 880382526}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 880382526}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1103826341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32415,10 +32874,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 981434193}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 981434193}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1108889803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33222,10 +33688,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 357579619}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 357579619}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1151727830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33366,10 +33839,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 921566819}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 921566819}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1153676364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33913,10 +34393,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1435916138}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1435916138}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1174994671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34229,10 +34716,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 7159854053871087332}
-  Top: {fileID: 1231596447}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 7159854053871087332}
+  Top: {fileID: 1231596447}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1181717541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34688,10 +35182,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 605639251}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 605639251}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1210468890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35078,10 +35579,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 561660186}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 561660186}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1214826232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35457,10 +35965,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1747149863}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1747149863}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1226933628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35911,10 +36426,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1107350336}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1107350336}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1232345188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35987,6 +36509,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232345184}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1232417355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6791615435099089944, guid: 6c71fb75931302643920ce0dd4afe317,
+    type: 3}
+  m_PrefabInstance: {fileID: 5036928655012304105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1236316172
 GameObject:
   m_ObjectHideFlags: 0
@@ -36484,10 +37012,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 34639789}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 34639789}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1260398666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36831,10 +37366,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 2034457733}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 2034457733}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1277540408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37386,10 +37928,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1844654217}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1844654217}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1304710381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37597,10 +38146,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1886967948}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1886967948}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1307708501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37954,10 +38510,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 2122698416}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 2122698416}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1318248937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38098,10 +38661,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 216147464}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 216147464}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1328277080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38672,10 +39242,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 693597047}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 693597047}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1347453505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39238,10 +39815,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 2041597886}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 2041597886}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1363412798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39413,10 +39997,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 732240313}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 732240313}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1365746789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39557,10 +40148,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 971954383}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 971954383}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1368726092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40053,10 +40651,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1353357393}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1353357393}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1412228118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40449,10 +41054,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 574744569}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 574744569}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1421965846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40703,10 +41315,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 960591174}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 960591174}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1427044078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41254,10 +41873,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1923702224}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1923702224}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1440546574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41492,10 +42118,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 541469791}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 541469791}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1453074808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41715,10 +42348,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1932113664}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1932113664}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1457828971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42056,10 +42696,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1678881992}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1678881992}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1468680342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42637,10 +43284,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1885034705}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1885034705}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1493222258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42906,6 +43560,9 @@ MonoBehaviour:
   playButtonPause: {fileID: 21300000, guid: 8f93fb806ba3dda4e972afaea6673454, type: 3}
   resetButtonReset: {fileID: 21300000, guid: 268d6aa80675a324b8e7994554b04ca2, type: 3}
   resetButtonRewind: {fileID: 21300000, guid: 2a2acf03f06d72d479c773b45a3f03cb, type: 3}
+  slowSpeedIcon: {fileID: 21300000, guid: 2c3e2a1ba84f61f4eaf5a784b44e97ee, type: 3}
+  fastSpeedIcon: {fileID: 21300000, guid: bb40c7504efd0574bbe66d034d027240, type: 3}
+  FastForwardButtonIcon: {fileID: 1232417355}
   Spawn: {fileID: 1092006415}
   ResultsPanel: {fileID: 299269315}
   ActionsPanel: {fileID: 598711788}
@@ -43093,10 +43750,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1755071279}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1755071279}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1503614383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43727,10 +44391,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 1092006415}
-  Top: {fileID: 131220569}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 1092006415}
+  Top: {fileID: 131220569}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1525500478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44029,10 +44700,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1230769022}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1230769022}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1535229353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44579,10 +45257,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 884499300}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 884499300}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1557733228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45450,10 +46135,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1875422988}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1875422988}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1594642077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45786,10 +46478,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 2103306344}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 2103306344}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1621627340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46266,10 +46965,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 2089877777}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 2089877777}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1640450977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46929,10 +47635,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 2139385811}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 2139385811}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1656458908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48358,10 +49071,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1030452808}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1030452808}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1716956879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48626,10 +49346,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1170940700}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1170940700}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1721011563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48979,10 +49706,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 635014143}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 635014143}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1738525072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49216,10 +49950,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 2085916527}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 2085916527}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1746700377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50349,10 +51090,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 823475591}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 823475591}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1802233527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50524,10 +51272,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 90310347}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 90310347}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1804918457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50936,10 +51691,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 492278252}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 492278252}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1817216725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51331,10 +52093,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1714740002}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1714740002}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1825847386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52441,10 +53210,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 374758355}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 374758355}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1869256528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52585,10 +53361,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 802870922}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 802870922}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1871349427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52787,6 +53570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67cf5b868aea9114da666b4a11bc229b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  YTicks: {fileID: 0}
   EnvironmentTiles: []
   AllTiles: []
   UnoccupiedTiles: []
@@ -53241,10 +54025,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1357398665}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1357398665}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1882330738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53774,10 +54565,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1032928774}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1032928774}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1901957852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54104,10 +54902,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1666164252}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1666164252}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1912383103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54513,10 +55318,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 685494342}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 685494342}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1923667944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54781,10 +55593,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1562486803}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1562486803}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1927120837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55143,10 +55962,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 557076481}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 557076481}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1944868819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55445,10 +56271,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 279354603}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 279354603}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1957072580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55620,10 +56453,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1156405491}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1156405491}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1963193641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56297,10 +57137,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1478598684}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1478598684}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &1984542634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56836,10 +57683,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 839564092}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 839564092}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &2012141501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57999,10 +58853,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 1781123933}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 1781123933}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &2057493775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58377,10 +59238,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 94235996}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 94235996}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &2070768117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59627,10 +60495,17 @@ MonoBehaviour:
   Hovered: 0
   EnvOccupied: 0
   UnbuildableShadingOn: 0
-  OccupyingBuilding: {fileID: 0}
-  Top: {fileID: 155725674}
+  EnemyTile: 0
   windTile: 0
   AddToTileManagerOnAwake: 1
+  OccupyingBuilding: {fileID: 0}
+  Top: {fileID: 155725674}
+  useSides: 0
+  showLeft: 0
+  showTop: 0
+  showRight: 0
+  showBottom: 0
+  sidesMaterial: {fileID: 0}
 --- !u!114 &2112776076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59908,6 +60783,7 @@ MonoBehaviour:
   - name: trampoline
     prefab: {fileID: 5133136652654359411, guid: ea30eeee910d21d47a57d6d2fd068d23,
       type: 3}
+  ExistingBuildings: []
   SpawnBuilding: {fileID: 8300000, guid: 59144fea5c3c29f46859d9acdd6d5ddd, type: 3}
   DespawnBuilding: {fileID: 8300000, guid: 4956264a88d0f084baae46fd530a70a7, type: 3}
   PickupBuilding: {fileID: 8300000, guid: 59144fea5c3c29f46859d9acdd6d5ddd, type: 3}
@@ -61614,6 +62490,16 @@ PrefabInstance:
       propertyPath: Type
       value: trampoline
       objectReference: {fileID: 0}
+    - target: {fileID: 2458546653128164797, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1874787701}
+    - target: {fileID: 2458546653128164797, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnableTileSides
+      objectReference: {fileID: 0}
     - target: {fileID: 3603220445405343633, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -61634,6 +62520,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1496337690}
+    - target: {fileID: 3734532784612253892, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -71.00006
+      objectReference: {fileID: 0}
     - target: {fileID: 4394021744950888947, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -61657,17 +62548,17 @@ PrefabInstance:
     - target: {fileID: 5036928653941898537, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -415.00012
+      value: -415.00018
       objectReference: {fileID: 0}
     - target: {fileID: 5036928654184533433, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 488.00012
+      value: 488.00018
       objectReference: {fileID: 0}
     - target: {fileID: 5036928654510901682, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 384.00012
+      value: 384.00018
       objectReference: {fileID: 0}
     - target: {fileID: 5036928654709892008, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
@@ -61784,6 +62675,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5036928655072063188, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -693
+      objectReference: {fileID: 0}
     - target: {fileID: 5036928655206114071, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -61792,12 +62688,47 @@ PrefabInstance:
     - target: {fileID: 5036928655588133124, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 487.50012
+      value: 487.50018
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400522876727073162, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -189.00006
       objectReference: {fileID: 0}
     - target: {fileID: 5572328713573705411, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -7.3999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690206689852198594, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -130.00012
+      objectReference: {fileID: 0}
+    - target: {fileID: 6791615435099089947, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.6000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 6791615436210513210, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1496337690}
+    - target: {fileID: 6791615436210513210, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1496337690}
+    - target: {fileID: 6791615436210513210, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpeedChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 6791615436210513210, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SFXButtonPress
       objectReference: {fileID: 0}
     - target: {fileID: 7228321507604612286, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
@@ -61825,6 +62756,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: a0642891e9888334b9be0f378b53199a,
         type: 3}
+    - target: {fileID: 8603683585213665581, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -71
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c71fb75931302643920ce0dd4afe317, type: 3}
 --- !u!1001 &7159854053871087331
@@ -62088,6 +63024,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CameraMaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375395166274729889, guid: d5a2279f1abbc454d93f8d42c41a9c5b,
+        type: 3}
+      propertyPath: m_TagString
+      value: cameraParent
       objectReference: {fileID: 0}
     - target: {fileID: 7375395166951208482, guid: d5a2279f1abbc454d93f8d42c41a9c5b,
         type: 3}

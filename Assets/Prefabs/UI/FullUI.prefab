@@ -8697,11 +8697,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3058620122965050516, guid: c3d8e363d658b1c43a2f863ce215ac89,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitPlayAfterPause
-      objectReference: {fileID: 0}
-    - target: {fileID: 3058620122965050516, guid: c3d8e363d658b1c43a2f863ce215ac89,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SFXButtonPress
       objectReference: {fileID: 0}

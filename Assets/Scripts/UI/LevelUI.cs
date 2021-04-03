@@ -110,6 +110,11 @@ public class LevelUI : BaseUI
 
     public IEnumerator QuitPlay()
     {
+        foreach (GameObject dog in GameObject.FindGameObjectsWithTag("player"))
+        {
+            dog.SetActive(false);
+        }
+        Time.timeScale = 1.0f;
         UIAnimator.SetTrigger("out");
         yield return new WaitForSecondsRealtime(2.1f);
         GoToScene("LevelSelect");
@@ -117,6 +122,7 @@ public class LevelUI : BaseUI
 
     public void NextLevel()
     {
+        Time.timeScale = 1.0f;
         StartCoroutine(NextLevelAfterPause());
     }
 
@@ -150,6 +156,7 @@ public class LevelUI : BaseUI
 
     public void ChooseLevel(string sceneName)
     {
+        Time.timeScale = 1.0f;
         StartCoroutine(ChooseLevelAfterPause(sceneName));
     }
 
