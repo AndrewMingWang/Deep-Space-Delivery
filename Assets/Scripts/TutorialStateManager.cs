@@ -232,9 +232,9 @@ public class TutorialStateManager : MonoBehaviour
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "That is not quite the\\n"+
                 "right direction,\\p pick it\\n"+
-                "up again and turn it so\\n"+
-                "it points entirely towards\\n"+
-                "the right.",
+                "up again and turn with\\n"+
+                "Q/E so it points entirely\\n"+
+                "towards the right.",
                 TypeSpeed);
                 textFlag = false;
             }
@@ -259,6 +259,7 @@ public class TutorialStateManager : MonoBehaviour
                 "Don't forget to click it\\n" +
                 "to place it!",
                 TypeSpeed);
+                BuildManager.Instance.allowPickingUpBuildings = false;
                 textFlag = false;
                 BuildingPanel.SetActive(true);
                 SignButton.interactable = false;
