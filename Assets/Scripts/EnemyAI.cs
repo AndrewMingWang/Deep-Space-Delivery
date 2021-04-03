@@ -148,8 +148,19 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void LineOfSightCheck(float dog_y, float dog_x, float dog_z){
-        Debug.DrawRay(TopLevelParent.position + new Vector3(Mathf.Floor(TopLevelParent.position.x)+(dog_x - Mathf.Floor(dog_x)), dog_y - TopLevelParent.position.y, Mathf.Floor(TopLevelParent.position.z)+(dog_z - Mathf.Floor(dog_z))), transform.forward*10.0f, Color.blue, 0.5f);
-        if (currState == State.waiting && Physics.Raycast(TopLevelParent.position + new Vector3(Mathf.Floor(TopLevelParent.position.x)+(dog_x - Mathf.Floor(dog_x)) - TopLevelParent.position.x, dog_y - TopLevelParent.position.y, Mathf.Floor(TopLevelParent.position.z)+(dog_z - Mathf.Floor(dog_z)) - TopLevelParent.position.z), transform.forward, out hit, Mathf.Infinity, layerMask)){
+        float checkAtx = Mathf.Floor(TopLevelParent.position.x)+(dog_x - Mathf.Floor(dog_x));
+        if (checkAtx < Mathf.Floor(TopLevelParent.position.x)+0.1f || checkAtx > Mathf.Ceil(TopLevelParent.position.x)-0.1f){
+            checkAtx = TopLevelParent.position.x;
+        }
+        float checkAty = dog_y;
+        float checkAtz = Mathf.Floor(TopLevelParent.position.z)+(dog_z - Mathf.Floor(dog_z));
+        if (checkAtz < Mathf.Floor(TopLevelParent.position.z)+0.1f || checkAtx > Mathf.Ceil(TopLevelParent.position.z)-0.1f){
+            checkAtz = TopLevelParent.position.z;
+        }
+        if (currState == State.waiting){
+            Debug.DrawRay(new Vector3(checkAtx, checkAty, checkAtz), transform.forward*5.0f, Color.blue, 0.35f);
+        }
+        if (currState == State.waiting && Physics.Raycast(new Vector3(checkAtx, checkAty, checkAtz), transform.forward, out hit, Mathf.Infinity, layerMask)){
             if (hit.transform.CompareTag("player"))
             {
                 currState = State.chargingAnimationStart;
@@ -165,7 +176,7 @@ public class EnemyAI : MonoBehaviour
 
                 lerpFrameTotal = (int)(8*hit.distance);
                 Animator.SetBool("ChargeUp", true);
-                Indicator.position = target_pos + transform.up*0.03f;
+                Indicator.position = target_pos + transform.up*0.05f;
                 Indicator.gameObject.SetActive(true);
             }
         }
