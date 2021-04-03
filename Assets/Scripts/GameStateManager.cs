@@ -104,6 +104,11 @@ public class GameStateManager : MonoBehaviour
 
     public void ResetButtonPressed()
     {
+        if (BuildManager.BuildingSelected)
+        {
+            BuildManager.Instance.CancelBuilding();
+            return;
+        }
         if (_fast){
             Time.timeScale = 2.0f;
         } else {
