@@ -108,7 +108,8 @@ public class Dog : MonoBehaviour
         int windLayerMask = 1 << 11; // Wind layer
         int buildingLayerMask = 1 << 9; // Building layer
         int envBuildingLayerMask = 1 << 13; // Environment Buildings
-        int layerMask = windLayerMask | buildingLayerMask | envBuildingLayerMask;
+        int windBlocks = 1 << 19; // Wind blocks on wall buildings
+        int layerMask = windLayerMask | buildingLayerMask | envBuildingLayerMask | windBlocks;
         RaycastHit hit;
 
         Vector3 res = Vector3.zero;
