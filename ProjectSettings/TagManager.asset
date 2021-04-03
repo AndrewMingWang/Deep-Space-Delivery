@@ -17,6 +17,7 @@ TagManager:
   - enemy
   - cursorCanvas
   - Ruler
+  - cameraParent
   layers:
   - Default
   - TransparentFX

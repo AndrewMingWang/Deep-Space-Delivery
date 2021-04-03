@@ -11274,6 +11274,24 @@ Transform:
   m_Father: {fileID: 1305868206}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &391887957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7375395166274729889, guid: d5a2279f1abbc454d93f8d42c41a9c5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7375395166563818327}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &391887958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391887957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd971b0482bbd0c4f86fac22fdb9f1e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &392011797
 GameObject:
   m_ObjectHideFlags: 0
@@ -62665,7 +62683,7 @@ PrefabInstance:
     - target: {fileID: 5036928655206114071, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 956.1999
+      value: 956.19995
       objectReference: {fileID: 0}
     - target: {fileID: 5036928655588133124, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
@@ -63006,6 +63024,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CameraMaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375395166274729889, guid: d5a2279f1abbc454d93f8d42c41a9c5b,
+        type: 3}
+      propertyPath: m_TagString
+      value: cameraParent
       objectReference: {fileID: 0}
     - target: {fileID: 7375395166951208482, guid: d5a2279f1abbc454d93f8d42c41a9c5b,
         type: 3}

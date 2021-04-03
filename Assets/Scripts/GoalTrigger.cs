@@ -142,6 +142,15 @@ public class GoalTrigger : MonoBehaviour
     {
         if (other.CompareTag("player"))
         {
+            GameObject cameraParent = GameObject.FindGameObjectWithTag("cameraParent");
+            if (cameraParent != null)
+            {
+                CameraShake cameraShake = cameraParent.GetComponent<CameraShake>();
+                if (cameraShake != null)
+                {
+                    cameraShake.StartCameraShake(0.5f, 0.1f);
+                }
+            }
             GetComponent<AudioSource>().pitch = Random.Range(0.99f, 1.01f);
             GetComponent<AudioSource>().Play();
             packagesDelivered += other.GetComponent<Dog>().NumPackages;
