@@ -122,6 +122,7 @@ public class LevelUI : BaseUI
 
     public void NextLevel()
     {
+        Time.timeScale = 1.0f;
         StartCoroutine(NextLevelAfterPause());
     }
 
@@ -155,6 +156,7 @@ public class LevelUI : BaseUI
 
     public void ChooseLevel(string sceneName)
     {
+        Time.timeScale = 1.0f;
         StartCoroutine(ChooseLevelAfterPause(sceneName));
     }
 

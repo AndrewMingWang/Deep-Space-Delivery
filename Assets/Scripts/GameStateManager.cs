@@ -196,11 +196,11 @@ public class GameStateManager : MonoBehaviour
 
     public void SpeedChange(){
         // if (CurrState == State.Play){
-            if (!_fast){
+            if (!_fast && CurrState != State.Paused){
                 _fast = true;
                 Time.timeScale = 2.0f;
                 FastForwardButtonIcon.GetComponent<Image>().sprite = fastSpeedIcon;   
-            } else {
+            } else if (CurrState != State.Paused) {
                 _fast = false;
                 Time.timeScale = 1.0f;
                 FastForwardButtonIcon.GetComponent<Image>().sprite = slowSpeedIcon;
