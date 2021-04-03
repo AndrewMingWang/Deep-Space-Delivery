@@ -20,6 +20,9 @@ public class GameStateManager : MonoBehaviour
     public Sprite playButtonPause;
     public Sprite resetButtonReset;
     public Sprite resetButtonRewind;
+    public Sprite slowSpeedIcon;
+    public Sprite fastSpeedIcon;
+    public GameObject FastForwardButtonIcon;
 
     public GameObject Spawn;
     public GameObject ResultsPanel;
@@ -35,6 +38,7 @@ public class GameStateManager : MonoBehaviour
     public GameObject BuildingPanel;
     public bool EnablePanelsOnReset = true;
     private Coroutine _spawner;
+    private bool _fast;
 
     private void Awake()
     {
@@ -53,22 +57,8 @@ public class GameStateManager : MonoBehaviour
         _spawnscript = Spawn.GetComponent<SpawnPlayers>();
         // _resetButton.interactable = false;
         ControlsPanel = GameObject.Find("Controls");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (CurrState == State.Play)
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Time.timeScale = 2.0f;
-            }
-            else if (Input.GetKeyUp(KeyCode.F))
-            {
-                Time.timeScale = 1.0f;
-            }
-        }
+        _fast = false;
+        FastForwardButtonIcon.GetComponent<Image>().sprite = slowSpeedIcon;
     }
 
     public void PlayButtonPressed() {
@@ -102,7 +92,11 @@ public class GameStateManager : MonoBehaviour
                 CurrState = State.Play;
                 AudioManager.UnpauseAllLoopingSFX();
                 PlayButtonIcon.sprite = playButtonPause;
-                Time.timeScale = 1.0f;
+                if (_fast){
+                    Time.timeScale = 2.0f;
+                } else {
+                    Time.timeScale = 1.0f;
+                }
                 break;
             }
         ResultsPanel.GetComponent<Animator>().SetBool("closed", false);
@@ -110,7 +104,11 @@ public class GameStateManager : MonoBehaviour
 
     public void ResetButtonPressed()
     {
-        Time.timeScale = 1.0f;
+        if (_fast){
+            Time.timeScale = 2.0f;
+        } else {
+            Time.timeScale = 1.0f;
+        }
         switch (CurrState){
             case State.Plan:
                 List<GameObject> cleanup = new List<GameObject>();
@@ -189,5 +187,20 @@ public class GameStateManager : MonoBehaviour
     public void SFXButtonPress()
     {
         AudioManager.PlaySFX(AudioManager.UI_BUTTON_PRESS);
+    }
+
+    public void SpeedChange(){
+        // if (CurrState == State.Play){
+            if (!_fast){
+                _fast = true;
+                Time.timeScale = 2.0f;
+                FastForwardButtonIcon.GetComponent<Image>().sprite = fastSpeedIcon;   
+            } else {
+                _fast = false;
+                Time.timeScale = 1.0f;
+                FastForwardButtonIcon.GetComponent<Image>().sprite = slowSpeedIcon;
+            }
+        // }
+        
     }
 }

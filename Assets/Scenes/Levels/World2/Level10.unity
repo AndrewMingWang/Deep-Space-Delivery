@@ -11914,6 +11914,9 @@ MonoBehaviour:
   playButtonPause: {fileID: 21300000, guid: 8f93fb806ba3dda4e972afaea6673454, type: 3}
   resetButtonReset: {fileID: 21300000, guid: 268d6aa80675a324b8e7994554b04ca2, type: 3}
   resetButtonRewind: {fileID: 21300000, guid: 2a2acf03f06d72d479c773b45a3f03cb, type: 3}
+  slowSpeedIcon: {fileID: 21300000, guid: 2c3e2a1ba84f61f4eaf5a784b44e97ee, type: 3}
+  fastSpeedIcon: {fileID: 21300000, guid: bb40c7504efd0574bbe66d034d027240, type: 3}
+  FastForwardButtonIcon: {fileID: 5036928655012304106}
   Spawn: {fileID: 1092006415}
   ResultsPanel: {fileID: 299269315}
   ActionsPanel: {fileID: 598711788}
@@ -17312,6 +17315,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -130.00012
       objectReference: {fileID: 0}
+    - target: {fileID: 6791615436210513210, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1496337690}
+    - target: {fileID: 6791615436210513210, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1496337690}
+    - target: {fileID: 6791615436210513210, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpeedChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 6791615436210513210, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SFXButtonPress
+      objectReference: {fileID: 0}
     - target: {fileID: 7228321507604612286, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -17354,6 +17377,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c71fb75931302643920ce0dd4afe317, type: 3}
+--- !u!1 &5036928655012304106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6791615435099089944, guid: 6c71fb75931302643920ce0dd4afe317,
+    type: 3}
+  m_PrefabInstance: {fileID: 5036928655012304105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7159854053871087331
 PrefabInstance:
   m_ObjectHideFlags: 0
