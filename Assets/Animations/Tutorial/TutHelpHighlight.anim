@@ -60,7 +60,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MenuButton (2)
+    path: MenuButton (4)
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -106,7 +106,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MenuButton (2)
+    path: MenuButton (4)
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -152,7 +152,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MenuButton (2)
+    path: MenuButton (4)
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -198,7 +198,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MenuButton (2)
+    path: MenuButton (4)
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -244,7 +244,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -290,7 +290,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -336,7 +336,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -382,7 +382,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -428,7 +428,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -474,7 +474,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -520,7 +520,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -566,7 +566,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -612,7 +612,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -658,7 +658,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -704,7 +704,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -750,7 +750,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_PPtrCurves: []
@@ -762,112 +762,112 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2356866058
+      path: 3659549580
       attribute: 2526845255
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2356866058
+      path: 3659549580
       attribute: 4215373228
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 4255262976
+      path: 833323872
       attribute: 2526845255
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 4255262976
+      path: 833323872
       attribute: 4215373228
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2275364378
+      path: 915964585
       attribute: 2526845255
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3575609218
+      path: 264780511
       attribute: 2526845255
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2356866058
+      path: 3659549580
       attribute: 2334886179
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2356866058
+      path: 3659549580
       attribute: 304273561
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 4255262976
+      path: 833323872
       attribute: 2334886179
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 4255262976
+      path: 833323872
       attribute: 304273561
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2275364378
+      path: 915964585
       attribute: 4215373228
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2275364378
+      path: 915964585
       attribute: 2334886179
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2275364378
+      path: 915964585
       attribute: 304273561
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3575609218
+      path: 264780511
       attribute: 4215373228
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3575609218
+      path: 264780511
       attribute: 2334886179
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3575609218
+      path: 264780511
       attribute: 304273561
       script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
       typeID: 114
@@ -938,7 +938,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MenuButton (2)
+    path: MenuButton (4)
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -984,7 +984,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MenuButton (2)
+    path: MenuButton (4)
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -1030,7 +1030,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MenuButton (2)
+    path: MenuButton (4)
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -1076,7 +1076,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MenuButton (2)
+    path: MenuButton (4)
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -1122,7 +1122,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -1168,7 +1168,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -1214,7 +1214,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -1260,7 +1260,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -1306,7 +1306,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -1352,7 +1352,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -1398,7 +1398,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -1444,7 +1444,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -1490,7 +1490,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -1536,7 +1536,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -1582,7 +1582,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
@@ -1628,7 +1628,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.a
-    path: MenuButton (2)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
+    path: MenuButton (4)/ButtonForeground/ButtonTop/ButtonTopScreenBackground/ButtonTopScreen/ButtonIcon
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_EulerEditorCurves: []

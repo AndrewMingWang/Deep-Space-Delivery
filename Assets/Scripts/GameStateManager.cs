@@ -39,6 +39,7 @@ public class GameStateManager : MonoBehaviour
     public bool EnablePanelsOnReset = true;
     private Coroutine _spawner;
     private bool _fast;
+    public GameObject menuButtonsParentPanelForeground;
 
     private void Awake()
     {
@@ -207,5 +208,10 @@ public class GameStateManager : MonoBehaviour
             }
         // }
         
+    }
+
+// ONLY USE THIS IF YOU KNOW WHAT YOU ARE DOING
+    public void RulerHighlightToggle(){
+        menuButtonsParentPanelForeground.GetComponent<Animator>().SetBool("highlighted", false);
     }
 }
