@@ -183,6 +183,24 @@ public class BuildManager : MonoBehaviour
                     {
                         // Pickup building
                         CurrBuilding = hit.transform.GetComponent<Building>();
+                        Wall wallComponent = CurrBuilding.GetComponent<Wall>();
+                        while (wallComponent != null)
+                        {
+                            Tile tileAbove = wallComponent.TileAbove;
+                            if (tileAbove.OccupyingBuilding != null)
+                            {
+                                Building nextBuilding = tileAbove.OccupyingBuilding.transform.GetComponent<Building>();
+                                if (nextBuilding != null)
+                                {
+                                    CurrBuilding = nextBuilding;
+                                    wallComponent = CurrBuilding.GetComponent<Wall>();
+                                }
+                            } 
+                            else
+                            {
+                                wallComponent = null;
+                            }
+                        }
                         CurrBuilding.GetComponent<Building>().TileUnder.OccupyingBuilding = null;
                         TileManager.Instance.SetTileUnoccupied(CurrBuilding.TileUnder);
                         CurrBuilding.GetComponent<Building>().PickUpBuilding();
