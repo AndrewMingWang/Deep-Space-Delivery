@@ -38,7 +38,8 @@ public class GameStateManager : MonoBehaviour
     public GameObject BuildingPanel;
     public bool EnablePanelsOnReset = true;
     private Coroutine _spawner;
-    private bool _fast;
+    [HideInInspector]
+    public bool _fast;
     public GameObject menuButtonsParentPanelForeground;
 
     private void Awake()

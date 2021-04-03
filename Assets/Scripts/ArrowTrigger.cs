@@ -41,6 +41,9 @@ public class ArrowTrigger : MonoBehaviour
         int numSteps = 100;
         for (int i = 1; i < numSteps+1; i++)
         {
+            if(GameStateManager.Instance._fast){
+                i++;
+            }
             dogTransform.position = Vector3.Lerp(startPos, targetPos, (float) i / numSteps);
             yield return new WaitForSeconds((float) length / numSteps);
         }
