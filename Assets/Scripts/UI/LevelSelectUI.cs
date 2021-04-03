@@ -16,6 +16,7 @@ public class LevelSelectUI : BaseUI
     public LevelSelectButton DownWorldButton;
     public LevelSelectButton UpWorldButton;
     public Animator FadeInOut;
+    public Animator TutorialButtonGlow;
 
     private static int currentWorld = 1;
 
@@ -102,9 +103,11 @@ public class LevelSelectUI : BaseUI
         if (highestLevelUnlocked >= 1)
         {
             LevelSelectButtons[0].SetScore(3);
+            TutorialButtonGlow.SetBool("tutdone", true);
         } else
         {
             LevelSelectButtons[0].SetUnlocked();
+            TutorialButtonGlow.SetBool("tutdone", false);
         }
 
         int baseLevel = (currentWorld - 1) * LEVELS_PER_WORLD;

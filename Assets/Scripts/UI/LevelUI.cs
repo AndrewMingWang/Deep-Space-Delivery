@@ -128,11 +128,23 @@ public class LevelUI : BaseUI
         int currentLevel = 0;
         if (int.TryParse(currentSceneName.Substring(5), out currentLevel))
         {
+            /*
+            print(currentLevel);
+            switch (currentLevel) // Change music if we are on a world boundary
+            {
+                case 7:
+                    AudioManager.PlayMusic(AudioManager.MUSIC_WORLD2);
+                    break;
+                case 14:
+                    AudioManager.PlayMusic(AudioManager.MUSIC_WORLD3);
+                    break;
+            }*/
+
             GoToScene("Level" + (currentLevel + 1));
         }
-        else
+        else // Go to the Levelselect if current SceneName doesnt make sense
         {
-            GoToScene("Level1");
+            GoToScene("LevelSelect");
         }
     }
 
@@ -146,6 +158,14 @@ public class LevelUI : BaseUI
         UIAnimator.SetTrigger("out");
         yield return new WaitForSeconds(2.1f);
         
+        if (sceneName == "Level8intro")
+        {
+            AudioManager.PlayMusic(AudioManager.MUSIC_WORLD2);
+        } else if (sceneName == "Level15intro")
+        {
+            AudioManager.PlayMusic(AudioManager.MUSIC_WORLD3);
+        }
+
         GoToScene(sceneName);
     }
 

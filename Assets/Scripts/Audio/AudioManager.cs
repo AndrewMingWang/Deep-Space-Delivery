@@ -287,7 +287,7 @@ public class AudioManager : MonoBehaviour
         switch(worldNum)
         {
             case 0:
-                PlayMusic(AudioManager.MUSIC_MENU);
+                PlayMusic(AudioManager.MUSIC_WORLD1);
                 break;
             case 1:
                 PlayMusic(AudioManager.MUSIC_WORLD1);
