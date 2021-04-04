@@ -45,6 +45,8 @@ public class GameStateManager : MonoBehaviour
     private Vector3 _startCameraPos;
     private Quaternion _startCameraRot;
     private Quaternion _startCameraParentRot;
+    private Quaternion _endCameraParentRot;
+    private int _elapsedSlerp;
 
     private void Awake()
     {
@@ -65,9 +67,10 @@ public class GameStateManager : MonoBehaviour
         ControlsPanel = GameObject.Find("Controls");
         _fast = false;
         FastForwardButtonIcon.GetComponent<Image>().sprite = slowSpeedIcon;
-        _startCameraPos = CameraMovement.Instance.gameObject.transform.position;
-        _startCameraRot = CameraMovement.Instance.gameObject.transform.rotation;
+        _startCameraPos = CameraMovement.Instance.gameObject.transform.localPosition;
+        _startCameraRot = CameraMovement.Instance.gameObject.transform.localRotation;
         _startCameraParentRot = CameraMovement.Instance.gameObject.transform.parent.rotation;
+        _elapsedSlerp = 0;
     }
 
     private void Update() {
@@ -75,20 +78,27 @@ public class GameStateManager : MonoBehaviour
             case State.Intro:
                 if (continueText.activeInHierarchy){
                     float newY = CameraMovement.Instance.gameObject.transform.parent.rotation.eulerAngles.y + 0.05f;
-                    CameraMovement.Instance.gameObject.transform.parent.rotation = Quaternion.Euler(0, newY, 0);
+                    CameraMovement.Instance.gameObject.transform.parent.rotation = Quaternion.Euler(CameraMovement.Instance.gameObject.transform.parent.rotation.eulerAngles.x, newY, CameraMovement.Instance.gameObject.transform.parent.rotation.eulerAngles.z);
                 }
                 if (Input.anyKeyDown && continueText.activeInHierarchy)
                 {
                     continueText.SetActive(false);
                     CurrState = State.Preplan;
+                    _endCameraParentRot = CameraMovement.Instance.gameObject.transform.parent.rotation;
                 }
                 break;
             case State.Preplan:
-                LevelEntryAnimationPlus.Instance.TriggerBringUpUI();
-                CurrState = State.Plan;
-                CameraMovement.Instance.gameObject.transform.position = _startCameraPos;
-                CameraMovement.Instance.gameObject.transform.rotation = _startCameraRot;
-                CameraMovement.Instance.gameObject.transform.parent.rotation = _startCameraParentRot;
+                if (_elapsedSlerp >= 60.0f){
+                    CameraMovement.Instance.gameObject.transform.localPosition = _startCameraPos;
+                    CameraMovement.Instance.gameObject.transform.localRotation = _startCameraRot;
+                    CurrState = State.Plan;
+                    _elapsedSlerp = 0;
+                    LevelEntryAnimationPlus.Instance.TriggerBringUpUI();
+                } else {
+                    _elapsedSlerp++;
+                    CameraMovement.Instance.gameObject.transform.parent.rotation = Quaternion.Slerp(_endCameraParentRot, _startCameraParentRot, _elapsedSlerp/45.0f);
+                }
+                // CameraMovement.Instance.gameObject.transform.parent.rotation = _startCameraParentRot;
                 break;
         }
     }
