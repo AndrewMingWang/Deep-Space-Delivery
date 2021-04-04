@@ -43560,8 +43560,8 @@ MonoBehaviour:
   playButtonPause: {fileID: 21300000, guid: 8f93fb806ba3dda4e972afaea6673454, type: 3}
   resetButtonReset: {fileID: 21300000, guid: 268d6aa80675a324b8e7994554b04ca2, type: 3}
   resetButtonRewind: {fileID: 21300000, guid: 2a2acf03f06d72d479c773b45a3f03cb, type: 3}
-  slowSpeedIcon: {fileID: 21300000, guid: 2c3e2a1ba84f61f4eaf5a784b44e97ee, type: 3}
-  fastSpeedIcon: {fileID: 21300000, guid: bb40c7504efd0574bbe66d034d027240, type: 3}
+  slowSpeedIcon: {fileID: 21300000, guid: 8b6b290207f8c284b90ba9918929e9eb, type: 3}
+  fastSpeedIcon: {fileID: 21300000, guid: f83713736baa6c0499c261818870faad, type: 3}
   FastForwardButtonIcon: {fileID: 1232417355}
   Spawn: {fileID: 1092006415}
   ResultsPanel: {fileID: 299269315}
@@ -43572,6 +43572,9 @@ MonoBehaviour:
   CurrState: 0
   BuildingPanel: {fileID: 1104144831}
   EnablePanelsOnReset: 1
+  _fast: 0
+  menuButtonsParentPanelForeground: {fileID: 0}
+  continueText: {fileID: 5036928655012304106}
 --- !u!1 &1500212234
 GameObject:
   m_ObjectHideFlags: 0
@@ -62460,6 +62463,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 545227216609206692, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -188.99998
+      objectReference: {fileID: 0}
     - target: {fileID: 1580194087696029778, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -62489,6 +62497,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Type
       value: trampoline
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972683827798713977, guid: 6c71fb75931302643920ce0dd4afe317,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -129.99998
       objectReference: {fileID: 0}
     - target: {fileID: 2458546653128164797, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
@@ -62693,7 +62706,7 @@ PrefabInstance:
     - target: {fileID: 5400522876727073162, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -189.00006
+      value: -189.00005
       objectReference: {fileID: 0}
     - target: {fileID: 5572328713573705411, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
@@ -62703,7 +62716,7 @@ PrefabInstance:
     - target: {fileID: 6690206689852198594, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -130.00012
+      value: -130.0001
       objectReference: {fileID: 0}
     - target: {fileID: 6791615435099089947, guid: 6c71fb75931302643920ce0dd4afe317,
         type: 3}
@@ -62763,6 +62776,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c71fb75931302643920ce0dd4afe317, type: 3}
+--- !u!1 &5036928655012304106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7895148961338572626, guid: 6c71fb75931302643920ce0dd4afe317,
+    type: 3}
+  m_PrefabInstance: {fileID: 5036928655012304105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7159854053871087331
 PrefabInstance:
   m_ObjectHideFlags: 0

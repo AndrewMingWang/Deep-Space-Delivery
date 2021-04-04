@@ -4,11 +4,26 @@ using UnityEngine;
 
 public class LevelEntryAnimationPlus : MonoBehaviour
 {
+    public static LevelEntryAnimationPlus Instance;
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(Instance);
+        }
+        Instance = this;
+    }
+
     public Animator LevelEntryUI;
 
     public void TriggerBringUpUI()
     {
         LevelEntryUI.SetTrigger("bringupui");
+    }
+
+    public void EnableContinueText()
+    {
+        GameStateManager.Instance.EnableContinueText();
     }
 
     public void PlayStartLand()

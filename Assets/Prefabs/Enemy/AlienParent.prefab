@@ -735,6 +735,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.72
       objectReference: {fileID: 0}
+    - target: {fileID: 813993739, guid: 41087c0da14d4d1469a0e494185f9dbe, type: 3}
+      propertyPath: m_Center.z
+      value: -0.09
+      objectReference: {fileID: 0}
     - target: {fileID: 813993740, guid: 41087c0da14d4d1469a0e494185f9dbe, type: 3}
       propertyPath: Indicator
       value: 

@@ -99244,6 +99244,9 @@ MonoBehaviour:
   CurrState: 0
   BuildingPanel: {fileID: 1104144831}
   EnablePanelsOnReset: 1
+  _fast: 0
+  menuButtonsParentPanelForeground: {fileID: 0}
+  continueText: {fileID: 5036928655012304107}
 --- !u!1 &1511465711
 GameObject:
   m_ObjectHideFlags: 0
@@ -145771,6 +145774,12 @@ PrefabInstance:
 --- !u!1 &5036928655012304106 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6791615435099089944, guid: 6c71fb75931302643920ce0dd4afe317,
+    type: 3}
+  m_PrefabInstance: {fileID: 5036928655012304105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5036928655012304107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7895148961338572626, guid: 6c71fb75931302643920ce0dd4afe317,
     type: 3}
   m_PrefabInstance: {fileID: 5036928655012304105}
   m_PrefabAsset: {fileID: 0}

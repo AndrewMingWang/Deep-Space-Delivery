@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class CameraMovement : MonoBehaviour
 {
-    public CameraMovement Instance;
+    public static CameraMovement Instance;
 
     [Header("Sensitivity")]
     public float RotateSensitivity = 0.05f;

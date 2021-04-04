@@ -32,7 +32,7 @@ public class GameStateManager : MonoBehaviour
     private SpawnPlayers _spawnscript;
     public TMP_Text ResultsText;
 
-    public enum State{Plan,Play,Paused}
+    public enum State{Intro,Preplan,Plan,Play,Paused}
     public State CurrState;
 
     public GameObject BuildingPanel;
@@ -41,6 +41,10 @@ public class GameStateManager : MonoBehaviour
     [HideInInspector]
     public bool _fast;
     public GameObject menuButtonsParentPanelForeground;
+    public GameObject continueText;
+    private Vector3 _startCameraPos;
+    private Quaternion _startCameraRot;
+    private Quaternion _startCameraParentRot;
 
     private void Awake()
     {
@@ -54,13 +58,39 @@ public class GameStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrState = State.Plan;
+        CurrState = State.Intro;
         _allChildrenTransformsPositions = new List<Vector3>();
         _spawnscript = Spawn.GetComponent<SpawnPlayers>();
         // _resetButton.interactable = false;
         ControlsPanel = GameObject.Find("Controls");
         _fast = false;
         FastForwardButtonIcon.GetComponent<Image>().sprite = slowSpeedIcon;
+        _startCameraPos = CameraMovement.Instance.gameObject.transform.position;
+        _startCameraRot = CameraMovement.Instance.gameObject.transform.rotation;
+        _startCameraParentRot = CameraMovement.Instance.gameObject.transform.parent.rotation;
+    }
+
+    private void Update() {
+        switch(CurrState){
+            case State.Intro:
+                if (continueText.activeInHierarchy){
+                    float newY = CameraMovement.Instance.gameObject.transform.parent.rotation.eulerAngles.y + 0.05f;
+                    CameraMovement.Instance.gameObject.transform.parent.rotation = Quaternion.Euler(0, newY, 0);
+                }
+                if (Input.anyKeyDown && continueText.activeInHierarchy)
+                {
+                    continueText.SetActive(false);
+                    CurrState = State.Preplan;
+                }
+                break;
+            case State.Preplan:
+                LevelEntryAnimationPlus.Instance.TriggerBringUpUI();
+                CurrState = State.Plan;
+                CameraMovement.Instance.gameObject.transform.position = _startCameraPos;
+                CameraMovement.Instance.gameObject.transform.rotation = _startCameraRot;
+                CameraMovement.Instance.gameObject.transform.parent.rotation = _startCameraParentRot;
+                break;
+        }
     }
 
     public void PlayButtonPressed() {
@@ -214,5 +244,9 @@ public class GameStateManager : MonoBehaviour
 // ONLY USE THIS IF YOU KNOW WHAT YOU ARE DOING
     public void RulerHighlightToggle(){
         menuButtonsParentPanelForeground.GetComponent<Animator>().SetBool("highlighted", false);
+    }
+
+    public void EnableContinueText(){
+        continueText.SetActive(true);
     }
 }
