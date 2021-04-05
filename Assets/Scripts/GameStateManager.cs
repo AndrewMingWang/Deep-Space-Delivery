@@ -47,6 +47,7 @@ public class GameStateManager : MonoBehaviour
     private Quaternion _startCameraParentRot;
     private Quaternion _endCameraParentRot;
     private int _elapsedSlerp;
+    public bool IsTutorial = false;
 
     private void Awake()
     {
@@ -76,7 +77,7 @@ public class GameStateManager : MonoBehaviour
     private void Update() {
         switch(CurrState){
             case State.Intro:
-                if (continueText.activeInHierarchy){
+                if (continueText.activeInHierarchy && !IsTutorial){
                     float newY = CameraMovement.Instance.gameObject.transform.parent.rotation.eulerAngles.y + 0.05f;
                     CameraMovement.Instance.gameObject.transform.parent.rotation = Quaternion.Euler(CameraMovement.Instance.gameObject.transform.parent.rotation.eulerAngles.x, newY, CameraMovement.Instance.gameObject.transform.parent.rotation.eulerAngles.z);
                 }
@@ -88,15 +89,20 @@ public class GameStateManager : MonoBehaviour
                 }
                 break;
             case State.Preplan:
-                if (_elapsedSlerp >= 60.0f){
-                    CameraMovement.Instance.gameObject.transform.localPosition = _startCameraPos;
-                    CameraMovement.Instance.gameObject.transform.localRotation = _startCameraRot;
-                    CurrState = State.Plan;
-                    _elapsedSlerp = 0;
-                    LevelEntryAnimationPlus.Instance.TriggerBringUpUI();
+                if (!IsTutorial){
+                    if (_elapsedSlerp >= 60.0f){
+                        CameraMovement.Instance.gameObject.transform.localPosition = _startCameraPos;
+                        CameraMovement.Instance.gameObject.transform.localRotation = _startCameraRot;
+                        CurrState = State.Plan;
+                        _elapsedSlerp = 0;
+                        LevelEntryAnimationPlus.Instance.TriggerBringUpUI();
+                    } else {
+                        _elapsedSlerp++;
+                        CameraMovement.Instance.gameObject.transform.parent.rotation = Quaternion.Slerp(_endCameraParentRot, _startCameraParentRot, _elapsedSlerp/45.0f);
+                    }
                 } else {
-                    _elapsedSlerp++;
-                    CameraMovement.Instance.gameObject.transform.parent.rotation = Quaternion.Slerp(_endCameraParentRot, _startCameraParentRot, _elapsedSlerp/45.0f);
+                    LevelEntryAnimationPlus.Instance.TriggerBringUpUI();
+                    CurrState = State.Plan;
                 }
                 // CameraMovement.Instance.gameObject.transform.parent.rotation = _startCameraParentRot;
                 break;
@@ -253,7 +259,7 @@ public class GameStateManager : MonoBehaviour
 
 // ONLY USE THIS IF YOU KNOW WHAT YOU ARE DOING
     public void RulerHighlightToggle(){
-        menuButtonsParentPanelForeground.GetComponent<Animator>().SetBool("highlighted", false);
+        menuButtonsParentPanelForeground.GetComponent<Animator>().SetBool("highlighted2", false);
     }
 
     public void EnableContinueText(){

@@ -10,7 +10,8 @@ public class TutorialStateManager : MonoBehaviour
     public enum State{zero, one_text, one_wait, two_text, two_wait, three_text, three_wait, four_text, four_wait, five_text, five_wait, 
                         six_text, six_wait, seven_text, seven_wait, eight_text, eight_wait, nine_text, nine_wait, ten_text, ten_wait,
                         eleven_text, eleven_wait, twelve_text, twelve_wait, thirteen_text, thirteen_wait, fourteen_text, fourteen_wait, fifteen_text, fifteen_wait,
-                        sixteen_text, sixteen_wait, seventeen_text, seventeen_wait, eightteen_text, eightteen_wait, nineteen_text, nineteen_wait}
+                        sixteen_text, sixteen_wait, seventeen_text, seventeen_wait, eightteen_text, eightteen_wait, nineteen_text, nineteen_wait,
+                        tenpointfive_text, tenpointfive_wait}
 
     public State currState;
 
@@ -40,9 +41,11 @@ public class TutorialStateManager : MonoBehaviour
 
     private bool textFlag = true;
     private bool eighteen_wait_flag = true;
+    public Button optimalButton;
 
     private void Start() {
         tutorialNarration.text = "";
+        optimalButton.enabled = false;
     }
 
     private void Update() {
@@ -328,13 +331,36 @@ public class TutorialStateManager : MonoBehaviour
         case State.ten_wait:
             if (GameStateManager.Instance.CurrState == GameStateManager.State.Plan){
                 ResetButton.transform.parent.GetComponent<Animator>().SetBool("highlightedReset", false);
-                currState = State.eleven_text;
+                currState = State.tenpointfive_text;
                 ResetButton.interactable = false;
                 PlayButton.interactable = false;
             }
             break;
+        case State.tenpointfive_text:
+            if (textFlag){
+                optimalButton.enabled = true;
+                tutorialNarration.text = "";
+                StringUtility.TypeTextEffect(tutorialNarration, 
+                "The expenditure meter\\n"+
+                "on your left has a\\n"+
+                "glowing segment, this\\n"+
+                "displays the optimal cost\\n"+
+                "of the solution. Click\\n"+
+                "it to acknowledge.",
+                TypeSpeed);
+                textFlag = false;
+            }
+            if (!StringUtility.Instance.IsTyping){
+                // ResetButton.transform.parent.GetComponent<Animator>().SetBool("highlightedReset", true);
+                textFlag = true;
+                currState = State.tenpointfive_wait;
+            }
+            break;
+        case State.tenpointfive_wait:
+            break;
         case State.eleven_text:
             if (textFlag){
+                optimalButton.enabled = false;
                 tutorialNarration.text = "";
                 StringUtility.TypeTextEffect(tutorialNarration, 
                 "Click to select a sign\\n"+
@@ -539,6 +565,7 @@ public class TutorialStateManager : MonoBehaviour
                 TypeSpeed);
                 textFlag = false;
                 MenuPanel.SetActive(true);
+                ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted2", false);
                 ControlsButton.transform.parent.GetComponent<Animator>().SetBool("highlighted", true);
             }
             if (!StringUtility.Instance.IsTyping){
@@ -575,6 +602,10 @@ public class TutorialStateManager : MonoBehaviour
         case State.nineteen_wait:
             break;
         }
+    }
+
+    public void tenpointfive_wait_continue(){
+        currState = State.eleven_text;
     }
 
 }
