@@ -55,11 +55,15 @@ public class ResultsPanelTypeEffect : MonoBehaviour
             deliveredPackages,
             totalPackages
             );
-        Content += string.Format(
-            "over optimal:{0}${1}\\n\\p\\p\\o",
-            new string(' ', 13 - spentOverBudget.ToString().Length - 1),
-            spentOverBudget
-            );
+        if (perfInt > 0 && spentOverBudget > 0)
+        {
+            Content += string.Format(
+                "over optimal:{0}${1}\\n",
+                new string(' ', 13 - spentOverBudget.ToString().Length - 1),
+                spentOverBudget
+                );
+        }
+        Content += "\\p\\p\\o";
         PerfInt = perfInt;
     }
 
