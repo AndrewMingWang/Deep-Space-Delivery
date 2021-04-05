@@ -113,7 +113,7 @@ public class BuildManager : MonoBehaviour
                 if (CurrBuilding != null)
                 {
                     Tile hitTile = hit.transform.GetComponent<Tile>();
-                    if (hitTile != null){
+                    if (hitTile != null) {
                         if (hitTile.OccupyingBuilding == null && !hitTile.EnvOccupied)
                         {
                             if (hitTile.Hovered == false)
@@ -123,15 +123,19 @@ public class BuildManager : MonoBehaviour
                                 hitTile.Hovered = true;
                             }
 
-                        CurrBuilding.TileUnder = hitTile;
-                        CurrBuilding.transform.position = hit.transform.position + CurrBuilding.GetComponent<Building>().SpawnHeight * CurrBuilding.transform.up;
+                            CurrBuilding.TileUnder = hitTile;
+                            CurrBuilding.transform.position = hit.transform.position + CurrBuilding.GetComponent<Building>().SpawnHeight * CurrBuilding.transform.up;
                         }
                     }
-                    
+
                 }
             }
 
-            if (Input.GetMouseButtonDown(0))
+            if ((Input.GetMouseButtonDown(1) || (Input.GetMouseButtonDown(0) && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)))) && allowDeletingBuildings)
+            {
+                CancelBuilding();
+            }
+            else if (Input.GetMouseButtonDown(0))
             {
                 if (MouseRaycast("Building", out hit))
                 {
@@ -195,7 +199,7 @@ public class BuildManager : MonoBehaviour
                                     CurrBuilding = nextBuilding;
                                     wallComponent = CurrBuilding.GetComponent<Wall>();
                                 }
-                            } 
+                            }
                             else
                             {
                                 wallComponent = null;
@@ -211,10 +215,7 @@ public class BuildManager : MonoBehaviour
                         audioSource.PlayOneShot(PickupBuilding);
                     }
                 }
-            } else if (Input.GetMouseButtonDown(1) && allowDeletingBuildings)
-            {
-                CancelBuilding();               
-            }
+            } 
 
             // Handle additional options for specifc buildings bound to the a and d keys
             if (CurrBuilding != null && allowRotatingBuildings)
