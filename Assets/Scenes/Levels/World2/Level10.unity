@@ -99232,8 +99232,8 @@ MonoBehaviour:
   playButtonPause: {fileID: 21300000, guid: 8f93fb806ba3dda4e972afaea6673454, type: 3}
   resetButtonReset: {fileID: 21300000, guid: 268d6aa80675a324b8e7994554b04ca2, type: 3}
   resetButtonRewind: {fileID: 21300000, guid: 2a2acf03f06d72d479c773b45a3f03cb, type: 3}
-  slowSpeedIcon: {fileID: 21300000, guid: 8b6b290207f8c284b90ba9918929e9eb, type: 3}
-  fastSpeedIcon: {fileID: 21300000, guid: f83713736baa6c0499c261818870faad, type: 3}
+  slowSpeedIcon: {fileID: 21300000, guid: 776df97c1161cb44c903596c6921419f, type: 3}
+  fastSpeedIcon: {fileID: 21300000, guid: 99c556bdeb4cb9f4fac5d8d7702ba7b8, type: 3}
   FastForwardButtonIcon: {fileID: 5036928655012304106}
   Spawn: {fileID: 1092006415}
   ResultsPanel: {fileID: 299269315}
