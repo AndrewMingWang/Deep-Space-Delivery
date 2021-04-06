@@ -67,7 +67,10 @@ public class GameStateManager : MonoBehaviour
         // _resetButton.interactable = false;
         ControlsPanel = GameObject.Find("Controls");
         _fast = false;
-        FastForwardButtonIcon.GetComponent<Image>().sprite = slowSpeedIcon;
+        if (FastForwardButtonIcon != null)
+        {
+            FastForwardButtonIcon.GetComponent<Image>().sprite = slowSpeedIcon;
+        }
         _startCameraPos = CameraMovement.Instance.gameObject.transform.localPosition;
         _startCameraRot = CameraMovement.Instance.gameObject.transform.localRotation;
         _startCameraParentRot = CameraMovement.Instance.gameObject.transform.parent.rotation;
@@ -91,14 +94,14 @@ public class GameStateManager : MonoBehaviour
             case State.Preplan:
                 if (!IsTutorial){
                     if (_elapsedSlerp >= 60.0f){
-                        CameraMovement.Instance.gameObject.transform.localPosition = _startCameraPos;
-                        CameraMovement.Instance.gameObject.transform.localRotation = _startCameraRot;
+                        //CameraMovement.Instance.gameObject.transform.localPosition = _startCameraPos;
+                        //CameraMovement.Instance.gameObject.transform.localRotation = _startCameraRot;
                         CurrState = State.Plan;
                         _elapsedSlerp = 0;
                         LevelEntryAnimationPlus.Instance.TriggerBringUpUI();
                     } else {
                         _elapsedSlerp++;
-                        CameraMovement.Instance.gameObject.transform.parent.rotation = Quaternion.Slerp(_endCameraParentRot, _startCameraParentRot, _elapsedSlerp/45.0f);
+                        CameraMovement.Instance.gameObject.transform.parent.rotation = Quaternion.Slerp(_endCameraParentRot, _startCameraParentRot, _elapsedSlerp/60.0f);
                     }
                 } else {
                     LevelEntryAnimationPlus.Instance.TriggerBringUpUI();
@@ -115,6 +118,9 @@ public class GameStateManager : MonoBehaviour
                 CurrState = State.Play;
                 // _resetButton.interactable = true;
 
+                BuildManager.Instance.CancelBuilding();
+                BuildManager.BuildingSelected = false;
+
                 // SAVING USERBUILDING TRANSFORMS
                 _allChildrenTransformsPositions.Clear();
                 foreach (Building building in BuildManager.Instance.ExistingBuildings)
@@ -124,7 +130,6 @@ public class GameStateManager : MonoBehaviour
              
                 PlayButtonIcon.sprite = playButtonPause;
                 ResetButtonIcon.sprite = resetButtonRewind;
-                BuildManager.Instance.CancelBuilding();
                 BuildingPanel.SetActive(false);
 
                 _spawner = StartCoroutine(_spawnscript.AddPlayers());

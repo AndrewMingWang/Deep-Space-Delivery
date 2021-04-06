@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class BaseUI : MonoBehaviour
 {
     protected const int MIN_WORLD = 1;
-    protected const int MAX_WORLD = 5;
+    protected const int MAX_WORLD = 3;
     protected const int LEVELS_PER_WORLD = 7;
 
     public virtual void Awake()

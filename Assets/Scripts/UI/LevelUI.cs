@@ -132,21 +132,17 @@ public class LevelUI : BaseUI
         yield return new WaitForSeconds(2.1f);
         string currentSceneName = SceneManager.GetActiveScene().name;
         int currentLevel = 0;
-        if (int.TryParse(currentSceneName.Substring(5), out currentLevel))
+        bool isANumber = int.TryParse(currentSceneName.Substring(5), out currentLevel);
+        if (isANumber)
         {
-            /*
-            print(currentLevel);
-            switch (currentLevel) // Change music if we are on a world boundary
+            if (currentLevel == 21)
             {
-                case 7:
-                    AudioManager.PlayMusic(AudioManager.MUSIC_WORLD2);
-                    break;
-                case 14:
-                    AudioManager.PlayMusic(AudioManager.MUSIC_WORLD3);
-                    break;
-            }*/
-
-            GoToScene("Level" + (currentLevel + 1));
+                // TODO: Go to some special scene for outro
+                GoToScene("LevelSelect");
+            } else
+            {
+                GoToScene("Level" + (currentLevel + 1));
+            }
         }
         else // Go to the Levelselect if current SceneName doesnt make sense
         {

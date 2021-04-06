@@ -129529,13 +129529,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
         type: 3}
-      propertyPath: MusicFiles.Array.data[2].volume
-      value: 0.1
+      propertyPath: MusicFiles.Array.data[1].volume
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1186770952319669523, guid: 39a838a7452df824c8d78976d8032762,
         type: 3}
       propertyPath: MusicFiles.Array.data[3].volume
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39a838a7452df824c8d78976d8032762, type: 3}

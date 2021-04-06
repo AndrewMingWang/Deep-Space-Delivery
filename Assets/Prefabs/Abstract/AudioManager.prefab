@@ -60,11 +60,11 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: world2
     clip: {fileID: 8300000, guid: bd9edc71c075d1b4caa96a09057a8279, type: 3}
-    volume: 0.2
+    volume: 0.1
     source: {fileID: 0}
   - name: world3
     clip: {fileID: 8300000, guid: 3c764248397fda74e8f68763a611ac14, type: 3}
-    volume: 0.2
+    volume: 0.1
     source: {fileID: 0}
   SFXFiles:
   - name: buttonpress
