@@ -55,13 +55,21 @@ public class ResultsPanelTypeEffect : MonoBehaviour
             deliveredPackages,
             totalPackages
             );
-        if (perfInt > 0 && spentOverBudget > 0)
+        if (perfInt == 0)
+        {
+            Content += "better luck next time\\n";
+        }
+        else if (perfInt > 0 && spentOverBudget > 0)
         {
             Content += string.Format(
                 "over optimal:{0}${1}\\n",
                 new string(' ', 13 - spentOverBudget.ToString().Length - 1),
                 spentOverBudget
                 );
+        }
+        else
+        {
+            Content += "optimal achieved\\n";
         }
         Content += "\\p\\p\\o";
         PerfInt = perfInt;
