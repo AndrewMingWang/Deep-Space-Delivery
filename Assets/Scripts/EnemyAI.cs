@@ -135,7 +135,7 @@ public class EnemyAI : MonoBehaviour
                 break;
         }
 
-        if (Physics.Raycast(Collider.bounds.center, -transform.up, out hit2, Mathf.Infinity, tileLayerMask) && currState != State.collisionAnimation){
+        if (Physics.Raycast(Collider.bounds.center+(Collider.gameObject.transform.forward*0.3f), -transform.up, out hit2, Mathf.Infinity, tileLayerMask) && currState != State.collisionAnimation){
             if (hit2.collider.gameObject.transform.position != currTile){
                 lastTile = currTile;
                 currTile = hit2.collider.gameObject.transform.position;
