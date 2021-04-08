@@ -39,7 +39,7 @@ public class ArrowTrigger : MonoBehaviour
     {
         // print(GameStateManager.Instance._fast);
         Vector3 startPos = dogTransform.position;
-        int numSteps = 100;
+        int numSteps = 10;
         for (int i = 1; i < numSteps+1; i++)
         {
             if(GameStateManager.Instance._fast){
