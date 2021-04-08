@@ -26,7 +26,7 @@ public class ArrowTrigger : MonoBehaviour
                 // Stop and Animate unit
                 other.gameObject.GetComponent<Dog>().StopPlayer();
                 other.gameObject.GetComponent<Dog>().Animator.SetTrigger("stop");
-                StartCoroutine(RecenterDog(other.transform, transform.position, 0.3f));
+                StartCoroutine(RecenterDog(other.transform, transform.position, 0.1f));
 
                 // SFX
                 GetComponent<AudioSource>().pitch = Random.Range(0.99f, 1.01f);
@@ -37,6 +37,7 @@ public class ArrowTrigger : MonoBehaviour
 
     private IEnumerator RecenterDog(Transform dogTransform, Vector3 targetPos, float length)
     {
+        // print(GameStateManager.Instance._fast);
         Vector3 startPos = dogTransform.position;
         int numSteps = 100;
         for (int i = 1; i < numSteps+1; i++)
